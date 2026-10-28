@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ser Proveedor Oficial • TeLoCuidamos.com | Lanús y Avellaneda</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Fraunces Editorial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandTeal: {
+              DEFAULT: '#0D9488',
+              hover: '#0F766E',
+              light: '#E6F7F6',
+              border: '#99F6E4',
+              deep: '#0F4C81',
+            },
+            brandNavy: {
+              DEFAULT: '#0F172A',
+              light: '#334155',
+              deep: '#0A2540',
+            },
+            brandCoral: {
+              DEFAULT: '#F97316',
+              hover: '#EA580C',
+              light: '#FFEDD5',
+              border: '#FED7AA',
+            },
+            canvasWarm: '#F5EFE9',
+            canvasIvory: '#FAF8F5',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            editorial: ['"Fraunces"', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            'card-rich': '0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)',
+            'btn-teal': '0 10px 25px -5px rgba(13, 148, 136, 0.35)',
+            'btn-coral': '0 10px 25px -5px rgba(249, 115, 22, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #0F172A;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    .custom-dropdown-menu {
+      border-radius: 28px;
+      box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.22), 0 10px 25px -5px rgba(13, 148, 136, 0.12);
+      max-height: 290px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #0D9488 transparent;
+    }
+    .custom-dropdown-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-dropdown-menu::-webkit-scrollbar-thumb {
+      background-color: #99F6E4;
+      border-radius: 9999px;
+    }
+
+    .btn-clinical-urgent {
+      background-color: #FFF1F2;
+      color: #BE123C;
+      border: 1px solid #FECDD3;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.025em;
+      transition: all 0.2s ease;
+    }
+    .btn-clinical-urgent:hover {
+      background-color: #FFE4E6;
+      border-color: #FDA4AF;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body class="selection:bg-brandTeal-light selection:text-brandTeal">
+
+  <!-- ==================== TOP BANNER HYPERLOCAL ==================== -->
+  <div class="bg-brandTeal-light text-brandTeal text-[11px] py-2 px-4 text-center font-bold tracking-wider flex items-center justify-center gap-2.5">
+    <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
+    <span class="flex items-center gap-1.5">
+      <svg class="w-3.5 h-3.5 fill-current text-brandCoral inline-block shrink-0" viewBox="0 0 24 24"><ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/><circle cx="6.5" cy="9.5" r="2.2"/><circle cx="10.2" cy="6.8" r="2.2"/><circle cx="13.8" cy="6.8" r="2.2"/><circle cx="17.5" cy="9.5" r="2.2"/></svg>
+      <span>Canal Exclusivo para Profesionales y Comercios de Zona Sur • Lanús y Avellaneda</span>
+    </span>
+    <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="bg-canvasIvory/95 backdrop-blur-md sticky top-0 z-50 shadow-xs">
+    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
+      
+      <!-- LOGO CON ENLACE AL HOME -->
+      <a href="index.html" class="flex items-center group focus:outline-none" title="Volver al inicio">
+        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
+      </a>
+
+      <!-- ENLACES DE NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center gap-7 text-[13px] font-bold text-slate-600">
+        <a href="index.html#como-funciona" class="hover:text-brandTeal transition">Cómo Funciona</a>
+        <a href="index.html#servicios" class="hover:text-brandTeal transition">Servicios</a>
+        <a href="index.html#faq" class="hover:text-brandTeal transition">Preguntas Frecuentes</a>
+        <a href="proveedores.html" class="text-brandTeal font-extrabold relative py-1 flex flex-col items-center">
+          <span>Proveedores</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brandTeal mt-0.5"></span>
+        </a>
+      </nav>
+
+      <!-- ACCIONES: BOTÓN CLÍNICO + VOLVER AL HOME / PEDIR CUIDADO -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleModal('modalUrgencias')" class="btn-clinical-urgent px-4 py-2 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
+          <span class="font-extrabold">Guardia 24hs</span>
+          <span class="text-rose-400 text-[10px] hidden sm:inline">• Abierta</span>
+        </button>
+
+        <a href="index.html" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal flex items-center gap-1.5">
+          <span>Portal Tutores</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="w-full">
+
+    <!-- ==================== HERO DE PROVEEDORES ==================== -->
+    <section class="relative bg-white border-b border-slate-200/80 py-14 lg:py-20">
+      <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
+        <div class="max-w-3xl space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandCoral/10 text-brandCoral text-xs font-bold uppercase tracking-wider border border-brandCoral/20">
+            <span>🤝 Red Oficial de Prestadores Barriales</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-brandNavy tracking-tight leading-tight">
+            Cuidemos el barrio <span class="text-brandCoral">juntos.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            ¿Ofrecés servicios veterinarios, peluquería sin jaulas, paseos en grupos reducidos, hospedaje hogareño o venta de alimentos balanceados en Lanús y Avellaneda?
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Sumate a la red oficial de TeLoCuidamos. Conectamos tu vocación con cientos de familias y tutores de tu propio barrio, con calendario coordinado y <strong>sin costos fijos ni comisiones abusivas: pagás únicamente una comisión justa por cliente efectivamente atendido</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN PRINCIPAL: PROPUESTA DE VALOR + FORMULARIO ==================== -->
+    <section class="py-16 lg:py-24 bg-canvasWarm">
+      <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- COLUMNA IZQUIERDA: BENEFICIOS CLAVE DEL PRESTADOR -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <div class="space-y-2">
+              <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal bg-brandTeal-light px-3 py-1 rounded-full border border-brandTeal-border">
+                Por qué sumarte a TeLoCuidamos
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-black text-brandNavy tracking-tight">
+                Hacé crecer tu negocio con vecinos reales de tu zona
+              </h2>
+            </div>
+
+            <!-- BENEFICIOS CLAVE -->
+            <div class="space-y-4 pt-1">
+              
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandTeal/10 text-brandTeal flex items-center justify-center text-xl shrink-0">📍</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Familias de tu radio barrial</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Recibí solicitudes únicamente en Lanús Oeste, Lanús Este, Escalada, Avellaneda o Wilde. Cero traslados largos ni clientes desfasados de zona.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandCoral/10 text-brandCoral flex items-center justify-center text-xl shrink-0">📱</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Ficha de salud compartida</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Accedé al historial médico, peso y vacunas del paciente antes de la consulta o sesión, y registrá tus diagnósticos e indicaciones.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandTeal/10 text-brandTeal flex items-center justify-center text-xl shrink-0">💬</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Gestión transparente vía WhatsApp</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Coordinación directa, cobros puntuales y soporte de nuestro equipo en todo momento. Sin aplicaciones complicadas.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0">💰</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Cero costo fijo: pagás solo por resultado</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Sin cuotas mensuales de mantenimiento ni membresías. Solo cobramos una comisión transparente cuando el cliente se presenta y abona su servicio.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FILOSOFÍA DE CUIDADO -->
+            <div class="p-5 rounded-2xl bg-brandTeal-light/50 border border-brandTeal-border/80 text-xs text-brandTeal-deep space-y-2">
+              <div class="flex items-center gap-2 font-black text-sm text-brandTeal-hover">
+                <span>🌿</span>
+                <span>Nuestro Compromiso Ético Sin Jaulas</span>
+              </div>
+              <p class="font-normal text-[11px] leading-relaxed text-slate-700">
+                Priorizamos a profesionales, peluqueros y cuidadores comprometidos con el bienestar animal, el trato amoroso 1 a 1 y la atención libre de jaulas o secadores de caja. Si compartís estos valores, este es tu lugar.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- COLUMNA DERECHA: FORMULARIO DE ALTA DE PROVEEDOR -->
+          <div class="lg:col-span-7">
+            
+            <div class="bg-white p-8 sm:p-10 rounded-[36px] border border-slate-200 shadow-card-rich space-y-6 relative">
+              
+              <div class="pb-3 border-b border-slate-100">
+                <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal bg-brandTeal-light px-3 py-1 rounded-full border border-brandTeal-border">Formulario de Postulación</span>
+                <h3 class="text-2xl font-black text-brandNavy mt-2">Postulate como Proveedor Oficial</h3>
+                <p class="text-xs text-slate-500 mt-1">
+                  Completá los datos y nuestro equipo de coordinación barrial se pondrá en contacto por WhatsApp en menos de 24 horas hábiles.
+                </p>
+              </div>
+
+              <!-- FORMULARIO -->
+              <form id="formProveedor" onsubmit="handleProveedorSubmit(event)" class="space-y-5">
+                
+                <!-- 1. NOMBRE -->
+                <div>
+                  <label for="provNombre" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
+                    Nombre o Nombre del Establecimiento <span class="text-brandCoral">*</span>
+                  </label>
+                  <input type="text" id="provNombre" required placeholder="Ej: Dra. Valeria Rossi / Peluquería Canina Huellas" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800">
+                </div>
+
+                <!-- 2. TELÉFONO Y 3. WEB SITE -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="provTelefono" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1 flex items-center gap-1.5">
+                      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-3.5 h-3.5 inline">
+                      <span>Teléfono / WhatsApp <span class="text-brandCoral">*</span></span>
+                    </label>
+                    <input type="tel" id="provTelefono" required placeholder="Ej: 11 5432 9876" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] shadow-xs transition font-medium text-slate-800">
+                  </div>
+
+                  <div>
+                    <label for="provWebsite" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
+                      Web Site o Instagram <span class="text-brandCoral">*</span>
+                    </label>
+                    <input type="text" id="provWebsite" required placeholder="Ej: instagram.com/mi_veterinaria o www.miweb.com.ar" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800">
+                  </div>
+                </div>
+
+                <!-- 4. TIPO DE SERVICIO QUE OFRECE (CUSTOM ROUNDED DROPDOWN) -->
+                <div>
+                  <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
+                    Tipo de Servicio que ofrece <span class="text-brandCoral">*</span>
+                  </label>
+                  <div class="relative custom-dropdown" data-id="provServicio">
+                    <input type="hidden" id="provServicio" name="provServicio" value="Grooming & Estética Spa (Sin Jaulas)" required>
+                    <button type="button" onclick="toggleCustomDropdown('provServicioDropdown')" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-semibold text-slate-700 flex items-center justify-between group hover:border-brandTeal">
+                      <span id="provServicioLabel" class="truncate font-bold text-slate-800">🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                      <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 group-hover:bg-brandTeal-light group-hover:text-brandTeal flex items-center justify-center text-[10px] transition-transform duration-200 shrink-0 ml-2">
+                        ▼
+                      </span>
+                    </button>
+                    <div id="provServicioDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2.5 rounded-[28px] bg-white/95 backdrop-blur-md shadow-2xl border border-teal-100/90 space-y-1">
+                      <div onclick="selectDropdownOption('provServicio', 'Grooming & Estética Spa (Sin Jaulas)', '🛁 Grooming & Estética Spa (Sin Jaulas)')" data-value="Grooming & Estética Spa (Sin Jaulas)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                        <span class="text-brandTeal checkmark">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Consultorio o Clínica Veterinaria', '🩺 Consultorio o Clínica Veterinaria Aliada')" data-value="Consultorio o Clínica Veterinaria" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🩺 Consultorio o Clínica Veterinaria Aliada</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Paseador de Perros (Grupos reducidos)', '🦮 Paseador de Perros (Grupos reducidos)')" data-value="Paseador de Perros (Grupos reducidos)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🦮 Paseador de Perros (Grupos reducidos)</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Cuidado Hogareño / Hospedaje en Sillón', '🛋️ Cuidado Hogareño / Hospedaje Familiar')" data-value="Cuidado Hogareño / Hospedaje en Sillón" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🛋️ Cuidado Hogareño / Hospedaje Familiar</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Pet Shop / Distribución de Alimento', '🥣 Pet Shop / Distribución de Alimento')" data-value="Pet Shop / Distribución de Alimento" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🥣 Pet Shop / Distribución de Alimento</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Adiestramiento / Etología Positiva', '🎾 Adiestramiento / Modificación de Conducta')" data-value="Adiestramiento / Etología Positiva" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🎾 Adiestramiento / Modificación de Conducta</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Otro Servicio para Mascotas', '🐾 Otro servicio especializado')" data-value="Otro Servicio para Mascotas" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🐾 Otro servicio especializado</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5. LOCALIDAD / BARRIO EN ZONA SUR (CUSTOM ROUNDED DROPDOWN) -->
+                <div>
+                  <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
+                    Localidad Principal en Zona Sur <span class="text-brandCoral">*</span>
+                  </label>
+                  <div class="relative custom-dropdown" data-id="provZona">
+                    <input type="hidden" id="provZona" name="provZona" value="Lanús Oeste (Lanusita / Centro)" required>
+                    <button type="button" onclick="toggleCustomDropdown('provZonaDropdown')" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-semibold text-slate-700 flex items-center justify-between group hover:border-brandTeal">
+                      <span id="provZonaLabel" class="truncate font-bold text-slate-800">Lanús Oeste (Lanusita y alrededores)</span>
+                      <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 group-hover:bg-brandTeal-light group-hover:text-brandTeal flex items-center justify-center text-[10px] transition-transform duration-200 shrink-0 ml-2">
+                        ▼
+                      </span>
+                    </button>
+                    <div id="provZonaDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2.5 rounded-[28px] bg-white/95 backdrop-blur-md shadow-2xl border border-teal-100/90 space-y-1">
+                      <div onclick="selectDropdownOption('provZona', 'Lanús Oeste (Lanusita / Centro)', 'Lanús Oeste (Lanusita y alrededores)')" data-value="Lanús Oeste (Lanusita / Centro)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Lanús Oeste (Lanusita y alrededores)</span>
+                        <span class="text-brandTeal checkmark">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Lanús Este', 'Lanús Este')" data-value="Lanús Este" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Lanús Este</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Remedios de Escalada', 'Remedios de Escalada')" data-value="Remedios de Escalada" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Remedios de Escalada</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Avellaneda Centro / Mitre', 'Avellaneda Centro / Av. Mitre')" data-value="Avellaneda Centro / Mitre" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Avellaneda Centro / Av. Mitre</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Wilde', 'Wilde Residencial')" data-value="Wilde" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Wilde Residencial</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Toda la Zona Sur', 'Cobertura amplia en varias localidades')" data-value="Toda la Zona Sur" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Cobertura amplia en varias localidades</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 6. DESCRIPCIÓN ADICIONAL -->
+                <div>
+                  <label for="provDetalle" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
+                    Breve descripción de tus servicios o instalaciones <span class="text-slate-400 font-normal lowercase">(opcional)</span>
+                  </label>
+                  <textarea id="provDetalle" rows="3" placeholder="Contanos tu trayectoria, si contás con consultorio a la calle, movilidad propia o equipo de trabajo..." class="w-full px-5 py-4 text-xs rounded-3xl border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800"></textarea>
+                </div>
+
+                <!-- BOTÓN SUBMIT -->
+                <button type="submit" class="w-full py-4 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-black uppercase tracking-wider transition shadow-btn-teal flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+                  <span>Enviar Solicitud de Proveedor</span>
+                  <span>→</span>
+                </button>
+
+                <p class="text-[10px] text-slate-400 text-center">
+                  Al enviar tus datos, aceptas ser contactado por el equipo de coordinación de TeLoCuidamos. Sin contratos de exclusividad.
+                </p>
+
+              </form>
+
+              <!-- MENSAJE DE CONFIRMACIÓN (HIDDEN BY DEFAULT) -->
+              <div id="provSuccessMsg" class="hidden p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3 text-center animate-fade-in">
+                <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto shadow-xs">✓</div>
+                <h4 class="font-black text-base text-emerald-950">¡Solicitud Recibida con Éxito!</h4>
+                <p class="text-xs text-emerald-800 leading-relaxed max-w-md mx-auto" id="provSuccessText">
+                  Gracias por tu interés en sumarte como proveedor oficial. Nuestro coordinador de Zona Sur revisará tu propuesta y te escribirá por WhatsApp en menos de 24 horas hábiles.
+                </p>
+                <button onclick="resetFormProveedor()" class="px-5 py-2 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition shadow-xs">
+                  Enviar otra postulación
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FAQ PARA PRESTADORES ==================== -->
+    <section class="py-16 lg:py-24 bg-white border-t border-slate-200/80">
+      <div class="max-w-[900px] mx-auto px-6 lg:px-8 space-y-10">
+        
+        <div class="text-center space-y-2">
+          <span class="text-[10px] font-black uppercase tracking-wider text-brandCoral bg-brandCoral/10 px-3 py-1 rounded-full border border-brandCoral/20">
+            Dudas de Profesionales
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-brandNavy">
+            Preguntas Frecuentes para Prestadores
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
+              <span>¿Tiene algún costo ingresar o registrar mi comercio?</span>
+              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
+              No. El alta, la auditoría y la presencia en el directorio barrial son 100% gratuitos. Solo se aplica una pequeña comisión por cada cliente derivado que efectivamente realiza el servicio con vos.
+            </p>
+          </details>
+
+          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
+              <span>¿Tengo exclusividad o puedo seguir atendiendo a mis clientes habituales?</span>
+              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
+              No hay ningún tipo de exclusividad. Podés mantener tus clientes de siempre y usar TeLoCuidamos para completar los baches de tu agenda semanal con vecinos de tu mismo barrio.
+            </p>
+          </details>
+
+          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
+              <span>¿Cómo recibo las solicitudes de turnos?</span>
+              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
+              Las solicitudes se envían directamente a tu WhatsApp oficial de trabajo a través de nuestro Concierge barrial, con los datos de la mascota (nombre, peso, raza) y la ficha clínica previa para que confirmes disponibilidad en segundos.
+            </p>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative mt-28 pt-24 sm:pt-28 bg-[#0088CC] text-white overflow-visible">
+    
+    <!-- TIRA SUPERIOR DE AVATARES 3D PIXAR CON HEADSETS OVERLAPPING -->
+    <div class="absolute -top-14 sm:-top-20 inset-x-0 max-w-[1020px] mx-auto px-4 z-20">
+      <div class="rounded-[30px] overflow-hidden shadow-2xl border-4 border-white/95 bg-white transition-transform duration-300 hover:scale-[1.01]">
+        <img src="../assets/pixar_footer_support.jpg" alt="Equipo de Atención y Soporte 3D Pixar" class="w-full h-auto object-cover max-h-[145px] sm:max-h-[190px]">
+      </div>
+    </div>
+
+    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 pt-14 pb-14">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-xs">
+        
+        <div class="space-y-3.5">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
+            INFO DE LA PLATAFORMA
+          </h4>
+          <ul class="space-y-2 text-white/80">
+            <li><a href="index.html#hero" class="hover:text-white transition">Sobre TeLoCuidamos.com</a></li>
+            <li><a href="index.html#servicios" class="hover:text-white transition">Nuestro Compromiso Sin Jaulas</a></li>
+            <li><a href="index.html#cobertura" class="hover:text-white transition">Logística Limpia en Zona Sur</a></li>
+            <li><a href="index.html#faq" class="hover:text-white transition">Términos y Privacidad de Datos</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3.5">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
+            SERVICIOS BARRIALES
+          </h4>
+          <ul class="space-y-2 text-white/80">
+            <li><a href="index.html#servicios" class="hover:text-white transition">Grooming & Estética Spa 1 a 1</a></li>
+            <li><a href="index.html#servicios" class="hover:text-white transition">Alimento en Piloto Automático</a></li>
+            <li><a href="index.html#servicios" class="hover:text-white transition">Consultorios Veterinarios Aliados</a></li>
+            <li><a href="index.html#pasaporte" class="hover:text-white transition">Pasaporte de Salud Digital (QR)</a></li>
+            <li><a href="index.html#servicios" class="hover:text-white transition">Paseadores en Grupo Reducido</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3.5">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
+            ATENCIÓN AL CLIENTE
+          </h4>
+          <ul class="space-y-2 text-white/80">
+            <li>
+              <button onclick="toggleModal('modalWhatsApp')" class="hover:text-white transition flex items-center gap-2 group font-medium">
+                <span class="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center p-0.5 shadow-sm group-hover:scale-110 transition-transform">
+                  <img src="../assets/whatsapp_official.svg" alt="WhatsApp" class="w-3.5 h-3.5 text-white fill-white">
+                </span>
+                <span class="group-hover:underline">Canal WhatsApp Oficial</span>
+              </button>
+            </li>
+            <li><button onclick="toggleModal('modalUrgencias')" class="hover:text-white transition font-bold text-rose-200">🚨 Protocolo de Urgencias 24hs</button></li>
+            <li><a href="index.html#faq" class="hover:text-white transition">Preguntas Frecuentes</a></li>
+            <li><a href="index.html#pasaporte" class="hover:text-white transition">Consultar Estado de Entrega</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3.5 bg-white/10 p-6 rounded-[28px] border border-white/20">
+          <h4 class="font-black text-sm text-white">
+            ¿Sos Tutor de Mascotas?
+          </h4>
+          <p class="text-white/85 text-[11px] leading-relaxed">
+            Descubrí cómo simplificamos la rutina, salud y felicidad de tu mascota con entregas sin costo y profesionales de confianza en Lanús y Avellaneda.
+          </p>
+          <a href="index.html" class="inline-block px-5 py-2.5 rounded-full bg-white text-[#0088CC] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition shadow-sm">
+            Ir al Portal de Tutores →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/80 border-t border-white/20">
+        <div class="flex items-center gap-4">
+          <img src="../assets/logo_cropped_footer.png" alt="TeLoCuidamos.com" class="h-9 sm:h-10 md:h-11 w-auto object-contain">
+          <span>© 2026 TeLoCuidamos.com, Buenos Aires, Argentina</span>
+        </div>
+        <div class="flex gap-4">
+          <a href="index.html#faq" class="hover:text-white">Preguntas Frecuentes</a>
+          <span>•</span>
+          <button onclick="toggleModal('modalUrgencias')" class="hover:text-white">Guardias 24hs</button>
+        </div>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- ==================== BOTÓN FLOTANTE WHATSAPP ==================== -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <button onclick="toggleModal('modalWhatsApp')" class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group relative" title="Chatear por WhatsApp">
+      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp Oficial" class="w-8 h-8">
+      <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-[#075E54] text-white text-[11px] font-bold py-1.5 px-3 rounded-full shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+        ¿Consultas de Prestador? Escribinos
+      </span>
+      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
+    </button>
+  </div>
+
+  <!-- ==================== MODAL: URGENCIAS VETERINARIAS 24HS ==================== -->
+  <div id="modalUrgencias" class="fixed inset-0 bg-brandNavy-deep/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-[32px] overflow-hidden shadow-2xl border border-slate-200 flex flex-col max-h-[90vh]">
+      <div class="bg-rose-900 text-white p-5 flex items-center justify-between border-b border-rose-800">
+        <div class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-rose-400 animate-ping"></span>
+          <div>
+            <h3 class="font-extrabold text-base text-white">Guardias Veterinarias Activas 24hs</h3>
+            <p class="text-xs text-rose-200">Centros con quirófano y médico de guardia en Zona Sur</p>
+          </div>
+        </div>
+        <button onclick="toggleModal('modalUrgencias')" class="text-rose-200 hover:text-white text-2xl font-bold">×</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-xs space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full uppercase">Guardia Abierta</span>
+              <h5 class="font-black text-brandNavy text-sm mt-1">Hospital Veterinario Central Lanús</h5>
+              <p class="text-slate-500 text-[11px]">Av. Hipólito Yrigoyen (a minutos de Lanusita), Lanús</p>
+            </div>
+            <span class="text-xs font-bold text-slate-500">~7 min</span>
+          </div>
+          <div class="flex gap-2">
+            <a href="tel:01142410000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm">
+              📞 Llamar a la Guardia
+            </a>
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition">
+              🗺️ GPS
+            </a>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white shadow-xs space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full uppercase">Guardia Abierta</span>
+              <h5 class="font-black text-brandNavy text-sm mt-1">Clínica de Emergencias Avellaneda</h5>
+              <p class="text-slate-500 text-[11px]">Av. Bartolomé Mitre (cerca de Plaza Alsina), Avellaneda</p>
+            </div>
+            <span class="text-xs font-bold text-slate-500">~12 min</span>
+          </div>
+          <div class="flex gap-2">
+            <a href="tel:01142010000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm">
+              📞 Llamar a la Guardia
+            </a>
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition">
+              🗺️ GPS
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="p-3 bg-slate-100 border-t text-center text-[11px] text-slate-500">
+        TeLoCuidamos.com • Red de Emergencias Verificadas en Zona Sur
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: WHATSAPP ==================== -->
+  <div id="modalWhatsApp" class="fixed inset-0 bg-brandNavy-deep/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-[32px] overflow-hidden shadow-2xl border border-slate-200 flex flex-col h-[480px]">
+      <div class="p-4 bg-[#075E54] text-white flex items-center justify-between shadow-md">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm overflow-hidden">
+            <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h4 class="font-bold text-xs">TeLoCuidamos Proveedores</h4>
+            <p class="text-[10px] text-emerald-200">Soporte y Alianzas en Zona Sur</p>
+          </div>
+        </div>
+        <button onclick="toggleModal('modalWhatsApp')" class="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">✕</button>
+      </div>
+
+      <div class="flex-1 p-4 bg-[#ECE5DD] overflow-y-auto space-y-3 text-xs">
+        <div class="bg-white p-3.5 rounded-2xl rounded-tl-none shadow-xs max-w-[85%] text-slate-800 leading-relaxed">
+          ¡Hola! 👋 Si sos veterinario, peluquero, paseador o pet shop en Lanús y Avellaneda, escribinos acá tus dudas o completá el formulario de la página para que te contactemos de inmediato.
+        </div>
+      </div>
+
+      <div class="p-3 bg-white border-t border-slate-200 flex gap-2">
+        <input type="text" id="inputChatProv" placeholder="Escribí tu consulta..." class="flex-1 px-4 py-2.5 text-xs rounded-full border border-slate-200 bg-slate-50 focus:outline-none">
+        <button onclick="enviarChatProv()" class="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.toggle('hidden');
+    }
+
+    function toggleCustomDropdown(dropdownId) {
+      document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
+        if (menu.id !== dropdownId) menu.classList.add('hidden');
+      });
+      const targetMenu = document.getElementById(dropdownId);
+      if (targetMenu) targetMenu.classList.toggle('hidden');
+    }
+
+    function selectDropdownOption(hiddenInputId, value, displayText) {
+      const hiddenInput = document.getElementById(hiddenInputId);
+      const labelSpan = document.getElementById(hiddenInputId + 'Label');
+      const menu = document.getElementById(hiddenInputId + 'Dropdown');
+      
+      if (hiddenInput) hiddenInput.value = value;
+      if (labelSpan) labelSpan.textContent = displayText;
+
+      if (menu) {
+        menu.querySelectorAll('.dropdown-item').forEach(item => {
+          const checkmark = item.querySelector('.checkmark');
+          if (item.getAttribute('data-value') === value) {
+            item.classList.add('bg-brandTeal-light', 'text-brandTeal', 'font-bold');
+            item.classList.remove('font-semibold', 'text-slate-700');
+            if (checkmark) checkmark.classList.remove('hidden');
+          } else {
+            item.classList.remove('bg-brandTeal-light', 'text-brandTeal', 'font-bold');
+            item.classList.add('font-semibold', 'text-slate-700');
+            if (checkmark) checkmark.classList.add('hidden');
+          }
+        });
+        menu.classList.add('hidden');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.custom-dropdown')) {
+        document.querySelectorAll('.custom-dropdown-menu').forEach(menu => {
+          menu.classList.add('hidden');
+        });
+      }
+    });
+
+    function handleProveedorSubmit(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('provNombre').value;
+      const servicio = document.getElementById('provServicio').value;
+      const form = document.getElementById('formProveedor');
+      const msg = document.getElementById('provSuccessMsg');
+      const text = document.getElementById('provSuccessText');
+      
+      text.innerHTML = `¡Muchas gracias <strong>${nombre}</strong>! Registramos tu postulación para <strong>${servicio}</strong>. Nuestro coordinador de Zona Sur revisará tu propuesta y te contactará por WhatsApp en menos de 24 horas hábiles.`;
+      
+      form.classList.add('hidden');
+      msg.classList.remove('hidden');
+    }
+
+    function resetFormProveedor() {
+      const form = document.getElementById('formProveedor');
+      const msg = document.getElementById('provSuccessMsg');
+      form.reset();
+      msg.classList.add('hidden');
+      form.classList.remove('hidden');
+    }
+
+    function enviarChatProv() {
+      const input = document.getElementById('inputChatProv');
+      if (!input || !input.value.trim()) return;
+      const val = input.value.trim();
+      input.value = '';
+      alert('Mensaje enviado al coordinador de Zona Sur: "' + val + '". Te responderemos por WhatsApp a la brevedad.');
+    }
+  </script>
+</body>
+</html>
