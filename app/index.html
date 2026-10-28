@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeLoCuidamos.com — Cuidado de Mascotas en Piloto Automático | Lanús y Avellaneda</title>
   
-  <!-- Tipografía: Plus Jakarta Sans -->
+  <!-- Tipografía: Plus Jakarta Sans & Fraunces (Editorial Rover Style) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -60,6 +60,12 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
       letter-spacing: -0.018em;
+    }
+
+    /* Tipografía Editorial Cálida para Titulares Humanizados (Estilo Rover/Dribbble) */
+    .font-editorial {
+      font-family: 'Fraunces', Georgia, serif;
+      letter-spacing: -0.025em;
     }
 
     /* Titular monumental minimalista */
@@ -190,15 +196,16 @@
       </a>
 
       <!-- ENLACES DE NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-8 text-[13px] font-bold text-slate-600">
+      <nav class="hidden md:flex items-center gap-7 text-[13px] font-bold text-slate-600">
         <a href="#hero" class="text-brandTeal font-extrabold relative py-1 flex flex-col items-center">
           <span>Inicio</span>
           <span class="w-1 h-1 rounded-full bg-brandTeal mt-0.5"></span>
         </a>
+        <a href="#como-funciona" class="hover:text-brandTeal transition">Cómo Funciona</a>
         <a href="#servicios" class="hover:text-brandTeal transition">Servicios</a>
         <a href="#pasaporte" class="hover:text-brandTeal transition">Pasaporte Clínico</a>
         <a href="#bienvenida" class="hover:text-brandTeal transition">Welcome Kit</a>
-        <a href="#faq" class="hover:text-brandTeal transition">Preguntas Frecuentes</a>
+        <a href="#faq" class="hover:text-brandTeal transition">FAQ</a>
         <a href="#cobertura" class="hover:text-brandTeal transition">Zona Sur</a>
       </nav>
 
@@ -299,8 +306,108 @@
 
     </section>
 
-    <!-- ==================== SECCIÓN 2: SERVICIOS 360° (FONDO BLANCO PURO CON ALTO CONTRASTE) ==================== -->
-    <section id="servicios" class="border-t border-slate-200 bg-white py-20 lg:py-28 shadow-xs">
+    <!-- ==================== SECCIÓN: CÓMO FUNCIONA / DESCRIPCIÓN DEL SERVICIO (ESTILO ROVER) ==================== -->
+    <section id="como-funciona" class="border-t border-slate-200/80 bg-white py-20 lg:py-28 shadow-xs">
+      <div class="max-w-[1240px] mx-auto px-6 lg:px-12 text-center">
+
+        <!-- KICKER & TITULAR EDITORIAL ESTILO ROVER -->
+        <div class="max-w-3xl mx-auto space-y-4 mb-16 sm:mb-20">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandTeal-light text-brandTeal text-[11px] font-bold uppercase tracking-wider border border-brandTeal-border">
+            <span>🐾</span> Paso a Paso • Experiencia Garantizada
+          </span>
+          <h2 class="font-editorial text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-brandNavy leading-[1.15] tracking-tight">
+            Cuidadores locales que tratarán a tu mascota como de su propia familia
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Sin jaulas, sin intermediarios impersonales y con la tranquilidad de saber que tu perro o gato está en manos de vecinos calificados en Lanús y Avellaneda.
+          </p>
+        </div>
+
+        <!-- 3 PASOS EN GRID CON ILUSTRACIONES ESTILO ROVER -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start">
+
+          <!-- PASO 1: SEARCH / ARMA EL PERFIL -->
+          <div class="flex flex-col items-center text-center space-y-5 group">
+            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
+            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/how_step1_search.svg" alt="Paso 1: Armá el perfil" class="w-full h-full object-contain">
+            </div>
+
+            <div class="space-y-2 max-w-xs">
+              <h3 class="text-xl sm:text-2xl font-black text-brandNavy tracking-tight">
+                1. Contanos sobre tu mascota
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Armá su perfil en 2 minutos: rutina, paseos, qué alimento come y sus necesidades de salud. Te asignamos el cuidador certificado más afín de tu barrio.
+              </p>
+            </div>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-[11px] font-bold text-slate-600 border border-slate-200">
+              <span class="text-brandTeal">✓</span> Sin formularios eternos
+            </span>
+          </div>
+
+          <!-- PASO 2: MEET IN PERSON / ENCUENTRO PREVIO -->
+          <div class="flex flex-col items-center text-center space-y-5 group">
+            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
+            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/how_step2_meet.svg" alt="Paso 2: Conocé a tu cuidador" class="w-full h-full object-contain">
+            </div>
+
+            <div class="space-y-2 max-w-xs">
+              <h3 class="text-xl sm:text-2xl font-black text-brandNavy tracking-tight">
+                2. Conocé a su cuidador en persona
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Coordinamos un <strong>Meet & Greet previo 100% gratuito</strong> en tu casa o plaza cercana. Vos y tu mascota evalúan la química y la confianza sin ningún compromiso.
+              </p>
+            </div>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brandTeal-light text-[11px] font-bold text-brandTeal border border-brandTeal-border">
+              <span>✓</span> Meet & Greet Gratis
+            </span>
+          </div>
+
+          <!-- PASO 3: BOOK & PAY / PILOTO AUTOMÁTICO -->
+          <div class="flex flex-col items-center text-center space-y-5 group">
+            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
+            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/how_step3_book.svg" alt="Paso 3: Cuidado y tranquilidad" class="w-full h-full object-contain">
+            </div>
+
+            <div class="space-y-2 max-w-xs">
+              <h3 class="text-xl sm:text-2xl font-black text-brandNavy tracking-tight">
+                3. Todo resuelto en piloto automático
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Disfrutá tu día con reportes diarios y fotos por WhatsApp, telemetría de salud en el Pasaporte Digital y entrega mensual puntual de su bolsa de alimento en tu puerta.
+              </p>
+            </div>
+
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brandCoral-light text-[11px] font-bold text-brandCoral border border-brandCoral-border">
+              <span>✓</span> Guardia 24hs incluida
+            </span>
+          </div>
+
+        </div>
+
+        <!-- TARJETA INFORMATIVA / HIGHLIGHT DE CONFIANZA -->
+        <div class="mt-16 sm:mt-20 p-6 sm:p-8 rounded-[28px] bg-canvasIvory border border-slate-200 shadow-card-rich max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="text-left space-y-1">
+            <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal">Tranquilidad Total</span>
+            <h4 class="text-base sm:text-lg font-black text-brandNavy">¿Querés que visitemos a tu perro o gato antes de empezar?</h4>
+            <p class="text-xs text-slate-500">Agendamos una visita previa sin costo en Lanús (Oeste/Este) o Avellaneda Centro/Mitre.</p>
+          </div>
+          <button onclick="toggleModal('modalOnboarding')" class="whitespace-nowrap px-6 py-3.5 rounded-full bg-brandCoral hover:bg-brandCoral-hover text-white text-xs font-black uppercase tracking-wider transition shadow-btn-coral flex items-center gap-2">
+            <span>🐾</span> Agendar Meet & Greet Gratis →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 2: SERVICIOS 360° (FONDO MARFIL CÁLIDO CON TARJETAS BLANCAS FLOTANTES) ==================== -->
+    <section id="servicios" class="border-t border-slate-200 bg-canvasIvory py-20 lg:py-28 shadow-xs">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
@@ -366,7 +473,7 @@
           </div>
 
           <!-- 04 / PASAPORTE CLÍNICO DIGITAL -->
-          <div class="elevated-card p-8 rounded-[30px] border border-slate-200 bg-canvasIvory shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-slate-200 bg-white shadow-card-rich flex flex-col justify-between space-y-6">
             <div class="space-y-4">
               <span class="text-xs font-black text-brandNavy uppercase tracking-wider">04 / HISTORIAL DIGITAL</span>
               <h3 class="text-2xl font-black text-brandNavy">Pasaporte de Salud con Login</h3>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" width="100%" height="100%">
+  <defs>
+    <!-- Filtro sombra 3D suave -->
+    <filter id="clayShadow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.10" />
+    </filter>
+
+    <!-- Gradiente Blob Fondo Cyan Rover -->
+    <linearGradient id="blobGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#72E2E8" />
+      <stop offset="100%" stop-color="#4CD4DD" />
+    </linearGradient>
+
+    <!-- Gradiente Perro Caramelo 3D -->
+    <linearGradient id="dogCaramel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F6BD80" />
+      <stop offset="50%" stop-color="#DD8F4E" />
+      <stop offset="100%" stop-color="#B46328" />
+    </linearGradient>
+
+    <linearGradient id="dogEarDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C27033" />
+      <stop offset="100%" stop-color="#8F4312" />
+    </linearGradient>
+
+    <linearGradient id="dogHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3E0" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#F6BD80" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- SOMBRA DE CONTACTO PISO -->
+  <ellipse cx="160" cy="225" rx="90" ry="14" fill="#0F172A" opacity="0.08" />
+
+  <!-- BLOB ORGÁNICO CIRCULAR CELESTE ESTILO ROVER -->
+  <path d="M 160 30 C 225 28, 255 70, 252 135 C 248 195, 210 230, 150 230 C 85 230, 60 185, 65 125 C 70 65, 100 32, 160 30 Z" 
+        fill="url(#blobGrad1)" />
+
+  <!-- PERRO OLFATEANDO (INSPIRADO EN ROVER PASO 1) -->
+  <g filter="url(#clayShadow1)">
+    
+    <!-- Pata trasera izquierda -->
+    <rect x="75" y="160" width="22" height="42" rx="11" fill="#B46328" />
+    <ellipse cx="80" cy="200" rx="14" ry="8" fill="#9C4F1A" />
+
+    <!-- Cola levantada curiosa -->
+    <path d="M 65 145 Q 40 120, 52 105 Q 60 105, 78 135 Z" fill="#C27033" />
+
+    <!-- Lomo y Cuerpo alargado (Dachshund/Cachorro) -->
+    <path d="M 70 145 C 70 115, 120 120, 155 130 C 185 138, 205 160, 215 185 C 205 200, 175 205, 140 200 C 100 195, 70 185, 70 145 Z" 
+          fill="url(#dogCaramel)" />
+    
+    <!-- Brillo 3D Lomo -->
+    <ellipse cx="125" cy="142" rx="35" ry="12" fill="url(#dogHighlight)" transform="rotate(8 125 142)" />
+
+    <!-- Pata trasera derecha -->
+    <rect x="95" y="165" width="22" height="40" rx="11" fill="url(#dogCaramel)" />
+    <ellipse cx="102" cy="204" rx="14" ry="7" fill="#DD8F4E" />
+
+    <!-- Pata delantera izquierda -->
+    <rect x="155" y="170" width="20" height="38" rx="10" fill="#B46328" />
+    <ellipse cx="162" cy="206" rx="13" ry="7" fill="#9C4F1A" />
+
+    <!-- Pata delantera derecha (avanzando) -->
+    <rect x="180" y="175" width="20" height="35" rx="10" fill="url(#dogCaramel)" />
+    <ellipse cx="190" cy="208" rx="13" ry="7" fill="#F6BD80" />
+
+    <!-- Cabeza inclinada hacia el suelo olfateando -->
+    <ellipse cx="205" cy="165" rx="32" ry="26" fill="url(#dogCaramel)" transform="rotate(22 205 165)" />
+
+    <!-- Hocico apuntando abajo a la derecha -->
+    <path d="M 215 160 C 235 170, 245 185, 240 195 C 232 202, 215 195, 202 180 Z" fill="#DD8F4E" />
+    
+    <!-- Naricita negra húmeda -->
+    <ellipse cx="242" cy="190" rx="7" ry="6" fill="#1E293B" />
+    <ellipse cx="240" cy="188" rx="2" ry="1.5" fill="#FFFFFF" opacity="0.8" />
+
+    <!-- Ojo atento y curioso -->
+    <ellipse cx="206" cy="155" rx="5" ry="6" fill="#1E293B" />
+    <circle cx="204" cy="153" r="2" fill="#FFFFFF" />
+
+    <!-- Ceja dulce -->
+    <path d="M 200 148 Q 207 145, 213 149" stroke="#9C4F1A" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Oreja larga caída hacia adelante -->
+    <path d="M 180 140 C 185 125, 205 130, 202 155 C 200 175, 185 195, 175 190 C 168 185, 172 155, 180 140 Z" 
+          fill="url(#dogEarDark)" />
+  </g>
+
+  <!-- MARCAS DE RASTREO / OLFATO VERDES (DECORATIVAS ESTILO ROVER) -->
+  <g stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M 256 195 Q 262 192, 268 196" />
+    <path d="M 264 204 Q 272 202, 278 207" />
+    <path d="M 252 208 Q 257 213, 264 214" />
+  </g>
+
+</svg>
