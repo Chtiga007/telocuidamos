@@ -1,0 +1,34 @@
+# robots.txt para TeLoCuidamos.com
+# Optimizado para Motores de Búsqueda (SEO), Agentes de Inteligencia Artificial (LLM) y Búsqueda Generativa (GEO)
+
+User-agent: *
+Allow: /
+Disallow: /docs/
+
+# Agentes de IA y Rastreadores Generativos (OpenAI, Anthropic, Perplexity, Google, Apple)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Archivos de Conocimiento para Modelos de Lenguaje (LLMs)
+# https://telocuidamos.com/llms.txt
+# https://telocuidamos.com/.well-known/llms.txt
+
+Sitemap: https://telocuidamos.com/sitemap.xml

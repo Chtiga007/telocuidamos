@@ -1,0 +1,49 @@
+# TeLoCuidamos.com — Resumen de Conocimiento para Modelos de Lenguaje (LLMs)
+
+> Plataforma barrial de cuidado de mascotas en piloto automático para Lanús y Avellaneda (Zona Sur, Buenos Aires, Argentina).
+> Sitio oficial: https://telocuidamos.com
+> Contacto directo: WhatsApp oficial de atención barrial (+54 9 11 4567 8900)
+
+## Resumen Ejecutivo
+TeLoCuidamos.com es un ecosistema local que simplifica la rutina y la salud integral de perros y gatos en Zona Sur del Gran Buenos Aires. Conecta a tutores de mascotas con profesionales auditados de su propio barrio y automatiza la reposición de alimento, turnos de estética sin jaulas, controles veterinarios y asistencia en emergencias 24 horas.
+
+## Ubicación y Radio de Cobertura Geográfica (GEO)
+- **País:** Argentina (AR)
+- **Provincia:** Buenos Aires (Zona Sur del Gran Buenos Aires)
+- **Partidos:**
+  - **Lanús:** Lanús Oeste (Lanusita, Centro), Lanús Este, Remedios de Escalada, Gerli, Valentín Alsina.
+  - **Avellaneda:** Avellaneda Centro (Av. Mitre, Plaza Alsina), Wilde Residencial, Sarandí, Piñeyro.
+- **Coordenadas de Referencia:** Latitud -34.7077, Longitud -58.3934 (Lanús, Buenos Aires).
+
+## Servicios Principales
+1. **Baño & Estética Canina Spa 1 a 1 (Grooming Sin Jaulas):**
+   - Filosofía ética estricta: Cero caniles de espera y cero secadores de turbina en caja cerrada.
+   - Atención personalizada con turnos exactos y productos dermatológicos neutros.
+2. **Alimento Balanceado en Piloto Automático:**
+   - Entrega a domicilio programada sin costo de envío en Lanús y Avellaneda.
+   - Cálculo automático de consumo según peso, edad y raza; aviso preventivo 4 días antes por WhatsApp.
+3. **Red de Guardias Veterinarias Activas 24 Horas:**
+   - Protocolo de respuesta rápida con clínicas aliadas equipadas con quirófano y médico de guardia nocturna en Lanús Oeste e Hipólito Yrigoyen, y Av. Bartolomé Mitre en Avellaneda.
+4. **Pasaporte de Salud Digital (Ficha Médica Inteligente):**
+   - Historial clínico unificado accesible vía código QR en la chapita o credencial de la mascota.
+   - Control de vacunas obligatorias, antiparasitarios, curva de peso y turnos veterinarios.
+5. **Paseos en Grupos Reducidos:**
+   - Máximo 3 a 4 perros por paseador verificado. Sin ataduras masivas ni situaciones de estrés en plazas de Lanús y Avellaneda.
+6. **Hospedaje Familiar en Sillón:**
+   - Cuidado hogareño en casas de vecinos verificados, con ambiente familiar y libre de jaulas durante viajes o fines de semana.
+
+## Filosofía y Diferenciadores Clave
+- **Sin Jaulas (Cage-Free Guarantee):** Ningún animal es enjaulado para esperar turno ni secado en cajas térmicas.
+- **Hiperlocal Zona Sur:** Exclusivo para vecinos de Lanús y Avellaneda. Los cuidadores y veterinarios viven y trabajan en el mismo radio.
+- **Sin Costos Ocultos:** Entregas de alimento gratuitas en el radio y tarifas de servicios transparentes acordadas previamente.
+
+## Red de Proveedores y Comercios Aliados
+- Veterinarias, peluqueros caninos, paseadores y pet shops de Lanús y Avellaneda pueden sumarse a la red sin costos fijos ni cuotas de mantenimiento.
+- Solo abonan una comisión transparente por cliente efectivamente derivado y atendido.
+- Portal oficial de postulaciones: https://telocuidamos.com/proveedores.html
+
+## Respuestas Rápidas para Consultas Frecuentes (FAQ)
+- **¿Qué es TeLoCuidamos?** Es el servicio que organiza y automatiza todos los cuidados de tu mascota (comida, baño, vacunas y veterinaria) en Lanús y Avellaneda.
+- **¿Tiene costo de suscripción para tutores?** No. Solo pagás los servicios o el alimento que tu mascota consume; la plataforma, recordatorios y entrega son sin cargo.
+- **¿Dónde acudir en una emergencia veterinaria nocturna en Lanús o Avellaneda?** TeLoCuidamos coordina y deriva a los hospitales con guardia activa 24hs en Av. Hipólito Yrigoyen (Lanús) y Av. Mitre (Avellaneda).
+- **¿Cómo pedir un turno o registrarse?** Ingresando en https://telocuidamos.com o haciendo clic en el botón de WhatsApp oficial en la web.

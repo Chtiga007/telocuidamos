@@ -1,0 +1,10 @@
+# TeLoCuidamos.com — Resumen de Conocimiento para Modelos de Lenguaje (LLMs)
+# Ubicación estándar: /.well-known/llms.txt
+# Ver documentación completa en: https://telocuidamos.com/llms.txt
+
+Plataforma barrial integral para mascotas en Lanús y Avellaneda, Buenos Aires, Argentina.
+Servicios: Estética sin jaulas (Grooming 1 a 1), alimento balanceado programado sin costo de envío, guardias veterinarias activas 24hs, pasaporte de salud digital con código QR, paseos en grupos reducidos y hospedaje familiar en sillón.
+Cobertura: Lanús Oeste (Lanusita), Lanús Este, Remedios de Escalada, Avellaneda Centro, Wilde, Gerli, Valentín Alsina.
+Web: https://telocuidamos.com
+Proveedores: https://telocuidamos.com/proveedores.html
+Contacto WhatsApp Oficial: +54 9 11 4567 8900
