@@ -3,56 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeLoCuidamos.com — Cuidado de Mascotas en Piloto Automático | Lanús y Avellaneda</title>
-  <!-- Google Fonts & Tailwind CSS CDN -->
+  <title>TeLoCuidamos — Ecosistema Holístico de Cuidado para Mascotas | Lanús y Avellaneda</title>
+  
+  <!-- Google Fonts: Fraunces (Warm Editorial Serif) & Plus Jakarta Sans (Modern Geometric UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
+            serif: ['"Fraunces"', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           colors: {
-            brand: {
-              teal: '#0D9488',
-              tealLight: '#E6F4F1',
-              tealDark: '#0F766E',
-              coral: '#F97316',
-              coralLight: '#FFEDD5',
-              vanilla: '#FAF8F5',
-              slateText: '#334155',
-              navy: '#0F172A',
+            pawly: {
+              cream: '#FAF7F2',        /* Warm milk oat canvas */
+              card: '#FFFFFF',
+              cardMuted: '#F5F1EB',
+              taupe: '#CAB69E',        /* Sand Taupe border */
+              taupeLight: '#E8E2D7',
+              charcoal: '#1B190B',     /* Rich deep dark brown-black */
+              espresso: '#2B2520',
+              earth: '#57452B',        /* Warm earth cocoa */
+              terracotta: '#AF5E33',   /* Signature warm rust / terracotta */
+              terracottaHover: '#964E28',
+              terracottaLight: '#FBF0EA',
+              ochre: '#B4916D',        /* Warm Tan / Camel */
+              ochreLight: '#F7F3EC',
+              sage: '#5B7065',         /* Muted Eucalyptus / Sage */
+              sageLight: '#EDF2EF',
+              sageDark: '#3E5047',
+              alertRed: '#BD3232',
+              alertLight: '#FDF1F1'
             }
+          },
+          boxShadow: {
+            'pawly-soft': '0 10px 30px -5px rgba(27, 25, 11, 0.05)',
+            'pawly-float': '0 20px 40px -10px rgba(87, 69, 43, 0.10)',
+            'pawly-card': '0 4px 20px rgba(0, 0, 0, 0.03)'
           }
         }
       }
     }
   </script>
+  
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF8F5; color: #334155; }
-    .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    body {
+      background-color: #FAF7F2;
+      color: #1B190B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.01em;
+    }
     
+    .font-editorial {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: "opsz" 36;
+    }
+
+    /* Packaging Texture & Stamps */
+    .packaging-border {
+      border: 1px solid #E8E2D7;
+    }
+    
+    .stamp-badge {
+      border: 1.5px dashed #CAB69E;
+    }
+
     /* 60fps Micro-interactions */
-    button, .interactive-card {
-      transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    .interactive-element {
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    button:active, .interactive-card:active {
-      transform: scale(0.97);
+    .interactive-element:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -8px rgba(87, 69, 43, 0.12);
     }
-    button:hover, .interactive-card:hover {
-      box-shadow: 0 10px 25px -4px rgba(13, 148, 136, 0.12);
+    .interactive-element:active {
+      transform: translateY(0) scale(0.98);
     }
-    
-    /* Barra de Alimento con Onda Líquida */
+
+    /* Wave indicator for food reserve */
     .liquid-wave {
-      background: linear-gradient(90deg, #F97316 0%, #FB923C 50%, #F97316 100%);
+      background: linear-gradient(90deg, #AF5E33 0%, #D48459 50%, #AF5E33 100%);
       background-size: 200% 100%;
-      animation: waveFlow 3s ease-in-out infinite;
+      animation: waveFlow 3.5s ease-in-out infinite;
     }
     @keyframes waveFlow {
       0% { background-position: 100% 0; }
@@ -60,12 +98,13 @@
       100% { background-position: 100% 0; }
     }
 
-    @keyframes pulseEmergency {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
-      50% { transform: scale(1.04); box-shadow: 0 0 0 8px rgba(225, 29, 72, 0); }
+    /* Emergency Pulse subtle */
+    @keyframes emergencyPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(189, 50, 50, 0.35); }
+      50% { box-shadow: 0 0 0 8px rgba(189, 50, 50, 0); }
     }
-    .pulse-emergency {
-      animation: pulseEmergency 2s infinite ease-in-out;
+    .pulse-urgent {
+      animation: emergencyPulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
     }
 
     @media print {
@@ -75,102 +114,110 @@
     }
   </style>
 </head>
-<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-pawly-terracotta selection:text-white antialiased">
 
-  <!-- TOP BAR ZONA SUR -->
-  <div class="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 text-white text-[11px] py-1.5 px-4 text-center font-semibold tracking-wide">
-    🐾 Exclusivo para <span class="text-teal-200 font-extrabold underline">Lanús y Avellaneda</span> • Primer pedido incluye Kit de Bienvenida y snack artesanal sin cargo 🎁
+  <!-- ==================== TOP BAR EDITORIAL ==================== -->
+  <div class="bg-pawly-charcoal text-pawly-cream text-[11px] py-2 px-4 text-center tracking-wider uppercase font-semibold flex items-center justify-center gap-3 border-b border-pawly-earth/30">
+    <span class="w-1.5 h-1.5 rounded-full bg-pawly-terracotta inline-block"></span>
+    <span>Edición Zona Sur • Lanús & Avellaneda • Primer Despacho con Unboxing Gift Pack de Bienvenida</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-pawly-terracotta inline-block"></span>
   </div>
 
-  <!-- NAVBAR STICKY -->
-  <header class="bg-white/90 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+  <!-- ==================== NAVBAR ELEGANTE ==================== -->
+  <header class="bg-pawly-cream/95 backdrop-blur-md sticky top-0 z-40 border-b border-pawly-taupeLight/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      
       <!-- LOGO -->
-      <a href="#hero" class="flex items-center gap-3">
-        <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-10 md:h-12 object-contain rounded-lg shadow-sm">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos" class="h-10 md:h-11 object-contain rounded-xl shadow-xs transition group-hover:opacity-90">
       </a>
 
-      <!-- LINKS NAVEGACIÓN DESKTOP -->
-      <nav class="hidden lg:flex items-center gap-6 text-xs font-bold text-slate-600">
-        <a href="#servicios" class="hover:text-brand-teal transition">Servicios</a>
-        <a href="#ficha-medica" class="hover:text-brand-teal transition">Ficha Médica</a>
-        <a href="#bienvenida" class="hover:text-brand-teal transition">Kit Unboxing</a>
-        <a href="#zonas" class="hover:text-brand-teal transition">Cobertura Zona Sur</a>
+      <!-- NAVIGATION LINKS -->
+      <nav class="hidden lg:flex items-center gap-8 text-[12px] uppercase font-bold tracking-wider text-pawly-earth">
+        <a href="#servicios" class="hover:text-pawly-terracotta transition">Servicios</a>
+        <a href="#bienvenida" class="hover:text-pawly-terracotta transition">Unboxing Kit</a>
+        <a href="#ficha-medica" class="hover:text-pawly-terracotta transition">Pasaporte de Salud</a>
+        <a href="#zonas" class="hover:text-pawly-terracotta transition">Cobertura</a>
       </nav>
 
-      <!-- BOTONES ACCIÓN -->
-      <div class="flex items-center gap-2">
-        <!-- BOTÓN ROJO DE URGENCIAS 24HS -->
-        <button onclick="toggleUrgenciasModal()" class="pulse-emergency px-3.5 py-1.5 rounded-xl text-xs font-black bg-rose-600 hover:bg-rose-700 text-white flex items-center gap-1.5 shadow-md shadow-rose-200 transition">
-          <span class="text-sm">🚨</span> <span>URGENCIAS 24HS</span>
+      <!-- ACTION BUTTONS -->
+      <div class="flex items-center gap-2.5">
+        <!-- 24HS EMERGENCY BUTTON -->
+        <button onclick="toggleUrgenciasModal()" class="pulse-urgent px-3.5 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-pawly-alertRed text-white flex items-center gap-1.5 hover:bg-red-800 transition shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span>Urgencias 24hs</span>
         </button>
 
-        <button onclick="toggleLoginModal()" id="navLoginBtn" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 hover:bg-slate-100 transition shadow-sm">
-          🔑 Mi Cuenta
+        <button onclick="toggleLoginModal()" id="navLoginBtn" class="px-4 py-1.5 rounded-full text-xs font-semibold border border-pawly-taupe text-pawly-charcoal hover:bg-pawly-cardMuted transition bg-white shadow-2xs">
+          Mi Cuenta
         </button>
-        <button onclick="toggleWhatsAppModal()" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#075E54] text-white hover:bg-[#064e46] transition shadow-sm">
-          💬 WhatsApp
+
+        <button onclick="toggleWhatsAppModal()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-pawly-charcoal text-pawly-cream hover:bg-pawly-espresso transition shadow-2xs">
+          <span>Canal WhatsApp</span>
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- MAIN CONTAINER (SCROLLABLE LANDING PAGE) -->
+  <!-- ==================== MAIN CONTENT ==================== -->
   <main class="w-full flex-1">
 
-    <!-- ==================== 1. HERO SECTION ==================== -->
-    <section id="hero" class="max-w-6xl mx-auto px-4 pt-8 md:pt-14 pb-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <!-- ==================== 1. HERO SECTION (PAWLY EDITORIAL STYLE) ==================== -->
+    <section id="hero" class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 md:pt-16 pb-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- COLUMNA IZQUIERDA: PROPUESTA DE VALOR Y WIZARD -->
-        <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-brand-tealDark text-xs font-bold uppercase tracking-wider">
-            🐾 La tranquilidad de tenerlo todo resuelto
+        <!-- LEFT: EDITORIAL COPY & ONBOARDING WIZARD -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-pawly-ochreLight border border-pawly-taupe/40 text-pawly-earth text-[11px] font-bold uppercase tracking-widest">
+            <span>●</span> Ecosistema de Bienestar Canino & Felino
           </div>
-          
-          <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            La salud, el alimento y el cuidado de tu mascota, <span class="text-brand-teal underline decoration-brand-coral decoration-wavy decoration-2">en piloto automático</span>.
+
+          <h1 class="font-editorial text-4xl sm:text-5xl md:text-6xl text-pawly-charcoal font-semibold leading-[1.08] tracking-tight">
+            La serenidad de un cuidado integral, <span class="italic font-normal text-pawly-terracotta">en piloto automático</span>.
           </h1>
-          
-          <p class="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Cargá los datos de tu perro o gato una sola vez. Te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio en <strong>Lanús y Avellaneda</strong> y te enviamos su comida antes de que se termine.
+
+          <p class="text-pawly-earth text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+            Alimento balanceado entregado a tiempo, calendario de vacunas y legajo médico en un solo lugar. Conectamos a las familias de <strong>Lanús y Avellaneda</strong> con veterinarias de barrio y cuidadores verificados.
           </p>
 
-          <!-- FORMULARIO RÁPIDO DE REGISTRO EN 3 PASOS -->
-          <div class="bg-white rounded-3xl shadow-xl border border-slate-200/80 p-5 md:p-6 text-left max-w-lg mx-auto lg:mx-0">
-            <!-- STEP INDICATOR -->
-            <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100 text-xs font-bold">
-              <span id="badgeStep1" class="text-brand-teal flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-brand-teal text-white flex items-center justify-center text-[10px]">1</span> Tus Datos
+          <!-- BOUTIQUE ONBOARDING WIZARD (PAWLY CARD STYLE) -->
+          <div class="bg-white rounded-[28px] packaging-border shadow-pawly-soft p-6 md:p-7 text-left max-w-lg mx-auto lg:mx-0">
+            
+            <!-- STEP HEADER -->
+            <div class="flex items-center justify-between pb-3.5 mb-4 border-b border-pawly-taupeLight text-[11px] font-bold uppercase tracking-wider text-pawly-earth">
+              <span id="badgeStep1" class="text-pawly-terracotta flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-pawly-terracotta text-white flex items-center justify-center text-[10px] font-sans">1</span> Tutor
               </span>
-              <span class="text-slate-300">──</span>
-              <span id="badgeStep2" class="text-slate-400 flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-[10px]">2</span> Tu Mascota
+              <span class="text-pawly-taupeLight">──────</span>
+              <span id="badgeStep2" class="text-pawly-taupe flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-pawly-cardMuted text-pawly-earth flex items-center justify-center text-[10px] font-sans">2</span> Mascota
               </span>
-              <span class="text-slate-300">──</span>
-              <span id="badgeStep3" class="text-slate-400 flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-[10px]">3</span> Alimento
+              <span class="text-pawly-taupeLight">──────</span>
+              <span id="badgeStep3" class="text-pawly-taupe flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-pawly-cardMuted text-pawly-earth flex items-center justify-center text-[10px] font-sans">3</span> Dieta
               </span>
             </div>
 
             <form id="wizardForm" onsubmit="handleWizardSubmit(event)">
               <!-- PASO 1: CONTACTO -->
-              <div id="step1Container" class="space-y-3">
+              <div id="step1Container" class="space-y-3.5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Tu Nombre Completo</label>
-                    <input type="text" id="tutorNombre" required placeholder="Ej: Lucas Gómez" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none">
+                    <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Nombre y Apellido</label>
+                    <input type="text" id="tutorNombre" required placeholder="Ej: Lucas Gómez" class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-pawly-cream/50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
                   </div>
                   <div>
-                    <label class="block text-[11px] font-bold text-slate-600 mb-1">WhatsApp (con código de área)</label>
-                    <input type="tel" id="tutorWhatsApp" required placeholder="Ej: 11 4567 8900" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none">
+                    <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">WhatsApp de Contacto</label>
+                    <input type="tel" id="tutorWhatsApp" required placeholder="Ej: 11 4567 8900" class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-pawly-cream/50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
                   </div>
                 </div>
                 <div>
-                  <label class="block text-[11px] font-bold text-slate-600 mb-1">Tu Localidad en Zona Sur</label>
-                  <select id="tutorBarrio" required class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none bg-white">
+                  <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Barrio de Entrega</label>
+                  <select id="tutorBarrio" required class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta text-pawly-charcoal">
                     <option value="Lanús Oeste (Lanusita)" selected>Lanús Oeste (Lanusita)</option>
-                    <option value="Lanús Este">Lanús Este</option>
+                    <option value="Lanús Este">Lanús Este (Centro / 9 de Julio)</option>
                     <option value="Remedios de Escalada">Remedios de Escalada</option>
                     <option value="Valentín Alsina">Valentín Alsina</option>
                     <option value="Avellaneda Centro">Avellaneda Centro (Plaza Alsina / Mitre)</option>
@@ -180,437 +227,583 @@
                     <option value="Piñeyro / Crucecita">Piñeyro / Crucecita</option>
                   </select>
                 </div>
-                <button type="button" onclick="goToStep(2)" class="w-full py-2.5 bg-brand-teal hover:bg-brand-tealDark text-white font-bold text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                  Continuar: Datos de mi Mascota →
+                <button type="button" onclick="goToStep(2)" class="w-full py-3 bg-pawly-charcoal hover:bg-pawly-espresso text-pawly-cream font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-sm flex items-center justify-center gap-2">
+                  <span>Continuar: Perfil de la Mascota</span>
+                  <span>→</span>
                 </button>
               </div>
 
               <!-- PASO 2: MASCOTA -->
-              <div id="step2Container" class="space-y-3 hidden">
-                <div class="grid grid-cols-2 gap-2">
-                  <button type="button" id="btnEspeciePerro" onclick="selectEspecie('perro')" class="py-2 px-3 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold text-xs flex items-center justify-center gap-1.5">
-                    🐶 Perro
+              <div id="step2Container" class="space-y-3.5 hidden">
+                <div class="grid grid-cols-2 gap-2.5">
+                  <button type="button" id="btnEspeciePerro" onclick="selectEspecie('perro')" class="py-2.5 px-3 rounded-xl border border-pawly-terracotta bg-pawly-terracottaLight text-pawly-terracotta font-bold text-xs flex items-center justify-center gap-2">
+                    🐶 Canino
                   </button>
-                  <button type="button" id="btnEspecieGato" onclick="selectEspecie('gato')" class="py-2 px-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold text-xs flex items-center justify-center gap-1.5">
-                    🐱 Gato
+                  <button type="button" id="btnEspecieGato" onclick="selectEspecie('gato')" class="py-2.5 px-3 rounded-xl packaging-border bg-white text-pawly-earth font-semibold text-xs flex items-center justify-center gap-2">
+                    🐱 Felino
                   </button>
                 </div>
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 gap-3">
                   <div>
-                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Nombre</label>
-                    <input type="text" id="mascotaNombre" required placeholder="Ej: Milo" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none">
+                    <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Nombre</label>
+                    <input type="text" id="mascotaNombre" required placeholder="Ej: Milo" class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
                   </div>
                   <div>
-                    <label class="block text-[11px] font-bold text-slate-600 mb-1">Peso aprox (kg)</label>
-                    <input type="number" id="mascotaPeso" step="0.5" value="14" required class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none">
+                    <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Peso actual (kg)</label>
+                    <input type="number" id="mascotaPeso" step="0.5" value="14" required class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
                   </div>
                 </div>
                 <div>
-                  <label class="block text-[11px] font-bold text-slate-600 mb-1">Raza</label>
-                  <input type="text" id="mascotaRaza" required placeholder="Ej: Golden Retriever, Mestizo, Siamés..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none">
+                  <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Raza o Cruza</label>
+                  <input type="text" id="mascotaRaza" required placeholder="Ej: Golden Retriever, Mestizo..." class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
                 </div>
-                <div class="flex gap-2 pt-1">
-                  <button type="button" onclick="goToStep(1)" class="w-1/3 py-2 border border-slate-200 text-slate-600 font-bold text-xs rounded-xl hover:bg-slate-50">← Volver</button>
-                  <button type="button" onclick="goToStep(3)" class="w-2/3 py-2 bg-brand-teal hover:bg-brand-tealDark text-white font-bold text-xs rounded-xl shadow-md">Siguiente: Alimento →</button>
+                <div class="flex gap-2.5 pt-1">
+                  <button type="button" onclick="goToStep(1)" class="w-1/3 py-2.5 packaging-border text-pawly-earth font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-pawly-cardMuted">← Volver</button>
+                  <button type="button" onclick="goToStep(3)" class="w-2/3 py-2.5 bg-pawly-charcoal hover:bg-pawly-espresso text-white font-bold text-xs uppercase tracking-wider rounded-xl">Dieta & Ración →</button>
                 </div>
               </div>
 
               <!-- PASO 3: ALIMENTO -->
-              <div id="step3Container" class="space-y-3 hidden">
+              <div id="step3Container" class="space-y-3.5 hidden">
                 <div>
-                  <label class="block text-[11px] font-bold text-slate-600 mb-1">Marca de Alimento Habitual</label>
-                  <select id="alimentoMarca" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none bg-white">
-                    <option value="Royal Canin">Royal Canin (Adult / Puppy / Medicado)</option>
-                    <option value="Purina Pro Plan">Purina Pro Plan</option>
+                  <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Marca de Preferencia</label>
+                  <select id="alimentoMarca" class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
+                    <option value="Royal Canin">Royal Canin (Adult / Puppy / Veterinary Diet)</option>
+                    <option value="Purina Pro Plan">Purina Pro Plan (OptiHealth / Derma)</option>
                     <option value="Hill's Science Diet">Hill's Science Diet</option>
-                    <option value="Vital Can Balanced">Vital Can Balanced</option>
-                    <option value="Eukanuba">Eukanuba</option>
-                    <option value="Recomendación">Quiero que el veterinario me recomiende</option>
+                    <option value="Vital Can Balanced">Vital Can Balanced Natural</option>
+                    <option value="Eukanuba">Eukanuba Formula</option>
+                    <option value="Recomendación">Quiero que el veterinario audite la ración</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-[11px] font-bold text-slate-600 mb-1">Tamaño de la bolsa que comprás</label>
-                  <select id="alimentoBolsaKg" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none bg-white">
-                    <option value="15">Bolsa Grande de 15 kg (La más conveniente)</option>
+                  <label class="block text-[11px] font-bold text-pawly-charcoal uppercase tracking-wider mb-1">Presentación Habitual</label>
+                  <select id="alimentoBolsaKg" class="w-full px-3.5 py-2.5 text-xs rounded-xl packaging-border bg-white focus:outline-none focus:ring-1 focus:ring-pawly-terracotta">
+                    <option value="15">Bolsa Grande de 15 kg (Flete Agrupado Máxima Eficiencia)</option>
                     <option value="7.5">Bolsa Mediana de 7.5 kg</option>
                     <option value="3">Bolsa Chica de 3 kg</option>
                   </select>
                 </div>
-                <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-[11px] flex gap-2">
-                  <span>🎁</span>
-                  <span><strong>Kit de Bienvenida incluido:</strong> Carta personalizada, snack artesanal y vaso medidor exacto.</span>
+                <div class="p-3 bg-pawly-ochreLight/80 rounded-xl packaging-border text-pawly-charcoal text-[11px] flex items-center gap-2.5">
+                  <span class="text-base">🎁</span>
+                  <span><strong>Gift Pack Incluido:</strong> Carta caligráfica, snack horneado de pastura y dosificador graduado sin cargo.</span>
                 </div>
-                <div class="flex gap-2 pt-1">
-                  <button type="button" onclick="goToStep(2)" class="w-1/3 py-2 border border-slate-200 text-slate-600 font-bold text-xs rounded-xl hover:bg-slate-50">← Volver</button>
-                  <button type="submit" class="w-2/3 py-2.5 bg-brand-coral hover:bg-orange-600 text-white font-bold text-xs rounded-xl shadow-lg flex items-center justify-center gap-1.5">
-                    🚀 Activar Piloto y Ver Ficha
+                <div class="flex gap-2.5 pt-1">
+                  <button type="button" onclick="goToStep(2)" class="w-1/3 py-2.5 packaging-border text-pawly-earth font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-pawly-cardMuted">← Volver</button>
+                  <button type="submit" class="w-2/3 py-3 bg-pawly-terracotta hover:bg-pawly-terracottaHover text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2">
+                    <span>Activar Pasaporte y Ver Ficha</span>
+                    <span>→</span>
                   </button>
                 </div>
               </div>
             </form>
 
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-              <span>✓ Registro 100% gratis</span>
-              <span>✓ Sin tarjetas para registrarte</span>
-              <span>✓ Soporte WhatsApp oficial</span>
+            <div class="mt-4 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] text-pawly-earth">
+              <span>✓ Plan de reposición flexible</span>
+              <span>✓ Auditoría médica inicial</span>
+              <span>✓ Cancelación en 1 clic</span>
             </div>
           </div>
+
         </div>
 
-        <!-- COLUMNA DERECHA: ILUSTRACIÓN HERO 3D + BADGES FLOTANTES -->
+        <!-- RIGHT: EDITORIAL ARCH & PACKAGING SHOWCASE -->
         <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
-          <!-- ILUSTRACIÓN 3D PASTEL -->
-          <div class="w-64 h-52 sm:w-80 sm:h-64 md:w-96 md:h-72 drop-shadow-xl relative z-10">
-            <img src="../assets/mascotas_hero_pastel.svg" alt="Mascotas TeLoCuidamos" class="w-full h-full object-contain">
-          </div>
-
-          <!-- BADGES FLOTANTES ESTILO DRIBBBLE -->
-          <div class="w-full max-w-sm space-y-2.5 mt-2">
-            <div class="bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-slate-200/80 shadow-md flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-sm font-bold">🩺</span>
-                <div>
-                  <p class="font-bold text-xs text-slate-800">Ficha Médica Portable</p>
-                  <p class="text-[10px] text-slate-500">Vacunas Séxtuple y Antirrábica al día</p>
-                </div>
-              </div>
-              <span class="text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">AL DÍA</span>
+          
+          <!-- PACKAGING HERO DISPLAY -->
+          <div class="w-full max-w-md bg-white rounded-[36px] p-6 packaging-border shadow-pawly-float relative overflow-hidden">
+            
+            <!-- STAMP SEAL -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="stamp-badge px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest text-pawly-earth bg-pawly-cream">
+                BATCH NO. 042-ZS
+              </span>
+              <span class="text-[11px] font-bold text-pawly-terracotta uppercase tracking-wider">
+                ● 100% Auditado
+              </span>
             </div>
 
-            <div class="bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-slate-200/80 shadow-md flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold">🥣</span>
+            <!-- ILLUSTRATION FRAME -->
+            <div class="w-full h-56 bg-gradient-to-b from-pawly-cardMuted to-white rounded-2xl flex items-center justify-center p-4 relative">
+              <img src="../assets/mascotas_hero_pastel.svg" alt="Pawly Companions" class="w-full h-full object-contain filter drop-shadow-sm">
+            </div>
+
+            <!-- PRODUCT SUMMARY STRIP -->
+            <div class="mt-5 space-y-3">
+              <div class="flex items-center justify-between border-b border-pawly-taupeLight pb-2.5">
                 <div>
-                  <p class="font-bold text-xs text-slate-800">Consumo Inteligente</p>
-                  <p class="text-[10px] text-slate-500">Próxima entrega martes en Lanús Oeste</p>
+                  <h4 class="font-editorial text-lg text-pawly-charcoal font-semibold">Milo Gómez</h4>
+                  <p class="text-xs text-pawly-earth">Golden Retriever • 14.0 kg • Lanús Oeste</p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-[10px] font-extrabold bg-pawly-sageLight text-pawly-sage tracking-wider uppercase">
+                  SALUD ACTIVA
+                </span>
+              </div>
+
+              <!-- CONSUMO PREDICTIVO BAR -->
+              <div class="p-3.5 rounded-xl bg-pawly-cream packaging-border space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="font-bold text-pawly-charcoal uppercase tracking-wider text-[10px]">Reserva de Alimento Actual</span>
+                  <span class="font-extrabold text-pawly-terracotta text-xs">Quedan 4 días (320g/día)</span>
+                </div>
+                <div class="w-full bg-pawly-taupeLight/60 h-2 rounded-full overflow-hidden">
+                  <div class="liquid-wave h-full rounded-full" style="width: 22%"></div>
+                </div>
+                <div class="flex justify-between items-center text-[10px] text-pawly-earth pt-0.5">
+                  <span>Próximo despacho programado:</span>
+                  <span class="font-bold text-pawly-charcoal">Martes en Lanusita</span>
                 </div>
               </div>
-              <span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded-full">Flete Agrupado</span>
+
+              <!-- BOTÓN INTERACTIVO PASAPORTE -->
+              <button onclick="switchDashboardTab('ficha')" class="w-full py-2.5 rounded-xl packaging-border text-pawly-charcoal hover:bg-pawly-cardMuted text-xs font-bold uppercase tracking-wider transition text-center block">
+                Ver Pasaporte Médico Completo ↓
+              </button>
             </div>
+
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- ==================== 2. BANNER UNBOXING KIT (EFECTO WOW) ==================== -->
-    <section id="bienvenida" class="max-w-6xl mx-auto px-4 py-6">
-      <div class="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-orange-200 rounded-3xl p-6 md:p-8 shadow-sm">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-3xl shadow-inner flex-shrink-0">
-              🎁
+    <!-- ==================== 2. BOUTIQUE UNBOXING BOX (PAWLY PACKAGING IDENTITY) ==================== -->
+    <section id="bienvenida" class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <div class="bg-pawly-espresso text-pawly-cream rounded-[32px] p-8 md:p-10 shadow-pawly-float relative overflow-hidden">
+        
+        <!-- WATERMARK BACKGROUND ACCENT -->
+        <div class="absolute -right-10 -bottom-10 opacity-5 text-white font-editorial text-[180px] select-none pointer-events-none">
+          Care
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+          
+          <div class="md:col-span-8 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-pawly-taupe text-[10px] font-bold uppercase tracking-widest border border-white/10">
+              🎁 Experiencia de Desempaque • Efecto WOW
             </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="font-black text-slate-900 text-base md:text-lg">El Kit de Bienvenida TeLoCuidamos (Sin Costo)</h3>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-orange-200 text-orange-800 uppercase tracking-wide">1° Entrega</span>
+            
+            <h3 class="font-editorial text-2xl md:text-3xl text-white font-normal leading-snug">
+              Cada primer despacho llega dentro de nuestro <span class="italic text-pawly-ochre">Boutique Welcome Box</span>.
+            </h3>
+            
+            <p class="text-pawly-cream/75 text-xs sm:text-sm leading-relaxed max-w-2xl font-light">
+              Diseñado con estética kraft mate y detalles artesanales de origen local. No es solo una bolsa de alimento: es el ritual de bienvenida para tu perro o gato en Zona Sur.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 text-xs">
+              <div class="p-3 bg-white/5 rounded-2xl border border-white/10">
+                <span class="text-base block mb-1">✉️</span>
+                <strong class="text-white block font-sans text-xs">Carta Caligráfica</strong>
+                <span class="text-white/60 text-[11px]">Firmada con el nombre de tu mascota y consejos nutricionales.</span>
               </div>
-              <p class="text-xs text-slate-600 mt-1 max-w-2xl leading-relaxed">
-                Cada primera entrega en Lanús y Avellaneda llega con: <strong>Carta personalizada con el nombre de tu mascota</strong> + <strong>Snack horneado artesanal de productores de Zona Sur</strong> + <strong>Vaso dosificador exacto</strong> para la ración calculada.
-              </p>
+              <div class="p-3 bg-white/5 rounded-2xl border border-white/10">
+                <span class="text-base block mb-1">🍪</span>
+                <strong class="text-white block font-sans text-xs">Snack Gourmet 100% Natural</strong>
+                <span class="text-white/60 text-[11px]">Hígado y calabaza deshidratados de productores locales.</span>
+              </div>
+              <div class="p-3 bg-white/5 rounded-2xl border border-white/10">
+                <span class="text-base block mb-1">🏷️</span>
+                <strong class="text-white block font-sans text-xs">Medalla con QR Clínico</strong>
+                <span class="text-white/60 text-[11px]">Vinculada directamente al Pasaporte de Salud digital.</span>
+              </div>
             </div>
           </div>
-          <button onclick="document.getElementById('wizardForm').scrollIntoView({behavior: 'smooth'})" class="w-full md:w-auto px-5 py-2.5 rounded-xl bg-brand-coral hover:bg-orange-600 text-white font-bold text-xs shadow-md transition whitespace-nowrap">
-            Quiero mi Kit de Bienvenida →
-          </button>
+
+          <div class="md:col-span-4 flex flex-col items-center justify-center text-center">
+            <div class="w-full max-w-xs bg-white/10 p-5 rounded-2xl border border-white/15 backdrop-blur-sm space-y-3">
+              <span class="stamp-badge px-3 py-0.5 rounded-full text-[10px] uppercase font-bold text-pawly-ochre">Sin costo adicional</span>
+              <p class="text-xs text-white/90">Incluido de regalo con el primer pedido en <strong>Lanús o Avellaneda</strong>.</p>
+              <button onclick="document.getElementById('wizardForm').scrollIntoView({behavior: 'smooth'})" class="w-full py-2.5 px-4 bg-pawly-terracotta hover:bg-pawly-terracottaHover text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md">
+                Quiero mi Welcome Box →
+              </button>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
-    <!-- ==================== 3. LOS 6 PILARES DE SERVICIOS ==================== -->
-    <section id="servicios" class="max-w-6xl mx-auto px-4 py-12">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
-          Ecosistema Integral 360°
-        </div>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Todo lo que tu perro o gato necesita, en un solo lugar
+    <!-- ==================== 3. LOS 6 PILARES DE SERVICIOS (PAWLY EDITORIAL GRID) ==================== -->
+    <section id="servicios" class="max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      
+      <!-- SECTION TITLE -->
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-pawly-earth bg-pawly-cardMuted px-3.5 py-1 rounded-full packaging-border">
+          Ecosistema Curado 360°
+        </span>
+        <h2 class="font-editorial text-3xl sm:text-4xl text-pawly-charcoal font-semibold tracking-tight">
+          Un cuidado honesto en cada etapa de su vida
         </h2>
-        <p class="text-slate-500 text-xs md:text-sm mt-2">
-          Centralizamos la nutrición, la medicina preventiva, los paseos diarios y las vacaciones con profesionales verificados en Zona Sur.
+        <p class="text-pawly-earth text-xs sm:text-sm">
+          Seis pilares esenciales coordinados bajo una misma filosofía de calidez, transparencia y proximidad barrial.
         </p>
       </div>
 
-      <!-- GRID DE LOS 6 SERVICIOS -->
+      <!-- 6 EDITORIAL CARDS -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- SERVICIO 1: ALIMENTO -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-4">
-              🥣
+        <!-- 01 / REPOSICIÓN INTELIGENTE -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">01 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-ochreLight text-pawly-earth">
+                Nutrición
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full uppercase">Nutrición & Reposición</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Alimento en Piloto Automático</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Calculamos los gramos diarios según peso y edad. Te avisamos 4 días antes por WhatsApp para despachar la bolsa por flete agrupado a tu puerta.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Alimento en Piloto Automático</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Calculamos la ración exacta según peso y edad. Despachamos la bolsa antes de que se agote mediante flete agrupado de bajo impacto en Lanús y Avellaneda.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-brand-coral flex items-center gap-1">
-            ✓ Distribuidoras oficiales de Zona Sur
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Bolsas selladas de distribuidor</span>
+            <span class="text-pawly-terracotta font-bold">Sin faltantes</span>
           </div>
         </div>
 
-        <!-- SERVICIO 2: VETERINARIAS DE BARRIO -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-brand-teal flex items-center justify-center text-2xl mb-4">
-              🩺
+        <!-- 02 / MEDICINA PREVENTIVA -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">02 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-sageLight text-pawly-sage">
+                Clínica
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full uppercase">Medicina Preventiva</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Veterinarias de Barrio Aliadas</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Te recordamos las vacunas Séxtuple y Antirrábica antes del vencimiento y coordinamos turnos en consultorios de tu barrio sin costo de gestión.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Veterinarias de Barrio Aliadas</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Coordinamos turnos en consultorios de confianza de tu zona para vacunas anuales y desparasitación periódica, sin sobreprecios ni cargos ocultos.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-brand-tealDark flex items-center gap-1">
-            ✓ Consultorios en Lanús y Avellaneda
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Consultorios en Lanusita y Mitre</span>
+            <span class="text-pawly-sage font-bold">Recordatorio WhatsApp</span>
           </div>
         </div>
 
-        <!-- SERVICIO 3: FICHA MÉDICA PORTABLE -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-4">
-              📋
+        <!-- 03 / PASAPORTE DIGITAL -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">03 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-cardMuted text-pawly-charcoal">
+                Salud Digital
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-slate-200 text-slate-800 px-2 py-0.5 rounded-full uppercase">Historial Digital</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Ficha Médica con Login 24/7</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Ingresás con tu usuario y contraseña. Llevá vacunas, desparasitaciones, peso histórico y alergias en tu celular, listo para mostrar a cualquier médico.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Pasaporte Médico con Login</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Ingresá con tu clave cuando quieras. Llevá el historial de vacunas, cirugías, alergias y evolución mensual de peso siempre disponible en tu teléfono.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-slate-700 flex items-center gap-1">
-            ✓ Exportable a PDF con un solo clic
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Acceso web 24/7</span>
+            <span class="text-pawly-charcoal font-bold">Exportable a PDF</span>
           </div>
         </div>
 
-        <!-- SERVICIO 4: PASEADORES VERIFICADOS -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center text-2xl mb-4">
-              🦮
+        <!-- 04 / PASEOS CURADOS -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">04 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-ochreLight text-pawly-earth">
+                Actividad
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full uppercase">Actividad Física</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Paseadores de Confianza</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Grupos reducidos de <strong>máximo 4 perros</strong> en Lanusita, Wilde y Mitre. Reporte de paseo con fotos por WhatsApp y cobertura veterinaria incluida.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Paseadores Verificados</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Paseos cuidados en grupos reducidos de <strong>máximo 4 perros</strong> en plazas de Lanús y Avellaneda. Con cobertura médica ante emergencias y reporte con fotos.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-amber-800 flex items-center gap-1">
-            ✓ Sin manadas gigantes ni maltrato
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Sin manadas masivas</span>
+            <span class="text-pawly-ochre font-bold">Paseo consciente</span>
           </div>
         </div>
 
-        <!-- SERVICIO 5: CUIDADORES EN VACACIONES -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-700 flex items-center justify-center text-2xl mb-4">
-              🏖️
+        <!-- 05 / CUIDADORES SIN JAULAS -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">05 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-terracottaLight text-pawly-terracotta">
+                Hospedaje
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full uppercase">Vacaciones & Fiestas</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Cuidadores sin Jaulas</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Hospedaje familiar donde duermen como en casa para perros, o visitas a domicilio para gatos con limpieza y juego. Respaldo de guardia veterinaria 24hs.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Cuidadores en Vacaciones</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Hospedaje hogareño y cariñoso sin caniles para perros, o visitas a domicilio para gatos en tu propio departamento. Reporte diario en video por WhatsApp.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-orange-800 flex items-center gap-1">
-            ✓ Fotos y videos diarios por WhatsApp
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Auditoría de hogar</span>
+            <span class="text-pawly-terracotta font-bold">Guardia 24hs de respaldo</span>
           </div>
         </div>
 
-        <!-- SERVICIO 6: CRUZA Y ADIESTRAMIENTO -->
-        <div class="interactive-card bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-4">
-              🐕❤️
+        <!-- 06 / ETOLOGÍA Y REPRODUCCIÓN -->
+        <div class="interactive-element bg-white rounded-[26px] p-6 packaging-border shadow-pawly-card flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-editorial text-base text-pawly-taupe font-bold">06 /</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-pawly-sageLight text-pawly-sage">
+                Conducta & Cruza
+              </span>
             </div>
-            <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full uppercase">Bienestar & Conducta</span>
-            <h3 class="font-bold text-slate-900 text-base mt-2">Cruza Responsable y Entrenadores</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-              Matchmaking reproductivo con control de brucelosis y contrato digital. Clases de etología y adiestramiento a domicilio por refuerzo positivo.
-            </p>
+            <div>
+              <h3 class="font-editorial text-xl text-pawly-charcoal font-semibold">Cruza Responsable & Etología</h3>
+              <p class="text-pawly-earth text-xs leading-relaxed mt-2">
+                Matching con control veterinario de brucelosis y contrato de tenencia responsable. Además, adiestramiento canino y corrección de hábitos por refuerzo positivo.
+              </p>
+            </div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-rose-700 flex items-center gap-1">
-            ✓ Filtro médico veterinario garantizado
+          <div class="mt-5 pt-3.5 border-t border-pawly-taupeLight flex items-center justify-between text-[11px] font-semibold text-pawly-earth">
+            <span>Filtro médico estricto</span>
+            <span class="text-pawly-sage font-bold">Educación en casa</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ==================== 4. DEMO INTERACTIVA DE LA WEB (DASHBOARD & FICHA) ==================== -->
-    <section id="ficha-medica" class="max-w-6xl mx-auto px-4 py-8">
-      <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-xl space-y-6">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
+    <!-- ==================== 4. DEMO INTERACTIVA: PASAPORTE DE SALUD DIGITAL ==================== -->
+    <section id="ficha-medica" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      
+      <div class="bg-white rounded-[32px] p-6 sm:p-9 packaging-border shadow-pawly-soft space-y-6">
+        
+        <!-- HEADER DE LA SECCIÓN DEMO -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-pawly-taupeLight pb-5">
           <div>
-            <span class="text-xs font-bold text-teal-800 bg-teal-50 px-3 py-1 rounded-full uppercase">Simulador en Vivo</span>
-            <h3 class="text-xl md:text-2xl font-black text-slate-900 mt-1">Así ve el tutor su cuenta al ingresar:</h3>
-            <p class="text-xs text-slate-500">Probá alternar entre el Piloto de Alimento y la Ficha Médica que le mostrarás al veterinario.</p>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-pawly-earth bg-pawly-cardMuted px-3 py-1 rounded-full">
+              Demostración Interactiva
+            </span>
+            <h3 class="font-editorial text-2xl md:text-3xl font-semibold text-pawly-charcoal mt-2">
+              Panel del Tutor & Pasaporte Clínico
+            </h3>
+            <p class="text-xs text-pawly-earth mt-0.5">
+              Probá cómo gestiona un tutor de Lanús la alimentación y la ficha médica que le presenta a su veterinario.
+            </p>
           </div>
 
           <!-- BOTONES TABS -->
-          <div class="flex bg-slate-100 p-1 rounded-2xl border border-slate-200 gap-1 w-full md:w-auto">
-            <button id="tabBtnPiloto" onclick="switchDashboardTab('piloto')" class="flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs bg-brand-teal text-white shadow-sm transition">
-              ⚡ Piloto & Servicios
+          <div class="flex bg-pawly-cream p-1.5 rounded-2xl packaging-border gap-1 w-full md:w-auto">
+            <button id="tabBtnPiloto" onclick="switchDashboardTab('piloto')" class="flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-pawly-charcoal text-white shadow-2xs transition">
+              ⚡ Reposición & Alimento
             </button>
-            <button id="tabBtnFicha" onclick="switchDashboardTab('ficha')" class="flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs text-slate-600 hover:text-slate-900 transition">
-              📋 Ficha Médica e Historial
+            <button id="tabBtnFicha" onclick="switchDashboardTab('ficha')" class="flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-pawly-earth hover:text-pawly-charcoal transition">
+              📋 Pasaporte Médico
             </button>
           </div>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 1: PILOTO Y SERVICIOS -->
+        <!-- CONTENIDO PESTAÑA 1: REPOSICIÓN & PILOTO -->
         <div id="tabContentPiloto" class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <!-- ALIMENTO CARD -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3">
+            
+            <!-- TARJETA ALIMENTO -->
+            <div class="p-5 rounded-2xl bg-pawly-cream packaging-border space-y-3">
               <div class="flex justify-between items-center text-xs">
-                <span class="font-bold text-slate-400 uppercase">Alimento Balanceado</span>
-                <span>🥣</span>
+                <span class="font-bold uppercase tracking-wider text-[10px] text-pawly-earth">Nutrición Asignada</span>
+                <span class="text-sm">🥣</span>
               </div>
-              <h4 class="font-bold text-slate-900 text-sm">Royal Canin Maxi Adult</h4>
-              <p class="text-xs text-slate-500">Ración: <strong>320g / día</strong></p>
-              <div>
-                <div class="flex justify-between text-xs font-bold mb-1">
-                  <span class="text-slate-600">Estado de la bolsa</span>
-                  <span class="text-brand-coral font-extrabold">Quedan 4 días</span>
+              <h4 class="font-editorial text-lg text-pawly-charcoal font-semibold">Royal Canin Maxi Adult</h4>
+              <p class="text-xs text-pawly-earth">Ración recomendada: <strong class="text-pawly-charcoal">320g diarios</strong></p>
+              
+              <div class="space-y-1 pt-1">
+                <div class="flex justify-between text-xs font-semibold">
+                  <span class="text-pawly-earth text-[11px]">Bolsa de 15 kg</span>
+                  <span class="text-pawly-terracotta font-extrabold text-[11px]">Quedan 4 días</span>
                 </div>
-                <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                <div class="w-full bg-pawly-taupeLight/80 h-2 rounded-full overflow-hidden">
                   <div class="liquid-wave h-full rounded-full" style="width: 20%"></div>
                 </div>
               </div>
-              <p class="text-[10px] text-slate-400">Entrega: <strong>Martes por flete en Lanús</strong></p>
+              <p class="text-[10px] text-pawly-earth">Próximo reparto: <strong>Martes por flete en Lanús Oeste</strong></p>
             </div>
 
-            <!-- VACUNA CARD -->
-            <div class="p-5 rounded-2xl bg-teal-50/60 border border-teal-200/60 space-y-3">
+            <!-- TARJETA VACUNAS -->
+            <div class="p-5 rounded-2xl bg-pawly-sageLight/70 packaging-border space-y-3">
               <div class="flex justify-between items-center text-xs">
-                <span class="font-bold text-teal-800 uppercase">Próxima Vacuna</span>
-                <span>🩺</span>
+                <span class="font-bold uppercase tracking-wider text-[10px] text-pawly-sageDark">Turno Veterinario Barrial</span>
+                <span class="text-sm">🩺</span>
               </div>
-              <h4 class="font-bold text-slate-900 text-sm">Séxtuple Anual</h4>
-              <p class="text-xs text-teal-800">Veterinaria asignada en tu barrio:</p>
-              <p class="text-xs font-bold text-slate-800">Veterinaria Dr. Rossi (Lanús Oeste)</p>
-              <button onclick="simularTurnoVete()" class="w-full py-1.5 bg-brand-teal text-white font-bold text-xs rounded-xl shadow-sm hover:bg-brand-tealDark transition">
-                📅 Coordinar Turno por Bot
+              <h4 class="font-editorial text-lg text-pawly-charcoal font-semibold">Séxtuple Anual</h4>
+              <p class="text-xs text-pawly-sageDark">Consultorio amigo asignado:</p>
+              <p class="text-xs font-bold text-pawly-charcoal">Veterinaria Dr. Rossi (Lanús Oeste)</p>
+              <button onclick="simularTurnoVete()" class="w-full py-2 bg-pawly-sage text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-xs hover:bg-pawly-sageDark transition">
+                Coordinar Turno por WhatsApp
               </button>
             </div>
 
-            <!-- PESO CARD -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 space-y-3">
+            <!-- TARJETA PESO -->
+            <div class="p-5 rounded-2xl bg-pawly-cream packaging-border space-y-3">
               <div class="flex justify-between items-center text-xs">
-                <span class="font-bold text-slate-400 uppercase">Control de Peso</span>
-                <span>⚖️</span>
+                <span class="font-bold uppercase tracking-wider text-[10px] text-pawly-earth">Control Morfológico</span>
+                <span class="text-sm">⚖️</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-xs text-slate-600">Peso actual:</span>
-                <span class="text-sm font-extrabold text-slate-900" id="dashPesoRegistrado">14.0 kg</span>
+                <span class="text-xs text-pawly-earth">Peso actual:</span>
+                <span class="text-base font-extrabold text-pawly-charcoal" id="dashPesoRegistrado">14.0 kg</span>
               </div>
               <div class="flex gap-2">
-                <input type="number" id="inputActualizarPeso" step="0.5" value="14" class="w-20 px-2 py-1 text-xs border border-slate-300 rounded-lg">
-                <button onclick="actualizarPesoManual()" class="px-2.5 py-1 bg-slate-900 text-white font-bold text-xs rounded-lg hover:bg-slate-800 transition">
+                <input type="number" id="inputActualizarPeso" step="0.5" value="14" class="w-20 px-2 py-1.5 text-xs packaging-border rounded-lg bg-white">
+                <button onclick="actualizarPesoManual()" class="px-3 py-1.5 bg-pawly-charcoal text-white font-bold text-xs rounded-lg hover:bg-pawly-espresso transition">
                   Actualizar
                 </button>
               </div>
-              <p class="text-[10px] text-emerald-600 font-bold">✓ Condición corporal óptima</p>
+              <p class="text-[10px] text-emerald-800 font-bold">✓ Condición corporal óptima según veterinario</p>
             </div>
+
           </div>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 2: FICHA MÉDICA DIGITAL -->
-        <div id="tabContentFicha" class="hidden space-y-6 fade-in">
-          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <!-- CONTENIDO PESTAÑA 2: PASAPORTE MÉDICO CLÍNICO -->
+        <div id="tabContentFicha" class="hidden space-y-6">
+          
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-pawly-cardMuted p-4 sm:p-5 rounded-2xl packaging-border">
             <div>
-              <span class="text-xs font-bold text-teal-800 uppercase">Pasaporte de Salud Oficial</span>
-              <h4 class="font-black text-slate-900 text-base">Ficha Médica Digital — Milo (Golden Retriever, 14 kg)</h4>
-              <p class="text-xs text-slate-500">Consultorio de cabecera: Dr. Rossi (Lanús Oeste)</p>
+              <span class="text-[10px] font-extrabold text-pawly-earth uppercase tracking-widest bg-white px-2.5 py-0.5 rounded-full border border-pawly-taupeLight">
+                Pasaporte Sanitario Certificado
+              </span>
+              <h4 class="font-editorial text-xl font-semibold text-pawly-charcoal mt-1">
+                Ficha Médica — Milo (Golden Retriever, 14 kg)
+              </h4>
+              <p class="text-xs text-pawly-earth">Tutor: Lucas Gómez • Domicilio: Lanús Oeste • Consultorio de Cabecera: Dr. Rossi</p>
             </div>
             <div class="flex gap-2">
-              <button onclick="window.print()" class="py-2 px-3.5 bg-slate-900 text-white text-xs font-bold rounded-xl shadow-sm">
-                🖨️ Imprimir / Guardar PDF
+              <button onclick="window.print()" class="py-2 px-3.5 bg-pawly-charcoal text-pawly-cream text-xs font-bold rounded-xl shadow-xs hover:bg-pawly-espresso transition">
+                🖨️ Exportar PDF
               </button>
-              <button onclick="toggleWhatsAppModal()" class="py-2 px-3.5 bg-teal-50 text-teal-800 border border-teal-200 text-xs font-bold rounded-xl">
-                📲 Enviar a mi Vete
+              <button onclick="toggleWhatsAppModal()" class="py-2 px-3.5 bg-white text-pawly-charcoal packaging-border text-xs font-bold rounded-xl hover:bg-pawly-cream transition">
+                📲 Compartir con Médico
               </button>
             </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
-            <!-- VACUNAS -->
-            <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-              <div class="flex justify-between items-center border-b pb-2 font-bold text-slate-800">
-                <span>💉 Vacunas Registradas</span>
-                <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">AL DÍA</span>
+            
+            <!-- VACUNACIÓN Y DESPARASITACIÓN -->
+            <div class="p-5 rounded-2xl bg-white packaging-border space-y-3">
+              <div class="flex justify-between items-center border-b border-pawly-taupeLight pb-2.5 font-bold text-pawly-charcoal">
+                <span class="uppercase tracking-wider text-[11px]">💉 Calendario de Inmunización</span>
+                <span class="text-[10px] bg-pawly-sageLight text-pawly-sage font-extrabold px-2 py-0.5 rounded-full">AL DÍA</span>
               </div>
-              <div class="p-2.5 bg-slate-50 rounded-xl">
-                <p class="font-bold text-slate-800">Séxtuple / Óctuple Anual</p>
-                <p class="text-[11px] text-slate-500">Colocada: 15/11/2025 • Vencimiento: <strong class="text-teal-700">15/11/2026</strong></p>
+              <div class="p-3 bg-pawly-cream rounded-xl space-y-0.5">
+                <p class="font-bold text-pawly-charcoal text-xs">Séxtuple / Óctuple Canina</p>
+                <p class="text-[11px] text-pawly-earth">Aplicada: 15/11/2025 • Vencimiento: <strong class="text-pawly-terracotta">15/11/2026</strong></p>
+                <p class="text-[10px] text-pawly-sage font-semibold">✓ Lote validado por Dr. Rossi</p>
               </div>
-              <div class="p-2.5 bg-slate-50 rounded-xl">
-                <p class="font-bold text-slate-800">Antirrábica Obligatoria</p>
-                <p class="text-[11px] text-slate-500">Colocada: 10/05/2026 • Vencimiento: 10/05/2027</p>
+              <div class="p-3 bg-pawly-cream rounded-xl space-y-0.5">
+                <p class="font-bold text-pawly-charcoal text-xs">Antirrábica Obligatoria</p>
+                <p class="text-[11px] text-pawly-earth">Aplicada: 10/05/2026 • Vencimiento: <strong class="text-pawly-charcoal">10/05/2027</strong></p>
+              </div>
+              <div class="p-3 bg-pawly-cream rounded-xl space-y-0.5">
+                <p class="font-bold text-pawly-charcoal text-xs">Desparasitación Interna & Externa</p>
+                <p class="text-[11px] text-pawly-earth">NexGard Spectra • Próxima toma: <strong>1° de Noviembre</strong></p>
               </div>
             </div>
 
-            <!-- HISTORIAL DE PESO -->
-            <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2.5">
-              <div class="flex justify-between items-center border-b pb-2 font-bold text-slate-800">
-                <span>⚖️ Evolución Mensual de Peso</span>
-                <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-lg" id="fichaPesoActual">14.0 kg</span>
+            <!-- EVOLUCIÓN HISTÓRICA DE PESO -->
+            <div class="p-5 rounded-2xl bg-white packaging-border space-y-3">
+              <div class="flex justify-between items-center border-b border-pawly-taupeLight pb-2.5 font-bold text-pawly-charcoal">
+                <span class="uppercase tracking-wider text-[11px]">⚖️ Curva Morfológica Mensual</span>
+                <span class="text-[10px] bg-pawly-cardMuted text-pawly-charcoal px-2 py-0.5 rounded-md font-bold" id="fichaPesoActual">14.0 kg</span>
               </div>
               <table class="w-full text-left text-[11px]">
-                <thead class="bg-slate-50 font-bold">
-                  <tr><th class="p-1.5">Mes</th><th class="p-1.5">Peso</th><th class="p-1.5">Ración</th><th class="p-1.5">Estado</th></tr>
+                <thead class="bg-pawly-cream font-bold text-pawly-earth border-b border-pawly-taupeLight">
+                  <tr>
+                    <th class="p-2">Periodo</th>
+                    <th class="p-2">Peso</th>
+                    <th class="p-2">Ración</th>
+                    <th class="p-2">Evaluación</th>
+                  </tr>
                 </thead>
-                <tbody id="tablaHistorialPeso" class="divide-y divide-slate-100">
-                  <tr><td class="p-1.5 font-bold">Octubre 2026</td><td class="p-1.5 font-bold text-slate-900">14.0 kg</td><td class="p-1.5">308g/día</td><td class="p-1.5 text-emerald-600 font-bold">Óptimo</td></tr>
-                  <tr><td class="p-1.5">Septiembre 2026</td><td class="p-1.5">13.8 kg</td><td class="p-1.5">300g/día</td><td class="p-1.5 text-emerald-600 font-bold">Óptimo</td></tr>
-                  <tr><td class="p-1.5">Agosto 2026</td><td class="p-1.5">13.5 kg</td><td class="p-1.5">295g/día</td><td class="p-1.5 text-emerald-600 font-bold">Óptimo</td></tr>
+                <tbody id="tablaHistorialPeso" class="divide-y divide-pawly-taupeLight/60">
+                  <tr>
+                    <td class="p-2 font-bold text-pawly-charcoal">Octubre 2026</td>
+                    <td class="p-2 font-bold text-pawly-charcoal">14.0 kg</td>
+                    <td class="p-2">308g/día</td>
+                    <td class="p-2 text-pawly-sage font-bold">Óptimo</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2">Septiembre 2026</td>
+                    <td class="p-2">13.8 kg</td>
+                    <td class="p-2">300g/día</td>
+                    <td class="p-2 text-pawly-sage font-bold">Óptimo</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2">Agosto 2026</td>
+                    <td class="p-2">13.5 kg</td>
+                    <td class="p-2">295g/día</td>
+                    <td class="p-2 text-pawly-sage font-bold">Óptimo</td>
+                  </tr>
                 </tbody>
               </table>
-              <div class="flex gap-2 pt-1">
-                <input type="number" id="inputNuevoPesoHistorial" step="0.1" placeholder="Nuevo peso..." class="flex-1 px-2.5 py-1 text-xs border rounded-lg">
-                <button onclick="agregarPesoAlHistorial()" class="px-3 py-1 bg-slate-900 text-white font-bold text-xs rounded-lg">+ Registrar</button>
+
+              <div class="flex gap-2 pt-2 border-t border-pawly-taupeLight">
+                <input type="number" id="inputNuevoPesoHistorial" step="0.1" placeholder="Nuevo peso (ej: 14.2)..." class="flex-1 px-3 py-1.5 text-xs packaging-border rounded-lg bg-pawly-cream/40">
+                <button onclick="agregarPesoAlHistorial()" class="px-3.5 py-1.5 bg-pawly-charcoal text-white font-bold text-xs rounded-lg hover:bg-pawly-espresso transition">
+                  + Asentar Control
+                </button>
               </div>
             </div>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- ==================== 5. ZONAS DE COBERTURA EN ZONA SUR ==================== -->
-    <section id="zonas" class="max-w-6xl mx-auto px-4 py-12">
-      <div class="bg-slate-900 text-white rounded-3xl p-8 md:p-10 shadow-xl relative overflow-hidden">
-        <div class="max-w-2xl space-y-4 relative z-10">
-          <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-full uppercase tracking-wider">
-            Rutas de Entrega Agrupada
+    <!-- ==================== 5. ZONAS DE COBERTURA & RUTAS ==================== -->
+    <section id="zonas" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <div class="bg-pawly-charcoal text-pawly-cream rounded-[32px] p-8 md:p-11 shadow-pawly-float">
+        <div class="max-w-3xl space-y-4">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-pawly-ochre bg-white/10 px-3 py-1 rounded-full border border-white/10">
+            Logística Agrupada de Proximidad
           </span>
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">
-            Cobertura activa en los barrios de Lanús y Avellaneda
+          <h2 class="font-editorial text-2xl sm:text-4xl text-white font-semibold tracking-tight">
+            Cobertura dedicada exclusivamente en Lanús y Avellaneda
           </h2>
-          <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
-            Concentramos los repartos en dos días fijos para reducir el costo de flete a un tercio y garantizar entregas puntuales antes de que se termine la comida de tu perro o gato.
+          <p class="text-pawly-cream/70 text-xs sm:text-sm leading-relaxed">
+            Para garantizar puntualidad y evitar el desabastecimiento, agrupamos las rutas en dos días fijos semanales. Así reducimos emisiones, optimizamos costos de distribución y aseguramos que la comida llegue fresca de fábrica.
           </p>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs">
-            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
-              <strong class="text-white block">Martes</strong>
-              <span class="text-teal-300 text-[11px]">Lanús Oeste</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-xs">
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
+              <span class="text-pawly-ochre text-[10px] font-bold uppercase tracking-wider block">Martes</span>
+              <strong class="text-white text-sm block mt-1">Lanús Oeste</strong>
+              <span class="text-white/60 text-[11px]">Lanusita y Centro</span>
             </div>
-            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
-              <strong class="text-white block">Martes</strong>
-              <span class="text-teal-300 text-[11px]">R. de Escalada</span>
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
+              <span class="text-pawly-ochre text-[10px] font-bold uppercase tracking-wider block">Martes</span>
+              <strong class="text-white text-sm block mt-1">R. de Escalada</strong>
+              <span class="text-white/60 text-[11px]">Estación e Hipólito Y.</span>
             </div>
-            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
-              <strong class="text-white block">Jueves</strong>
-              <span class="text-orange-300 text-[11px]">Avellaneda Centro</span>
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
+              <span class="text-pawly-ochre text-[10px] font-bold uppercase tracking-wider block">Jueves</span>
+              <strong class="text-white text-sm block mt-1">Avellaneda</strong>
+              <span class="text-white/60 text-[11px]">Plaza Alsina y Mitre</span>
             </div>
-            <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-center">
-              <strong class="text-white block">Jueves</strong>
-              <span class="text-orange-300 text-[11px]">Wilde Residencial</span>
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
+              <span class="text-pawly-ochre text-[10px] font-bold uppercase tracking-wider block">Jueves</span>
+              <strong class="text-white text-sm block mt-1">Wilde</strong>
+              <span class="text-white/60 text-[11px]">Barrio Residencial</span>
             </div>
           </div>
         </div>
@@ -619,192 +812,189 @@
 
   </main>
 
-  <!-- MODAL: URGENCIAS VETERINARIAS 24HS (HOSPITALES DE GUARDIA ZONA SUR) -->
-  <div id="urgenciasModal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden border border-rose-200 flex flex-col max-h-[90vh] fade-in">
+  <!-- ==================== MODAL: URGENCIAS VETERINARIAS 24HS ==================== -->
+  <div id="urgenciasModal" class="fixed inset-0 bg-pawly-charcoal/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-[28px] shadow-2xl overflow-hidden packaging-border flex flex-col max-h-[90vh]">
       
       <!-- HEADER URGENCIAS -->
-      <div class="bg-gradient-to-r from-rose-700 to-rose-600 text-white p-4 flex items-center justify-between shadow">
+      <div class="bg-pawly-alertRed text-white p-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl border border-white/30">
+          <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl font-bold border border-white/30">
             🚨
           </div>
           <div>
-            <h3 class="font-black text-base tracking-tight">URGENCIAS VETERINARIAS 24HS</h3>
-            <p class="text-xs text-rose-100">Centros de Guardia Médica Abiertos Ahora en Zona Sur</p>
+            <h3 class="font-editorial text-lg text-white font-semibold">Guardias Veterinarias 24 Horas</h3>
+            <p class="text-xs text-white/80">Centros de emergencias activos ahora en Zona Sur</p>
           </div>
         </div>
-        <button onclick="toggleUrgenciasModal()" class="text-white/80 hover:text-white text-2xl font-black px-2">×</button>
+        <button onclick="toggleUrgenciasModal()" class="text-white/80 hover:text-white text-2xl font-bold px-2">×</button>
       </div>
 
       <!-- BODY URGENCIAS -->
       <div class="p-5 overflow-y-auto space-y-4 text-xs flex-1">
         
-        <!-- AVISO DE CALMA Y PRIMEROS AUXILIOS -->
-        <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 text-rose-900 space-y-1">
-          <p class="font-extrabold flex items-center gap-1.5 text-xs">
-            <span>⚠️</span> REGLAS CRÍTICAS ANTES DE SALIR:
+        <!-- PROTOCOLO DE TRIAJE -->
+        <div class="p-3.5 bg-pawly-alertLight rounded-2xl border border-pawly-alertRed/30 text-pawly-charcoal space-y-1">
+          <p class="font-extrabold flex items-center gap-2 text-pawly-alertRed text-xs uppercase tracking-wider">
+            <span>⚠️</span> Recomendaciones antes de salir:
           </p>
-          <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-rose-800">
-            <li><strong>NO le des medicación humana</strong> (paracetamol o ibuprofeno son tóxicos).</li>
-            <li>Trasladalo con calma sobre una manta o toalla como camilla improvisada.</li>
-            <li>Llamá a la guardia antes de subirte al auto para que preparen el quirófano/oxígeno.</li>
+          <ul class="list-disc pl-4 space-y-1 text-[11px] text-pawly-charcoal/80">
+            <li><strong>No suministrar medicamentos humanos</strong> (el paracetamol o ibuprofeno son mortales).</li>
+            <li>Inmovilizar con suavidad sobre una manta doblada como camilla.</li>
+            <li>Llamar a la guardia antes de subirte al auto para que preparen oxígeno o quirófano.</li>
           </ul>
         </div>
 
-        <h4 class="font-extrabold text-slate-800 text-xs uppercase tracking-wider text-slate-400">
-          Hospitales con Guardia Médica Activa 24hs
+        <h4 class="font-bold text-[11px] uppercase tracking-wider text-pawly-earth">
+          Clínicas con Quirófano y Médico de Guardia Activo
         </h4>
 
-        <!-- CENTRO 1: LANÚS -->
-        <div class="p-4 rounded-2xl border-2 border-rose-200 bg-white hover:border-rose-400 transition shadow-sm space-y-2.5">
+        <!-- HOSPITAL LANÚS -->
+        <div class="p-4 rounded-2xl packaging-border bg-white shadow-2xs space-y-2.5">
           <div class="flex justify-between items-start">
             <div>
-              <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA ABIERTA 24HS</span>
-              <h5 class="font-black text-slate-900 text-sm mt-1">Hospital Veterinario Central Lanús</h5>
-              <p class="text-slate-500 text-[11px]">📍 Av. Hipólito Yrigoyen (cerca de Lanusita), Lanús</p>
+              <span class="text-[10px] font-extrabold bg-red-100 text-pawly-alertRed px-2 py-0.5 rounded-full">GUARDIA 24HS ABIERTA</span>
+              <h5 class="font-editorial text-base text-pawly-charcoal font-semibold mt-1">Hospital Veterinario Central Lanús</h5>
+              <p class="text-pawly-earth text-[11px]">📍 Av. Hipólito Yrigoyen (a minutos de Lanusita), Lanús</p>
             </div>
-            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">~7 min</span>
+            <span class="text-xs font-bold text-pawly-sage bg-pawly-sageLight px-2 py-1 rounded-md">~7 min</span>
           </div>
-          <p class="text-slate-600 text-[11px]">Equipamiento: Quirófano de urgencia, ecografía, radiología y terapia de oxígeno.</p>
+          <p class="text-pawly-earth text-[11px]">Quirófano continuo, radiografía digital, ecografía abdominal y oxigenoterapia.</p>
           
           <div class="flex flex-col sm:flex-row gap-2 pt-1">
-            <a href="tel:01142410000" class="flex-1 py-2 px-3 bg-rose-600 hover:bg-rose-700 text-white font-extrabold rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm">
-              📞 Llamar a la Guardia Ya
+            <a href="tel:01142410000" class="flex-1 py-2 px-3 bg-pawly-alertRed hover:bg-red-800 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 shadow-xs uppercase tracking-wider text-[11px]">
+              📞 Llamar a la Guardia
             </a>
-            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-center flex items-center justify-center gap-1.5">
-              🗺️ Cómo Llegar (GPS)
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-3 bg-pawly-cardMuted hover:bg-pawly-cream text-pawly-charcoal font-semibold rounded-xl text-center flex items-center justify-center gap-1.5 packaging-border text-[11px]">
+              🗺️ GPS
             </a>
           </div>
-          <button onclick="avisarGuardiaPorWhatsApp('Hospital Veterinario Central Lanús')" class="w-full py-1.5 text-center text-teal-800 bg-teal-50 hover:bg-teal-100 rounded-lg font-bold border border-teal-200 transition text-[11px]">
-            📲 Avisar por WhatsApp que voy en camino con la Ficha Médica
+          <button onclick="avisarGuardiaPorWhatsApp('Hospital Veterinario Central Lanús')" class="w-full py-1.5 text-center text-pawly-earth bg-pawly-cream hover:bg-pawly-cardMuted rounded-xl font-semibold border border-pawly-taupeLight transition text-[11px]">
+            📲 Notificar por WhatsApp con el Pasaporte Médico adjunto
           </button>
         </div>
 
-        <!-- CENTRO 2: AVELLANEDA -->
-        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 transition shadow-sm space-y-2.5">
+        <!-- HOSPITAL AVELLANEDA -->
+        <div class="p-4 rounded-2xl packaging-border bg-white shadow-2xs space-y-2.5">
           <div class="flex justify-between items-start">
             <div>
-              <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA ABIERTA 24HS</span>
-              <h5 class="font-black text-slate-900 text-sm mt-1">Clínica de Emergencias Veterinarias Avellaneda</h5>
-              <p class="text-slate-500 text-[11px]">📍 Av. Bartolomé Mitre (cerca de Plaza Alsina), Avellaneda</p>
+              <span class="text-[10px] font-extrabold bg-red-100 text-pawly-alertRed px-2 py-0.5 rounded-full">GUARDIA 24HS ABIERTA</span>
+              <h5 class="font-editorial text-base text-pawly-charcoal font-semibold mt-1">Clínica de Emergencias Avellaneda</h5>
+              <p class="text-pawly-earth text-[11px]">📍 Av. Bartolomé Mitre (cerca de Plaza Alsina), Avellaneda</p>
             </div>
-            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">~12 min</span>
+            <span class="text-xs font-bold text-pawly-sage bg-pawly-sageLight px-2 py-1 rounded-md">~12 min</span>
           </div>
-          <p class="text-slate-600 text-[11px]">Equipamiento: Internación canina y felina aislada, banco de sangre y laboratorio nocturno.</p>
+          <p class="text-pawly-earth text-[11px]">Internación canina y felina aislada, laboratorio de análisis nocturno y banco de sangre.</p>
           
           <div class="flex flex-col sm:flex-row gap-2 pt-1">
-            <a href="tel:01142010000" class="flex-1 py-2 px-3 bg-rose-600 hover:bg-rose-700 text-white font-extrabold rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm">
-              📞 Llamar a la Guardia Ya
+            <a href="tel:01142010000" class="flex-1 py-2 px-3 bg-pawly-alertRed hover:bg-red-800 text-white font-bold rounded-xl text-center flex items-center justify-center gap-2 shadow-xs uppercase tracking-wider text-[11px]">
+              📞 Llamar a la Guardia
             </a>
-            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-center flex items-center justify-center gap-1.5">
-              🗺️ Cómo Llegar (GPS)
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-3 bg-pawly-cardMuted hover:bg-pawly-cream text-pawly-charcoal font-semibold rounded-xl text-center flex items-center justify-center gap-1.5 packaging-border text-[11px]">
+              🗺️ GPS
             </a>
           </div>
-          <button onclick="avisarGuardiaPorWhatsApp('Clínica de Emergencias Avellaneda')" class="w-full py-1.5 text-center text-teal-800 bg-teal-50 hover:bg-teal-100 rounded-lg font-bold border border-teal-200 transition text-[11px]">
-            📲 Avisar por WhatsApp que voy en camino con la Ficha Médica
+          <button onclick="avisarGuardiaPorWhatsApp('Clínica de Emergencias Avellaneda')" class="w-full py-1.5 text-center text-pawly-earth bg-pawly-cream hover:bg-pawly-cardMuted rounded-xl font-semibold border border-pawly-taupeLight transition text-[11px]">
+            📲 Notificar por WhatsApp con el Pasaporte Médico adjunto
           </button>
         </div>
 
       </div>
 
-      <!-- FOOTER URGENCIAS -->
-      <div class="p-3 bg-slate-100 border-t border-slate-200 text-center text-[11px] text-slate-500">
-        TeLoCuidamos.com Red de Emergencias Zona Sur • Guardias 24hs Verificadas
+      <div class="p-3 bg-pawly-cream border-t border-pawly-taupeLight text-center text-[11px] text-pawly-earth">
+        TeLoCuidamos • Red Asistencial de Urgencias en Zona Sur
       </div>
 
     </div>
   </div>
 
-  <!-- MODAL: INICIAR SESIÓN / MI CUENTA -->
-  <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-100 p-6 space-y-4 fade-in">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="text-xl">🔑</span>
-          <h3 class="font-extrabold text-slate-900 text-base">Iniciar Sesión</h3>
-        </div>
-        <button onclick="toggleLoginModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">×</button>
+  <!-- ==================== MODAL: MI CUENTA / LOGIN ==================== -->
+  <div id="loginModal" class="fixed inset-0 bg-pawly-charcoal/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-[28px] shadow-2xl packaging-border p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-pawly-taupeLight pb-3">
+        <h3 class="font-editorial text-lg text-pawly-charcoal font-semibold">Acceso al Pasaporte</h3>
+        <button onclick="toggleLoginModal()" class="text-pawly-earth hover:text-pawly-charcoal text-xl font-bold">×</button>
       </div>
 
-      <p class="text-xs text-slate-500">Ingresá a tu cuenta para ver la Ficha Médica y el historial de tu mascota.</p>
+      <p class="text-xs text-pawly-earth">Ingresá tus credenciales para consultar el historial y los reportes de paseos.</p>
 
       <form onsubmit="handleLoginSubmit(event)" class="space-y-3">
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Email o Usuario</label>
-          <input type="email" id="loginEmail" required value="lucas@telocuidamos.com" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-pawly-charcoal mb-1">Email Registrado</label>
+          <input type="email" id="loginEmail" required value="lucas@telocuidamos.com" class="w-full px-3.5 py-2 text-xs rounded-xl packaging-border focus:outline-none focus:ring-1 focus:ring-pawly-terracotta bg-pawly-cream/50">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Contraseña</label>
-          <input type="password" id="loginPassword" required value="••••••••" class="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-teal">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-pawly-charcoal mb-1">Contraseña</label>
+          <input type="password" id="loginPassword" required value="••••••••" class="w-full px-3.5 py-2 text-xs rounded-xl packaging-border focus:outline-none focus:ring-1 focus:ring-pawly-terracotta bg-pawly-cream/50">
         </div>
-        <button type="submit" class="w-full py-2.5 bg-brand-teal hover:bg-brand-tealDark text-white font-bold text-xs rounded-xl shadow transition">
-          Ingresar a Mi Mascota →
+        <button type="submit" class="w-full py-2.5 bg-pawly-charcoal hover:bg-pawly-espresso text-pawly-cream font-bold text-xs uppercase tracking-wider rounded-xl shadow-xs transition">
+          Ingresar al Perfil →
         </button>
       </form>
 
-      <div class="pt-2 border-t border-slate-100 text-center">
-        <button onclick="demoLogin()" class="text-xs font-bold text-teal-700 hover:text-teal-900 transition underline">
-          ⚡ Ingresar con Usuario Demo (Milo en Lanús)
+      <div class="pt-3 border-t border-pawly-taupeLight text-center">
+        <button onclick="demoLogin()" class="text-xs font-bold text-pawly-terracotta hover:underline">
+          ⚡ Cargar Usuario de Demostración (Milo)
         </button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: SIMULADOR DE BOT OFICIAL DE WHATSAPP -->
-  <div id="whatsappModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col h-[580px]">
+  <!-- ==================== MODAL: SIMULADOR DE BOT DE WHATSAPP ==================== -->
+  <div id="whatsappModal" class="fixed inset-0 bg-pawly-charcoal/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-[28px] shadow-2xl overflow-hidden packaging-border flex flex-col h-[580px]">
       
-      <!-- WHATSAPP HEADER -->
-      <div class="bg-[#075E54] text-white p-3.5 flex items-center justify-between shadow">
+      <!-- HEADER WHATSAPP BOT -->
+      <div class="bg-pawly-charcoal text-white p-3.5 flex items-center justify-between border-b border-pawly-earth/40">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white">
+          <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center overflow-hidden border border-pawly-taupe">
             <img src="../assets/icono_redes_whatsapp.jpg" alt="TeLoCuidamos" class="w-full h-full object-cover">
           </div>
           <div>
-            <h4 class="font-bold text-sm">TeLoCuidamos Bot 🐾</h4>
-            <p class="text-[10px] text-emerald-200">Bot 100% Automatizado • Cuenta Oficial</p>
+            <h4 class="font-bold text-xs">TeLoCuidamos Concierge 🐾</h4>
+            <p class="text-[10px] text-pawly-ochre">Asistencia 100% Automatizada</p>
           </div>
         </div>
         <button onclick="toggleWhatsAppModal()" class="text-white/80 hover:text-white text-xl font-bold px-2">×</button>
       </div>
 
-      <!-- WHATSAPP CHAT BODY -->
-      <div id="chatMessages" class="flex-1 bg-[#EFEAE2] p-4 overflow-y-auto space-y-3 text-xs">
+      <!-- CHAT LOG -->
+      <div id="chatMessages" class="flex-1 bg-[#F4EFEA] p-4 overflow-y-auto space-y-3 text-xs font-sans">
         <div class="text-center my-1">
-          <span class="bg-white/80 text-[10px] text-slate-500 px-2 py-0.5 rounded-full shadow-sm">Hoy</span>
+          <span class="bg-white/80 text-[10px] text-pawly-earth px-2.5 py-0.5 rounded-full shadow-2xs">Hoy</span>
         </div>
 
-        <!-- MENSAJE DE BIENVENIDA -->
-        <div class="bg-white rounded-xl p-3 shadow-sm max-w-[85%] rounded-tl-none border border-slate-100">
-          <p class="font-bold text-slate-800 mb-1">¡Hola <span id="waTutorNombre">Lucas</span>! 👋</p>
-          <p class="text-slate-700">Ya dejamos la ficha de <strong id="waMascotaNombre">Milo</strong> en piloto automático. Te avisaremos cuando falten 4 días para que se acabe su comida o cuando toque su próxima vacuna en Lanús o Avellaneda.</p>
-          <span class="text-[9px] text-slate-400 block text-right mt-1">14:15</span>
+        <div class="bg-white rounded-2xl p-3 shadow-2xs max-w-[85%] rounded-tl-none border border-pawly-taupeLight space-y-1">
+          <p class="font-bold text-pawly-charcoal text-xs">¡Hola <span id="waTutorNombre">Lucas</span>! 👋</p>
+          <p class="text-pawly-earth text-xs leading-relaxed">El pasaporte de <strong id="waMascotaNombre">Milo</strong> está activo. Te avisaremos 4 días antes de que se acabe su bolsa o cuando corresponda el refuerzo de Séxtuple en Lanús Oeste.</p>
+          <span class="text-[9px] text-pawly-taupe block text-right mt-1">14:15</span>
         </div>
 
-        <!-- MENSAJE DE ALERTA DE ALIMENTO INTERACTIVO -->
-        <div id="waAlertaComida" class="bg-white rounded-xl p-3 shadow-sm max-w-[90%] rounded-tl-none border border-slate-100 space-y-2">
-          <p class="font-bold text-brand-coral">🥣 Alerta de Comida</p>
-          <p class="text-slate-700">Según la ración de <strong id="waMascotaNombre2">Milo</strong>, le quedan aprox. <strong>4 días</strong> de su bolsa de <strong>Royal Canin (15 kg)</strong>.</p>
-          <p class="text-slate-700">Entrega programada con tu <strong>Kit de Bienvenida</strong> en <strong id="waBarrio">Lanús Oeste</strong> para el martes.</p>
+        <div id="waAlertaComida" class="bg-white rounded-2xl p-3 shadow-2xs max-w-[90%] rounded-tl-none border border-pawly-taupeLight space-y-2">
+          <div class="flex items-center justify-between">
+            <p class="font-bold text-pawly-terracotta text-xs">🥣 Aviso de Reposición</p>
+            <span class="text-[10px] font-bold text-pawly-earth">4 días restantes</span>
+          </div>
+          <p class="text-pawly-earth text-xs leading-relaxed">Según la ración calculada para <strong id="waMascotaNombre2">Milo</strong>, estimamos que le quedan aprox. 4 días de su bolsa de <strong>Royal Canin (15 kg)</strong>.</p>
+          <p class="text-pawly-earth text-xs">Próxima entrega con tu <strong>Boutique Welcome Box</strong> en <strong id="waBarrio">Lanús Oeste</strong> este martes.</p>
           
-          <div class="pt-2 border-t border-slate-100 flex flex-col gap-1.5">
-            <button onclick="responderWhatsApp('¡Confirmar entrega!')" class="w-full py-1.5 px-2 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-center border border-emerald-200 hover:bg-emerald-100 transition">
-              🔘 ¡Confirmar entrega!
+          <div class="pt-2 border-t border-pawly-taupeLight flex flex-col gap-1.5">
+            <button onclick="responderWhatsApp('¡Confirmar entrega programada!')" class="w-full py-1.5 px-2 bg-pawly-terracottaLight text-pawly-terracotta font-bold rounded-lg text-center border border-pawly-terracotta/30 hover:bg-pawly-terracotta/20 transition text-xs">
+              🔘 Confirmar entrega programada
             </button>
-            <button onclick="responderWhatsApp('Cambiar fecha u horario')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition">
-              🔘 Cambiar fecha / horario
+            <button onclick="responderWhatsApp('Modificar día o franja horaria')" class="w-full py-1.5 px-2 bg-pawly-cream text-pawly-charcoal font-semibold rounded-lg text-center border border-pawly-taupeLight hover:bg-pawly-cardMuted transition text-xs">
+              🔘 Modificar fecha u horario
             </button>
           </div>
-          <span class="text-[9px] text-slate-400 block text-right">14:16</span>
+          <span class="text-[9px] text-pawly-taupe block text-right">14:16</span>
         </div>
 
       </div>
 
-      <!-- WHATSAPP FOOTER -->
-      <div class="p-2.5 bg-slate-100 border-t border-slate-200 flex items-center gap-2">
-        <input type="text" id="inputChatManual" placeholder="Escribí un peso (ej: 14.5) o 'urgencia'..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
-        <button onclick="enviarMensajeManual()" class="w-8 h-8 rounded-full bg-[#075E54] text-white flex items-center justify-center text-xs">
+      <!-- CHAT INPUT -->
+      <div class="p-3 bg-white border-t border-pawly-taupeLight flex items-center gap-2">
+        <input type="text" id="inputChatManual" placeholder="Escribí un peso (ej: 14.5) o 'urgencia'..." class="flex-1 px-3 py-2 text-xs rounded-full packaging-border focus:outline-none focus:ring-1 focus:ring-pawly-terracotta bg-pawly-cream/40">
+        <button onclick="enviarMensajeManual()" class="w-8 h-8 rounded-full bg-pawly-charcoal text-white flex items-center justify-center text-xs hover:bg-pawly-espresso transition">
           ➤
         </button>
       </div>
@@ -812,26 +1002,26 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-white border-t border-slate-200/80 py-8 text-xs text-slate-500">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+  <!-- ==================== FOOTER EDITORIAL ==================== -->
+  <footer class="bg-pawly-cream border-t border-pawly-taupeLight py-10 text-xs text-pawly-earth">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div>
-        <p class="font-bold text-slate-800">© 2026 TeLoCuidamos.com — Avellaneda y Lanús (Zona Sur, Bs. As.)</p>
-        <p class="text-[11px] text-slate-400 mt-0.5">La plataforma que conecta alimento, veterinarias de barrio y cuidado de mascotas en piloto automático.</p>
+        <p class="font-editorial text-base text-pawly-charcoal font-semibold">TeLoCuidamos • Edición Zona Sur</p>
+        <p class="text-[11px] text-pawly-earth mt-1">Conectando nutrición clínica, veterinarias barriales y paseadores de confianza en Lanús y Avellaneda.</p>
       </div>
-      <div class="flex items-center gap-3">
-        <button onclick="toggleUrgenciasModal()" class="text-rose-600 font-extrabold hover:underline">
-          🚨 Guardias 24hs Lanús / Avellaneda
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <button onclick="toggleUrgenciasModal()" class="text-pawly-alertRed font-extrabold hover:underline">
+          🚨 Guardias 24hs Activas
         </button>
         <span>•</span>
-        <button onclick="toggleWhatsAppModal()" class="text-teal-700 font-bold hover:underline">
-          Canal WhatsApp Oficial
+        <button onclick="toggleWhatsAppModal()" class="text-pawly-charcoal hover:underline">
+          Canal Directo de WhatsApp
         </button>
       </div>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT APP LOGIC -->
+  <!-- ==================== JAVASCRIPT APP LOGIC ==================== -->
   <script>
     let currentStep = 1;
     let petData = {
@@ -852,12 +1042,12 @@
       const btnPerro = document.getElementById('btnEspeciePerro');
       const btnGato = document.getElementById('btnEspecieGato');
       if (esp === 'perro') {
-        btnPerro.className = "py-2 px-3 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold text-xs flex items-center justify-center gap-1.5";
-        btnGato.className = "py-2 px-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold text-xs flex items-center justify-center gap-1.5";
+        btnPerro.className = "py-2.5 px-3 rounded-xl border border-pawly-terracotta bg-pawly-terracottaLight text-pawly-terracotta font-bold text-xs flex items-center justify-center gap-2";
+        btnGato.className = "py-2.5 px-3 rounded-xl packaging-border bg-white text-pawly-earth font-semibold text-xs flex items-center justify-center gap-2";
         document.getElementById('mascotaPeso').value = "14";
       } else {
-        btnGato.className = "py-2 px-3 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold text-xs flex items-center justify-center gap-1.5";
-        btnPerro.className = "py-2 px-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold text-xs flex items-center justify-center gap-1.5";
+        btnGato.className = "py-2.5 px-3 rounded-xl border border-pawly-terracotta bg-pawly-terracottaLight text-pawly-terracotta font-bold text-xs flex items-center justify-center gap-2";
+        btnPerro.className = "py-2.5 px-3 rounded-xl packaging-border bg-white text-pawly-earth font-semibold text-xs flex items-center justify-center gap-2";
         document.getElementById('mascotaPeso').value = "4.5";
       }
     }
@@ -902,9 +1092,9 @@
     function updateBadge(id, active) {
       const el = document.getElementById(id);
       if (active) {
-        el.className = "text-brand-teal font-bold flex items-center gap-1.5";
+        el.className = "text-pawly-terracotta font-bold flex items-center gap-1.5";
       } else {
-        el.className = "text-slate-400 font-bold flex items-center gap-1.5";
+        el.className = "text-pawly-taupe font-bold flex items-center gap-1.5";
       }
     }
 
@@ -913,15 +1103,12 @@
       petData.alimentoMarca = document.getElementById('alimentoMarca').value;
       petData.alimentoBolsaKg = parseFloat(document.getElementById('alimentoBolsaKg').value);
 
-      let racionGramos = Math.round(petData.mascotaPeso * (petData.especie === 'perro' ? 22 : 15));
-
       document.getElementById('dashPesoRegistrado').innerText = `${petData.mascotaPeso} kg`;
       document.getElementById('fichaPesoActual').innerText = `${petData.mascotaPeso} kg`;
       document.getElementById('inputActualizarPeso').value = petData.mascotaPeso;
 
-      // Scroll smoothly down to the interactive demo
       document.getElementById('ficha-medica').scrollIntoView({ behavior: 'smooth' });
-      alert(`¡Mascota ${petData.mascotaNombre} registrada con éxito! Te mostramos abajo su consumo calculado y Ficha Médica.`);
+      alert(`¡Mascota ${petData.mascotaNombre} registrada! Te mostramos abajo su Pasaporte Médico y cálculo de reposición.`);
     }
 
     function switchDashboardTab(tab) {
@@ -931,31 +1118,28 @@
       const contentFicha = document.getElementById('tabContentFicha');
 
       if (tab === 'piloto') {
-        btnPiloto.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs bg-brand-teal text-white shadow-sm transition";
-        btnFicha.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs text-slate-600 hover:text-slate-900 transition";
+        btnPiloto.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-pawly-charcoal text-white shadow-2xs transition";
+        btnFicha.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-pawly-earth hover:text-pawly-charcoal transition";
         contentPiloto.classList.remove('hidden');
         contentFicha.classList.add('hidden');
       } else {
-        btnFicha.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs bg-brand-teal text-white shadow-sm transition";
-        btnPiloto.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs text-slate-600 hover:text-slate-900 transition";
+        btnFicha.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-pawly-charcoal text-white shadow-2xs transition";
+        btnPiloto.className = "flex-1 md:flex-none py-2 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-pawly-earth hover:text-pawly-charcoal transition";
         contentFicha.classList.remove('hidden');
         contentPiloto.classList.add('hidden');
       }
     }
 
     function toggleLoginModal() {
-      const modal = document.getElementById('loginModal');
-      modal.classList.toggle('hidden');
+      document.getElementById('loginModal').classList.toggle('hidden');
     }
 
     function toggleUrgenciasModal() {
-      const modal = document.getElementById('urgenciasModal');
-      modal.classList.toggle('hidden');
+      document.getElementById('urgenciasModal').classList.toggle('hidden');
     }
 
     function toggleWhatsAppModal() {
-      const modal = document.getElementById('whatsappModal');
-      modal.classList.toggle('hidden');
+      document.getElementById('whatsappModal').classList.toggle('hidden');
     }
 
     function handleLoginSubmit(e) {
@@ -967,7 +1151,7 @@
     function demoLogin() {
       const modal = document.getElementById('loginModal');
       if (!modal.classList.contains('hidden')) modal.classList.add('hidden');
-      document.getElementById('navLoginBtn').innerHTML = "👤 Mi Cuenta (Lucas)";
+      document.getElementById('navLoginBtn').innerHTML = "👤 Pasaporte de Milo";
       switchDashboardTab('ficha');
       document.getElementById('ficha-medica').scrollIntoView({ behavior: 'smooth' });
     }
@@ -976,7 +1160,7 @@
       const input = document.getElementById('inputNuevoPesoHistorial');
       const val = parseFloat(input.value);
       if (!val || isNaN(val)) {
-        alert('Por favor ingresá un número de peso válido (ej: 14.3).');
+        alert('Por favor ingresá un valor de peso válido (ej: 14.2).');
         return;
       }
       input.value = '';
@@ -985,17 +1169,17 @@
       const nuevaRacion = Math.round(val * 22);
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td class="p-1.5 font-bold text-teal-800">Hoy (Registrado)</td>
-        <td class="p-1.5 font-bold text-slate-900">${val} kg</td>
-        <td class="p-1.5 font-semibold">${nuevaRacion}g/día</td>
-        <td class="p-1.5 text-emerald-600 font-bold">✓ Actualizado</td>
+        <td class="p-2 font-bold text-pawly-terracotta">Hoy (Asentado)</td>
+        <td class="p-2 font-bold text-pawly-charcoal">${val} kg</td>
+        <td class="p-2">${nuevaRacion}g/día</td>
+        <td class="p-2 text-pawly-sage font-bold">✓ Actualizado</td>
       `;
       tabla.insertBefore(tr, tabla.firstChild);
 
       petData.mascotaPeso = val;
       document.getElementById('fichaPesoActual').innerText = `${val} kg`;
       document.getElementById('dashPesoRegistrado').innerText = `${val} kg`;
-      alert(`¡Peso de ${val} kg registrado en la Ficha Médica! La ración de alimento se ajustó a ${nuevaRacion}g.`);
+      alert(`¡Control de ${val} kg registrado en el Pasaporte Médico! La ración se recalculó a ${nuevaRacion}g diarios.`);
     }
 
     function avisarGuardiaPorWhatsApp(hospitalNombre) {
@@ -1003,11 +1187,11 @@
       toggleWhatsAppModal();
       const chat = document.getElementById('chatMessages');
       const divBot = document.createElement('div');
-      divBot.className = "bg-rose-50 rounded-xl p-3 shadow-sm max-w-[92%] border border-rose-200 space-y-2 mt-2";
+      divBot.className = "bg-red-50 rounded-2xl p-3 shadow-2xs max-w-[92%] border border-red-200 space-y-1.5 mt-2";
       divBot.innerHTML = `
-        <p class="font-black text-rose-800 text-xs">🚨 ALERTA DE GUARDIA ENVIADA</p>
-        <p class="text-slate-800 text-xs">Avisamos a <strong>${hospitalNombre}</strong> que vas en camino con <strong>${petData.mascotaNombre}</strong>. Se adjuntó su Ficha Médica con vacunas y antecedentes clínicos.</p>
-        <p class="text-[11px] text-rose-700 font-bold">Mantené la calma y trasladalo con precaución 🚗</p>
+        <p class="font-bold text-pawly-alertRed text-xs uppercase tracking-wider">🚨 ALERTA DE GUARDIA TRANSMITIDA</p>
+        <p class="text-pawly-charcoal text-xs">Notificamos a <strong>${hospitalNombre}</strong> que te dirigís a la guardia con <strong>${petData.mascotaNombre}</strong>. Se transmitió su legajo de vacunas y antecedentes clínicos.</p>
+        <p class="text-[11px] text-red-700 font-semibold">Mantené la calma y trasladalo con precaución 🚗</p>
       `;
       chat.appendChild(divBot);
       chat.scrollTop = chat.scrollHeight;
@@ -1016,14 +1200,14 @@
     function responderWhatsApp(opcion) {
       const chat = document.getElementById('chatMessages');
       const divUser = document.createElement('div');
-      divUser.className = "bg-[#DCF8C6] rounded-xl p-2.5 shadow-sm max-w-[80%] ml-auto text-right border border-emerald-100";
-      divUser.innerHTML = `<p class="text-slate-800 font-semibold">${opcion}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
+      divUser.className = "bg-pawly-terracotta text-white rounded-2xl p-2.5 shadow-2xs max-w-[80%] ml-auto text-right text-xs";
+      divUser.innerHTML = `<p class="font-medium">${opcion}</p><span class="text-[9px] text-white/70">Ahora</span>`;
       chat.appendChild(divUser);
 
       setTimeout(() => {
         const divBot = document.createElement('div');
-        divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
-        divBot.innerHTML = `<p class="text-slate-800">✅ <strong>¡Confirmado por el Bot!</strong> Despacho programado con el distribuidor de Zona Sur. Recibirás el tracking por acá el día de la entrega.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+        divBot.className = "bg-white rounded-2xl p-3 shadow-2xs max-w-[85%] border border-pawly-taupeLight";
+        divBot.innerHTML = `<p class="text-pawly-charcoal text-xs">✅ <strong>¡Confirmado por el Concierge!</strong> Despacho coordinado con distribuidora oficial de Zona Sur. Recibirás el tracking por acá el día de la entrega.</p><span class="text-[9px] text-pawly-taupe block text-right mt-1">Ahora</span>`;
         chat.appendChild(divBot);
         chat.scrollTop = chat.scrollHeight;
       }, 700);
@@ -1039,8 +1223,8 @@
 
       const chat = document.getElementById('chatMessages');
       const divUser = document.createElement('div');
-      divUser.className = "bg-[#DCF8C6] rounded-xl p-2.5 shadow-sm max-w-[80%] ml-auto text-right border border-emerald-100";
-      divUser.innerHTML = `<p class="text-slate-800">${val}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
+      divUser.className = "bg-pawly-terracotta text-white rounded-2xl p-2.5 shadow-2xs max-w-[80%] ml-auto text-right text-xs";
+      divUser.innerHTML = `<p class="font-medium">${val}</p><span class="text-[9px] text-white/70">Ahora</span>`;
       chat.appendChild(divUser);
 
       if (val.toLowerCase().includes('urgencia') || val.toLowerCase().includes('emergencia')) {
@@ -1051,16 +1235,16 @@
       const num = parseFloat(val);
       setTimeout(() => {
         const divBot = document.createElement('div');
-        divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
+        divBot.className = "bg-white rounded-2xl p-3 shadow-2xs max-w-[85%] border border-pawly-taupeLight";
         if (!isNaN(num) && num > 1 && num < 100) {
           petData.mascotaPeso = num;
           document.getElementById('dashPesoRegistrado').innerText = `${num} kg`;
           document.getElementById('fichaPesoActual').innerText = `${num} kg`;
           document.getElementById('inputActualizarPeso').value = num;
           const nuevaRacion = Math.round(num * 22);
-          divBot.innerHTML = `<p class="text-slate-800">⚖️ <strong>¡Peso mensual registrado por el Bot!</strong> Actualizamos a <strong>${num} kg</strong>. La ración diaria de ${petData.mascotaNombre} se recalculó automáticamente a <strong>${nuevaRacion}g / día</strong>.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+          divBot.innerHTML = `<p class="text-pawly-charcoal text-xs">⚖️ <strong>¡Control asentado por el Concierge!</strong> Actualizamos el peso a <strong>${num} kg</strong>. La ración de ${petData.mascotaNombre} se recalculó a <strong>${nuevaRacion}g diarios</strong>.</p><span class="text-[9px] text-pawly-taupe block text-right mt-1">Ahora</span>`;
         } else {
-          divBot.innerHTML = `<p class="text-slate-800">🤖 <em>TeLoCuidamos Bot:</em> Para gestionar turnos o entregas, tocá los botones del menú o respondé con el peso mensual de tu mascota.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+          divBot.innerHTML = `<p class="text-pawly-charcoal text-xs">🤖 <em>TeLoCuidamos Concierge:</em> Para turnos o entregas, seleccioná una de las opciones sugeridas o respondé con el peso mensual de tu mascota.</p><span class="text-[9px] text-pawly-taupe block text-right mt-1">Ahora</span>`;
         }
         chat.appendChild(divBot);
         chat.scrollTop = chat.scrollHeight;
@@ -1076,7 +1260,7 @@
         document.getElementById('dashPesoRegistrado').innerText = `${peso} kg`;
         document.getElementById('fichaPesoActual').innerText = `${peso} kg`;
         const nuevaRacion = Math.round(peso * 22);
-        alert(`¡Peso actualizado a ${peso} kg! La ración diaria se recalculó automáticamente a ${nuevaRacion}g.`);
+        alert(`¡Peso actualizado a ${peso} kg! La ración diaria se recalculó a ${nuevaRacion}g.`);
       }
     }
 
@@ -1084,11 +1268,11 @@
       toggleWhatsAppModal();
       const chat = document.getElementById('chatMessages');
       const divBot = document.createElement('div');
-      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
+      divBot.className = "bg-white rounded-2xl p-3 shadow-2xs max-w-[90%] border border-pawly-taupeLight space-y-2 mt-2";
       divBot.innerHTML = `
-        <p class="font-bold text-teal-800">🩺 Turno Vacunación</p>
-        <p class="text-slate-700">Tenemos turno disponible en <strong>Veterinaria Dr. Rossi (${petData.tutorBarrio})</strong> este sábado a las 11:00 hs para la Séxtuple de ${petData.mascotaNombre}.</p>
-        <button onclick="responderWhatsApp('Confirmar turno Sábado 11:00 hs')" class="w-full py-1.5 px-2 bg-teal-50 text-teal-800 font-bold rounded-lg text-center border border-teal-200 hover:bg-teal-100 transition text-xs">
+        <p class="font-bold text-pawly-sage text-xs">🩺 Turno Vacunación Anual</p>
+        <p class="text-pawly-charcoal text-xs">Tenemos turno en <strong>Veterinaria Dr. Rossi (${petData.tutorBarrio})</strong> este sábado a las 11:00 hs para la Séxtuple de ${petData.mascotaNombre}.</p>
+        <button onclick="responderWhatsApp('Confirmar turno Sábado 11:00 hs')" class="w-full py-1.5 px-2 bg-pawly-sageLight text-pawly-sageDark font-bold rounded-lg text-center border border-pawly-sage/30 hover:bg-pawly-sageLight/80 transition text-xs">
           🔘 Confirmar turno Sábado 11:00 hs
         </button>
       `;
