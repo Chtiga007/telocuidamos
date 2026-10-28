@@ -2,7 +2,11 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF8F5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
   <title>Ser Proveedor Oficial • TeLoCuidamos.com | Lanús y Avellaneda</title>
   
   <!-- Tailwind CSS CDN -->
@@ -54,10 +58,30 @@
   </script>
 
   <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sar: env(safe-area-inset-right, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+    }
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
     body {
       background-color: #FAF8F5;
       color: #0F172A;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (max-width: 640px) {
+      input, select, textarea {
+        font-size: 16px !important; /* Evita auto-zoom en iOS Safari */
+      }
     }
 
     .custom-dropdown-menu {
@@ -105,17 +129,17 @@
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
   </div>
 
-  <!-- ==================== NAVBAR ==================== -->
+  <!-- ==================== NAVBAR RESPONSIVE (MÓVIL, TABLET Y PC) ==================== -->
   <header class="bg-canvasIvory/95 backdrop-blur-md sticky top-0 z-50 shadow-xs">
-    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
+    <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
       
       <!-- LOGO CON ENLACE AL HOME -->
-      <a href="index.html" class="flex items-center group focus:outline-none" title="Volver al inicio">
-        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
+      <a href="index.html" class="flex items-center group focus:outline-none shrink-0" title="Volver al inicio">
+        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-9 sm:h-11 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
       </a>
 
-      <!-- ENLACES DE NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-7 text-[13px] font-bold text-slate-600">
+      <!-- ENLACES DE NAVEGACIÓN (DESKTOP & TABLET HORIZONTAL) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-bold text-slate-600">
         <a href="index.html#como-funciona" class="hover:text-brandTeal transition">Cómo Funciona</a>
         <a href="index.html#servicios" class="hover:text-brandTeal transition">Servicios</a>
         <a href="index.html#faq" class="hover:text-brandTeal transition">Preguntas Frecuentes</a>
@@ -125,20 +149,61 @@
         </a>
       </nav>
 
-      <!-- ACCIONES: BOTÓN CLÍNICO + VOLVER AL HOME / PEDIR CUIDADO -->
-      <div class="flex items-center gap-3">
-        <button onclick="toggleModal('modalUrgencias')" class="btn-clinical-urgent px-4 py-2 flex items-center gap-2">
+      <!-- ACCIONES: BOTÓN CLÍNICO + VOLVER AL HOME / PEDIR CUIDADO + HAMBURGUESA MÓVIL -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="toggleModal('modalUrgencias')" class="btn-clinical-urgent px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
           <span class="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
-          <span class="font-extrabold">Guardia 24hs</span>
-          <span class="text-rose-400 text-[10px] hidden sm:inline">• Abierta</span>
+          <span class="font-extrabold whitespace-nowrap">Guardia 24hs</span>
+          <span class="text-rose-400 text-[10px] hidden lg:inline">• Abierta</span>
         </button>
 
-        <a href="index.html" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal flex items-center gap-1.5">
+        <a href="index.html" class="hidden sm:inline-flex px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal items-center gap-1.5 whitespace-nowrap">
           <span>Portal Tutores</span>
           <span>→</span>
         </a>
+
+        <!-- BOTÓN HAMBURGUESA PARA CELULARES (ANDROID & IOS) -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95" aria-label="Abrir menú">
+          <svg id="menuIconBars" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
 
+    </div>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE CON ANIMACIÓN -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-xl px-5 py-4 space-y-3">
+      <nav class="flex flex-col gap-1.5 font-bold text-sm text-slate-700">
+        <a href="index.html#como-funciona" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Cómo Funciona</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="index.html#servicios" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Servicios</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="index.html#faq" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Preguntas Frecuentes</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="proveedores.html" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl bg-teal-50 text-brandTeal transition flex items-center justify-between">
+          <span>Portal de Proveedores</span>
+          <span class="text-xs text-brandTeal font-bold">•</span>
+        </a>
+      </nav>
+      <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+        <a href="index.html" class="w-full py-3 rounded-full bg-brandTeal text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-btn-teal flex items-center justify-center gap-1.5">
+          <span>Ir a Portal Tutores</span>
+          <span>→</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -303,38 +368,38 @@
                   <div class="relative custom-dropdown" data-id="provServicio">
                     <input type="hidden" id="provServicio" name="provServicio" value="Grooming & Estética Spa (Sin Jaulas)" required>
                     <button type="button" onclick="toggleCustomDropdown('provServicioDropdown')" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-semibold text-slate-700 flex items-center justify-between group hover:border-brandTeal">
-                      <span id="provServicioLabel" class="truncate font-bold text-slate-800">🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                      <span id="provServicioLabel" class="truncate font-bold text-slate-800">Grooming & Estética Spa (Sin Jaulas)</span>
                       <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 group-hover:bg-brandTeal-light group-hover:text-brandTeal flex items-center justify-center text-[10px] transition-transform duration-200 shrink-0 ml-2">
                         ▼
                       </span>
                     </button>
                     <div id="provServicioDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2.5 rounded-[28px] bg-white/95 backdrop-blur-md shadow-2xl border border-teal-100/90 space-y-1">
-                      <div onclick="selectDropdownOption('provServicio', 'Grooming & Estética Spa (Sin Jaulas)', '🛁 Grooming & Estética Spa (Sin Jaulas)')" data-value="Grooming & Estética Spa (Sin Jaulas)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Grooming & Estética Spa (Sin Jaulas)', 'Grooming & Estética Spa (Sin Jaulas)')" data-value="Grooming & Estética Spa (Sin Jaulas)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Grooming & Estética Spa (Sin Jaulas)</span>
                         <span class="text-brandTeal checkmark">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Consultorio o Clínica Veterinaria', '🩺 Consultorio o Clínica Veterinaria Aliada')" data-value="Consultorio o Clínica Veterinaria" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🩺 Consultorio o Clínica Veterinaria Aliada</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Consultorio o Clínica Veterinaria', 'Consultorio o Clínica Veterinaria Aliada')" data-value="Consultorio o Clínica Veterinaria" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Consultorio o Clínica Veterinaria Aliada</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Paseador de Perros (Grupos reducidos)', '🦮 Paseador de Perros (Grupos reducidos)')" data-value="Paseador de Perros (Grupos reducidos)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🦮 Paseador de Perros (Grupos reducidos)</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Paseador de Perros (Grupos reducidos)', 'Paseador de Perros (Grupos reducidos)')" data-value="Paseador de Perros (Grupos reducidos)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Paseador de Perros (Grupos reducidos)</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Cuidado Hogareño / Hospedaje en Sillón', '🛋️ Cuidado Hogareño / Hospedaje Familiar')" data-value="Cuidado Hogareño / Hospedaje en Sillón" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🛋️ Cuidado Hogareño / Hospedaje Familiar</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Cuidado Hogareño / Hospedaje en Sillón', 'Cuidado Hogareño / Hospedaje Familiar')" data-value="Cuidado Hogareño / Hospedaje en Sillón" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Cuidado Hogareño / Hospedaje Familiar</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Pet Shop / Distribución de Alimento', '🥣 Pet Shop / Distribución de Alimento')" data-value="Pet Shop / Distribución de Alimento" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🥣 Pet Shop / Distribución de Alimento</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Pet Shop / Distribución de Alimento', 'Pet Shop / Distribución de Alimento')" data-value="Pet Shop / Distribución de Alimento" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Pet Shop / Distribución de Alimento</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Adiestramiento / Etología Positiva', '🎾 Adiestramiento / Modificación de Conducta')" data-value="Adiestramiento / Etología Positiva" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🎾 Adiestramiento / Modificación de Conducta</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Adiestramiento / Etología Positiva', 'Adiestramiento / Modificación de Conducta')" data-value="Adiestramiento / Etología Positiva" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Adiestramiento / Modificación de Conducta</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
-                      <div onclick="selectDropdownOption('provServicio', 'Otro Servicio para Mascotas', '🐾 Otro servicio especializado')" data-value="Otro Servicio para Mascotas" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
-                        <span>🐾 Otro servicio especializado</span>
+                      <div onclick="selectDropdownOption('provServicio', 'Otro Servicio para Mascotas', 'Otro servicio especializado')" data-value="Otro Servicio para Mascotas" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Otro servicio especializado</span>
                         <span class="text-brandTeal checkmark hidden">✓</span>
                       </div>
                     </div>
@@ -475,16 +540,16 @@
   </main>
 
   <!-- ==================== FOOTER (CON 3 AVATARES 3D PIXAR ALINEADOS A LA IZQUIERDA) ==================== -->
-  <footer class="relative mt-32 sm:mt-36 pt-28 sm:pt-36 lg:pt-40 bg-[#0088CC] text-white overflow-visible">
+  <footer class="relative mt-28 sm:mt-36 md:mt-40 pt-72 sm:pt-64 md:pt-48 lg:pt-40 bg-[#0088CC] text-white overflow-visible">
     
-    <!-- TIRA SUPERIOR CON 3 MASCOTAS ALINEADAS A LA IZQUIERDA -->
-    <div class="absolute -top-16 sm:-top-24 inset-x-0 max-w-[1060px] mx-auto px-4 z-20">
-      <div class="rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/95 bg-[#FBF8F3] transition-transform duration-300 hover:scale-[1.01]">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 p-4 sm:p-5 md:p-6">
+    <!-- TIRA SUPERIOR CON 3 MASCOTAS ALINEADAS A LA IZQUIERDA (RESPONSIVE) -->
+    <div class="absolute -top-20 sm:-top-24 inset-x-0 max-w-[1060px] mx-auto px-4 z-20">
+      <div class="rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/95 bg-[#FBF8F3] transition-transform duration-300 hover:scale-[1.01]">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 p-4 sm:p-5 md:p-6">
           
           <!-- 3 MASCOTAS ALINEADAS A LA IZQUIERDA (+30% MÁS GRANDES) -->
           <div class="flex items-center gap-4 flex-shrink-0">
-            <div class="h-36 sm:h-44 md:h-52 rounded-[28px] overflow-hidden shadow-md border-2 border-white bg-[#F5ECE1]">
+            <div class="h-32 sm:h-36 md:h-44 lg:h-52 rounded-[22px] sm:rounded-[28px] overflow-hidden shadow-md border-2 border-white bg-[#F5ECE1]">
               <img src="../assets/pixar_footer_3pets.jpg" alt="Equipo de Prestadores TeLoCuidamos" class="h-full w-auto object-contain">
             </div>
           </div>
@@ -601,12 +666,12 @@
 
   </footer>
 
-  <!-- ==================== BOTÓN FLOTANTE WHATSAPP ==================== -->
-  <div class="fixed bottom-6 right-6 z-40">
-    <button onclick="toggleModal('modalWhatsApp')" class="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-sm tracking-wide" title="Contactanos por WhatsApp">
-      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp Oficial" class="w-6 h-6">
+  <!-- ==================== BOTÓN FLOTANTE WHATSAPP (RESPONSIVE CON SAFE AREA) ==================== -->
+  <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40" style="bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));">
+    <button onclick="toggleModal('modalWhatsApp')" class="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-xs sm:text-sm tracking-wide" title="Contactanos por WhatsApp">
+      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp Oficial" class="w-5 sm:w-6 h-5 sm:h-6">
       <span>Contactanos</span>
-      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
+      <span class="absolute -top-1 -right-1 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
     </button>
   </div>
 
@@ -691,7 +756,7 @@
 
       <div class="flex-1 p-4 bg-[#ECE5DD] overflow-y-auto space-y-3 text-xs">
         <div class="bg-white p-3.5 rounded-2xl rounded-tl-none shadow-xs max-w-[85%] text-slate-800 leading-relaxed">
-          ¡Hola! 👋 Si sos veterinario, peluquero, paseador o pet shop en Lanús y Avellaneda, escribinos acá tus dudas o completá el formulario de la página para que te contactemos de inmediato.
+          ¡Hola! Si sos veterinario, peluquero, paseador o pet shop en Lanús y Avellaneda, escribinos acá tus dudas o completá el formulario de la página para que te contactemos de inmediato.
         </div>
       </div>
 
@@ -704,6 +769,23 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const bars = document.getElementById('menuIconBars');
+      const close = document.getElementById('menuIconClose');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (bars) bars.classList.add('hidden');
+        if (close) close.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        if (bars) bars.classList.remove('hidden');
+        if (close) close.classList.add('hidden');
+      }
+    }
+
     function toggleModal(modalId) {
       const modal = document.getElementById(modalId);
       if (modal) modal.classList.toggle('hidden');

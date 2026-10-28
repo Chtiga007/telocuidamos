@@ -2,7 +2,11 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF8F5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
   <title>TeLoCuidamos.com — Cuidado de Mascotas en Piloto Automático | Lanús y Avellaneda</title>
   
   <!-- Tipografía: Plus Jakarta Sans & Fraunces (Editorial Rover Style) -->
@@ -54,12 +58,31 @@
   </script>
   
   <style>
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sar: env(safe-area-inset-right, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+    }
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
     body {
       background-color: #FAF8F5;
       color: #1E293B;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow-x: hidden;
       letter-spacing: -0.018em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (max-width: 640px) {
+      input, select, textarea {
+        font-size: 16px !important; /* Evita auto-zoom molesto en iOS Safari */
+      }
     }
 
     /* Tipografía Editorial Cálida para Titulares Humanizados (Estilo Rover/Dribbble) */
@@ -224,40 +247,80 @@
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
   </div>
 
-  <!-- ==================== NAVBAR CON LOGO ORIGINAL Y BOTÓN CLÍNICO SOBRIO ==================== -->
+  <!-- ==================== NAVBAR RESPONSIVE (MÓVIL, TABLET Y PC) ==================== -->
   <header class="bg-canvasIvory/95 backdrop-blur-md sticky top-0 z-50 shadow-xs">
-    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
+    <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
       
       <!-- LOGO OFICIAL ORIGINAL (RECORTADO SIN RECUADRO Y CON ALTA VISIBILIDAD) -->
-      <a href="#hero" class="flex items-center group focus:outline-none">
-        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-11 sm:h-12 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
+      <a href="#hero" class="flex items-center group focus:outline-none shrink-0">
+        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-9 sm:h-11 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
       </a>
 
-      <!-- ENLACES DE NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-7 text-[13px] font-bold text-slate-600">
+      <!-- ENLACES DE NAVEGACIÓN (DESKTOP & TABLET HORIZONTAL) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-bold text-slate-600">
         <a href="#como-funciona" class="hover:text-brandTeal transition">Cómo Funciona</a>
         <a href="#servicios" class="hover:text-brandTeal transition">Servicios</a>
         <a href="#faq" class="hover:text-brandTeal transition">Preguntas Frecuentes</a>
         <a href="proveedores.html" class="hover:text-brandTeal transition">Proveedores</a>
       </nav>
 
-      <!-- ACCIONES: BOTÓN CLÍNICO PROFESIONAL + PEDIR CUIDADO -->
-      <div class="flex items-center gap-3">
+      <!-- ACCIONES: BOTÓN CLÍNICO + PEDIR CUIDADO + HAMBURGUESA MÓVIL -->
+      <div class="flex items-center gap-2 sm:gap-3">
         
-        <!-- BOTÓN URGENCIAS CLÍNICO PROFESIONAL (REDISEÑADO CON SERIEDAD Y ELEGANCIA) -->
-        <button onclick="toggleModal('modalUrgencias')" class="btn-clinical-urgent px-4 py-2 flex items-center gap-2">
+        <!-- BOTÓN URGENCIAS CLÍNICO PROFESIONAL -->
+        <button onclick="toggleModal('modalUrgencias')" class="btn-clinical-urgent px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
           <span class="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></span>
-          <span class="font-extrabold">Guardia 24hs</span>
-          <span class="text-rose-400 text-[10px] hidden sm:inline">• Abierta</span>
+          <span class="font-extrabold whitespace-nowrap">Guardia 24hs</span>
+          <span class="text-rose-400 text-[10px] hidden lg:inline">• Abierta</span>
         </button>
 
-        <!-- BOTÓN PRINCIPAL TEAL -->
-        <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal">
+        <!-- BOTÓN PRINCIPAL TEAL (TABLET Y DESKTOP) -->
+        <button onclick="toggleModal('modalOnboarding')" class="hidden sm:inline-flex px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal whitespace-nowrap">
           Pedir Cuidado →
+        </button>
+
+        <!-- BOTÓN HAMBURGUESA PARA CELULARES (ANDROID & IOS) -->
+        <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition active:scale-95" aria-label="Abrir menú">
+          <svg id="menuIconBars" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
 
       </div>
 
+    </div>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE CON ANIMACIÓN -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-xl px-5 py-4 space-y-3">
+      <nav class="flex flex-col gap-1.5 font-bold text-sm text-slate-700">
+        <a href="#como-funciona" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Cómo Funciona</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="#servicios" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Servicios</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="#faq" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between">
+          <span>Preguntas Frecuentes</span>
+          <span class="text-xs text-slate-400">→</span>
+        </a>
+        <a href="proveedores.html" onclick="toggleMobileMenu()" class="px-3.5 py-2 rounded-xl hover:bg-teal-50 hover:text-brandTeal transition flex items-center justify-between text-brandCoral">
+          <span>Portal de Proveedores</span>
+          <span class="text-xs text-brandCoral">→</span>
+        </a>
+      </nav>
+      <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
+        <button onclick="toggleMobileMenu(); toggleModal('modalOnboarding')" class="w-full py-3 rounded-full bg-brandTeal text-white font-extrabold text-xs uppercase tracking-wider text-center shadow-btn-teal">
+          Pedir Cuidado →
+        </button>
+      </div>
     </div>
   </header>
 
@@ -265,12 +328,12 @@
   <main class="w-full">
 
     <!-- ==================== SECCIÓN 1: HERO (FONDO MARFIL CÁLIDO #FAF8F5) ==================== -->
-    <section id="hero" class="relative max-w-[1360px] mx-auto px-6 lg:px-12 pt-8 pb-16 lg:pt-14 lg:pb-24">
+    <section id="hero" class="relative max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-6 sm:pt-8 pb-12 sm:pb-16 lg:pt-14 lg:pb-24">
       
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr_1fr] gap-8 lg:gap-10 items-center">
         
         <!-- COLUMNA 1: TITULAR, VALOR Y ACCIÓN (SIMÉTRICA Y ALINEADA) -->
-        <div class="flex flex-col justify-center text-left space-y-5 max-w-[420px] mx-auto lg:mx-0">
+        <div class="flex flex-col justify-center text-left space-y-4 sm:space-y-5 max-w-[420px] mx-auto lg:mx-0 w-full">
 
           <!-- BLOQUE SUPERIOR DE TEXTO -->
           <div class="space-y-3.5">
@@ -285,9 +348,9 @@
 
           <!-- BLOQUE DE CONVERSIÓN Y BENEFICIOS -->
           <div class="space-y-3.5 pt-1">
-            <div class="flex items-center gap-3">
-              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-7 py-3.5 flex items-center gap-2.5 shadow-btn-coral">
-                <span class="w-6 h-6 rounded-full bg-brandCoral/15 flex items-center justify-center shrink-0">
+            <div class="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
+              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill flex-1 sm:flex-initial px-5 sm:px-7 py-3 sm:py-3.5 flex items-center justify-center gap-2 sm:gap-2.5 shadow-btn-coral text-[11px] sm:text-xs">
+                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brandCoral/15 flex items-center justify-center shrink-0">
                   <svg class="w-3.5 h-3.5 fill-current text-brandCoral" viewBox="0 0 24 24">
                     <ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/>
                     <circle cx="6.5" cy="9.5" r="2.2"/>
@@ -296,9 +359,9 @@
                     <circle cx="17.5" cy="9.5" r="2.2"/>
                   </svg>
                 </span>
-                <span>SIMPLIFICARME EL CUIDADO</span>
+                <span class="truncate">SIMPLIFICARME EL CUIDADO</span>
               </button>
-              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-arrow w-12 h-12 flex items-center justify-center text-lg font-bold shadow-btn-coral">
+              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-arrow w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center text-base sm:text-lg font-bold shadow-btn-coral shrink-0">
                 ↗
               </button>
             </div>
@@ -318,15 +381,15 @@
 
         </div>
 
-        <!-- COLUMNA 2: FIGURA PRINCIPAL 3D PIXAR (TAMAÑO +30% CON MAYOR RELEVANCIA Y PRESENCIA) -->
-        <div class="flex flex-col items-center justify-center relative select-none py-2 z-20">
-          <div class="w-full max-w-[480px] lg:max-w-[550px] relative transition-transform duration-500 hover:scale-[1.04] animate-float-3d flex items-center justify-center">
-            <img src="../assets/pixar_hero_pets_cutout.png" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto max-h-[520px] object-contain filter drop-shadow-2xl">
+        <!-- COLUMNA 2: FIGURA PRINCIPAL 3D PIXAR (RESPONSIVE MÓVIL, TABLET Y PC) -->
+        <div class="flex flex-col items-center justify-center relative select-none py-2 z-20 w-full">
+          <div class="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[550px] relative transition-transform duration-500 hover:scale-[1.04] animate-float-3d flex items-center justify-center">
+            <img src="../assets/pixar_hero_pets_cutout.png" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto max-h-[340px] sm:max-h-[440px] lg:max-h-[520px] object-contain filter drop-shadow-2xl">
           </div>
         </div>
 
-        <!-- COLUMNA 3: TARJETAS DE SERVICIOS 3D PIXAR (SIMÉTRICAS EN TAMAÑO Y PROPORCIÓN) -->
-        <div class="flex flex-col justify-center gap-4 w-full max-w-[360px] mx-auto lg:mx-0">
+        <!-- COLUMNA 3: TARJETAS DE SERVICIOS 3D PIXAR (RESPONSIVE: VERTICAL EN MÓVIL/PC, HORIZONTAL EN TABLET) -->
+        <div class="flex flex-col sm:flex-row lg:flex-col justify-center gap-4 w-full max-w-md sm:max-w-2xl lg:max-w-[360px] mx-auto lg:mx-0">
           
           <!-- TARJETA 3D GROOMING PIXAR (ALTO EXACTO SIMÉTRICO) -->
           <div onclick="toggleModal('modalOnboarding')" class="h-[195px] w-full elevated-card rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border/80 bg-white flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
@@ -388,8 +451,8 @@
 
           <!-- PASO 1: SEARCH / ARMA EL PERFIL (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- AVATAR CIRCULAR PIXAR 3D (+30% MÁS GRANDE) -->
-            <div class="w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <!-- AVATAR CIRCULAR PIXAR 3D (RESPONSIVE MÓVIL, TABLET Y PC) -->
+            <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-48 md:h-48 lg:w-60 lg:h-60 xl:w-72 xl:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <img src="../assets/pixar_step1_search.jpg" alt="Paso 1: Armá el perfil 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
@@ -409,8 +472,8 @@
 
           <!-- PASO 2: ASIGNACIÓN Y COORDINACIÓN PERSONALIZADA (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- AVATAR CIRCULAR PIXAR 3D (+30% MÁS GRANDE) -->
-            <div class="w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <!-- AVATAR CIRCULAR PIXAR 3D (RESPONSIVE MÓVIL, TABLET Y PC) -->
+            <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-48 md:h-48 lg:w-60 lg:h-60 xl:w-72 xl:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <img src="../assets/pixar_step2_meet.jpg" alt="Paso 2: Coordinación personalizada 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
@@ -430,8 +493,8 @@
 
           <!-- PASO 3: BOOK & PAY / PILOTO AUTOMÁTICO (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- AVATAR CIRCULAR PIXAR 3D (+30% MÁS GRANDE) -->
-            <div class="w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+            <!-- AVATAR CIRCULAR PIXAR 3D (RESPONSIVE MÓVIL, TABLET Y PC) -->
+            <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-48 md:h-48 lg:w-60 lg:h-60 xl:w-72 xl:h-72 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <img src="../assets/pixar_step3_celebrate.jpg" alt="Paso 3: Cuidado y tranquilidad 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
@@ -741,7 +804,7 @@
 
               <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-xs space-y-3">
                 <div class="flex justify-between items-center border-b pb-2 font-bold">
-                  <span class="uppercase text-[10px] text-slate-400">⚖️ Cómo viene su Peso</span>
+                  <span class="uppercase text-[10px] text-slate-400">Cómo viene su Peso</span>
                   <span class="text-[10px] text-brandNavy font-bold" id="fichaPesoActual">14.0 kg</span>
                 </div>
                 <table class="w-full text-left text-[11px]">
@@ -914,16 +977,16 @@
   </main>
 
   <!-- ==================== FOOTER ESTILO BRINGFIDO (CON 3 AVATARES 3D PIXAR ALINEADOS A LA IZQUIERDA) ==================== -->
-  <footer class="relative mt-32 sm:mt-36 pt-28 sm:pt-36 lg:pt-40 bg-[#0088CC] text-white overflow-visible">
+  <footer class="relative mt-28 sm:mt-36 md:mt-40 pt-72 sm:pt-64 md:pt-48 lg:pt-40 bg-[#0088CC] text-white overflow-visible">
     
-    <!-- TIRA SUPERIOR CON 3 MASCOTAS ALINEADAS A LA IZQUIERDA -->
-    <div class="absolute -top-16 sm:-top-24 inset-x-0 max-w-[1060px] mx-auto px-4 z-20">
-      <div class="rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/95 bg-[#FBF8F3] transition-transform duration-300 hover:scale-[1.01]">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 p-4 sm:p-5 md:p-6">
+    <!-- TIRA SUPERIOR CON 3 MASCOTAS ALINEADAS A LA IZQUIERDA (RESPONSIVE) -->
+    <div class="absolute -top-20 sm:-top-24 inset-x-0 max-w-[1060px] mx-auto px-4 z-20">
+      <div class="rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/95 bg-[#FBF8F3] transition-transform duration-300 hover:scale-[1.01]">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 p-4 sm:p-5 md:p-6">
           
           <!-- 3 MASCOTAS ALINEADAS A LA IZQUIERDA (+30% MÁS GRANDES) -->
           <div class="flex items-center gap-4 flex-shrink-0">
-            <div class="h-36 sm:h-44 md:h-52 rounded-[28px] overflow-hidden shadow-md border-2 border-white bg-[#F5ECE1]">
+            <div class="h-32 sm:h-36 md:h-44 lg:h-52 rounded-[22px] sm:rounded-[28px] overflow-hidden shadow-md border-2 border-white bg-[#F5ECE1]">
               <img src="../assets/pixar_footer_3pets.jpg" alt="Equipo de Atención Barrial TeLoCuidamos" class="h-full w-auto object-contain">
             </div>
           </div>
@@ -1046,12 +1109,12 @@
 
   </footer>
 
-  <!-- ==================== BOTÓN FLOTANTE OFICIAL DE WHATSAPP ==================== -->
-  <div class="fixed bottom-6 right-6 z-40">
-    <button onclick="toggleModal('modalWhatsApp')" class="flex items-center gap-2.5 px-5 py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-sm tracking-wide" title="Contactanos por WhatsApp">
-      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-6 h-6">
+  <!-- ==================== BOTÓN FLOTANTE OFICIAL DE WHATSAPP (RESPONSIVE CON SAFE AREA) ==================== -->
+  <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40" style="bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));">
+    <button onclick="toggleModal('modalWhatsApp')" class="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-xs sm:text-sm tracking-wide" title="Contactanos por WhatsApp">
+      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-5 sm:w-6 h-5 sm:h-6">
       <span>Contactanos</span>
-      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
+      <span class="absolute -top-1 -right-1 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
     </button>
   </div>
 
@@ -1126,24 +1189,24 @@
             <div class="relative custom-dropdown" data-id="servicioDeseado">
               <input type="hidden" id="servicioDeseado" name="servicioDeseado" value="Grooming">
               <button type="button" onclick="toggleCustomDropdown('servicioDeseadoDropdown')" class="w-full px-4 py-3 text-xs rounded-full border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal font-bold text-slate-800 flex items-center justify-between group">
-                <span id="servicioDeseadoLabel" class="truncate">🛁 Baño & Estética Sin Jaulas</span>
+                <span id="servicioDeseadoLabel" class="truncate">Baño & Estética Sin Jaulas</span>
                 <span class="text-[10px] text-slate-400 group-hover:text-brandTeal ml-1">▼</span>
               </button>
               <div id="servicioDeseadoDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2 rounded-2xl bg-white shadow-xl border border-teal-100/90 space-y-1">
-                <div onclick="selectDropdownOption('servicioDeseado', 'Grooming', '🛁 Baño & Estética Sin Jaulas')" data-value="Grooming" class="dropdown-item px-3 py-2 rounded-xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer flex items-center justify-between">
-                  <span>🛁 Baño & Estética Sin Jaulas</span>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Grooming', 'Baño & Estética Sin Jaulas')" data-value="Grooming" class="dropdown-item px-3 py-2 rounded-xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer flex items-center justify-between">
+                  <span>Baño & Estética Sin Jaulas</span>
                   <span class="text-brandTeal checkmark">✓</span>
                 </div>
-                <div onclick="selectDropdownOption('servicioDeseado', 'Alimento', '🥣 Alimento en Piloto Automático')" data-value="Alimento" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
-                  <span>🥣 Alimento en Piloto Automático</span>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Alimento', 'Alimento en Piloto Automático')" data-value="Alimento" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Alimento en Piloto Automático</span>
                   <span class="text-brandTeal checkmark hidden">✓</span>
                 </div>
-                <div onclick="selectDropdownOption('servicioDeseado', 'Paseos', '🦮 Paseos en Grupos Reducidos')" data-value="Paseos" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
-                  <span>🦮 Paseos en Grupos Reducidos</span>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Paseos', 'Paseos en Grupos Reducidos')" data-value="Paseos" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Paseos en Grupos Reducidos</span>
                   <span class="text-brandTeal checkmark hidden">✓</span>
                 </div>
-                <div onclick="selectDropdownOption('servicioDeseado', 'Hospedaje', '🛋️ Hospedaje Familiar en Sillón')" data-value="Hospedaje" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
-                  <span>🛋️ Hospedaje Familiar en Sillón</span>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Hospedaje', 'Hospedaje Familiar en Sillón')" data-value="Hospedaje" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Hospedaje Familiar en Sillón</span>
                   <span class="text-brandTeal checkmark hidden">✓</span>
                 </div>
               </div>
@@ -1184,7 +1247,7 @@
       <div class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
         
         <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 space-y-1">
-          <p class="font-bold text-[11px] uppercase tracking-wider text-rose-900">⚠️ Recomendaciones clínicas previas:</p>
+          <p class="font-bold text-[11px] uppercase tracking-wider text-rose-900">Recomendaciones clínicas previas:</p>
           <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-rose-900/90">
             <li>No suministrar medicamentos humanos (paracetamol o ibuprofeno son mortales).</li>
             <li>Llamar a la guardia antes de subirte al auto para que preparen quirófano u oxígeno.</li>
@@ -1273,7 +1336,7 @@
       <!-- CHAT CON FONDO SUAVE TIPO WHATSAPP -->
       <div id="chatMessages" class="flex-1 bg-[#EFEAE2] p-4 overflow-y-auto space-y-3 text-xs" style="background-image: radial-gradient(#d1c7b7 0.75px, transparent 0.75px); background-size: 16px 16px;">
         <div class="bg-white rounded-2xl rounded-tl-sm p-3.5 shadow-xs border border-slate-200/60 max-w-[85%] space-y-1">
-          <p class="font-bold text-[#075E54]">¡Hola Lucas! 👋</p>
+          <p class="font-bold text-[#075E54]">¡Hola Lucas!</p>
           <p class="text-slate-700 leading-relaxed">El pasaporte de <strong>Milo</strong> está activo. Te avisaremos 4 días antes de que se acabe su alimento o cuando corresponda el turno de Grooming en Lanús Oeste.</p>
           <span class="text-[9px] text-slate-400 block text-right pt-0.5">16:45 ✓✓</span>
         </div>
@@ -1292,6 +1355,23 @@
 
   <!-- ==================== JAVASCRIPT ==================== -->
   <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const bars = document.getElementById('menuIconBars');
+      const close = document.getElementById('menuIconClose');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (bars) bars.classList.add('hidden');
+        if (close) close.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        if (bars) bars.classList.remove('hidden');
+        if (close) close.classList.add('hidden');
+      }
+    }
+
     function toggleModal(id) {
       const modal = document.getElementById(id);
       if (modal) modal.classList.toggle('hidden');
@@ -1426,7 +1506,7 @@
       setTimeout(() => {
         const divB = document.createElement('div');
         divB.className = "bg-white rounded-2xl p-2.5 max-w-[85%] border border-slate-200";
-        divB.innerText = "Recibido. Un asesor de Zona Sur te responderá a la brevedad 🐾";
+        divB.innerText = "Recibido. Un asesor de Zona Sur te responderá a la brevedad.";
         chat.appendChild(divB);
         chat.scrollTop = chat.scrollHeight;
       }, 500);
