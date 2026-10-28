@@ -188,6 +188,23 @@
       display: none;
     }
 
+    /* Dropdown personalizado 100% redondeado estilo Claymorphism (Sin líneas ni cuadrados) */
+    .custom-dropdown-menu {
+      border-radius: 28px;
+      box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.22), 0 10px 25px -5px rgba(13, 148, 136, 0.12);
+      max-height: 290px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #0D9488 transparent;
+    }
+    .custom-dropdown-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-dropdown-menu::-webkit-scrollbar-thumb {
+      background-color: #99F6E4;
+      border-radius: 9999px;
+    }
+
     @media print {
       body * { visibility: hidden; }
       #tabContentFicha, #tabContentFicha * { visibility: visible; }
@@ -198,14 +215,14 @@
 <body class="selection:bg-brandTeal-light selection:text-brandTeal">
 
   <!-- ==================== TOP BANNER HYPERLOCAL ==================== -->
-  <div class="bg-brandTeal-light border-b border-brandTeal-border text-brandTeal text-[11px] py-2 px-4 text-center font-bold tracking-wider flex items-center justify-center gap-2.5">
+  <div class="bg-brandTeal-light text-brandTeal text-[11px] py-2 px-4 text-center font-bold tracking-wider flex items-center justify-center gap-2.5">
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
     <span>🐾 Exclusivo Lanús y Avellaneda • Primer despacho con Kit de Bienvenida artesanal incluido sin cargo</span>
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
   </div>
 
   <!-- ==================== NAVBAR CON LOGO ORIGINAL Y BOTÓN CLÍNICO SOBRIO ==================== -->
-  <header class="bg-canvasIvory/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80 shadow-xs">
+  <header class="bg-canvasIvory/95 backdrop-blur-md sticky top-0 z-50 shadow-xs">
     <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
       
       <!-- LOGO OFICIAL ORIGINAL (RECORTADO SIN RECUADRO Y CON ALTA VISIBILIDAD) -->
@@ -311,28 +328,28 @@
         <div class="flex flex-col justify-center gap-5 h-full">
           
           <!-- TARJETA 3D GROOMING PIXAR (50% ALTURA) -->
-          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border bg-white flex flex-col justify-between group">
+          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[28px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border bg-white flex flex-col justify-between group">
             <div class="relative overflow-hidden flex-1 min-h-[140px] bg-teal-50/30">
               <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandTeal/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm z-10">
                 Spa 1 a 1
               </span>
               <img src="../assets/pixar_card_grooming.jpg" alt="Grooming Spa 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
             </div>
-            <div class="p-3.5 bg-white text-left border-t border-slate-100/80">
+            <div class="p-4 bg-white text-left">
               <h4 class="text-xs font-black text-brandNavy">Grooming sin Jaulas</h4>
               <p class="text-[11px] text-slate-500">Baño tibio y cosmética natural vegana</p>
             </div>
           </div>
 
           <!-- TARJETA 3D NUTRICIÓN PIXAR (50% ALTURA) -->
-          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border bg-white flex flex-col justify-between group">
+          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[28px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border bg-white flex flex-col justify-between group">
             <div class="relative overflow-hidden flex-1 min-h-[140px] bg-orange-50/30">
               <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandCoral/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm z-10">
                 Piloto Automático
               </span>
               <img src="../assets/pixar_card_nutrition.jpg" alt="Nutrición 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
             </div>
-            <div class="p-3.5 bg-white text-left border-t border-slate-100/80">
+            <div class="p-4 bg-white text-left">
               <h4 class="text-xs font-black text-brandNavy">Alimento a Domicilio</h4>
               <p class="text-[11px] text-slate-500">Bolsa oficial sin flete en Lanús</p>
             </div>
@@ -345,7 +362,7 @@
     </section>
 
     <!-- ==================== SECCIÓN: CÓMO FUNCIONA / DESCRIPCIÓN DEL SERVICIO (ESTILO ROVER) ==================== -->
-    <section id="como-funciona" class="border-t border-slate-200/80 bg-white py-20 lg:py-28 shadow-xs">
+    <section id="como-funciona" class="bg-white py-20 lg:py-28 shadow-xs">
       <div class="max-w-[1240px] mx-auto px-6 lg:px-12 text-center">
 
         <!-- TITULAR EDITORIAL ESTILO ROVER -->
@@ -430,7 +447,7 @@
     </section>
 
     <!-- ==================== SECCIÓN 2: SERVICIOS 360° (FONDO MARFIL CÁLIDO CON TARJETAS BLANCAS FLOTANTES) ==================== -->
-    <section id="servicios" class="border-t border-slate-200 bg-canvasIvory py-20 lg:py-28 shadow-xs">
+    <section id="servicios" class="bg-canvasIvory py-20 lg:py-28 shadow-xs">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
@@ -448,7 +465,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- 01 / GROOMING SPA -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <div class="elevated-card p-8 rounded-[32px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-black text-brandTeal uppercase tracking-wider">01 / ESTÉTICA & SPA</span>
@@ -461,9 +478,9 @@
                 Sesiones 1 a 1 de baño tibio con cosmética natural vegana, corte higiénico y secado manual relajante. Cero ruidos molestos.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
+            <div class="pt-4 mt-auto flex justify-between items-center">
               <span class="text-[11px] font-bold text-slate-500">Atención personalizada</span>
-              <button onclick="toggleModal('modalOnboarding')" class="px-4 py-2 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+              <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
                 <span>Reservar Turno</span>
                 <span>→</span>
               </button>
@@ -471,7 +488,7 @@
           </div>
 
           <!-- 02 / REPOSICIÓN ALIMENTO -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <div class="elevated-card p-8 rounded-[32px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-black text-brandCoral uppercase tracking-wider">02 / NUTRICIÓN CLÍNICA</span>
@@ -484,9 +501,9 @@
                 Calculamos los gramos diarios según peso y edad. Te avisamos 4 días antes y te enviamos la bolsa de distribuidor oficial a tu puerta por flete agrupado.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
+            <div class="pt-4 mt-auto flex justify-between items-center">
               <span class="text-[11px] font-bold text-slate-500">Bolsas cerradas de fábrica</span>
-              <button onclick="toggleModal('modalOnboarding')" class="px-4 py-2 rounded-full bg-brandCoral hover:bg-brandCoral-hover text-white text-xs font-bold transition shadow-btn-coral flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+              <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandCoral hover:bg-brandCoral-hover text-white text-xs font-bold transition shadow-btn-coral flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
                 <span>Calcular Ración</span>
                 <span>→</span>
               </button>
@@ -494,7 +511,7 @@
           </div>
 
           <!-- 03 / VETERINARIAS DE BARRIO -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <div class="elevated-card p-8 rounded-[32px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-black text-brandTeal uppercase tracking-wider">03 / SALUD PREVENTIVA</span>
@@ -502,83 +519,83 @@
                   <img src="../assets/icon_3d_veterinary.svg" alt="Veterinaria" class="w-full h-full object-contain">
                 </div>
               </div>
-              <h3 class="text-2xl font-black text-brandNavy">Veterinarias de Barrio Aliadas</h3>
+              <h3 class="text-2xl font-black text-brandNavy">Consultorios Aliados</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Recordatorios previos de Séxtuple y Antirrábica obligatoria. Coordinamos el turno en consultorios de tu barrio sin costo de gestión.
+                Planes de vacunación, desparasitación y chequeos periódicos en clínicas verificadas de Lanús y Avellaneda con historia clínica unificada.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
-              <span class="text-[11px] font-bold text-slate-500">Lanusita & Mitre</span>
-              <button onclick="toggleModal('modalOnboarding')" class="px-4 py-2 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+            <div class="pt-4 mt-auto flex justify-between items-center">
+              <span class="text-[11px] font-bold text-slate-500">Clínicas verificadas</span>
+              <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
                 <span>Ver Consultorios</span>
                 <span>→</span>
               </button>
             </div>
           </div>
 
-          <!-- 04 / PASAPORTE CLÍNICO DIGITAL -->
-          <div class="elevated-card p-8 rounded-[30px] border border-slate-200 bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <!-- 04 / PASAPORTE CLÍNICO -->
+          <div class="elevated-card p-8 rounded-[32px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-black text-brandNavy uppercase tracking-wider">04 / HISTORIAL DIGITAL</span>
-                <div class="w-14 h-14 rounded-2xl p-2.5 bg-gradient-to-br from-slate-100 to-white border border-slate-200 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">04 / TECNOLOGÍA & SALUD</span>
+                <div class="w-14 h-14 rounded-2xl p-2.5 bg-gradient-to-br from-teal-50 to-white border border-brandTeal-border/70 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <img src="../assets/icon_3d_passport.svg" alt="Pasaporte" class="w-full h-full object-contain">
                 </div>
               </div>
-              <h3 class="text-2xl font-black text-brandNavy">Pasaporte de Salud con Login</h3>
+              <h3 class="text-2xl font-black text-brandNavy">Pasaporte de Salud Digital</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Llevá vacunas, peso histórico, alergias y desparasitaciones en tu celular con usuario y clave, siempre listo para mostrar a cualquier médico.
+                Ficha clínica en la nube con QR único para el collar. Registro de peso, vacunas, alergias y botón de pánico que conecta con el veterinario de guardia.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
-              <span class="text-[11px] font-bold text-slate-500">Exportable a PDF</span>
-              <a href="#pasaporte" class="px-4 py-2 rounded-full bg-brandNavy hover:bg-black text-white text-xs font-bold transition shadow-xs flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
-                <span>Ver Demo en Vivo</span>
+            <div class="pt-4 mt-auto flex justify-between items-center">
+              <span class="text-[11px] font-bold text-slate-500">Acceso QR inmediato</span>
+              <a href="#pasaporte" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+                <span>Ver Pasaporte</span>
                 <span>→</span>
               </a>
             </div>
           </div>
 
-          <!-- 05 / PASEADORES VERIFICADOS -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <!-- 05 / PASEADORES -->
+          <div class="elevated-card p-8 rounded-[32px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-black text-brandCoral uppercase tracking-wider">05 / ACTIVIDAD FÍSICA</span>
+                <span class="text-xs font-black text-brandCoral uppercase tracking-wider">05 / ACTIVIDAD & PASEO</span>
                 <div class="w-14 h-14 rounded-2xl p-2.5 bg-gradient-to-br from-orange-50 to-white border border-brandCoral-border/70 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <img src="../assets/icon_3d_walkers.svg" alt="Paseadores" class="w-full h-full object-contain">
                 </div>
               </div>
-              <h3 class="text-2xl font-black text-brandNavy">Paseadores en Grupo Reducido</h3>
+              <h3 class="text-2xl font-black text-brandNavy">Paseadores Certificados</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Grupos reducidos de <strong>máximo 4 perros</strong> en plazas de Lanús y Avellaneda. Reporte fotográfico por WhatsApp y cobertura veterinaria incluida.
+                Paseos cuidados en grupos reducidos de máximo 4 perros. Monitoreo por WhatsApp con fotos, reporte de hidratación y seguro veterinario incluido.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
-              <span class="text-[11px] font-bold text-slate-500">Sin manadas masivas</span>
-              <button onclick="toggleModal('modalOnboarding')" class="px-4 py-2 rounded-full bg-brandCoral hover:bg-brandCoral-hover text-white text-xs font-bold transition shadow-btn-coral flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
-                <span>Consultar Paseador</span>
+            <div class="pt-4 mt-auto flex justify-between items-center">
+              <span class="text-[11px] font-bold text-slate-500">Máximo 4 por grupo</span>
+              <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandCoral hover:bg-brandCoral-hover text-white text-xs font-bold transition shadow-btn-coral flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+                <span>Solicitar Paseador</span>
                 <span>→</span>
               </button>
             </div>
           </div>
 
-          <!-- 06 / CUIDADORES EN VACACIONES -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
+          <!-- 06 / HOSPEDAJE -->
+          <div class="elevated-card p-8 rounded-[32px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">06 / HOSPEDAJE HOGAREÑO</span>
+                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">06 / VACACIONES & CUIDADO</span>
                 <div class="w-14 h-14 rounded-2xl p-2.5 bg-gradient-to-br from-teal-50 to-white border border-brandTeal-border/70 flex items-center justify-center shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <img src="../assets/icon_3d_boarding.svg" alt="Hospedaje" class="w-full h-full object-contain">
                 </div>
               </div>
-              <h3 class="text-2xl font-black text-brandNavy">Cuidadores sin Jaulas</h3>
+              <h3 class="text-2xl font-black text-brandNavy">Hospedaje Familiar</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Hospedaje cariñoso donde duermen en sillón como en casa para perros, o visitas a domicilio para gatos con juego y arenero limpio.
+                Tu mascota duerme en un hogar calificado, en el sillón y con trato familiar. Cero caniles ni jaulas. Cupos limitados por casa para máxima atención.
               </p>
             </div>
-            <div class="border-t border-slate-100 pt-5 flex justify-between items-center">
-              <span class="text-[11px] font-bold text-slate-500">Hogares auditados</span>
-              <button onclick="toggleModal('modalOnboarding')" class="px-4 py-2 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+            <div class="pt-4 mt-auto flex justify-between items-center">
+              <span class="text-[11px] font-bold text-slate-500">100% Hogareño</span>
+              <button onclick="toggleModal('modalOnboarding')" class="px-5 py-2.5 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold transition shadow-btn-teal flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
                 <span>Consultar Fechas</span>
                 <span>→</span>
               </button>
@@ -588,15 +605,13 @@
         </div>
 
       </div>
-    </section>
-
     <!-- ==================== SECCIÓN 3: PASAPORTE SANITARIO (FONDO ARENA CÁLIDO #F5EFE9) ==================== -->
-    <section id="pasaporte" class="border-t border-slate-200 bg-canvasWarm py-20 lg:py-28">
+    <section id="pasaporte" class="bg-canvasWarm py-20 lg:py-28">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         
         <div class="bg-white rounded-[36px] border border-slate-200 p-8 sm:p-12 shadow-card-rich space-y-8">
           
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-200 pb-6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6">
             <div>
               <h3 class="text-2xl sm:text-4xl font-black text-brandNavy">
                 Pasaporte de Salud Digital
@@ -740,7 +755,7 @@
     </section>
 
     <!-- ==================== SECCIÓN 5: PREGUNTAS FRECUENTES (FAQ ACORDEÓN) ==================== -->
-    <section id="faq" class="border-t border-slate-200 bg-white py-20 lg:py-28">
+    <section id="faq" class="bg-white py-20 lg:py-28">
       <div class="max-w-[900px] mx-auto px-6 lg:px-8 space-y-12">
         
         <div class="text-center space-y-3">
@@ -752,60 +767,60 @@
           </p>
         </div>
 
-        <!-- ACORDEÓN DE PREGUNTAS -->
+        <!-- ACORDEÓN DE PREGUNTAS (TARJETAS REDONDEADAS SIN LÍNEAS) -->
         <div class="space-y-4">
           
           <!-- FAQ 1 -->
-          <details class="group rounded-[24px] border border-slate-200 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
             <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
               <span>¿Cómo calculan la cantidad exacta de comida para mi mascota?</span>
               <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-200/70 leading-relaxed font-normal">
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
               Utilizamos fórmulas veterinarias según el peso, la especie (perro o gato), la edad y la marca de alimento que consume. Por ejemplo, un perro de 14 kg consume aprox. 310g diarios; por lo tanto, una bolsa de 15 kg rinde 48 días. Te avisamos por WhatsApp 4 días antes de que se acabe para despacharte la nueva bolsa por flete agrupado.
             </p>
           </details>
 
           <!-- FAQ 2 -->
-          <details class="group rounded-[24px] border border-slate-200 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
             <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
               <span>¿El servicio de intermediación o la coordinación de turnos tiene costo extra?</span>
               <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-200/70 leading-relaxed font-normal">
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
               No. El registro, la Ficha Médica Digital y la coordinación de turnos con consultorios de barrio son 100% gratuitos para el tutor. Pagás el precio oficial de la bolsa de alimento o la consulta de tu veterinario, y las entregas se agrupan los martes y jueves para que el flete sea sin cargo.
             </p>
           </details>
 
           <!-- FAQ 3 -->
-          <details class="group rounded-[24px] border border-slate-200 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
             <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
               <span>¿Qué ocurre si tengo una urgencia médica en medio de la noche?</span>
               <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-200/70 leading-relaxed font-normal">
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
               Contás con el botón de <strong>Guardia 24hs</strong> activo en la web y en WhatsApp. Al tocarlo, el sistema te indica el hospital veterinario con quirófano y médico de guardia abierto más cercano (como el Hospital Veterinario Lanús o la Clínica de Emergencias Avellaneda), con botón directo de llamada y GPS. Además, podés notificar a la guardia enviando el Pasaporte de Salud precargado.
             </p>
           </details>
 
           <!-- FAQ 4 -->
-          <details class="group rounded-[24px] border border-slate-200 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
             <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
               <span>¿Cómo verifican a los paseadores y cuidadores de vacaciones?</span>
               <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-200/70 leading-relaxed font-normal">
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
               Exigimos validación de identidad con DNI, verificación de domicilio en Zona Sur y antecedentes. Establecemos un límite estricto de <strong>máximo 4 perros por paseo</strong> con cobertura veterinaria de emergencia incluida. En hospedaje de vacaciones, los hogares son auditados para garantizar que duerman adentro, sin caniles ni jaulas.
             </p>
           </details>
 
           <!-- FAQ 5 -->
-          <details class="group rounded-[24px] border border-slate-200 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
+          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
             <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
               <span>¿Qué días reparten en mi barrio?</span>
               <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-3 border-t border-slate-200/70 leading-relaxed font-normal">
+            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
               Repartimos los <strong>martes</strong> en Lanús Oeste (Lanusita, Centro), Lanús Este y Remedios de Escalada. Y los <strong>jueves</strong> en Avellaneda Centro (Plaza Alsina, Mitre), Wilde Residencial, Sarandí y Gerli.
             </p>
           </details>
@@ -816,7 +831,7 @@
     </section>
 
     <!-- ==================== SECCIÓN 6: COBERTURA GEOGRÁFICA ==================== -->
-    <section id="cobertura" class="border-t border-slate-200 bg-canvasWarm py-16 lg:py-24">
+    <section id="cobertura" class="bg-canvasWarm py-16 lg:py-24">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         <div class="text-center max-w-xl mx-auto space-y-3 mb-10">
           <h3 class="text-3xl font-black text-brandNavy">Rutas Fijas en Lanús y Avellaneda</h3>
@@ -824,19 +839,19 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-card-rich">
+          <div class="p-6 rounded-[28px] border border-slate-200 bg-white shadow-card-rich">
             <strong class="block text-sm font-black text-brandNavy">Lanús Oeste</strong>
             <span class="text-xs text-slate-500">Lanusita & Centro (Martes)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-card-rich">
+          <div class="p-6 rounded-[28px] border border-slate-200 bg-white shadow-card-rich">
             <strong class="block text-sm font-black text-brandNavy">R. de Escalada</strong>
             <span class="text-xs text-slate-500">Estación & Alrededores (Martes)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-card-rich">
+          <div class="p-6 rounded-[28px] border border-slate-200 bg-white shadow-card-rich">
             <strong class="block text-sm font-black text-brandNavy">Avellaneda</strong>
             <span class="text-xs text-slate-500">Plaza Alsina & Mitre (Jueves)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-card-rich">
+          <div class="p-6 rounded-[28px] border border-slate-200 bg-white shadow-card-rich">
             <strong class="block text-sm font-black text-brandNavy">Wilde</strong>
             <span class="text-xs text-slate-500">Zona Residencial (Jueves)</span>
           </div>
@@ -845,7 +860,7 @@
     </section>
 
     <!-- ==================== SECCIÓN 7: QUIERO SER PROVEEDOR (ALIANZAS Y PARTNERS) ==================== -->
-    <section id="proveedores" class="border-t border-slate-200/80 bg-white py-20 lg:py-28 shadow-xs">
+    <section id="proveedores" class="bg-white py-20 lg:py-28 shadow-xs">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -909,9 +924,9 @@
             
             <div class="bg-canvasIvory p-8 sm:p-10 rounded-[36px] border border-slate-200 shadow-card-rich space-y-6 relative">
               
-              <div class="border-b border-slate-200 pb-4">
-                <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal">Formulario de Postulación</span>
-                <h3 class="text-2xl font-black text-brandNavy mt-0.5">Postulate como Proveedor Oficial</h3>
+              <div class="pb-3">
+                <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal bg-brandTeal-light px-3 py-1 rounded-full border border-brandTeal-border">Formulario de Postulación</span>
+                <h3 class="text-2xl font-black text-brandNavy mt-2">Postulate como Proveedor Oficial</h3>
                 <p class="text-xs text-slate-500 mt-1">
                   Completá los datos y nuestro equipo de coordinación se pondrá en contacto por WhatsApp en menos de 24 horas.
                 </p>
@@ -922,68 +937,124 @@
                 
                 <!-- 1. NOMBRE -->
                 <div>
-                  <label for="provNombre" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                  <label for="provNombre" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
                     Nombre o Nombre del Establecimiento <span class="text-brandCoral">*</span>
                   </label>
-                  <input type="text" id="provNombre" required placeholder="Ej: Dra. Valeria Rossi / Peluquería Canina Huellas" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition">
+                  <input type="text" id="provNombre" required placeholder="Ej: Dra. Valeria Rossi / Peluquería Canina Huellas" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800">
                 </div>
 
                 <!-- 2. TELÉFONO Y 3. WEB SITE -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label for="provTelefono" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 flex items-center gap-1.5">
+                    <label for="provTelefono" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1 flex items-center gap-1.5">
                       <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-3.5 h-3.5 inline">
                       <span>Teléfono / WhatsApp <span class="text-brandCoral">*</span></span>
                     </label>
-                    <input type="tel" id="provTelefono" required placeholder="Ej: 11 5432 9876" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] shadow-xs transition">
+                    <input type="tel" id="provTelefono" required placeholder="Ej: 11 5432 9876" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] shadow-xs transition font-medium text-slate-800">
                   </div>
 
                   <div>
-                    <label for="provWebsite" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                    <label for="provWebsite" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
                       Web Site o Instagram <span class="text-brandCoral">*</span>
                     </label>
-                    <input type="text" id="provWebsite" required placeholder="Ej: instagram.com/mi_veterinaria o www.miweb.com.ar" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition">
+                    <input type="text" id="provWebsite" required placeholder="Ej: instagram.com/mi_veterinaria o www.miweb.com.ar" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800">
                   </div>
                 </div>
 
-                <!-- 4. TIPO DE SERVICIO QUE OFRECE -->
+                <!-- 4. TIPO DE SERVICIO QUE OFRECE (CUSTOM ROUNDED DROPDOWN) -->
                 <div>
-                  <label for="provServicio" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                  <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
                     Tipo de Servicio que ofrece <span class="text-brandCoral">*</span>
                   </label>
-                  <select id="provServicio" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-700">
-                    <option value="" disabled selected>Seleccioná el tipo de servicio que brindás...</option>
-                    <option value="Grooming & Estética Spa (Sin Jaulas)">🛁 Grooming & Estética Spa (Sin Jaulas)</option>
-                    <option value="Consultorio o Clínica Veterinaria">🩺 Consultorio o Clínica Veterinaria Aliada</option>
-                    <option value="Paseador de Perros (Grupos reducidos)">🦮 Paseador de Perros (Grupos reducidos)</option>
-                    <option value="Cuidado Hogareño / Hospedaje en Sillón">🛋️ Cuidado Hogareño / Hospedaje Familiar</option>
-                    <option value="Pet Shop / Distribución de Alimento">🥣 Pet Shop / Distribución de Alimento</option>
-                    <option value="Adiestramiento / Etología Positiva">🎾 Adiestramiento / Modificación de Conducta</option>
-                    <option value="Otro Servicio para Mascotas">🐾 Otro servicio especializado</option>
-                  </select>
+                  <div class="relative custom-dropdown" data-id="provServicio">
+                    <input type="hidden" id="provServicio" name="provServicio" value="Grooming & Estética Spa (Sin Jaulas)" required>
+                    <button type="button" onclick="toggleCustomDropdown('provServicioDropdown')" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-semibold text-slate-700 flex items-center justify-between group hover:border-brandTeal">
+                      <span id="provServicioLabel" class="truncate font-bold text-slate-800">🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                      <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 group-hover:bg-brandTeal-light group-hover:text-brandTeal flex items-center justify-center text-[10px] transition-transform duration-200 shrink-0 ml-2">
+                        ▼
+                      </span>
+                    </button>
+                    <div id="provServicioDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2.5 rounded-[28px] bg-white/95 backdrop-blur-md shadow-2xl border border-teal-100/90 space-y-1">
+                      <div onclick="selectDropdownOption('provServicio', 'Grooming & Estética Spa (Sin Jaulas)', '🛁 Grooming & Estética Spa (Sin Jaulas)')" data-value="Grooming & Estética Spa (Sin Jaulas)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🛁 Grooming & Estética Spa (Sin Jaulas)</span>
+                        <span class="text-brandTeal checkmark">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Consultorio o Clínica Veterinaria', '🩺 Consultorio o Clínica Veterinaria Aliada')" data-value="Consultorio o Clínica Veterinaria" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🩺 Consultorio o Clínica Veterinaria Aliada</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Paseador de Perros (Grupos reducidos)', '🦮 Paseador de Perros (Grupos reducidos)')" data-value="Paseador de Perros (Grupos reducidos)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🦮 Paseador de Perros (Grupos reducidos)</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Cuidado Hogareño / Hospedaje en Sillón', '🛋️ Cuidado Hogareño / Hospedaje Familiar')" data-value="Cuidado Hogareño / Hospedaje en Sillón" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🛋️ Cuidado Hogareño / Hospedaje Familiar</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Pet Shop / Distribución de Alimento', '🥣 Pet Shop / Distribución de Alimento')" data-value="Pet Shop / Distribución de Alimento" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🥣 Pet Shop / Distribución de Alimento</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Adiestramiento / Etología Positiva', '🎾 Adiestramiento / Modificación de Conducta')" data-value="Adiestramiento / Etología Positiva" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🎾 Adiestramiento / Modificación de Conducta</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provServicio', 'Otro Servicio para Mascotas', '🐾 Otro servicio especializado')" data-value="Otro Servicio para Mascotas" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>🐾 Otro servicio especializado</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- 5. LOCALIDAD / BARRIO EN ZONA SUR -->
+                <!-- 5. LOCALIDAD / BARRIO EN ZONA SUR (CUSTOM ROUNDED DROPDOWN) -->
                 <div>
-                  <label for="provZona" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                  <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
                     Localidad Principal en Zona Sur <span class="text-brandCoral">*</span>
                   </label>
-                  <select id="provZona" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-700">
-                    <option value="Lanús Oeste (Lanusita / Centro)" selected>Lanús Oeste (Lanusita y alrededores)</option>
-                    <option value="Lanús Este">Lanús Este</option>
-                    <option value="Remedios de Escalada">Remedios de Escalada</option>
-                    <option value="Avellaneda Centro / Mitre">Avellaneda Centro / Av. Mitre</option>
-                    <option value="Wilde">Wilde Residencial</option>
-                    <option value="Toda la Zona Sur">Cobertura amplia en varias localidades</option>
-                  </select>
+                  <div class="relative custom-dropdown" data-id="provZona">
+                    <input type="hidden" id="provZona" name="provZona" value="Lanús Oeste (Lanusita / Centro)" required>
+                    <button type="button" onclick="toggleCustomDropdown('provZonaDropdown')" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-semibold text-slate-700 flex items-center justify-between group hover:border-brandTeal">
+                      <span id="provZonaLabel" class="truncate font-bold text-slate-800">Lanús Oeste (Lanusita y alrededores)</span>
+                      <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-500 group-hover:bg-brandTeal-light group-hover:text-brandTeal flex items-center justify-center text-[10px] transition-transform duration-200 shrink-0 ml-2">
+                        ▼
+                      </span>
+                    </button>
+                    <div id="provZonaDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2.5 rounded-[28px] bg-white/95 backdrop-blur-md shadow-2xl border border-teal-100/90 space-y-1">
+                      <div onclick="selectDropdownOption('provZona', 'Lanús Oeste (Lanusita / Centro)', 'Lanús Oeste (Lanusita y alrededores)')" data-value="Lanús Oeste (Lanusita / Centro)" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Lanús Oeste (Lanusita y alrededores)</span>
+                        <span class="text-brandTeal checkmark">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Lanús Este', 'Lanús Este')" data-value="Lanús Este" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Lanús Este</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Remedios de Escalada', 'Remedios de Escalada')" data-value="Remedios de Escalada" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Remedios de Escalada</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Avellaneda Centro / Mitre', 'Avellaneda Centro / Av. Mitre')" data-value="Avellaneda Centro / Mitre" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Avellaneda Centro / Av. Mitre</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Wilde', 'Wilde Residencial')" data-value="Wilde" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Wilde Residencial</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                      <div onclick="selectDropdownOption('provZona', 'Toda la Zona Sur', 'Cobertura amplia en varias localidades')" data-value="Toda la Zona Sur" class="dropdown-item px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light hover:text-brandTeal cursor-pointer transition flex items-center justify-between">
+                        <span>Cobertura amplia en varias localidades</span>
+                        <span class="text-brandTeal checkmark hidden">✓</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- 6. DESCRIPCIÓN ADICIONAL -->
                 <div>
-                  <label for="provDetalle" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                  <label for="provDetalle" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1">
                     Breve descripción de tus servicios o instalaciones <span class="text-slate-400 font-normal lowercase">(opcional)</span>
                   </label>
-                  <textarea id="provDetalle" rows="3" placeholder="Contanos tu trayectoria, si contás con consultorio a la calle, movilidad propia o equipo de trabajo..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition"></textarea>
+                  <textarea id="provDetalle" rows="3" placeholder="Contanos tu trayectoria, si contás con consultorio a la calle, movilidad propia o equipo de trabajo..." class="w-full px-5 py-4 text-xs rounded-3xl border border-slate-200/90 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-800"></textarea>
                 </div>
 
                 <!-- BOTÓN SUBMIT -->
@@ -1038,7 +1109,7 @@
         
         <!-- COLUMNA 1: INFO DE LA EMPRESA -->
         <div class="space-y-3.5">
-          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white border-b border-white/20 pb-2">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
             INFO DE LA PLATAFORMA
           </h4>
           <ul class="space-y-2 text-white/80">
@@ -1051,7 +1122,7 @@
 
         <!-- COLUMNA 2: SERVICIOS Y ALIANZAS -->
         <div class="space-y-3.5">
-          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white border-b border-white/20 pb-2">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
             SERVICIOS BARRIALES
           </h4>
           <ul class="space-y-2 text-white/80">
@@ -1065,7 +1136,7 @@
 
         <!-- COLUMNA 3: ATENCIÓN AL CLIENTE -->
         <div class="space-y-3.5">
-          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white border-b border-white/20 pb-2">
+          <h4 class="font-extrabold uppercase tracking-wider text-sm text-white pb-1">
             ATENCIÓN AL CLIENTE
           </h4>
           <ul class="space-y-2 text-white/80">
@@ -1084,14 +1155,14 @@
         </div>
 
         <!-- COLUMNA 4: PARTNERS / SUMATE A LA RED (POST A SPOT STYLE) -->
-        <div class="space-y-3.5 bg-white/10 p-5 rounded-2xl border border-white/20">
+        <div class="space-y-3.5 bg-white/10 p-6 rounded-[28px] border border-white/20">
           <h4 class="font-black text-sm text-white">
             ¿Sos Profesional o Pet Shop?
           </h4>
           <p class="text-white/85 text-[11px] leading-relaxed">
             Sumá tu servicio (veterinaria, peluquería, paseos, hospedaje) a la red oficial en Lanús y Avellaneda. Conectamos vecinos con tu negocio sin comisiones abusivas.
           </p>
-          <a href="#proveedores" class="inline-block px-4 py-2 rounded-full bg-white text-[#0088CC] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition shadow-sm">
+          <a href="#proveedores" class="inline-block px-5 py-2.5 rounded-full bg-white text-[#0088CC] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition shadow-sm">
             Quiero ser Proveedor →
           </a>
         </div>
@@ -1099,7 +1170,7 @@
       </div>
 
       <!-- COPYRIGHT & LOGO FOOTER -->
-      <div class="border-t border-white/20 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/80">
+      <div class="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/80">
         <div class="flex items-center gap-4">
           <img src="../assets/logo_cropped_footer.png" alt="TeLoCuidamos.com" class="h-9 sm:h-10 md:h-11 w-auto object-contain">
           <span>© 2026 TeLoCuidamos.com, Buenos Aires, Argentina</span>
@@ -1140,43 +1211,84 @@
 
       <form onsubmit="handleOnboardingSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1">Tu Nombre y Apellido</label>
-          <input type="text" id="tutorNombre" required value="Lucas Gómez" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal">
+          <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 ml-1">Tu Nombre y Apellido</label>
+          <input type="text" id="tutorNombre" required value="Lucas Gómez" class="w-full px-5 py-3 text-xs rounded-full border border-slate-200 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal font-medium">
         </div>
         
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 flex items-center gap-1.5">
+            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 ml-1 flex items-center gap-1.5">
               <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-3.5 h-3.5 inline">
               <span>WhatsApp de Contacto</span>
             </label>
-            <input type="tel" id="tutorWhatsApp" required value="11 4567 8900" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366]">
+            <input type="tel" id="tutorWhatsApp" required value="11 4567 8900" class="w-full px-5 py-3 text-xs rounded-full border border-slate-200 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] font-medium">
           </div>
           <div>
-            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1">Localidad</label>
-            <select id="tutorBarrio" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-white">
-              <option value="Lanús Oeste (Lanusita)" selected>Lanús Oeste</option>
-              <option value="Lanús Este">Lanús Este</option>
-              <option value="Remedios de Escalada">R. de Escalada</option>
-              <option value="Avellaneda Centro">Avellaneda Centro</option>
-              <option value="Wilde Residencial">Wilde</option>
-            </select>
+            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 ml-1">Localidad</label>
+            <div class="relative custom-dropdown" data-id="tutorBarrio">
+              <input type="hidden" id="tutorBarrio" name="tutorBarrio" value="Lanús Oeste (Lanusita)">
+              <button type="button" onclick="toggleCustomDropdown('tutorBarrioDropdown')" class="w-full px-4 py-3 text-xs rounded-full border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal font-bold text-slate-800 flex items-center justify-between group">
+                <span id="tutorBarrioLabel" class="truncate">Lanús Oeste</span>
+                <span class="text-[10px] text-slate-400 group-hover:text-brandTeal ml-1">▼</span>
+              </button>
+              <div id="tutorBarrioDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2 rounded-2xl bg-white shadow-xl border border-teal-100/90 space-y-1">
+                <div onclick="selectDropdownOption('tutorBarrio', 'Lanús Oeste (Lanusita)', 'Lanús Oeste')" data-value="Lanús Oeste (Lanusita)" class="dropdown-item px-3 py-2 rounded-xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer flex items-center justify-between">
+                  <span>Lanús Oeste</span>
+                  <span class="text-brandTeal checkmark">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('tutorBarrio', 'Lanús Este', 'Lanús Este')" data-value="Lanús Este" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Lanús Este</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('tutorBarrio', 'Remedios de Escalada', 'R. de Escalada')" data-value="Remedios de Escalada" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>R. de Escalada</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('tutorBarrio', 'Avellaneda Centro', 'Avellaneda Centro')" data-value="Avellaneda Centro" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Avellaneda Centro</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('tutorBarrio', 'Wilde Residencial', 'Wilde')" data-value="Wilde Residencial" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>Wilde</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1">Nombre Mascota</label>
-            <input type="text" id="mascotaNombre" required value="Milo" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-canvasIvory focus:bg-white">
+            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 ml-1">Nombre Mascota</label>
+            <input type="text" id="mascotaNombre" required value="Milo" class="w-full px-5 py-3 text-xs rounded-full border border-slate-200 bg-canvasIvory focus:bg-white font-medium">
           </div>
           <div>
-            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1">Servicio Deseado</label>
-            <select id="servicioDeseado" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-white">
-              <option value="Grooming" selected>✂️ Grooming Spa 3D</option>
-              <option value="Alimento">🥣 Alimento en Piloto</option>
-              <option value="Paseos">🦮 Paseador de Confianza</option>
-              <option value="Hospedaje">🏡 Cuidador Vacaciones</option>
-            </select>
+            <label class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1 ml-1">Servicio Deseado</label>
+            <div class="relative custom-dropdown" data-id="servicioDeseado">
+              <input type="hidden" id="servicioDeseado" name="servicioDeseado" value="Grooming">
+              <button type="button" onclick="toggleCustomDropdown('servicioDeseadoDropdown')" class="w-full px-4 py-3 text-xs rounded-full border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal font-bold text-slate-800 flex items-center justify-between group">
+                <span id="servicioDeseadoLabel" class="truncate">🛁 Grooming Spa 3D</span>
+                <span class="text-[10px] text-slate-400 group-hover:text-brandTeal ml-1">▼</span>
+              </button>
+              <div id="servicioDeseadoDropdown" class="custom-dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 p-2 rounded-2xl bg-white shadow-xl border border-teal-100/90 space-y-1">
+                <div onclick="selectDropdownOption('servicioDeseado', 'Grooming', '🛁 Grooming Spa 3D')" data-value="Grooming" class="dropdown-item px-3 py-2 rounded-xl text-xs font-bold bg-brandTeal-light text-brandTeal cursor-pointer flex items-center justify-between">
+                  <span>🛁 Grooming Spa 3D</span>
+                  <span class="text-brandTeal checkmark">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Alimento', '🥣 Alimento en Piloto')" data-value="Alimento" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>🥣 Alimento en Piloto</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Paseos', '🦮 Paseador de Confianza')" data-value="Paseos" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>🦮 Paseador de Confianza</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+                <div onclick="selectDropdownOption('servicioDeseado', 'Hospedaje', '🛋️ Cuidador Vacaciones')" data-value="Hospedaje" class="dropdown-item px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-brandTeal-light cursor-pointer flex items-center justify-between">
+                  <span>🛋️ Cuidador Vacaciones</span>
+                  <span class="text-brandTeal checkmark hidden">✓</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1314,6 +1426,55 @@
       const modal = document.getElementById(id);
       if (modal) modal.classList.toggle('hidden');
     }
+
+    /* Manejador de Dropdowns Redondeados Personalizados */
+    function toggleCustomDropdown(dropdownId) {
+      const allDropdowns = document.querySelectorAll('.custom-dropdown-menu');
+      const target = document.getElementById(dropdownId);
+      const isCurrentlyOpen = target && !target.classList.contains('hidden');
+      
+      allDropdowns.forEach(d => d.classList.add('hidden'));
+      
+      if (target && !isCurrentlyOpen) {
+        target.classList.remove('hidden');
+      }
+    }
+
+    function selectDropdownOption(hiddenInputId, value, label) {
+      const hiddenInput = document.getElementById(hiddenInputId);
+      if (hiddenInput) {
+        hiddenInput.value = value;
+      }
+      const labelEl = document.getElementById(hiddenInputId + 'Label');
+      if (labelEl) {
+        labelEl.textContent = label || value;
+        labelEl.classList.remove('text-slate-500', 'font-normal');
+        labelEl.classList.add('text-slate-800', 'font-bold');
+      }
+      
+      const dropdown = document.getElementById(hiddenInputId + 'Dropdown');
+      if (dropdown) {
+        const items = dropdown.querySelectorAll('.dropdown-item');
+        items.forEach(item => {
+          const isSelected = item.getAttribute('data-value') === value;
+          const check = item.querySelector('.checkmark');
+          if (isSelected) {
+            item.classList.add('bg-brandTeal-light', 'text-brandTeal', 'font-bold');
+            if (check) check.classList.remove('hidden');
+          } else {
+            item.classList.remove('bg-brandTeal-light', 'text-brandTeal', 'font-bold');
+            if (check) check.classList.add('hidden');
+          }
+        });
+        dropdown.classList.add('hidden');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.custom-dropdown')) {
+        document.querySelectorAll('.custom-dropdown-menu').forEach(d => d.classList.add('hidden'));
+      }
+    });
 
     function handleOnboardingSubmit(e) {
       e.preventDefault();
