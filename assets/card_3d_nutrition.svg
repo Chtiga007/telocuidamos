@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="100%" height="100%">
+  <defs>
+    <filter id="clayShadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.08" />
+    </filter>
+    <linearGradient id="bgPastel2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEDD5" />
+      <stop offset="100%" stop-color="#FED7AA" />
+    </linearGradient>
+    <linearGradient id="bowlClay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#14B8A6" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    <linearGradient id="kibbleClay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+    <linearGradient id="heartClay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="400" height="280" rx="24" fill="url(#bgPastel2)" />
+
+  <!-- Badge Top Right -->
+  <rect x="295" y="18" width="85" height="26" rx="13" fill="#FFFFFF" opacity="0.9" />
+  <text x="337" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#EA580C" text-anchor="middle" letter-spacing="1">NUTRICIÓN 3D</text>
+
+  <!-- Shadow below bowl -->
+  <ellipse cx="200" cy="225" rx="120" ry="16" fill="#0F172A" opacity="0.08" />
+
+  <!-- 3D Clay Pet Food Bowl -->
+  <g filter="url(#clayShadow2)">
+    <!-- Base -->
+    <path d="M 105 165 C 110 220, 290 220, 295 165 Z" fill="url(#bowlClay)" />
+    <!-- Rim -->
+    <ellipse cx="200" cy="165" rx="95" ry="24" fill="#0D9488" stroke="#FFFFFF" stroke-width="2" />
+    <!-- Inside content surface -->
+    <ellipse cx="200" cy="168" rx="82" ry="18" fill="#D97706" />
+
+    <!-- 3D Heart Paw Emblem on the Bowl -->
+    <circle cx="200" cy="192" r="14" fill="#FFFFFF" opacity="0.9" />
+    <path d="M 200 188 C 196 182, 190 184, 190 188 C 190 193, 200 199, 200 199 C 200 199, 210 193, 210 188 C 210 184, 204 182, 200 188 Z" fill="#F97316" />
+  </g>
+
+  <!-- 3D Kibble Pieces (Floating playfully) -->
+  <g filter="url(#clayShadow2)">
+    <!-- Kibble 1 -->
+    <ellipse cx="170" cy="164" rx="12" ry="9" fill="url(#kibbleClay)" />
+    <!-- Kibble 2 -->
+    <ellipse cx="200" cy="162" rx="14" ry="10" fill="url(#kibbleClay)" />
+    <!-- Kibble 3 -->
+    <ellipse cx="230" cy="166" rx="13" ry="9" fill="url(#kibbleClay)" />
+    <!-- Kibble 4 -->
+    <ellipse cx="185" cy="154" rx="11" ry="8" fill="url(#kibbleClay)" />
+    <!-- Kibble 5 -->
+    <ellipse cx="215" cy="155" rx="12" ry="8" fill="url(#kibbleClay)" />
+
+    <!-- 3D Clay Bone floating above -->
+    <g transform="translate(195, 95) rotate(-12)">
+      <rect x="-35" y="-9" width="70" height="18" rx="7" fill="#FFFDF8" stroke="#FDE68A" stroke-width="1.5" />
+      <circle cx="-35" cy="-9" r="9" fill="#FFFDF8" stroke="#FDE68A" stroke-width="1.5" />
+      <circle cx="-35" cy="9" r="9" fill="#FFFDF8" stroke="#FDE68A" stroke-width="1.5" />
+      <circle cx="35" cy="-9" r="9" fill="#FFFDF8" stroke="#FDE68A" stroke-width="1.5" />
+      <circle cx="35" cy="9" r="9" fill="#FFFDF8" stroke="#FDE68A" stroke-width="1.5" />
+    </g>
+
+    <!-- Floating 3D Heart -->
+    <path d="M 270 75 C 265 67, 255 70, 255 76 C 255 83, 270 92, 270 92 C 270 92, 285 83, 285 76 C 285 70, 275 67, 270 75 Z" fill="url(#heartClay)" />
+  </g>
+
+  <!-- Arrow Circle Bottom Right -->
+  <circle cx="355" cy="240" r="18" fill="#FFFFFF" opacity="0.9" />
+  <text x="355" y="245" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="bold" fill="#EA580C" text-anchor="middle">↗</text>
+</svg>

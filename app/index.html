@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeLoCuidamos — Cuidado y Bienestar Canino & Felino | Lanús y Avellaneda</title>
+  <title>TeLoCuidamos.com — Cuidado de Mascotas en Piloto Automático | Lanús y Avellaneda</title>
   
-  <!-- Tipografía Editorial Moderna: Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans (Tipografía moderna y limpia) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,24 +17,29 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
           },
           colors: {
-            canvas: '#FFFFFF',
-            canvasSubtle: '#FBFBFB',
-            canvasMuted: '#F4F4F5',
-            ink: '#09090B',            /* Negro profundo grafito */
-            inkSecondary: '#71717A',   /* Gris neutro refinado */
-            inkMuted: '#A1A1AA',
-            accentBlush: '#FAECE5',    /* Blush cálido de autor */
-            accentBlushHover: '#F5DFD4',
-            lineSubtle: '#E4E4E7',
-            urgent: '#DC2626'
-          },
-          letterSpacing: {
-            tighterDisplay: '-0.05em',
-            tightDisplay: '-0.035em',
-            wideMicro: '0.08em'
+            pastel: {
+              canvas: '#FAF8F5',       /* Marfil cálido del fondo original */
+              canvasMuted: '#F4EFEA',
+              card: '#FFFFFF',
+              teal: '#0D9488',         /* Verde Agua / Teal oficial del logo "TeLo" */
+              tealHover: '#0F766E',
+              tealLight: '#E6F4F1',    /* Pastel Menta / Teal suave */
+              tealBorder: '#CCE8E2',
+              coral: '#F97316',        /* Coral / Durazno cálido oficial de "Cuidamos" */
+              coralHover: '#EA580C',
+              coralLight: '#FFEDD5',   /* Pastel Durazno suave */
+              coralBorder: '#FED7AA',
+              navy: '#1E293B',         /* Azul Noche del ".com" del logo */
+              navyDeep: '#0F172A',
+              slate: '#475569',
+              slateMuted: '#94A3B8',
+              line: '#E2E8F0',
+              urgent: '#E11D48',
+              urgentLight: '#FFE4E6'
+            }
           }
         }
       }
@@ -42,98 +47,122 @@
   </script>
   
   <style>
-    /* ========================================================
-       PRINCIPIO 1 & 5: TIPOGRAFÍA Y JERARQUÍA ESTRICTA
-       ======================================================== */
     body {
-      background-color: #FFFFFF;
-      color: #09090B;
+      background-color: #FAF8F5;
+      color: #1E293B;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      letter-spacing: -0.02em;
     }
 
-    /* Título Monumental Minimalista */
-    .display-headline {
-      font-size: clamp(3.75rem, 8.2vw, 7.8rem);
-      line-height: 0.89;
+    /* Titular monumental minimalista */
+    .hero-display-title {
+      font-size: clamp(3.6rem, 7.8vw, 7.2rem);
+      line-height: 0.90;
       font-weight: 900;
       letter-spacing: -0.045em;
-      color: #09090B;
+      color: #1E293B;
     }
 
-    /* Medida de lectura óptima (50-65 caracteres por línea) */
-    .prose-measure {
-      max-width: 32ch;
+    /* Botón de firma de 2 piezas en Tono Pastel Coral Suave */
+    .btn-pastel-pill {
+      background-color: #FFEDD5;
+      color: #C2410C;
+      border: 1px solid #FED7AA;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .prose-measure-wide {
-      max-width: 58ch;
+    .btn-pastel-pill:hover {
+      background-color: #FED7AA;
+      color: #9A3412;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 25px -5px rgba(249, 115, 22, 0.25);
+    }
+    .btn-pastel-pill:active {
+      transform: translateY(0) scale(0.96);
     }
 
-    /* ========================================================
-       PRINCIPIO 2: ANIMACIONES FLUIDAS, SUTILES Y CON PROPÓSITO
-       ======================================================== */
-    /* Scroll Fade-in Observer */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+    .btn-pastel-arrow {
+      background-color: #FFEDD5;
+      color: #C2410C;
+      border: 1px solid #FED7AA;
+      border-radius: 9999px;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .reveal-on-scroll.is-revealed {
-      opacity: 1;
-      transform: translateY(0);
+    .btn-pastel-arrow:hover {
+      background-color: #FED7AA;
+      color: #9A3412;
+      transform: translateY(-2px) scale(1.1) rotate(45deg);
+      box-shadow: 0 12px 25px -5px rgba(249, 115, 22, 0.25);
+    }
+    .btn-pastel-arrow:active {
+      transform: translateY(0) scale(0.95);
     }
 
-    /* Microinteracciones táctiles en botones */
-    .btn-signature {
-      background-color: #FAECE5;
-      color: #09090B;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Botón de acción principal en Teal oficial del logo */
+    .btn-teal-primary {
+      background-color: #0D9488;
+      color: #FFFFFF;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.35);
     }
-    .btn-signature:hover {
-      background-color: #F5DFD4;
+    .btn-teal-primary:hover {
+      background-color: #0F766E;
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px -6px rgba(250, 236, 229, 0.9);
+      box-shadow: 0 14px 28px -5px rgba(13, 148, 136, 0.45);
     }
-    .btn-signature:active {
-      transform: translateY(0) scale(0.97);
-    }
-
-    .btn-arrow-icon {
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .btn-signature:hover .btn-arrow-icon {
-      transform: translateX(3px) translateY(-3px) rotate(45deg);
+    .btn-teal-primary:active {
+      transform: translateY(0) scale(0.96);
     }
 
-    /* Tarjetas fotográficas con elevación orgánica */
-    .card-luxury {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    /* Flotación suave 3D de las figuras */
+    @keyframes gentle3DFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.8deg); }
     }
-    .card-luxury:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
-      border-color: #09090B;
-    }
-
-    /* Líneas de respiración architectural */
-    .hairline-b {
-      border-bottom: 1px solid rgba(228, 228, 231, 0.7);
-    }
-    .hairline-t {
-      border-top: 1px solid rgba(228, 228, 231, 0.7);
+    .animate-3d-float {
+      animation: gentle3DFloat 5s ease-in-out infinite;
     }
 
-    /* Pulso sutil y no invasivo para emergencias */
-    @keyframes subtlePulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.03); }
+    /* Tarjetas interactivas 3D con elevación limpia */
+    .card-3d-clean {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .status-pulse {
-      animation: subtlePulse 3s ease-in-out infinite;
+    .card-3d-clean:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08);
+      border-color: #0D9488;
+    }
+
+    /* Onda de reserva de alimento en Teal */
+    .liquid-wave-teal {
+      background: linear-gradient(90deg, #0D9488 0%, #2DD4BF 50%, #0D9488 100%);
+      background-size: 200% 100%;
+      animation: waveFlow 3.5s ease-in-out infinite;
+    }
+    @keyframes waveFlow {
+      0% { background-position: 100% 0; }
+      50% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
+
+    /* Radar de Urgencias 24hs */
+    @keyframes radarPulse {
+      0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+    }
+    .btn-radar-sos {
+      animation: radarPulse 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
     }
 
     @media print {
@@ -143,53 +172,49 @@
     }
   </style>
 </head>
-<body class="selection:bg-accentBlush selection:text-ink">
+<body class="selection:bg-pastel-tealLight selection:text-pastel-teal">
 
-  <!-- ==================== NAVEGACIÓN PRINCIPAL (MINIMALISMO PURO) ==================== -->
-  <header class="w-full bg-canvas/90 backdrop-blur-md sticky top-0 z-50 hairline-b transition-all duration-300">
-    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-8">
+  <!-- ==================== TOP BAR REFINADA EN TEAL PASTEL ==================== -->
+  <div class="bg-pastel-tealLight/70 border-b border-pastel-tealBorder text-pastel-teal text-[11px] py-2 px-4 text-center font-bold tracking-wider flex items-center justify-center gap-2.5">
+    <span class="w-1.5 h-1.5 rounded-full bg-pastel-coral inline-block"></span>
+    <span>🐾 Exclusivo Lanús y Avellaneda • Primer despacho con Welcome Kit artesanal sin cargo • Reposición y Cuidado 360°</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-pastel-coral inline-block"></span>
+  </div>
+
+  <!-- ==================== NAVBAR CON LOGO ORIGINAL ==================== -->
+  <header class="bg-pastel-canvas/95 backdrop-blur-md sticky top-0 z-50 border-b border-pastel-line/80">
+    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-6">
       
-      <!-- LOGO CON PROPÓSITO: MONOGRAMA EDITORIAL -->
+      <!-- LOGO OFICIAL ORIGINAL (DEL ARCHIVO logo_principal.jpg) -->
       <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
-        <div class="w-8 h-8 rounded-md bg-ink text-canvas flex items-center justify-center font-black text-xs tracking-tighter transition-transform group-hover:scale-105">
-          TC
-        </div>
-        <span class="font-bold text-xs uppercase tracking-wideMicro text-ink">
-          TeLoCuidamos
-        </span>
+        <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-10 sm:h-11 md:h-12 object-contain rounded-xl shadow-xs transition-transform group-hover:scale-105">
       </a>
 
-      <!-- ENLACES DE NAVEGACIÓN REFINADOS -->
-      <nav class="hidden md:flex items-center gap-10 text-[13px] font-semibold tracking-tight text-inkSecondary">
-        <a href="#hero" class="text-ink font-bold relative py-1 focus:outline-none">
-          Inicio
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-ink"></span>
+      <!-- ENLACES DE NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center gap-8 text-[13px] font-bold text-pastel-slate">
+        <a href="#hero" class="text-pastel-teal font-extrabold relative py-1 focus:outline-none flex flex-col items-center">
+          <span>Inicio</span>
+          <span class="w-1 h-1 rounded-full bg-pastel-teal mt-0.5"></span>
         </a>
-        <a href="#servicios" class="hover:text-ink transition-colors duration-200">Servicios</a>
-        <a href="#pasaporte" class="hover:text-ink transition-colors duration-200">Pasaporte Clínico</a>
-        <a href="#bienvenida" class="hover:text-ink transition-colors duration-200">Welcome Box</a>
-        <a href="#cobertura" class="hover:text-ink transition-colors duration-200">Zona Sur</a>
+        <a href="#servicios" class="hover:text-pastel-teal transition">Servicios</a>
+        <a href="#pasaporte" class="hover:text-pastel-teal transition">Pasaporte Clínico</a>
+        <a href="#bienvenida" class="hover:text-pastel-teal transition">Welcome Kit</a>
+        <a href="#cobertura" class="hover:text-pastel-teal transition">Zona Sur</a>
       </nav>
 
-      <!-- ACCIONES DIRECTAS SIN FRICCIÓN -->
-      <div class="flex items-center gap-4">
+      <!-- BOTONES DE ACCIÓN RÁPIDA -->
+      <div class="flex items-center gap-3">
         
-        <!-- INDICADOR HIPERLOCAL SUTIL -->
-        <div class="hidden lg:block text-right pr-2">
-          <p class="text-[10px] uppercase font-bold tracking-wideMicro text-inkMuted">Cobertura Exclusiva</p>
-          <p class="text-xs font-bold text-ink">Lanús y Avellaneda</p>
-        </div>
-
-        <!-- ACCESO RÁPIDO URGENCIAS: DISCRETO PERO CLARO -->
-        <button onclick="toggleModal('modalUrgencias')" class="status-pulse px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-200 transition-colors duration-200 flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-urgent"></span>
-          <span>Guardias 24hs</span>
+        <!-- BOTÓN URGENCIAS 24HS -->
+        <button onclick="toggleModal('modalUrgencias')" class="btn-radar-sos px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-pastel-urgent text-white flex items-center gap-1.5 shadow-sm transition">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+          <span>🚨 Urgencias 24hs</span>
         </button>
 
-        <!-- BOTÓN PRINCIPAL DE ENTRADA -->
-        <button onclick="toggleModal('modalOnboarding')" class="btn-signature px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wideMicro flex items-center gap-2">
-          <span>Comenzar</span>
-          <span class="text-sm font-normal">→</span>
+        <!-- MI CUENTA / REGISTRO -->
+        <button onclick="toggleModal('modalOnboarding')" class="btn-teal-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+          <span>Pedir Cuidado</span>
+          <span class="text-sm font-normal ml-1">→</span>
         </button>
 
       </div>
@@ -200,198 +225,204 @@
   <!-- ==================== MAIN CONTENT ==================== -->
   <main class="w-full">
 
-    <!-- ==================== 1. HERO SECTION (DIRECCIÓN DE ARTE DE ALTA GAMA) ==================== -->
-    <section id="hero" class="relative max-w-[1360px] mx-auto px-6 lg:px-12 pt-10 pb-20 lg:pt-16 lg:pb-28">
+    <!-- ==================== 1. HERO SECTION CON FIGURAS 3D Y COLORES PASTEL ==================== -->
+    <section id="hero" class="relative max-w-[1360px] mx-auto px-6 lg:px-12 pt-8 pb-16 lg:pt-14 lg:pb-24">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[580px]">
         
-        <!-- COLUMNA 1: JERARQUÍA TIPOGRÁFICA Y COPYWRITING PERSUASIVO -->
+        <!-- COLUMNA 1: TITULAR MONUMENTAL & COPY EDITORIAL -->
         <div class="lg:col-span-4 z-10 text-center lg:text-left space-y-6">
           
-          <h1 class="display-headline select-none">
-            Premium<br>Care
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pastel-tealLight text-pastel-teal text-xs font-bold uppercase tracking-wider border border-pastel-tealBorder">
+            <span>●</span> Ecosistema de Bienestar Canino & Felino
+          </div>
+
+          <h1 class="hero-display-title select-none">
+            Te Lo<br><span class="text-pastel-coral">Cuidamos</span>
           </h1>
 
-          <p class="text-sm sm:text-base text-inkSecondary prose-measure mx-auto lg:mx-0 leading-relaxed font-normal">
-            <strong class="text-ink font-semibold">Cuidado integral con enfoque calmo</strong>, reposición inteligente de alimento y atención médica preventiva en Lanús y Avellaneda.
+          <p class="text-sm sm:text-base text-pastel-slate max-w-sm mx-auto lg:mx-0 leading-relaxed font-normal">
+            <strong class="text-pastel-navy font-extrabold">Cuidado integral con figuras 3D y calidez de barrio</strong>. Alimento en piloto automático, consultorios veterinarios aliados y paseos cuidados en Lanús y Avellaneda.
           </p>
 
-          <div class="pt-2 flex items-center justify-center lg:justify-start gap-4 text-[11px] text-inkMuted font-medium tracking-wide">
-            <span class="flex items-center gap-1.5 text-inkSecondary font-semibold">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              Sesiones 1 a 1 sin jaulas
+          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-pastel-slate font-semibold">
+            <span class="flex items-center gap-1 text-pastel-teal">
+              <span class="w-2 h-2 rounded-full bg-pastel-teal"></span>
+              Atención 1 a 1 sin jaulas
             </span>
-            <span>•</span>
-            <span>Respaldo veterinario</span>
+            <span class="text-pastel-line">•</span>
+            <span class="flex items-center gap-1 text-pastel-coral">
+              <span class="w-2 h-2 rounded-full bg-pastel-coral"></span>
+              Flete agrupado sin costo
+            </span>
           </div>
 
         </div>
 
-        <!-- COLUMNA 2: FOTOGRAFÍA DE AUTOR Y BOTONERA SIGNATURE -->
+        <!-- COLUMNA 2: FIGURAS 3D PASTEL (PERRITO + GATITO DEL LOGO) + BOTONERA DOBLE -->
         <div class="lg:col-span-5 flex flex-col items-center justify-center relative z-20">
           
-          <!-- FOTOGRAFÍA CENTRAL NÍTIDA EN ALTA DEFINICIÓN -->
-          <div class="w-full max-w-[420px] sm:max-w-[460px] select-none">
-            <img src="../assets/hero_dog_clean_flawless.png" alt="Cuidado Canino y Felino de Autor" class="w-full h-auto object-contain">
+          <!-- ILUSTRACIÓN 3D PASTEL CLAY OFICIAL (mascotas_hero_pastel.svg) -->
+          <div class="w-full max-w-[430px] sm:max-w-[480px] drop-shadow-md select-none animate-3d-float">
+            <img src="../assets/mascotas_hero_pastel.svg" alt="Mascotas TeLoCuidamos 3D Pastel" class="w-full h-auto object-contain">
           </div>
 
-          <!-- BOTONERA DE 2 PIEZAS: MINIMALISMO INTENCIONAL -->
-          <div class="flex items-center gap-3 -mt-6 sm:-mt-8 z-30">
+          <!-- BOTONERA DE 2 PIEZAS (CORAL PASTEL #FFEDD5 + FLECHA) -->
+          <div class="flex items-center gap-3 -mt-4 sm:-mt-6 z-30">
             <!-- PÍLDORA PRINCIPAL -->
-            <button onclick="toggleModal('modalOnboarding')" class="btn-signature px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wideMicro flex items-center gap-2.5 shadow-sm">
-              <span class="text-sm">🐾</span>
-              <span>Pedir Cuidado</span>
+            <button onclick="toggleModal('modalOnboarding')" class="btn-pastel-pill px-8 py-3.5 flex items-center gap-2.5 shadow-sm">
+              <span class="text-base">🐾</span>
+              <span>PEDIR CUIDADO</span>
             </button>
 
             <!-- BOTÓN CIRCULAR COMPLEMENTARIO -->
-            <button onclick="toggleModal('modalOnboarding')" class="btn-signature w-12 h-12 rounded-full flex items-center justify-center text-base font-bold shadow-sm group">
-              <span class="btn-arrow-icon">↗</span>
+            <button onclick="toggleModal('modalOnboarding')" class="btn-pastel-arrow w-12 h-12 flex items-center justify-center text-lg font-bold shadow-sm">
+              ↗
             </button>
           </div>
 
         </div>
 
-        <!-- COLUMNA 3: TARJETAS DE AUTOR (EDITORIAL PREVIEWS) -->
-        <div class="lg:col-span-3 flex flex-col gap-5 items-center lg:items-end z-10 mt-10 lg:mt-0">
+        <!-- COLUMNA 3: TARJETAS CON ILUSTRACIONES 3D EN COLORES PASTEL -->
+        <div class="lg:col-span-3 flex flex-col gap-5 items-center lg:items-end z-10 mt-8 lg:mt-0">
           
-          <!-- TARJETA 1 -->
-          <div onclick="toggleModal('modalOnboarding')" class="card-luxury w-full max-w-[260px] rounded-[24px] overflow-hidden cursor-pointer border border-lineSubtle group bg-canvas">
-            <img src="../assets/gallery_poodle.png" alt="Grooming Calmo y Estética Canina" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+          <!-- TARJETA 3D 1: GROOMING SPA -->
+          <div onclick="toggleModal('modalOnboarding')" class="card-3d-clean w-full max-w-[270px] rounded-[24px] overflow-hidden shadow-sm cursor-pointer border border-pastel-tealBorder group bg-white">
+            <img src="../assets/card_3d_grooming.svg" alt="3D Grooming Spa Poodle" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
 
-          <!-- TARJETA 2 -->
-          <div onclick="toggleModal('modalOnboarding')" class="card-luxury w-full max-w-[260px] rounded-[24px] overflow-hidden cursor-pointer border border-lineSubtle group bg-canvas">
-            <img src="../assets/gallery_pack.png" alt="Socialización y Paseos en Grupo Reducido" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105">
+          <!-- TARJETA 3D 2: NUTRICIÓN Y ALIMENTO -->
+          <div onclick="toggleModal('modalOnboarding')" class="card-3d-clean w-full max-w-[270px] rounded-[24px] overflow-hidden shadow-sm cursor-pointer border border-pastel-coralBorder group bg-white">
+            <img src="../assets/card_3d_nutrition.svg" alt="3D Pet Food Bowl" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
 
         </div>
 
       </div>
 
-      <!-- LÍNEAS DE CIERRE EDITORIAL (RESPIRACIÓN Y DETALLE DE AUTOR) -->
-      <div class="hairline-t mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-inkSecondary gap-4 font-normal">
-        <p class="max-w-[34ch] text-center sm:text-left">
-          confort, serenidad y terminaciones precisas pensadas para cada perro y gato.
+      <!-- LÍNEA INFERIOR DE RESPIRACIÓN Y MICROTEXTOS -->
+      <div class="border-t border-pastel-line mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-pastel-slate gap-4 font-medium">
+        <p class="max-w-xs text-center sm:text-left">
+          confort, serenidad y terminaciones cuidadas para cada perro y gato.
         </p>
-        <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wideMicro text-ink bg-canvasMuted px-3 py-1 rounded-full">
-          Lanús & Avellaneda • Conexión Barrial
+        <div class="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-wider text-pastel-teal bg-pastel-tealLight px-3.5 py-1 rounded-full border border-pastel-tealBorder">
+          Lanús & Avellaneda • Zona Sur
         </div>
-        <p class="max-w-[34ch] text-center sm:text-right">
-          nutrición continua y medicina preventiva sin tiempos muertos.
+        <p class="max-w-xs text-center sm:text-right">
+          nutrición balanceada y medicina preventiva sin tiempos muertos.
         </p>
       </div>
 
     </section>
 
-    <!-- ==================== 2. SERVICIOS (MENOS ES MÁS • ARQUITECTURA LIMPIA) ==================== -->
-    <section id="servicios" class="hairline-t bg-canvas py-24 lg:py-32">
+    <!-- ==================== 2. SECCIÓN DE LOS 6 SERVICIOS EN COLORES PASTEL ==================== -->
+    <section id="servicios" class="border-t border-pastel-line bg-white py-20 lg:py-28">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         
-        <!-- CABECERA DE SECCIÓN CON RESPIRACIÓN -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-20 gap-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div class="space-y-3">
-            <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">
-              Ecosistema Integral
+            <span class="text-[11px] font-bold uppercase tracking-wider text-pastel-teal bg-pastel-tealLight px-3 py-1 rounded-full border border-pastel-tealBorder">
+              Ecosistema 360° en Zona Sur
             </span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tightDisplay text-ink">
-              Todo resuelto.<br>Sin ruido ni complicaciones.
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-pastel-navy">
+              Todo resuelto.<br>Con calidez y transparencia.
             </h2>
           </div>
-          <p class="text-xs sm:text-sm text-inkSecondary prose-measure leading-relaxed">
-            Coordinamos nutrición clínica, consultorios barriales y paseos en grupos reducidos con profesionales verificados en tu zona.
+          <p class="text-xs sm:text-sm text-pastel-slate max-w-md leading-relaxed">
+            Centralizamos la alimentación, la veterinaria preventiva, la peluquería sin jaulas y las vacaciones con profesionales calificados de tu barrio.
           </p>
         </div>
 
-        <!-- GRID DE 6 SERVICIOS MINIMALISTAS Y GENEROSOS EN ESPACIO -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- GRID DE 6 SERVICIOS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <!-- SERVICIO 1 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 01 / GROOMING SPA -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-tealBorder bg-pastel-tealLight/40 flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">01 / Estética</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Grooming & Spa Relajante</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Sesiones individuales sin jaulas de secado. Cosmética hipoalergénica vegana, corte higiénico y corte de uñas con enfoque calmo.
+              <span class="text-xs font-black text-pastel-teal uppercase tracking-wider">01 / ESTÉTICA & SPA</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Grooming sin Jaulas</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Sesiones 1 a 1 de baño tibio con cosmética natural vegana, corte higiénico y secado manual relajante. Cero ruidos molestos.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Atención 1 a 1</span>
-              <button onclick="toggleModal('modalOnboarding')" class="text-ink hover:underline">Reservar →</button>
+            <div class="border-t border-pastel-tealBorder pt-4 flex justify-between items-center text-xs font-bold text-pastel-teal">
+              <span>Atención personalizada</span>
+              <button onclick="toggleModal('modalOnboarding')" class="hover:underline">Reservar Turno →</button>
             </div>
           </div>
 
-          <!-- SERVICIO 2 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 02 / REPOSICIÓN ALIMENTO -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-coralBorder bg-pastel-coralLight/40 flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">02 / Nutrición</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Alimento en Piloto Automático</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Calculamos la ración diaria exacta. Te avisamos 4 días antes y te despachamos la bolsa por flete agrupado a tu puerta sin recargo.
+              <span class="text-xs font-black text-pastel-coral uppercase tracking-wider">02 / NUTRICIÓN CLÍNICA</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Alimento en Piloto Automático</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Calculamos los gramos diarios según peso y edad. Te avisamos 4 días antes y te enviamos la bolsa de distribuidor oficial a tu puerta por flete agrupado.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Bolsas selladas de fábrica</span>
-              <button onclick="toggleModal('modalOnboarding')" class="text-ink hover:underline">Calcular Ración →</button>
+            <div class="border-t border-pastel-coralBorder pt-4 flex justify-between items-center text-xs font-bold text-pastel-coral">
+              <span>Bolsas cerradas de fábrica</span>
+              <button onclick="toggleModal('modalOnboarding')" class="hover:underline">Calcular Ración →</button>
             </div>
           </div>
 
-          <!-- SERVICIO 3 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 03 / VETERINARIAS DE BARRIO -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-tealBorder bg-pastel-tealLight/40 flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">03 / Salud</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Veterinarias de Barrio</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Avisos previos para las vacunas Séxtuple y Antirrábica. Coordinamos el turno en consultorios cercanos sin costo de gestión.
+              <span class="text-xs font-black text-pastel-teal uppercase tracking-wider">03 / SALUD PREVENTIVA</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Veterinarias de Barrio Aliadas</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Recordatorios previos de Séxtuple y Antirrábica obligatoria. Coordinamos el turno en consultorios de tu barrio sin costo de gestión.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Consultorios verificados</span>
-              <button onclick="toggleModal('modalOnboarding')" class="text-ink hover:underline">Ver Red →</button>
+            <div class="border-t border-pastel-tealBorder pt-4 flex justify-between items-center text-xs font-bold text-pastel-teal">
+              <span>Lanusita & Mitre</span>
+              <button onclick="toggleModal('modalOnboarding')" class="hover:underline">Ver Consultorios →</button>
             </div>
           </div>
 
-          <!-- SERVICIO 4 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 04 / PASAPORTE CLÍNICO DIGITAL -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-line bg-pastel-canvas flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">04 / Pasaporte</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Ficha Médica con Login</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Historial de vacunas, peso mensual, alergias y antecedentes clínicos en tu teléfono, siempre a disposición de cualquier profesional.
+              <span class="text-xs font-black text-pastel-navy uppercase tracking-wider">04 / HISTORIAL DIGITAL</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Pasaporte de Salud con Login</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Llevá vacunas, peso histórico, alergias y desparasitaciones en tu celular con usuario y clave, siempre listo para mostrar a cualquier médico.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Exportable a PDF</span>
-              <a href="#pasaporte" class="text-ink hover:underline">Ver Demo →</a>
+            <div class="border-t border-pastel-line pt-4 flex justify-between items-center text-xs font-bold text-pastel-navy">
+              <span>Exportable a PDF</span>
+              <a href="#pasaporte" class="hover:underline">Ver Demo en Vivo →</a>
             </div>
           </div>
 
-          <!-- SERVICIO 5 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 05 / PASEADORES VERIFICADOS -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-coralBorder bg-pastel-coralLight/40 flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">05 / Actividad</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Paseadores en Grupo Reducido</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Máximo 4 perros por profesional en plazas de Lanús y Avellaneda. Reporte fotográfico de cada paseo y cobertura médica incluida.
+              <span class="text-xs font-black text-pastel-coral uppercase tracking-wider">05 / ACTIVIDAD FÍSICA</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Paseadores en Grupo Reducido</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Grupos reducidos de <strong>máximo 4 perros</strong> en plazas de Lanús y Avellaneda. Reporte fotográfico por WhatsApp y cobertura veterinaria incluida.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Sin manadas masivas</span>
-              <button onclick="toggleModal('modalOnboarding')" class="text-ink hover:underline">Consultar Paseos →</button>
+            <div class="border-t border-pastel-coralBorder pt-4 flex justify-between items-center text-xs font-bold text-pastel-coral">
+              <span>Sin manadas masivas</span>
+              <button onclick="toggleModal('modalOnboarding')" class="hover:underline">Consultar Paseador →</button>
             </div>
           </div>
 
-          <!-- SERVICIO 6 -->
-          <div class="card-luxury p-8 sm:p-10 rounded-[30px] border border-lineSubtle bg-canvasSubtle flex flex-col justify-between space-y-8">
+          <!-- 06 / CUIDADORES EN VACACIONES -->
+          <div class="card-3d-clean p-8 rounded-[30px] border border-pastel-tealBorder bg-pastel-tealLight/40 flex flex-col justify-between space-y-6">
             <div class="space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted block">06 / Hospedaje</span>
-              <h3 class="text-2xl font-bold tracking-tight text-ink">Cuidadores en Vacaciones</h3>
-              <p class="text-xs sm:text-sm text-inkSecondary leading-relaxed">
-                Hospedaje hogareño y familiar para perros, o visitas a domicilio para gatos con atención a rutinas, juegos y arenero limpio.
+              <span class="text-xs font-black text-pastel-teal uppercase tracking-wider">06 / HOSPEDAJE HOGAREÑO</span>
+              <h3 class="text-2xl font-black text-pastel-navy">Cuidadores sin Jaulas</h3>
+              <p class="text-xs sm:text-sm text-pastel-slate leading-relaxed">
+                Hospedaje cariñoso donde duermen en sillón como en casa para perros, o visitas a domicilio para gatos con juego y arenero limpio.
               </p>
             </div>
-            <div class="hairline-t pt-5 flex items-center justify-between text-xs font-semibold">
-              <span class="text-ink">Hogares auditados</span>
-              <button onclick="toggleModal('modalOnboarding')" class="text-ink hover:underline">Disponibilidad →</button>
+            <div class="border-t border-pastel-tealBorder pt-4 flex justify-between items-center text-xs font-bold text-pastel-teal">
+              <span>Hogares auditados</span>
+              <button onclick="toggleModal('modalOnboarding')" class="hover:underline">Consultar Fechas →</button>
             </div>
           </div>
 
@@ -400,126 +431,127 @@
       </div>
     </section>
 
-    <!-- ==================== 3. PASAPORTE CLÍNICO DIGITAL (UX DIRECTA Y LIMPIA) ==================== -->
-    <section id="pasaporte" class="hairline-t bg-canvasSubtle py-24 lg:py-32">
+    <!-- ==================== 3. PASAPORTE SANITARIO DIGITAL (INTERACTIVO) ==================== -->
+    <section id="pasaporte" class="border-t border-pastel-line bg-pastel-canvas py-20 lg:py-28">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
         
-        <div class="bg-canvas rounded-[36px] border border-lineSubtle p-8 sm:p-12 lg:p-16 space-y-10 shadow-sm">
+        <div class="bg-white rounded-[36px] border border-pastel-line p-8 sm:p-12 shadow-sm space-y-8">
           
-          <!-- ENCABEZADO DE LA DEMO -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 hairline-b pb-8">
-            <div class="space-y-2">
-              <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted">
-                Demostración Interactiva
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-pastel-line pb-6">
+            <div>
+              <span class="text-[10px] font-black uppercase tracking-wider text-pastel-teal bg-pastel-tealLight px-3 py-1 rounded-full border border-pastel-tealBorder">
+                Demo en Tiempo Real
               </span>
-              <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-ink">
-                Pasaporte Sanitario & Control de Ración
+              <h3 class="text-2xl sm:text-4xl font-black text-pastel-navy mt-2">
+                Pasaporte de Salud Digital
               </h3>
+              <p class="text-xs text-pastel-slate">
+                Probá cómo gestiona un tutor de Lanús la alimentación y la ficha médica que le presenta a su veterinario.
+              </p>
             </div>
 
-            <!-- TAB SWITCHER MINIMALISTA -->
-            <div class="flex bg-canvasMuted p-1 rounded-full border border-lineSubtle self-start md:self-auto">
-              <button id="tabBtnPiloto" onclick="switchTab('piloto')" class="px-5 py-2 rounded-full text-xs font-bold text-canvas bg-ink transition-all duration-200">
+            <div class="flex bg-pastel-canvas p-1 rounded-full border border-pastel-line gap-1">
+              <button id="tabBtnPiloto" onclick="switchTab('piloto')" class="px-5 py-2.5 rounded-full text-xs font-black bg-pastel-teal text-white transition shadow-sm">
                 Alimento & Vacunas
               </button>
-              <button id="tabBtnFicha" onclick="switchTab('ficha')" class="px-5 py-2 rounded-full text-xs font-bold text-inkSecondary hover:text-ink transition-all duration-200">
+              <button id="tabBtnFicha" onclick="switchTab('ficha')" class="px-5 py-2.5 rounded-full text-xs font-black text-pastel-slate hover:text-pastel-teal transition">
                 Ficha Médica Completa
               </button>
             </div>
           </div>
 
-          <!-- CONTENIDO PESTAÑA 1: PILOTO Y SERVICIOS -->
+          <!-- TAB PILOTO -->
           <div id="tabContentPiloto" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-4">
-              <span class="text-[10px] font-bold uppercase tracking-wideMicro text-inkMuted">Nutrición Registrada</span>
-              <h4 class="text-lg font-bold text-ink">Royal Canin Maxi Adult</h4>
-              <p class="text-xs text-inkSecondary">Ración recomendada: <strong class="text-ink">320g diarios</strong></p>
-              <div class="space-y-1.5 pt-2">
-                <div class="flex justify-between text-xs font-semibold">
-                  <span class="text-inkSecondary">Bolsa 15 kg</span>
-                  <span class="text-ink font-bold">4 días restantes</span>
+            <div class="p-6 rounded-[24px] bg-pastel-canvas border border-pastel-line space-y-3">
+              <span class="text-[10px] font-black uppercase tracking-wider text-pastel-slate">Alimento Balanceado</span>
+              <h4 class="font-black text-lg text-pastel-navy">Royal Canin Maxi Adult</h4>
+              <p class="text-xs text-pastel-slate">Ración: <strong>320g diarios</strong></p>
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1">
+                  <span>Bolsa 15 kg</span>
+                  <span class="text-pastel-coral font-extrabold">Quedan 4 días</span>
                 </div>
-                <div class="w-full bg-zinc-200 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-ink h-full rounded-full" style="width: 25%"></div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="liquid-wave-teal h-full rounded-full" style="width: 25%"></div>
                 </div>
               </div>
-              <p class="text-[11px] text-inkMuted">Entrega programada: <strong>Martes en Lanusita</strong></p>
+              <p class="text-[11px] text-pastel-slate">Próxima entrega: <strong>Martes en Lanusita</strong></p>
             </div>
 
-            <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-4">
-              <span class="text-[10px] font-bold uppercase tracking-wideMicro text-inkMuted">Calendario Sanitario</span>
-              <h4 class="text-lg font-bold text-ink">Séxtuple Anual</h4>
-              <p class="text-xs text-inkSecondary">Consultorio asignado en tu zona:</p>
-              <p class="text-xs font-bold text-ink">Veterinaria Dr. Rossi (Lanús Oeste)</p>
-              <button onclick="simularTurno()" class="w-full py-2.5 rounded-full bg-ink text-canvas text-xs font-bold uppercase tracking-wideMicro hover:bg-zinc-800 transition">
-                Coordinar Turno →
+            <div class="p-6 rounded-[24px] bg-pastel-tealLight/40 border border-pastel-tealBorder space-y-3">
+              <span class="text-[10px] font-black uppercase tracking-wider text-pastel-teal">Inmunización Barrial</span>
+              <h4 class="font-black text-lg text-pastel-navy">Séxtuple Anual</h4>
+              <p class="text-xs text-pastel-slate">Veterinaria asignada en Lanús:</p>
+              <p class="text-xs font-extrabold text-pastel-teal">Veterinaria Dr. Rossi (Lanús Oeste)</p>
+              <button onclick="simularTurno()" class="w-full btn-teal-primary py-2.5 rounded-full text-xs">
+                Coordinar Turno por Bot →
               </button>
             </div>
 
-            <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-4">
-              <span class="text-[10px] font-bold uppercase tracking-wideMicro text-inkMuted">Evolución de Peso</span>
-              <div class="flex items-baseline justify-between">
-                <span class="text-xs text-inkSecondary">Peso actual:</span>
-                <span class="text-xl font-bold text-ink" id="dashPesoRegistrado">14.0 kg</span>
+            <div class="p-6 rounded-[24px] bg-pastel-canvas border border-pastel-line space-y-3">
+              <span class="text-[10px] font-black uppercase tracking-wider text-pastel-slate">Control Morfológico</span>
+              <div class="flex justify-between items-center">
+                <span class="text-xs text-pastel-slate">Peso actual:</span>
+                <span class="text-lg font-black text-pastel-navy" id="dashPesoRegistrado">14.0 kg</span>
               </div>
               <div class="flex gap-2">
-                <input type="number" id="inputActualizarPeso" step="0.5" value="14" class="w-24 px-3 py-1.5 text-xs rounded-lg border border-lineSubtle bg-canvas focus:outline-none focus:border-ink">
-                <button onclick="actualizarPeso()" class="px-4 py-1.5 rounded-lg bg-ink text-canvas text-xs font-bold hover:bg-zinc-800 transition">
+                <input type="number" id="inputActualizarPeso" step="0.5" value="14" class="w-24 px-3 py-1.5 text-xs rounded-xl border border-pastel-line bg-white">
+                <button onclick="actualizarPeso()" class="px-4 py-1.5 rounded-xl bg-pastel-navy text-white text-xs font-bold hover:bg-black transition">
                   Asentar
                 </button>
               </div>
-              <p class="text-[11px] text-emerald-700 font-semibold">✓ Condición óptima</p>
+              <p class="text-[10px] text-emerald-700 font-bold">✓ Condición óptima según veterinario</p>
             </div>
 
           </div>
 
-          <!-- CONTENIDO PESTAÑA 2: FICHA MÉDICA EXPORTABLE -->
+          <!-- TAB FICHA MÉDICA -->
           <div id="tabContentFicha" class="hidden space-y-6">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-canvasSubtle p-6 rounded-[24px] border border-lineSubtle">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-pastel-canvas p-5 rounded-[24px] border border-pastel-line">
               <div>
-                <span class="text-[10px] font-bold uppercase tracking-wideMicro text-inkMuted">Pasaporte Sanitario Certificado</span>
-                <h4 class="text-xl font-bold text-ink mt-0.5">Milo • Golden Retriever (14.0 kg)</h4>
-                <p class="text-xs text-inkSecondary">Tutor: Lucas Gómez • Lanús Oeste • Dr. Rossi</p>
+                <span class="text-[10px] font-black uppercase tracking-wider text-pastel-teal">Pasaporte Sanitario Oficial</span>
+                <h4 class="text-xl font-black text-pastel-navy mt-0.5">Milo • Golden Retriever (14.0 kg)</h4>
+                <p class="text-xs text-pastel-slate">Tutor: Lucas Gómez • Lanús Oeste • Consultorio de cabecera: Dr. Rossi</p>
               </div>
               <div class="flex gap-2.5">
-                <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-ink text-canvas text-xs font-bold hover:bg-zinc-800 transition">
+                <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-pastel-navy text-white text-xs font-bold">
                   🖨️ Exportar PDF
                 </button>
-                <button onclick="toggleModal('modalWhatsApp')" class="btn-signature px-5 py-2.5 rounded-full text-xs font-bold">
+                <button onclick="toggleModal('modalWhatsApp')" class="btn-pastel-pill px-5 py-2.5 rounded-full text-xs font-bold">
                   📲 Enviar a Veterinario
                 </button>
               </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-              <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvas space-y-3">
-                <div class="flex justify-between items-center hairline-b pb-2.5 font-bold">
-                  <span class="uppercase tracking-wideMicro text-inkMuted text-[10px]">Inmunizaciones</span>
-                  <span class="text-emerald-700 text-[10px] bg-emerald-50 px-2 py-0.5 rounded-full font-bold">AL DÍA</span>
+              <div class="p-6 rounded-[24px] border border-pastel-line bg-white space-y-3">
+                <div class="flex justify-between items-center border-b pb-2 font-bold">
+                  <span class="uppercase text-[10px] text-pastel-slate">💉 Calendario de Inmunización</span>
+                  <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">AL DÍA</span>
                 </div>
-                <div class="p-3 bg-canvasSubtle rounded-xl space-y-0.5">
-                  <p class="font-bold text-ink text-xs">Séxtuple Canina</p>
-                  <p class="text-[11px] text-inkSecondary">Aplicada: 15/11/2025 • Vencimiento: <strong>15/11/2026</strong></p>
+                <div class="p-3 bg-pastel-canvas rounded-xl space-y-0.5">
+                  <p class="font-bold text-pastel-navy">Séxtuple Anual</p>
+                  <p class="text-[11px] text-pastel-slate">Aplicada: 15/11/2025 • Vencimiento: <strong class="text-pastel-teal">15/11/2026</strong></p>
                 </div>
-                <div class="p-3 bg-canvasSubtle rounded-xl space-y-0.5">
-                  <p class="font-bold text-ink text-xs">Antirrábica Obligatoria</p>
-                  <p class="text-[11px] text-inkSecondary">Aplicada: 10/05/2026 • Vencimiento: 10/05/2027</p>
+                <div class="p-3 bg-pastel-canvas rounded-xl space-y-0.5">
+                  <p class="font-bold text-pastel-navy">Antirrábica Obligatoria</p>
+                  <p class="text-[11px] text-pastel-slate">Aplicada: 10/05/2026 • Vencimiento: 10/05/2027</p>
                 </div>
               </div>
 
-              <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvas space-y-3">
-                <div class="flex justify-between items-center hairline-b pb-2.5 font-bold">
-                  <span class="uppercase tracking-wideMicro text-inkMuted text-[10px]">Historial Mensual</span>
-                  <span class="text-[10px] text-ink font-bold" id="fichaPesoActual">14.0 kg</span>
+              <div class="p-6 rounded-[24px] border border-pastel-line bg-white space-y-3">
+                <div class="flex justify-between items-center border-b pb-2 font-bold">
+                  <span class="uppercase text-[10px] text-pastel-slate">⚖️ Evolución Mensual de Peso</span>
+                  <span class="text-[10px] text-pastel-navy font-bold" id="fichaPesoActual">14.0 kg</span>
                 </div>
                 <table class="w-full text-left text-[11px]">
-                  <thead class="text-inkMuted uppercase text-[9px] tracking-wideMicro font-bold">
+                  <thead class="text-pastel-slate uppercase text-[9px] font-bold">
                     <tr><th class="py-1.5">Periodo</th><th class="py-1.5">Peso</th><th class="py-1.5">Ración</th><th class="py-1.5">Estado</th></tr>
                   </thead>
-                  <tbody id="tablaHistorialPeso" class="divide-y divide-lineSubtle">
-                    <tr><td class="py-2 font-bold text-ink">Octubre 2026</td><td class="py-2 text-ink font-semibold">14.0 kg</td><td class="py-2">308g/día</td><td class="py-2 text-emerald-700 font-semibold">Óptimo</td></tr>
-                    <tr><td class="py-2 font-bold text-ink">Septiembre 2026</td><td class="py-2 text-ink font-semibold">13.8 kg</td><td class="py-2">300g/día</td><td class="py-2 text-emerald-700 font-semibold">Óptimo</td></tr>
+                  <tbody id="tablaHistorialPeso" class="divide-y divide-slate-100">
+                    <tr><td class="py-2 font-bold text-pastel-navy">Octubre 2026</td><td class="py-2 text-pastel-navy font-semibold">14.0 kg</td><td class="py-2">308g/día</td><td class="py-2 text-emerald-700 font-semibold">Óptimo</td></tr>
+                    <tr><td class="py-2 font-bold text-pastel-navy">Septiembre 2026</td><td class="py-2 text-pastel-navy font-semibold">13.8 kg</td><td class="py-2">300g/día</td><td class="py-2 text-emerald-700 font-semibold">Óptimo</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -531,57 +563,55 @@
       </div>
     </section>
 
-    <!-- ==================== 4. BOUTIQUE UNBOXING BOX ==================== -->
-    <section id="bienvenida" class="hairline-t bg-canvas py-24 lg:py-32">
+    <!-- ==================== 4. BOUTIQUE UNBOXING BOX (PASTEL EFECTO WOW) ==================== -->
+    <section id="bienvenida" class="border-t border-pastel-line bg-white py-20 lg:py-28">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
-        <div class="bg-ink text-canvas rounded-[36px] p-8 sm:p-14 lg:p-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+        <div class="bg-gradient-to-r from-pastel-teal to-pastel-tealHover text-white rounded-[36px] p-8 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
           <div class="space-y-4 max-w-2xl">
-            <span class="text-[10px] font-bold uppercase tracking-wideMicro text-accentBlush bg-white/10 px-3 py-1 rounded-full border border-white/10">
-              Primer Despacho
+            <span class="text-[10px] font-black uppercase tracking-wider text-white bg-white/20 px-3 py-1 rounded-full">
+              🎁 Welcome Kit de Bienvenida
             </span>
-            <h3 class="text-3xl sm:text-5xl font-extrabold tracking-tightDisplay leading-tight">
-              Cada inicio incluye nuestro Welcome Box sin costo.
+            <h3 class="text-3xl sm:text-5xl font-black tracking-tight">
+              Tu primer pedido incluye nuestro Welcome Box sin cargo.
             </h3>
-            <p class="text-zinc-400 text-xs sm:text-sm prose-measure-wide leading-relaxed font-light">
-              La bienvenida que tu perro o gato merece: carta caligráfica personalizada, snack horneado de productores de pastura en Zona Sur y medalla con código QR para emergencias.
+            <p class="text-white/85 text-xs sm:text-sm leading-relaxed font-normal">
+              Cada primer despacho en Lanús y Avellaneda llega con: carta de bienvenida personalizada con el nombre de tu mascota, snack horneado de productores locales de Zona Sur y medalla con código QR para emergencias.
             </p>
           </div>
-          <button onclick="toggleModal('modalOnboarding')" class="btn-signature px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wideMicro whitespace-nowrap shadow-md">
-            Solicitar Bienvenida →
+          <button onclick="toggleModal('modalOnboarding')" class="btn-pastel-pill px-8 py-4 whitespace-nowrap text-xs shadow-md">
+            Quiero mi Welcome Kit ↗
           </button>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 5. COBERTURA GEOGRÁFICA EXCLUSIVA ==================== -->
-    <section id="cobertura" class="hairline-t bg-canvas py-20 lg:py-28">
+    <!-- ==================== 5. ZONAS DE COBERTURA EN ZONA SUR ==================== -->
+    <section id="cobertura" class="border-t border-pastel-line bg-pastel-canvas py-16 lg:py-24">
       <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div class="space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wideMicro text-inkMuted">Logística de Proximidad</span>
-            <h3 class="text-2xl sm:text-4xl font-extrabold tracking-tightDisplay text-ink">Lanús y Avellaneda</h3>
-          </div>
-          <p class="text-xs sm:text-sm text-inkSecondary prose-measure leading-relaxed">
-            Concentramos los repartos en dos días fijos para garantizar entregas puntuales y reducir emisiones de transporte.
-          </p>
+        <div class="text-center max-w-xl mx-auto space-y-3 mb-10">
+          <span class="text-[10px] font-black uppercase tracking-wider text-pastel-teal bg-pastel-tealLight px-3 py-1 rounded-full border border-pastel-tealBorder">
+            Logística de Proximidad
+          </span>
+          <h3 class="text-3xl font-black text-pastel-navy">Rutas Fijas en Lanús y Avellaneda</h3>
+          <p class="text-xs text-pastel-slate">Agrupamos entregas los martes y jueves para garantizar flete sin costo.</p>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-1">
-            <strong class="text-sm font-bold text-ink block">Lanús Oeste</strong>
-            <span class="text-xs text-inkMuted block">Lanusita & Centro (Martes)</span>
+          <div class="p-5 rounded-[22px] border border-pastel-line bg-white shadow-2xs">
+            <strong class="block text-sm font-black text-pastel-navy">Lanús Oeste</strong>
+            <span class="text-xs text-pastel-slate">Lanusita & Centro (Martes)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-1">
-            <strong class="text-sm font-bold text-ink block">R. de Escalada</strong>
-            <span class="text-xs text-inkMuted block">Estación & Alrededores (Martes)</span>
+          <div class="p-5 rounded-[22px] border border-pastel-line bg-white shadow-2xs">
+            <strong class="block text-sm font-black text-pastel-navy">R. de Escalada</strong>
+            <span class="text-xs text-pastel-slate">Estación & Alrededores (Martes)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-1">
-            <strong class="text-sm font-bold text-ink block">Avellaneda</strong>
-            <span class="text-xs text-inkMuted block">Plaza Alsina & Mitre (Jueves)</span>
+          <div class="p-5 rounded-[22px] border border-pastel-line bg-white shadow-2xs">
+            <strong class="block text-sm font-black text-pastel-navy">Avellaneda</strong>
+            <span class="text-xs text-pastel-slate">Plaza Alsina & Mitre (Jueves)</span>
           </div>
-          <div class="p-6 rounded-[24px] border border-lineSubtle bg-canvasSubtle space-y-1">
-            <strong class="text-sm font-bold text-ink block">Wilde</strong>
-            <span class="text-xs text-inkMuted block">Zona Residencial (Jueves)</span>
+          <div class="p-5 rounded-[22px] border border-pastel-line bg-white shadow-2xs">
+            <strong class="block text-sm font-black text-pastel-navy">Wilde</strong>
+            <span class="text-xs text-pastel-slate">Zona Residencial (Jueves)</span>
           </div>
         </div>
       </div>
@@ -589,46 +619,51 @@
 
   </main>
 
-  <!-- ==================== FOOTER REFINADO ==================== -->
-  <footer class="hairline-t py-12 px-6 lg:px-12 bg-canvas text-xs text-inkSecondary">
-    <div class="max-w-[1360px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+  <!-- ==================== FOOTER REFINADO CON LOGO ORIGINAL ==================== -->
+  <footer class="border-t border-pastel-line py-12 px-6 lg:px-12 bg-white text-xs text-pastel-slate">
+    <div class="max-w-[1360px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <div class="w-6 h-6 rounded bg-ink text-canvas flex items-center justify-center font-bold text-[10px]">TC</div>
-        <p class="font-medium text-ink">© 2026 TeLoCuidamos — Lanús y Avellaneda, Buenos Aires</p>
+        <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-9 object-contain rounded-lg">
+        <p class="font-medium text-pastel-navy">© 2026 TeLoCuidamos.com — Lanús y Avellaneda (Zona Sur, Bs. As.)</p>
       </div>
-      <div class="flex items-center gap-6 font-semibold">
-        <button onclick="toggleModal('modalUrgencias')" class="text-urgent hover:underline">Guardias 24hs</button>
-        <button onclick="toggleModal('modalWhatsApp')" class="text-ink hover:underline">Canal Concierge</button>
+      <div class="flex items-center gap-6 font-bold">
+        <button onclick="toggleModal('modalUrgencias')" class="text-pastel-urgent hover:underline">
+          🚨 Guardias 24hs Lanús / Avellaneda
+        </button>
+        <span>•</span>
+        <button onclick="toggleModal('modalWhatsApp')" class="text-pastel-teal hover:underline">
+          Canal Directo Concierge
+        </button>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== MODAL ONBOARDING (INTUITIVO Y DIRECTO) ==================== -->
-  <div id="modalOnboarding" class="fixed inset-0 bg-ink/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-canvas w-full max-w-md rounded-[32px] p-6 sm:p-8 shadow-2xl border border-lineSubtle space-y-6">
+  <!-- ==================== MODAL DE REGISTRO RÁPIDO ==================== -->
+  <div id="modalOnboarding" class="fixed inset-0 bg-pastel-navy/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-[32px] p-6 sm:p-8 shadow-2xl border border-pastel-line space-y-5">
       
-      <div class="flex items-center justify-between hairline-b pb-4">
+      <div class="flex items-center justify-between border-b border-pastel-line pb-4">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wideMicro text-inkMuted">Paso Único</span>
-          <h3 class="text-xl font-extrabold text-ink">Registrá a tu Mascota</h3>
+          <span class="text-[10px] font-black uppercase tracking-wider text-pastel-teal">Paso Único</span>
+          <h3 class="text-xl font-black text-pastel-navy">Registrá a tu Mascota</h3>
         </div>
-        <button onclick="toggleModal('modalOnboarding')" class="text-inkSecondary hover:text-ink text-2xl font-light">×</button>
+        <button onclick="toggleModal('modalOnboarding')" class="text-slate-400 hover:text-black text-2xl font-bold">×</button>
       </div>
 
       <form onsubmit="handleOnboardingSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wideMicro text-ink mb-1">Tu Nombre y Apellido</label>
-          <input type="text" id="tutorNombre" required placeholder="Ej: Lucas Gómez" class="w-full px-4 py-2.5 text-xs rounded-xl border border-lineSubtle bg-canvasSubtle focus:bg-canvas focus:outline-none focus:border-ink">
+          <label class="block text-[11px] font-black uppercase tracking-wider text-pastel-navy mb-1">Tu Nombre y Apellido</label>
+          <input type="text" id="tutorNombre" required value="Lucas Gómez" class="w-full px-4 py-2.5 text-xs rounded-xl border border-pastel-line bg-pastel-canvas focus:bg-white focus:outline-none focus:ring-2 focus:ring-pastel-teal">
         </div>
         
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-[11px] font-bold uppercase tracking-wideMicro text-ink mb-1">WhatsApp</label>
-            <input type="tel" id="tutorWhatsApp" required placeholder="Ej: 11 4567 8900" class="w-full px-4 py-2.5 text-xs rounded-xl border border-lineSubtle bg-canvasSubtle focus:bg-canvas focus:outline-none focus:border-ink">
+            <label class="block text-[11px] font-black uppercase tracking-wider text-pastel-navy mb-1">WhatsApp</label>
+            <input type="tel" id="tutorWhatsApp" required value="11 4567 8900" class="w-full px-4 py-2.5 text-xs rounded-xl border border-pastel-line bg-pastel-canvas focus:bg-white focus:outline-none focus:ring-2 focus:ring-pastel-teal">
           </div>
           <div>
-            <label class="block text-[11px] font-bold uppercase tracking-wideMicro text-ink mb-1">Localidad</label>
-            <select id="tutorBarrio" class="w-full px-4 py-2.5 text-xs rounded-xl border border-lineSubtle bg-canvas focus:outline-none">
+            <label class="block text-[11px] font-black uppercase tracking-wider text-pastel-navy mb-1">Localidad</label>
+            <select id="tutorBarrio" class="w-full px-4 py-2.5 text-xs rounded-xl border border-pastel-line bg-white">
               <option value="Lanús Oeste (Lanusita)" selected>Lanús Oeste</option>
               <option value="Lanús Este">Lanús Este</option>
               <option value="Remedios de Escalada">R. de Escalada</option>
@@ -640,21 +675,21 @@
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-[11px] font-bold uppercase tracking-wideMicro text-ink mb-1">Nombre Mascota</label>
-            <input type="text" id="mascotaNombre" required placeholder="Ej: Milo" class="w-full px-4 py-2.5 text-xs rounded-xl border border-lineSubtle bg-canvasSubtle focus:bg-canvas">
+            <label class="block text-[11px] font-black uppercase tracking-wider text-pastel-navy mb-1">Nombre Mascota</label>
+            <input type="text" id="mascotaNombre" required value="Milo" class="w-full px-4 py-2.5 text-xs rounded-xl border border-pastel-line bg-pastel-canvas focus:bg-white">
           </div>
           <div>
-            <label class="block text-[11px] font-bold uppercase tracking-wideMicro text-ink mb-1">Servicio Deseado</label>
-            <select id="servicioDeseado" class="w-full px-4 py-2.5 text-xs rounded-xl border border-lineSubtle bg-canvas focus:outline-none">
-              <option value="Grooming" selected>Grooming Spa</option>
+            <label class="block text-[11px] font-black uppercase tracking-wider text-pastel-navy mb-1">Servicio</label>
+            <select id="servicioDeseado" class="w-full px-4 py-2.5 text-xs rounded-xl border border-pastel-line bg-white">
+              <option value="Grooming" selected>Grooming Spa 3D</option>
               <option value="Alimento">Alimento en Piloto</option>
               <option value="Paseos">Paseador de Confianza</option>
-              <option value="Hospedaje">Cuidador en Vacaciones</option>
+              <option value="Hospedaje">Cuidador Vacaciones</option>
             </select>
           </div>
         </div>
 
-        <button type="submit" class="w-full btn-signature py-3.5 rounded-full text-xs font-bold uppercase tracking-wideMicro shadow-sm">
+        <button type="submit" class="w-full btn-teal-primary py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
           Activar Pasaporte y Ver Ficha →
         </button>
       </form>
@@ -663,110 +698,106 @@
   </div>
 
   <!-- ==================== MODAL: URGENCIAS VETERINARIAS 24HS ==================== -->
-  <div id="modalUrgencias" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-canvas w-full max-w-lg rounded-[32px] overflow-hidden shadow-2xl border border-lineSubtle flex flex-col max-h-[90vh]">
+  <div id="modalUrgencias" class="fixed inset-0 bg-pastel-navy/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-[32px] overflow-hidden shadow-2xl border border-pastel-line flex flex-col max-h-[90vh]">
       
-      <div class="p-6 hairline-b flex items-center justify-between">
+      <div class="bg-pastel-urgent text-white p-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <span class="w-3 h-3 rounded-full bg-urgent animate-ping"></span>
+          <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-xl font-bold">🚨</div>
           <div>
-            <h3 class="font-extrabold text-base text-ink">Guardias Veterinarias 24 Horas</h3>
-            <p class="text-xs text-inkSecondary">Centros con quirófano y médico de guardia en Zona Sur</p>
+            <h3 class="font-black text-base text-white">Guardias Veterinarias 24 Horas</h3>
+            <p class="text-xs text-white/80">Centros activos ahora en Zona Sur</p>
           </div>
         </div>
-        <button onclick="toggleModal('modalUrgencias')" class="text-inkSecondary hover:text-ink text-2xl font-light">×</button>
+        <button onclick="toggleModal('modalUrgencias')" class="text-white text-2xl font-bold">×</button>
       </div>
 
       <div class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
-        
-        <!-- AVISO DE CALMA -->
-        <div class="p-4 rounded-2xl bg-canvasSubtle border border-lineSubtle space-y-1">
-          <p class="font-bold text-ink uppercase tracking-wideMicro text-[10px]">Indicaciones críticas antes del traslado:</p>
-          <ul class="list-disc pl-4 space-y-0.5 text-inkSecondary text-[11px]">
-            <li>No suministrar medicamentos humanos (paracetamol e ibuprofeno son tóxicos).</li>
-            <li>Llamar a la guardia antes de salir para que preparen el quirófano u oxígeno.</li>
+        <div class="p-3.5 bg-rose-50 rounded-2xl border border-rose-200 text-rose-900 space-y-1">
+          <p class="font-extrabold uppercase tracking-wider text-[11px]">⚠️ Recordatorio crítico antes de salir:</p>
+          <ul class="list-disc pl-4 space-y-0.5 text-[11px]">
+            <li>No suministrar medicamentos humanos (paracetamol/ibuprofeno son mortales).</li>
+            <li>Llamá a la guardia antes de subirte al auto para que preparen quirófano u oxígeno.</li>
           </ul>
         </div>
 
         <!-- LANÚS -->
-        <div class="p-5 rounded-2xl border border-lineSubtle bg-canvas space-y-3">
+        <div class="p-4 rounded-2xl border border-pastel-line bg-white space-y-2.5">
           <div class="flex justify-between items-start">
             <div>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full uppercase">Guardia Abierta</span>
-              <h5 class="font-bold text-sm text-ink mt-1">Hospital Veterinario Central Lanús</h5>
-              <p class="text-[11px] text-inkSecondary">Av. Hipólito Yrigoyen (a minutos de Lanusita)</p>
+              <span class="text-[10px] font-black bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA 24HS</span>
+              <h5 class="font-black text-pastel-navy text-sm mt-1">Hospital Veterinario Central Lanús</h5>
+              <p class="text-pastel-slate text-[11px]">Av. Hipólito Yrigoyen (a minutos de Lanusita), Lanús</p>
             </div>
-            <span class="text-xs font-bold text-inkSecondary">~7 min</span>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md">~7 min</span>
           </div>
-          <div class="flex gap-2">
-            <a href="tel:01142410000" class="flex-1 py-2 px-4 rounded-full bg-ink text-canvas text-center font-bold text-[11px] hover:bg-zinc-800 transition">
-              📞 Llamar a la Guardia
+          <div class="flex gap-2 pt-1">
+            <a href="tel:01142410000" class="flex-1 py-2 px-3 bg-pastel-urgent text-white font-black rounded-full text-center text-[11px]">
+              📞 Llamar a Guardia
             </a>
-            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 rounded-full bg-canvasSubtle border border-lineSubtle text-ink font-semibold text-[11px] hover:bg-zinc-100 transition">
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 bg-slate-100 text-pastel-navy font-bold rounded-full text-[11px]">
               🗺️ GPS
             </a>
           </div>
         </div>
 
         <!-- AVELLANEDA -->
-        <div class="p-5 rounded-2xl border border-lineSubtle bg-canvas space-y-3">
+        <div class="p-4 rounded-2xl border border-pastel-line bg-white space-y-2.5">
           <div class="flex justify-between items-start">
             <div>
-              <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full uppercase">Guardia Abierta</span>
-              <h5 class="font-bold text-sm text-ink mt-1">Clínica de Emergencias Avellaneda</h5>
-              <p class="text-[11px] text-inkSecondary">Av. Bartolomé Mitre (cerca de Plaza Alsina)</p>
+              <span class="text-[10px] font-black bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA 24HS</span>
+              <h5 class="font-black text-pastel-navy text-sm mt-1">Clínica de Emergencias Avellaneda</h5>
+              <p class="text-pastel-slate text-[11px]">Av. Bartolomé Mitre (cerca de Plaza Alsina), Avellaneda</p>
             </div>
-            <span class="text-xs font-bold text-inkSecondary">~12 min</span>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md">~12 min</span>
           </div>
-          <div class="flex gap-2">
-            <a href="tel:01142010000" class="flex-1 py-2 px-4 rounded-full bg-ink text-canvas text-center font-bold text-[11px] hover:bg-zinc-800 transition">
-              📞 Llamar a la Guardia
+          <div class="flex gap-2 pt-1">
+            <a href="tel:01142010000" class="flex-1 py-2 px-3 bg-pastel-urgent text-white font-black rounded-full text-center text-[11px]">
+              📞 Llamar a Guardia
             </a>
-            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 rounded-full bg-canvasSubtle border border-lineSubtle text-ink font-semibold text-[11px] hover:bg-zinc-100 transition">
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 bg-slate-100 text-pastel-navy font-bold rounded-full text-[11px]">
               🗺️ GPS
             </a>
           </div>
         </div>
-
       </div>
 
-      <div class="p-4 hairline-t bg-canvasSubtle text-center text-[11px] text-inkMuted">
-        TeLoCuidamos • Red de Urgencias Verificadas en Zona Sur
+      <div class="p-3 bg-slate-100 border-t text-center text-[11px] text-pastel-slate">
+        TeLoCuidamos.com • Red de Guardias Zona Sur
       </div>
 
     </div>
   </div>
 
   <!-- ==================== MODAL: CONCIERGE WHATSAPP ==================== -->
-  <div id="modalWhatsApp" class="fixed inset-0 bg-ink/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-canvas w-full max-w-sm rounded-[32px] overflow-hidden shadow-2xl border border-lineSubtle flex flex-col h-[520px]">
+  <div id="modalWhatsApp" class="fixed inset-0 bg-pastel-navy/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-[32px] overflow-hidden shadow-2xl border border-pastel-line flex flex-col h-[520px]">
       
-      <div class="p-4 bg-ink text-canvas flex items-center justify-between">
+      <div class="p-4 bg-pastel-teal text-white flex items-center justify-between">
         <div class="flex items-center gap-2.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <h4 class="font-bold text-xs">TeLoCuidamos Concierge</h4>
+          <span class="w-2 h-2 rounded-full bg-white"></span>
+          <h4 class="font-bold text-xs">TeLoCuidamos Concierge 🐾</h4>
         </div>
-        <button onclick="toggleModal('modalWhatsApp')" class="text-zinc-400 hover:text-white text-xl">×</button>
+        <button onclick="toggleModal('modalWhatsApp')" class="text-white text-xl">×</button>
       </div>
 
-      <div id="chatMessages" class="flex-1 bg-canvasSubtle p-4 overflow-y-auto space-y-3 text-xs">
-        <div class="bg-canvas rounded-2xl p-3.5 shadow-2xs border border-lineSubtle space-y-1">
-          <p class="font-bold text-ink">¡Hola! 👋</p>
-          <p class="text-inkSecondary">¿En qué podemos colaborar con tu mascota hoy en Lanús o Avellaneda?</p>
+      <div id="chatMessages" class="flex-1 bg-pastel-canvas p-4 overflow-y-auto space-y-3 text-xs">
+        <div class="bg-white rounded-2xl p-3.5 shadow-2xs border border-pastel-line space-y-1">
+          <p class="font-bold text-pastel-navy">¡Hola Lucas! 👋</p>
+          <p class="text-pastel-slate">El pasaporte de <strong>Milo</strong> está activo. Te avisaremos 4 días antes de que se acabe su alimento o cuando corresponda el turno de Grooming en Lanús Oeste.</p>
         </div>
       </div>
 
-      <div class="p-3 bg-canvas hairline-t flex items-center gap-2">
-        <input type="text" id="inputChat" placeholder="Escribí un mensaje..." class="flex-1 px-4 py-2 text-xs rounded-full border border-lineSubtle bg-canvasSubtle focus:outline-none focus:border-ink">
-        <button onclick="enviarChat()" class="w-8 h-8 rounded-full bg-ink text-canvas flex items-center justify-center text-xs">➤</button>
+      <div class="p-3 bg-white border-t flex items-center gap-2">
+        <input type="text" id="inputChat" placeholder="Escribí un mensaje..." class="flex-1 px-4 py-2 text-xs rounded-full border border-pastel-line bg-pastel-canvas focus:outline-none focus:border-pastel-teal">
+        <button onclick="enviarChat()" class="w-8 h-8 rounded-full bg-pastel-teal text-white flex items-center justify-center text-xs">➤</button>
       </div>
 
     </div>
   </div>
 
-  <!-- ==================== JAVASCRIPT: LOGICA Y ANIMACIONES SUTILES ==================== -->
+  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // 1. Modales directos sin fricción
     function toggleModal(id) {
       const modal = document.getElementById(id);
       if (modal) modal.classList.toggle('hidden');
@@ -775,11 +806,9 @@
     function handleOnboardingSubmit(e) {
       e.preventDefault();
       toggleModal('modalOnboarding');
-      const nombreMascota = document.getElementById('mascotaNombre').value || 'Mascota';
       document.getElementById('pasaporte').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 2. Tabs del Pasaporte Sanitario
     function switchTab(tab) {
       const btnPiloto = document.getElementById('tabBtnPiloto');
       const btnFicha = document.getElementById('tabBtnFicha');
@@ -787,19 +816,18 @@
       const contentFicha = document.getElementById('tabContentFicha');
 
       if (tab === 'piloto') {
-        btnPiloto.className = "px-5 py-2 rounded-full text-xs font-bold text-canvas bg-ink transition-all duration-200";
-        btnFicha.className = "px-5 py-2 rounded-full text-xs font-bold text-inkSecondary hover:text-ink transition-all duration-200";
+        btnPiloto.className = "px-5 py-2.5 rounded-full text-xs font-black bg-pastel-teal text-white transition shadow-sm";
+        btnFicha.className = "px-5 py-2.5 rounded-full text-xs font-black text-pastel-slate hover:text-pastel-teal transition";
         contentPiloto.classList.remove('hidden');
         contentFicha.classList.add('hidden');
       } else {
-        btnFicha.className = "px-5 py-2 rounded-full text-xs font-bold text-canvas bg-ink transition-all duration-200";
-        btnPiloto.className = "px-5 py-2 rounded-full text-xs font-bold text-inkSecondary hover:text-ink transition-all duration-200";
+        btnFicha.className = "px-5 py-2.5 rounded-full text-xs font-black bg-pastel-teal text-white transition shadow-sm";
+        btnPiloto.className = "px-5 py-2.5 rounded-full text-xs font-black text-pastel-slate hover:text-pastel-teal transition";
         contentFicha.classList.remove('hidden');
         contentPiloto.classList.add('hidden');
       }
     }
 
-    // 3. Control de peso
     function actualizarPeso() {
       const peso = parseFloat(document.getElementById('inputActualizarPeso').value);
       if (peso > 0) {
@@ -808,13 +836,12 @@
       }
     }
 
-    // 4. Simulador Concierge
     function simularTurno() {
       toggleModal('modalWhatsApp');
       const chat = document.getElementById('chatMessages');
       const div = document.createElement('div');
-      div.className = "bg-canvas rounded-2xl p-3.5 shadow-2xs border border-lineSubtle mt-2";
-      div.innerHTML = `<p class="font-bold text-ink">Turno de Vacunación</p><p class="text-inkSecondary">Tenemos turno disponible con el Dr. Rossi (Lanús Oeste) este sábado a las 11:00 hs.</p>`;
+      div.className = "bg-white rounded-2xl p-3.5 shadow-2xs border border-pastel-line mt-2";
+      div.innerHTML = `<p class="font-bold text-pastel-teal">Turno Veterinario</p><p class="text-pastel-slate">Tenemos turno disponible con el Dr. Rossi (Lanús Oeste) este sábado a las 11:00 hs para Milo.</p>`;
       chat.appendChild(div);
       chat.scrollTop = chat.scrollHeight;
     }
@@ -827,13 +854,13 @@
 
       const chat = document.getElementById('chatMessages');
       const divU = document.createElement('div');
-      divU.className = "bg-accentBlush text-ink rounded-2xl p-2.5 max-w-[80%] ml-auto text-right font-medium";
+      divU.className = "bg-pastel-coralLight text-pastel-coral font-bold rounded-2xl p-2.5 max-w-[80%] ml-auto text-right border border-pastel-coralBorder";
       divU.innerText = val;
       chat.appendChild(divU);
 
       setTimeout(() => {
         const divB = document.createElement('div');
-        divB.className = "bg-canvas rounded-2xl p-2.5 max-w-[85%] border border-lineSubtle";
+        divB.className = "bg-white rounded-2xl p-2.5 max-w-[85%] border border-pastel-line";
         divB.innerText = "Recibido. Un asesor de Zona Sur te responderá a la brevedad 🐾";
         chat.appendChild(divB);
         chat.scrollTop = chat.scrollHeight;
