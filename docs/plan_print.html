@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Plan de Negocio — TeLoCuidamos.com (Avellaneda y Lanús)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    @page {
+      size: A4;
+      margin: 1.8cm 1.5cm 2cm 1.5cm;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0F172A;
+      line-height: 1.55;
+      font-size: 10.5pt;
+      background: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      border-bottom: 2px solid #0D9488;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 48px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 9pt;
+      color: #64748B;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #CCFBF1;
+      color: #0F766E;
+      font-weight: 700;
+      font-size: 8.5pt;
+      padding: 3px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 22pt;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 4px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 13pt;
+      font-weight: 600;
+      color: #0D9488;
+      margin: 0 0 16px 0;
+    }
+
+    h2 {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0F172A;
+      border-left: 4px solid #0D9488;
+      padding-left: 10px;
+      margin: 22px 0 10px 0;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0F766E;
+      margin: 14px 0 6px 0;
+    }
+
+    p {
+      margin: 0 0 10px 0;
+      color: #334155;
+    }
+
+    ul {
+      margin: 0 0 12px 0;
+      padding-left: 20px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .highlight-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 9.5pt;
+    }
+
+    th, td {
+      border: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #F1F5F9;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+    .font-bold { font-weight: 700; }
+    .text-teal { color: #0D9488; }
+    .text-coral { color: #EA580C; }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 8pt;
+      color: #94A3B8;
+      text-align: center;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="logo">
+    </div>
+    <div class="header-meta">
+      <strong>Plan de Negocio Ejecutivo</strong><br>
+      Fase 1: Piloto Avellaneda & Lanús (Zona Sur)<br>
+      Fecha: Octubre 2026
+    </div>
+  </header>
+
+  <!-- PORTADA RESUMEN -->
+  <div>
+    <span class="badge">Estrategia de Intermediación Hiperlocal</span>
+    <h1>TeLoCuidamos.com</h1>
+    <p class="subtitle">La salud y el alimento de tu mascota, en piloto automático.</p>
+    
+    <div class="highlight-box">
+      <p style="margin: 0; font-size: 10pt; color: #1E293B;">
+        <strong>Resumen Ejecutivo:</strong> Plataforma digital de intermediación que automatiza la compra y reposición periódica de alimento balanceado y conecta a tutores de perros y gatos con la red de veterinarias de cercanía en <strong>Avellaneda y Lanús</strong>. Modelo sin inventario propio (*zero-inventory*), con alta recurrencia de ingresos (MRR) y canal directo de atención automatizada por WhatsApp y pasarela de cobros Mercado Pago.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: POR QUÉ AVELLANEDA Y LANÚS -->
+  <h2>1. Tesis de Enfoque Geográfico: Zona Sur</h2>
+  <p>Lanzar el servicio exclusivamente en Avellaneda y Lanús optimiza los costos de adquisición y logística gracias a tres factores determinantes:</p>
+  <ul>
+    <li><strong>Densidad poblacional compacta:</strong> Ambos partidos suman más de <strong>840.000 habitantes</strong> en solo 100 km² de territorio continuo.</li>
+    <li><strong>Corredores urbanos directos:</strong> Conexión fluida entre centros urbanos por Av. Hipólito Yrigoyen (ex-Pavón) y Av. Bartolomé Mitre en 15-20 minutos.</li>
+    <li><strong>Concentración de tutores de ingresos medios y altos:</strong> Zonas como <em>Lanusita</em> (Lanús Oeste) y <em>Avellaneda Centro</em> poseen una alta densidad de edificios residenciales con mascotas pequeñas y medianas que demandan alimento Super Premium y servicios digitales.</li>
+  </ul>
+
+  <!-- SECCIÓN 2: ZONAS PRIORITARIAS -->
+  <h2>2. Micro-zonas de Despliegue (Fase 1)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Localidad / Micro-zona</th>
+        <th>Perfil Urbano y Demográfico</th>
+        <th>Ventaja Operativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Lanús Oeste (Lanusita)</strong></td>
+        <td>Alta densidad vertical, polo gastronómico, edificios modernos, tutores jóvenes.</td>
+        <td>Rutas de reparto concentradas en pocas cuadras (máxima eficiencia).</td>
+      </tr>
+      <tr>
+        <td><strong>Avellaneda Centro</strong></td>
+        <td>Torres residenciales sobre Av. Mitre, Belgrano y Plaza Alsina.</td>
+        <td>Fácil acceso logístico y alta familiaridad con pagos digitales.</td>
+      </tr>
+      <tr>
+        <td><strong>Wilde Residencial</strong></td>
+        <td>Barrio tradicional de casas con patio/jardín (perros medianos y grandes).</td>
+        <td>Mayor volumen de kilos por pedido (bolsas de 15 kg a 20 kg).</td>
+      </tr>
+      <tr>
+        <td><strong>Remedios de Escalada</strong></td>
+        <td>Zonas residenciales cercanas a la estación y avenidas principales.</td>
+        <td>Continuidad directa de la ruta de Lanús Oeste.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SALTO DE PÁGINA -->
+  <div class="page-break"></div>
+
+  <!-- SECCIÓN 3: MODELO DE INTERMEDIACIÓN -->
+  <h2>3. Modelo Operativo y de Intermediación (Cero Stock)</h2>
+  <p>TeLoCuidamos.com opera como un coordinador inteligente entre tres actores:</p>
+  
+  <div class="highlight-box">
+    <p><strong>A. Alimento Balanceado (Distribución Mayorista):</strong></p>
+    <p style="font-size: 9.5pt; color: #475569;">
+      Acuerdo comercial con 1 distribuidora mayorista de Zona Sur o Pet Shop mayorista de cabecera. La plataforma consolida los pedidos pagados y los despacha mediante entregas fijas programadas (Martes: Lanús / Jueves: Avellaneda). Margen de intermediación para la plataforma: <strong>15% a 22% neto</strong>.
+    </p>
+    <p style="margin-top: 8px;"><strong>B. Red de Veterinarias de Barrio Aliadas (3 en Lanús + 3 en Avellaneda):</strong></p>
+    <p style="font-size: 9.5pt; color: #475569; margin-bottom: 0;">
+      Se suman consultorios locales sin cobrarles costo fijo. La plataforma les deriva pacientes confirmados para vacunación y chequeos anuales. La veterinaria fideliza la prescripción del alimento y TeLoCuidamos percibe una comisión por turno derivado ($3.000 a $5.000 ARS).
+    </p>
+  </div>
+
+  <!-- SECCIÓN 4: LOGÍSTICA DE ÚLTIMA MILLA -->
+  <h2>4. Logística Agrupada Predictiva</h2>
+  <p>Al calcular con exactitud la fecha de agotamiento del alimento según el peso de la mascota, las entregas no son de urgencia individual, sino <strong>rutas agrupadas por cuadrante</strong>:</p>
+  <ul>
+    <li><strong>Martes:</strong> Reparto Lanús Oeste (Lanusita), Lanús Este y Remedios de Escalada.</li>
+    <li><strong>Jueves:</strong> Reparto Avellaneda Centro, Piñeyro, Sarandí y Wilde.</li>
+    <li><strong>Impacto en costos:</strong> El costo de envío por flete agrupado baja a <strong>$2.500 - $3.500 ARS por bolsa</strong>, contra los $8.000+ de un courier exprés.</li>
+  </ul>
+
+  <!-- SECCIÓN 5: PROYECCIONES FINANCIERAS -->
+  <h2>5. Proyecciones Financieras a 12 Meses (Zona Sur)</h2>
+  <p>Estimación basada en ticket promedio de <strong>$65.000 ARS</strong> por bolsa de alimento y margen de intermediación neto del 18%:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">Mes</th>
+        <th class="text-center">Mascotas Activas</th>
+        <th class="text-right">Facturación Bruta (GMV)</th>
+        <th class="text-right">Margen Bruto (18%)</th>
+        <th class="text-right">Costo Logístico</th>
+        <th class="text-right">Ingreso Neto Mensual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center font-bold">Mes 1</td>
+        <td class="text-center">25</td>
+        <td class="text-right">$1.625.000</td>
+        <td class="text-right">$292.500</td>
+        <td class="text-right">$75.000</td>
+        <td class="text-right font-bold text-teal">$217.500</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">Mes 3</td>
+        <td class="text-center">80</td>
+        <td class="text-right">$5.200.000</td>
+        <td class="text-right">$936.000</td>
+        <td class="text-right">$240.000</td>
+        <td class="text-right font-bold text-teal">$696.000</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">Mes 6</td>
+        <td class="text-center">220</td>
+        <td class="text-right">$14.300.000</td>
+        <td class="text-right">$2.574.000</td>
+        <td class="text-right">$660.000</td>
+        <td class="text-right font-bold text-teal">$1.914.000</td>
+      </tr>
+      <tr>
+        <td class="text-center font-bold">Mes 9</td>
+        <td class="text-center">400</td>
+        <td class="text-right">$26.000.000</td>
+        <td class="text-right">$4.680.000</td>
+        <td class="text-right">$1.200.000</td>
+        <td class="text-right font-bold text-teal">$3.480.000</td>
+      </tr>
+      <tr style="background: #F0FDFA;">
+        <td class="text-center font-bold">Mes 12</td>
+        <td class="text-center font-bold text-coral">650</td>
+        <td class="text-right font-bold">$42.250.000</td>
+        <td class="text-right font-bold">$7.605.000</td>
+        <td class="text-right">$1.950.000</td>
+        <td class="text-right font-bold text-teal" style="font-size: 10.5pt;">$5.655.000</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECCIÓN 6: HOJA DE RUTA -->
+  <h2>6. Hoja de Ruta de Ejecución</h2>
+  <ul>
+    <li><strong>Mes 1:</strong> Acuerdo con distribuidor de Zona Sur, adhesión de 4 veterinarias clave y lanzamiento piloto de 25 mascotas.</li>
+    <li><strong>Mes 2-3:</strong> Pauta geolocalizada en Instagram/Facebook (3 km a la redonda de Lanusita y Plaza Alsina) para alcanzar los 80 suscriptores.</li>
+    <li><strong>Mes 4-6:</strong> Consolidación del corredor Yrigoyen / Mitre, incorporación de pipetas y snacks, alcanzando el umbral de 220 mascotas.</li>
+    <li><strong>Mes 7-12:</strong> Expansión controlada hacia partidos linderos (Lomas de Zamora y Quilmes).</li>
+  </ul>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    TeLoCuidamos.com — Documento Confidencial de Estrategia Comercial — Avellaneda y Lanús, Buenos Aires, Argentina
+  </footer>
+
+</body>
+</html>
