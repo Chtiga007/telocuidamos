@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Boceto Visual de la Home — TeLoCuidamos.com</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 1.2cm 1.2cm 1.5cm 1.2cm;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      color: #1E293B;
+      background: #FFFFFF;
+      line-height: 1.45;
+      font-size: 9.5pt;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* BROWSER FRAME MOCKUP ESTILO FIGMA / DRIBBBLE */
+    .browser-window {
+      background: #FAF8F5;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+
+    .browser-header {
+      background: #FFFFFF;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #EDE8E1;
+    }
+
+    .dots { display: flex; gap: 5px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .d-red { background: #FDA4AF; }
+    .d-yellow { background: #FEF08A; }
+    .d-green { background: #BBF7D0; }
+
+    .url-bar {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 3px 12px;
+      font-size: 8pt;
+      color: #64748B;
+      flex: 1;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* NAVBAR WEB */
+    .web-navbar {
+      background: #FFFFFF;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #EDE8E1;
+    }
+
+    .logo-img { height: 38px; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-emergency {
+      background: #E11D48;
+      color: #FFFFFF;
+      font-size: 7.5pt;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-outline {
+      border: 1px solid #CBD5E1;
+      color: #334155;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: #FFFFFF;
+    }
+
+    .badge-zone {
+      background: #E6F4F1;
+      color: #0F766E;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /* HERO MOCKUP */
+    .hero-section {
+      padding: 24px 20px 20px 20px;
+      text-align: center;
+    }
+
+    .hero-art {
+      width: 140px;
+      height: 95px;
+      margin: 0 auto 10px auto;
+    }
+
+    .hero-title {
+      font-size: 19pt;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .hero-sub {
+      font-size: 9.5pt;
+      color: #64748B;
+      max-width: 520px;
+      margin: 0 auto 16px auto;
+    }
+
+    .wizard-preview-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .wizard-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 6px;
+    }
+
+    .btn-cta {
+      background: #0D9488;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 8.5pt;
+      padding: 8px 14px;
+      border-radius: 10px;
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* GRID DE SERVICIOS */
+    .services-container {
+      padding: 16px 20px 24px 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 4px 0;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-box {
+      flex: 1 1 calc(33.333% - 10px);
+      background: #FFFFFF;
+      border: 1px solid #EDE8E1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-sizing: border-box;
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .service-badge {
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 999px;
+    }
+
+    .service-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 2px 0;
+    }
+
+    .service-desc {
+      font-size: 7.5pt;
+      color: #64748B;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    /* BANNER KIT UNBOXING */
+    .unboxing-banner {
+      background: linear-gradient(90deg, #FFFBEB, #FFEDD5);
+      border: 1px solid #FED7AA;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+    .web-footer {
+      background: #FFFFFF;
+      border-top: 1px solid #EDE8E1;
+      padding: 10px 20px;
+      font-size: 7.5pt;
+      color: #94A3B8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-break { page-break-before: always; }
+
+    .doc-meta {
+      border-bottom: 2px solid #0D9488;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO DEL DOCUMENTO -->
+  <div class="doc-meta">
+    <div>
+      <span style="font-size: 8pt; font-weight: 800; color: #0D9488; text-transform: uppercase;">Especificación de Diseño Visual</span>
+      <h2 style="margin: 0; font-size: 14pt; color: #0F172A;">Boceto Visual de la Home Page — TeLoCuidamos.com</h2>
+    </div>
+    <div style="text-align: right; font-size: 8pt; color: #64748B;">
+      <strong>Piloto Zona Sur:</strong> Avellaneda y Lanús<br>
+      Octubre 2026 • Versión 1.0 Oficial
+    </div>
+  </div>
+
+  <p style="font-size: 8.5pt; color: #475569; margin-bottom: 12px;">
+    Este boceto representa con exactitud cómo visualizará la página de inicio el tutor de mascota que ingrese desde un celular o computadora en <strong>Lanusita, Wilde, Mitre, Remedios de Escalada o Avellaneda Centro</strong>:
+  </p>
+
+  <!-- MOCKUP DEL NAVEGADOR -->
+  <div class="browser-window">
+    
+    <!-- BARRA SUPERIOR DE VENTANA -->
+    <div class="browser-header">
+      <div class="dots">
+        <div class="dot d-red"></div>
+        <div class="dot d-yellow"></div>
+        <div class="dot d-green"></div>
+      </div>
+      <div class="url-bar">🔒 https://telocuidamos.com — Lanús y Avellaneda</div>
+    </div>
+
+    <!-- NAVBAR DEL SITIO WEB -->
+    <div class="web-navbar">
+      <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos" class="logo-img">
+      
+      <div class="nav-actions">
+        <!-- BOTÓN URGENCIAS ROJO -->
+        <div class="btn-emergency">🚨 URGENCIAS 24HS</div>
+        <div class="badge-zone">📍 Lanús y Avellaneda</div>
+        <div class="btn-outline">🔑 Mi Cuenta</div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 1: HERO & REGISTRO RÁPIDO -->
+    <div class="hero-section">
+      <!-- ARTE 3D PASTEL -->
+      <div class="hero-art">
+        <img src="../assets/mascotas_hero_pastel.svg" alt="Mascotas" style="width: 100%; height: 100%; object-contain;">
+      </div>
+
+      <div style="display: inline-block; background: #E6F4F1; color: #0F766E; font-size: 7.5pt; font-weight: 800; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; margin-bottom: 6px;">
+        🐾 Cuidado de Mascotas en Piloto Automático
+      </div>
+
+      <h1 class="hero-title">Cuidar a tu mascota nunca fue tan simple.</h1>
+      <p class="hero-sub">
+        Ingresá sus datos una sola vez. Te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
+      </p>
+
+      <!-- TARJETA DEL WIZARD RÁPIDO -->
+      <div class="wizard-preview-card">
+        <div class="wizard-steps">
+          <span style="color: #0D9488;">✓ 1. Tus Datos</span>
+          <span style="color: #0D9488; font-weight: 800;">● 2. Tu Mascota</span>
+          <span style="color: #94A3B8;">○ 3. Alimento</span>
+        </div>
+
+        <div style="font-size: 8pt; font-weight: 700; color: #1E293B; margin-bottom: 6px;">
+          Contanos sobre tu mascota en Lanús o Avellaneda:
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+          <div style="flex: 1; background: #E6F4F1; border: 2px solid #0D9488; border-radius: 8px; padding: 6px; text-align: center; font-size: 8pt; font-weight: 800; color: #0F766E;">
+            🐶 Perro
+          </div>
+          <div style="flex: 1; background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; padding: 6px; text-align: center; font-size: 8pt; font-weight: 600; color: #64748B;">
+            🐱 Gato
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+          <input type="text" value="Milo" style="flex: 2; border: 1px solid #CBD5E1; border-radius: 6px; padding: 5px 8px; font-size: 8pt; color: #334155;">
+          <input type="text" value="14.0 kg" style="flex: 1; border: 1px solid #CBD5E1; border-radius: 6px; padding: 5px 8px; font-size: 8pt; color: #334155;">
+        </div>
+
+        <div style="border: 1px solid #CBD5E1; border-radius: 6px; padding: 5px 8px; font-size: 8pt; background: #FFF; color: #334155; margin-bottom: 8px;">
+          Barrio: <strong>Lanús Oeste (Lanusita)</strong> ▾
+        </div>
+
+        <div class="btn-cta">
+          🚀 Activar Piloto Automático y Ver Ficha →
+        </div>
+
+        <div style="text-align: center; font-size: 7pt; color: #94A3B8; margin-top: 6px;">
+          ✓ Registro gratuito sin tarjeta &nbsp;•&nbsp; ✓ Incluye Kit de Bienvenida sin cargo
+        </div>
+      </div>
+    </div>
+
+    <!-- BANNER KIT DE BIENVENIDA -->
+    <div class="unboxing-banner">
+      <div style="font-size: 22px;">🎁</div>
+      <div style="flex: 1;">
+        <strong style="color: #9A3412; font-size: 8.5pt;">Tu Kit de Bienvenida TeLoCuidamos (Sin Costo):</strong>
+        <p style="margin: 0; font-size: 7.5pt; color: #C2410C;">
+          Con tu primera entrega recibís: Carta personalizada para tu mascota + Snack artesanal de productores de Zona Sur + Vaso dosificador exacto.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: LOS 6 PILARES DE SERVICIOS -->
+    <div class="services-container">
+      <div class="section-heading">
+        <h3 class="section-title">Todo lo que tu mascota necesita, en un solo lugar</h3>
+        <p style="font-size: 8pt; color: #64748B; margin: 0;">Servicios verificados con veterinarias aliadas de guardia en Lanús y Avellaneda</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. ALIMENTO -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #FFEDD5; color: #C2410C;">REPOSICIÓN</span>
+            <span style="font-size: 12pt;">🥣</span>
+          </div>
+          <h4 class="service-title">Alimento en Piloto</h4>
+          <p class="service-desc">Calculamos la ración exacta y te avisamos 4 días antes por WhatsApp. Entrega por flete agrupado.</p>
+        </div>
+
+        <!-- 2. VETERINARIAS -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #CCFBF1; color: #0F766E;">SALUD</span>
+            <span style="font-size: 12pt;">🩺</span>
+          </div>
+          <h4 class="service-title">Veterinarias de Barrio</h4>
+          <p class="service-desc">Turnos directos para vacunas y chequeos anuales en consultorios de tu zona sin costo de gestión.</p>
+        </div>
+
+        <!-- 3. FICHA MÉDICA -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #E2E8F0; color: #334155;">HISTORIAL</span>
+            <span style="font-size: 12pt;">📋</span>
+          </div>
+          <h4 class="service-title">Ficha Médica Digital</h4>
+          <p class="service-desc">Vacunas, desparasitaciones y evolución mensual de peso en tu celular lista para mostrar a cualquier veterinario.</p>
+        </div>
+
+        <!-- 4. PASEADORES -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #F1F5F9; color: #0F172A;">PASEOS</span>
+            <span style="font-size: 12pt;">🦮</span>
+          </div>
+          <h4 class="service-title">Paseadores de Confianza</h4>
+          <p class="service-desc">Grupos reducidos de máx. 4 perros en Lanús y Avellaneda, con reporte de fotos y cobertura de guardia médica.</p>
+        </div>
+
+        <!-- 5. VACACIONES -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #FEF3C7; color: #92400E;">VACACIONES</span>
+            <span style="font-size: 12pt;">🏖️</span>
+          </div>
+          <h4 class="service-title">Cuidado sin Jaulas</h4>
+          <p class="service-desc">Hospedaje hogareño para perros y visitas a domicilio para gatos con veterinaria de guardia 24hs permanente.</p>
+        </div>
+
+        <!-- 6. CRUZA Y ENTRENAMIENTO -->
+        <div class="service-box">
+          <div class="service-header">
+            <span class="service-badge" style="background: #FFE4E6; color: #BE123C;">BIENESTAR</span>
+            <span style="font-size: 12pt;">🐕❤️</span>
+          </div>
+          <h4 class="service-title">Cruza y Entrenamiento</h4>
+          <p class="service-desc">Matchmaking sanitario con chequeo libre de brucelosis y adiestradores por refuerzo positivo a domicilio.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER MOCKUP -->
+    <div class="web-footer">
+      <div>
+        <strong>© 2026 TeLoCuidamos.com</strong> • Exclusivo Lanús y Avellaneda (Zona Sur)
+      </div>
+      <div>
+        <span style="color: #E11D48; font-weight: 800;">🚨 Botón de Urgencias 24hs Activo</span> • Bot WhatsApp Oficial
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
