@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeLoCuidamos.com — La salud y comida de tu mascota en piloto automático</title>
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0D9488',
+              tealLight: '#CCFBF1',
+              tealDark: '#115E59',
+              coral: '#F97316',
+              coralLight: '#FFEDD5',
+              navy: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
+    .fade-in { animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="goToHome()">
+        <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-10 md:h-12 object-contain rounded-lg shadow-sm">
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          CABA y AMBA activo
+        </span>
+        <button id="navWhatsAppBtn" onclick="toggleWhatsAppModal()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition">
+          Simular WhatsApp
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full">
+
+    <!-- VISTA 1: LANDING & ONBOARDING WIZARD -->
+    <div id="viewOnboarding" class="fade-in">
+      <!-- HERO HEADER -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-brand-tealDark text-xs font-bold mb-4 uppercase tracking-wider">
+          🐾 Piloto Automático de Mascotas
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+          Cuidar a tu mascota nunca fue tan simple.
+        </h1>
+        <p class="text-slate-600 text-base md:text-lg">
+          Ingresá los datos de tu perro o gato una sola vez. Nosotros te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
+        </p>
+      </div>
+
+      <!-- WIZARD CARD -->
+      <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 max-w-xl mx-auto">
+        <!-- STEP INDICATOR -->
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
+          <div class="flex items-center gap-2">
+            <span id="badgeStep1" class="w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold">1</span>
+            <span class="text-xs font-semibold text-slate-700">Tus Datos</span>
+          </div>
+          <div class="h-0.5 w-8 bg-slate-200"></div>
+          <div class="flex items-center gap-2">
+            <span id="badgeStep2" class="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs font-bold">2</span>
+            <span class="text-xs font-semibold text-slate-500">Tu Mascota</span>
+          </div>
+          <div class="h-0.5 w-8 bg-slate-200"></div>
+          <div class="flex items-center gap-2">
+            <span id="badgeStep3" class="w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs font-bold">3</span>
+            <span class="text-xs font-semibold text-slate-500">Alimentación</span>
+          </div>
+        </div>
+
+        <form id="wizardForm" onsubmit="handleWizardSubmit(event)">
+          <!-- PASO 1: DATOS DEL TUTOR -->
+          <div id="step1Container" class="space-y-4">
+            <h3 class="text-lg font-bold text-slate-800">1. ¿Cómo te contactamos?</h3>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Tu Nombre Completo</label>
+              <input type="text" id="tutorNombre" required placeholder="Ej: Lucas Gómez" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Número de WhatsApp (con código de área)</label>
+              <input type="tel" id="tutorWhatsApp" required placeholder="Ej: 11 4567 8900" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
+              <span class="text-[11px] text-slate-400">Por acá te mandaremos recordatorios y avisos con 1 clic.</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Barrio o Localidad (CABA / AMBA)</label>
+              <select id="tutorBarrio" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm bg-white">
+                <option value="">Seleccioná tu barrio</option>
+                <option value="Palermo">Palermo (CABA)</option>
+                <option value="Belgrano">Belgrano (CABA)</option>
+                <option value="Caballito">Caballito (CABA)</option>
+                <option value="Recoleta">Recoleta (CABA)</option>
+                <option value="Almagro">Almagro (CABA)</option>
+                <option value="Villa Urquiza">Villa Urquiza (CABA)</option>
+                <option value="Vicente López">Vicente López (Zona Norte)</option>
+                <option value="San Isidro">San Isidro (Zona Norte)</option>
+                <option value="Olivos">Olivos (Zona Norte)</option>
+                <option value="Avellaneda">Avellaneda (Zona Sur)</option>
+                <option value="Quilmes">Quilmes (Zona Sur)</option>
+                <option value="Ramos Mejía">Ramos Mejía (Zona Oeste)</option>
+              </select>
+            </div>
+            <button type="button" onclick="goToStep(2)" class="w-full mt-6 py-3 px-4 bg-brand-teal hover:bg-brand-tealDark text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-2">
+              Continuar a datos de mi mascota →
+            </button>
+          </div>
+
+          <!-- PASO 2: DATOS DE LA MASCOTA -->
+          <div id="step2Container" class="space-y-4 hidden">
+            <h3 class="text-lg font-bold text-slate-800">2. Contanos sobre tu mascota</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" id="btnEspeciePerro" onclick="selectEspecie('perro')" class="py-3 px-4 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold flex items-center justify-center gap-2 text-sm">
+                🐶 Perro
+              </button>
+              <button type="button" id="btnEspecieGato" onclick="selectEspecie('gato')" class="py-3 px-4 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold flex items-center justify-center gap-2 text-sm">
+                🐱 Gato
+              </button>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Nombre de la mascota</label>
+              <input type="text" id="mascotaNombre" required placeholder="Ej: Milo, Luna, Toby..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Raza aproximada</label>
+                <input type="text" id="mascotaRaza" required placeholder="Ej: Mestizo, Golden, Siamés..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Edad aproximada</label>
+                <select id="mascotaEdad" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm bg-white">
+                  <option value="Cachorro (< 1 año)">Cachorro (< 1 año)</option>
+                  <option value="Joven (1 a 3 años)" selected>Joven (1 a 3 años)</option>
+                  <option value="Adulto (4 a 7 años)">Adulto (4 a 7 años)</option>
+                  <option value="Senior (+8 años)">Senior (+8 años)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Peso actual aproximado (kg)</label>
+              <div class="flex items-center gap-3">
+                <input type="number" id="mascotaPeso" step="0.5" min="1" max="80" value="14" required class="w-32 px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
+                <span class="text-xs text-slate-500">Podrás actualizarlo mes a mes por WhatsApp para recalcular su comida.</span>
+              </div>
+            </div>
+            <div class="flex gap-2 pt-4">
+              <button type="button" onclick="goToStep(1)" class="w-1/3 py-3 px-4 border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition text-sm">
+                ← Volver
+              </button>
+              <button type="button" onclick="goToStep(3)" class="w-2/3 py-3 px-4 bg-brand-teal hover:bg-brand-tealDark text-white font-bold rounded-xl shadow-md transition text-sm">
+                Siguiente: Alimento →
+              </button>
+            </div>
+          </div>
+
+          <!-- PASO 3: ALIMENTACIÓN Y FINALIZAR -->
+          <div id="step3Container" class="space-y-4 hidden">
+            <h3 class="text-lg font-bold text-slate-800">3. Su comida habitual</h3>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Marca de alimento que consume</label>
+              <select id="alimentoMarca" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm bg-white">
+                <option value="Royal Canin">Royal Canin (Adult / Puppy / Medicado)</option>
+                <option value="Purina Pro Plan">Purina Pro Plan</option>
+                <option value="Hill's Science Diet">Hill's Science Diet</option>
+                <option value="Eukanuba">Eukanuba</option>
+                <option value="Vital Can Balanced">Vital Can Balanced</option>
+                <option value="Pedigree / Whiskas">Pedigree / Whiskas</option>
+                <option value="Recomendación">Quiero que un veterinario me recomiende</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Tamaño habitual de la bolsa que comprás</label>
+              <select id="alimentoBolsaKg" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm bg-white">
+                <option value="15">Bolsa Grande de 15 kg (La más conveniente)</option>
+                <option value="7.5">Bolsa Mediana de 7.5 kg</option>
+                <option value="3">Bolsa Chica de 3 kg</option>
+              </select>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex gap-2 items-start">
+              <span class="text-base">💡</span>
+              <p>Nuestro algoritmo calculará cuántos gramos diarios necesita y te avisará 4 días antes por WhatsApp para despachar la bolsa sin que te quedes sin comida.</p>
+            </div>
+
+            <div class="flex gap-2 pt-4">
+              <button type="button" onclick="goToStep(2)" class="w-1/3 py-3 px-4 border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition text-sm">
+                ← Volver
+              </button>
+              <button type="submit" class="w-2/3 py-3 px-4 bg-brand-coral hover:bg-orange-600 text-white font-bold rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2">
+                🚀 Activar Piloto Automático
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- VISTA 2: DASHBOARD "MI MASCOTA EN PILOTO AUTOMÁTICO" (Se muestra tras registro) -->
+    <div id="viewDashboard" class="hidden fade-in space-y-6">
+      <!-- HEADER DASHBOARD -->
+      <div class="bg-gradient-to-r from-teal-800 to-teal-600 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-3xl border border-white/20 shadow-inner">
+              <span id="dashEmoji">🐶</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 id="dashNombreMascota" class="text-2xl md:text-3xl font-extrabold tracking-tight">Milo</h2>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-400 text-slate-900">PILOTO ACTIVO</span>
+              </div>
+              <p id="dashSubtitulo" class="text-teal-100 text-xs md:text-sm mt-0.5">Golden Retriever • 14 kg • Barrio Palermo</p>
+              <p class="text-xs text-teal-200 mt-1">Tutor: <span id="dashNombreTutor" class="font-semibold text-white">Lucas Gómez</span></p>
+            </div>
+          </div>
+          <button onclick="toggleWhatsAppModal()" class="w-full md:w-auto px-4 py-2.5 rounded-xl bg-white text-teal-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-teal-50 transition">
+            💬 Probar Alerta WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- CARD 1: ESTADO DEL ALIMENTO -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Alimento Balanceado</span>
+              <span class="text-lg">🥣</span>
+            </div>
+            <h4 id="dashAlimentoMarca" class="font-bold text-slate-900 text-base">Royal Canin Maxi</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Ración calculada: <strong id="dashRacionGramos" class="text-slate-800">320g / día</strong></p>
+            
+            <div class="mt-6 mb-2">
+              <div class="flex justify-between text-xs font-bold mb-1.5">
+                <span class="text-slate-600">Estado de la bolsa</span>
+                <span id="dashDiasRestantes" class="text-brand-coral font-extrabold">Quedan 4 días</span>
+              </div>
+              <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                <div id="dashBarraComida" class="bg-brand-coral h-full rounded-full transition-all duration-500" style="width: 15%"></div>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2">Próxima entrega automática: <strong>Jueves 31 de Octubre</strong></p>
+          </div>
+          <button onclick="simularDespacho()" class="mt-4 w-full py-2 px-3 rounded-xl bg-orange-50 hover:bg-orange-100 text-brand-coral text-xs font-bold transition flex items-center justify-center gap-1.5">
+            📦 Adelantar Entrega
+          </button>
+        </div>
+
+        <!-- CARD 2: VETERINARIA Y VACUNAS -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Salud Preventiva</span>
+              <span class="text-lg">🩺</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">Próxima Vacuna</h4>
+            <div class="mt-3 p-3 bg-teal-50 rounded-xl border border-teal-100">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-900">Séxtuple Anual</span>
+                <span class="text-[10px] font-bold bg-teal-200 text-teal-900 px-2 py-0.5 rounded">En 12 días</span>
+              </div>
+              <p class="text-[11px] text-teal-700 mt-1">Veterinaria asignada en tu barrio:</p>
+              <p id="dashVeteAsignada" class="text-xs font-semibold text-slate-800">Veterinaria San Roque (Palermo)</p>
+            </div>
+          </div>
+          <button onclick="simularTurnoVete()" class="mt-4 w-full py-2 px-3 rounded-xl bg-teal-50 hover:bg-teal-100 text-brand-tealDark text-xs font-bold transition flex items-center justify-center gap-1.5">
+            📅 Coordinar Turno por WhatsApp
+          </button>
+        </div>
+
+        <!-- CARD 3: CONTROL DE PESO MENSUAL -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Control Mensual</span>
+              <span class="text-lg">⚖️</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base">Peso y Condición</h4>
+            <p class="text-xs text-slate-500 mt-0.5">Se actualiza mensualmente vía WhatsApp.</p>
+            
+            <div class="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-600">Peso actual registrado:</span>
+                <span id="dashPesoRegistrado" class="text-sm font-bold text-slate-900">14.0 kg</span>
+              </div>
+              <div class="mt-2 flex items-center gap-2">
+                <input type="number" id="inputActualizarPeso" step="0.5" value="14" class="w-20 px-2 py-1 text-xs border border-slate-200 rounded-lg">
+                <button onclick="actualizarPesoManual()" class="px-2 py-1 bg-slate-800 text-white text-[11px] font-bold rounded-lg hover:bg-slate-700 transition">
+                  Actualizar
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-emerald-600 font-semibold mt-4 flex items-center gap-1">
+            ✓ Condición corporal óptima
+          </p>
+        </div>
+
+      </div>
+
+      <!-- BOTÓN VOLVER / REGISTRAR OTRA MASCOTA -->
+      <div class="text-center pt-4">
+        <button onclick="goToHome()" class="text-xs text-slate-400 hover:text-slate-600 transition underline">
+          ← Registrar otra mascota o editar datos
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL: SIMULADOR DE WHATSAPP -->
+  <div id="whatsappModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col h-[580px]">
+      
+      <!-- WHATSAPP HEADER -->
+      <div class="bg-[#075E54] text-white p-3.5 flex items-center justify-between shadow">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden border border-white">
+            <img src="../assets/icono_redes_whatsapp.jpg" alt="TeLoCuidamos" class="w-full h-full object-cover">
+          </div>
+          <div>
+            <h4 class="font-bold text-sm">TeLoCuidamos Bot 🐾</h4>
+            <p class="text-[10px] text-emerald-200">En línea • Cuenta Oficial</p>
+          </div>
+        </div>
+        <button onclick="toggleWhatsAppModal()" class="text-white/80 hover:text-white text-xl font-bold px-2">×</button>
+      </div>
+
+      <!-- WHATSAPP CHAT BODY -->
+      <div id="chatMessages" class="flex-1 bg-[#EFEAE2] p-4 overflow-y-auto space-y-3 text-xs">
+        <div class="text-center my-1">
+          <span class="bg-white/80 text-[10px] text-slate-500 px-2 py-0.5 rounded-full shadow-sm">Hoy</span>
+        </div>
+
+        <!-- MENSAJE DE BIENVENIDA -->
+        <div class="bg-white rounded-xl p-3 shadow-sm max-w-[85%] rounded-tl-none border border-slate-100">
+          <p class="font-bold text-slate-800 mb-1">¡Hola <span id="waTutorNombre">Lucas</span>! 👋</p>
+          <p class="text-slate-700">Ya dejamos la ficha de <strong id="waMascotaNombre">Milo</strong> en piloto automático. Te avisaremos cuando falten 4 días para que se acabe su comida o cuando toque su próxima vacuna.</p>
+          <span class="text-[9px] text-slate-400 block text-right mt-1">14:15</span>
+        </div>
+
+        <!-- MENSAJE DE ALERTA DE ALIMENTO INTERACTIVO -->
+        <div id="waAlertaComida" class="bg-white rounded-xl p-3 shadow-sm max-w-[90%] rounded-tl-none border border-slate-100 space-y-2">
+          <p class="font-bold text-brand-coral">🥣 Alerta de Comida</p>
+          <p class="text-slate-700">Según la ración de <strong id="waMascotaNombre2">Milo</strong>, le quedan aprox. <strong>4 días</strong> de su bolsa de <strong>Royal Canin (15 kg)</strong>.</p>
+          <p class="text-slate-700">Entrega programada en tu domicilio de <strong id="waBarrio">Palermo</strong> para este jueves.</p>
+          
+          <div class="pt-2 border-t border-slate-100 flex flex-col gap-1.5">
+            <button onclick="responderWhatsApp('¡Confirmar entrega!')" class="w-full py-1.5 px-2 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-center border border-emerald-200 hover:bg-emerald-100 transition">
+              🔘 ¡Confirmar entrega!
+            </button>
+            <button onclick="responderWhatsApp('Cambiar fecha u horario')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition">
+              🔘 Cambiar fecha / horario
+            </button>
+          </div>
+          <span class="text-[9px] text-slate-400 block text-right">14:16</span>
+        </div>
+
+      </div>
+
+      <!-- WHATSAPP FOOTER -->
+      <div class="p-2.5 bg-slate-100 border-t border-slate-200 flex items-center gap-2">
+        <input type="text" id="inputChatManual" placeholder="Escribe un mensaje o peso..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
+        <button onclick="enviarMensajeManual()" class="w-8 h-8 rounded-full bg-[#075E54] text-white flex items-center justify-center text-xs">
+          ➤
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p>© 2026 TeLoCuidamos.com — CABA y AMBA, Argentina</p>
+      <p>Conectando tutores con distribuidoras mayoristas y veterinarias de cercanía.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    let currentStep = 1;
+    let petData = {
+      especie: 'perro',
+      tutorNombre: '',
+      tutorWhatsApp: '',
+      tutorBarrio: '',
+      mascotaNombre: '',
+      mascotaRaza: '',
+      mascotaEdad: '',
+      mascotaPeso: 14,
+      alimentoMarca: '',
+      alimentoBolsaKg: 15
+    };
+
+    function selectEspecie(esp) {
+      petData.especie = esp;
+      const btnPerro = document.getElementById('btnEspeciePerro');
+      const btnGato = document.getElementById('btnEspecieGato');
+      if (esp === 'perro') {
+        btnPerro.className = "py-3 px-4 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold flex items-center justify-center gap-2 text-sm";
+        btnGato.className = "py-3 px-4 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold flex items-center justify-center gap-2 text-sm";
+        document.getElementById('mascotaPeso').value = "14";
+      } else {
+        btnGato.className = "py-3 px-4 rounded-xl border-2 border-brand-teal bg-teal-50 text-brand-tealDark font-bold flex items-center justify-center gap-2 text-sm";
+        btnPerro.className = "py-3 px-4 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold flex items-center justify-center gap-2 text-sm";
+        document.getElementById('mascotaPeso').value = "4.5";
+      }
+    }
+
+    function goToStep(step) {
+      if (step === 2) {
+        const nom = document.getElementById('tutorNombre').value;
+        const tel = document.getElementById('tutorWhatsApp').value;
+        const bar = document.getElementById('tutorBarrio').value;
+        if (!nom || !tel || !bar) {
+          alert('Por favor completá tu nombre, WhatsApp y barrio.');
+          return;
+        }
+        petData.tutorNombre = nom;
+        petData.tutorWhatsApp = tel;
+        petData.tutorBarrio = bar;
+      }
+
+      if (step === 3) {
+        const pNom = document.getElementById('mascotaNombre').value;
+        const pRaza = document.getElementById('mascotaRaza').value;
+        const pPeso = document.getElementById('mascotaPeso').value;
+        if (!pNom || !pRaza || !pPeso) {
+          alert('Por favor completá los datos de tu mascota.');
+          return;
+        }
+        petData.mascotaNombre = pNom;
+        petData.mascotaRaza = pRaza;
+        petData.mascotaEdad = document.getElementById('mascotaEdad').value;
+        petData.mascotaPeso = parseFloat(pPeso);
+      }
+
+      // Toggle views
+      document.getElementById('step1Container').classList.toggle('hidden', step !== 1);
+      document.getElementById('step2Container').classList.toggle('hidden', step !== 2);
+      document.getElementById('step3Container').classList.toggle('hidden', step !== 3);
+
+      // Indicators
+      updateBadge('badgeStep1', step >= 1);
+      updateBadge('badgeStep2', step >= 2);
+      updateBadge('badgeStep3', step >= 3);
+      currentStep = step;
+    }
+
+    function updateBadge(id, active) {
+      const el = document.getElementById(id);
+      if (active) {
+        el.className = "w-7 h-7 rounded-full bg-brand-teal text-white flex items-center justify-center text-xs font-bold";
+      } else {
+        el.className = "w-7 h-7 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-xs font-bold";
+      }
+    }
+
+    function handleWizardSubmit(e) {
+      e.preventDefault();
+      petData.alimentoMarca = document.getElementById('alimentoMarca').value;
+      petData.alimentoBolsaKg = parseFloat(document.getElementById('alimentoBolsaKg').value);
+
+      // Calcular ración diaria aproximada
+      let racionGramos = 0;
+      if (petData.especie === 'perro') {
+        racionGramos = Math.round(petData.mascotaPeso * 22); // Estimación estándar
+      } else {
+        racionGramos = Math.round(petData.mascotaPeso * 15);
+      }
+
+      // Calcular días de bolsa
+      const totalGramos = petData.alimentoBolsaKg * 1000;
+      const diasDuracion = Math.round(totalGramos / racionGramos);
+
+      // Render Dashboard
+      document.getElementById('dashNombreMascota').innerText = petData.mascotaNombre;
+      document.getElementById('dashEmoji').innerText = petData.especie === 'perro' ? '🐶' : '🐱';
+      document.getElementById('dashSubtitulo').innerText = `${petData.mascotaRaza} • ${petData.mascotaPeso} kg • Barrio ${petData.tutorBarrio}`;
+      document.getElementById('dashNombreTutor').innerText = petData.tutorNombre;
+      document.getElementById('dashAlimentoMarca').innerText = petData.alimentoMarca;
+      document.getElementById('dashRacionGramos').innerText = `${racionGramos}g / día`;
+      document.getElementById('dashPesoRegistrado').innerText = `${petData.mascotaPeso} kg`;
+      document.getElementById('inputActualizarPeso').value = petData.mascotaPeso;
+      document.getElementById('dashVeteAsignada').innerText = `Veterinaria Aliada en ${petData.tutorBarrio}`;
+
+      // Update WhatsApp Strings
+      document.getElementById('waTutorNombre').innerText = petData.tutorNombre;
+      document.getElementById('waMascotaNombre').innerText = petData.mascotaNombre;
+      document.getElementById('waMascotaNombre2').innerText = petData.mascotaNombre;
+      document.getElementById('waBarrio').innerText = petData.tutorBarrio;
+
+      // Switch view
+      document.getElementById('viewOnboarding').classList.add('hidden');
+      document.getElementById('viewDashboard').classList.remove('hidden');
+      document.getElementById('navWhatsAppBtn').classList.remove('hidden');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToHome() {
+      document.getElementById('viewDashboard').classList.add('hidden');
+      document.getElementById('viewOnboarding').classList.remove('hidden');
+      document.getElementById('navWhatsAppBtn').classList.add('hidden');
+      goToStep(1);
+    }
+
+    function toggleWhatsAppModal() {
+      const modal = document.getElementById('whatsappModal');
+      modal.classList.toggle('hidden');
+    }
+
+    function responderWhatsApp(opcion) {
+      const chat = document.getElementById('chatMessages');
+      const divUser = document.createElement('div');
+      divUser.className = "bg-[#DCF8C6] rounded-xl p-2.5 shadow-sm max-w-[80%] ml-auto text-right border border-emerald-100";
+      divUser.innerHTML = `<p class="text-slate-800 font-semibold">${opcion}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
+      chat.appendChild(divUser);
+
+      // Respuesta automática del bot
+      setTimeout(() => {
+        const divBot = document.createElement('div');
+        divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
+        divBot.innerHTML = `<p class="text-slate-800">✅ <strong>¡Perfecto!</strong> Despacho programado con la distribuidora. Cobrado vía Mercado Pago. Te avisaremos cuando el repartidor esté en camino.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+        chat.appendChild(divBot);
+        chat.scrollTop = chat.scrollHeight;
+      }, 700);
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function enviarMensajeManual() {
+      const input = document.getElementById('inputChatManual');
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+
+      const chat = document.getElementById('chatMessages');
+      const divUser = document.createElement('div');
+      divUser.className = "bg-[#DCF8C6] rounded-xl p-2.5 shadow-sm max-w-[80%] ml-auto text-right border border-emerald-100";
+      divUser.innerHTML = `<p class="text-slate-800">${val}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
+      chat.appendChild(divUser);
+
+      // Check if it's a number (weight update)
+      const num = parseFloat(val);
+      setTimeout(() => {
+        const divBot = document.createElement('div');
+        divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
+        if (!isNaN(num) && num > 1 && num < 100) {
+          petData.mascotaPeso = num;
+          document.getElementById('dashPesoRegistrado').innerText = `${num} kg`;
+          document.getElementById('inputActualizarPeso').value = num;
+          const nuevaRacion = Math.round(num * 22);
+          document.getElementById('dashRacionGramos').innerText = `${nuevaRacion}g / día`;
+          divBot.innerHTML = `<p class="text-slate-800">⚖️ ¡Actualizado! Registramos el nuevo peso de <strong>${num} kg</strong>. Ajustamos su ración diaria a <strong>${nuevaRacion}g</strong> para el próximo pedido.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+        } else {
+          divBot.innerHTML = `<p class="text-slate-800">Mensaje recibido. Un asistente de TeLoCuidamos te responderá a la brevedad 🐾</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+        }
+        chat.appendChild(divBot);
+        chat.scrollTop = chat.scrollHeight;
+      }, 600);
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function actualizarPesoManual() {
+      const peso = parseFloat(document.getElementById('inputActualizarPeso').value);
+      if (peso > 0) {
+        petData.mascotaPeso = peso;
+        document.getElementById('dashPesoRegistrado').innerText = `${peso} kg`;
+        const nuevaRacion = Math.round(peso * 22);
+        document.getElementById('dashRacionGramos').innerText = `${nuevaRacion}g / día`;
+        alert(`¡Peso actualizado a ${peso} kg! La ración diaria se recalculó automáticamente a ${nuevaRacion}g.`);
+      }
+    }
+
+    function simularDespacho() {
+      toggleWhatsAppModal();
+    }
+
+    function simularTurnoVete() {
+      toggleWhatsAppModal();
+      const chat = document.getElementById('chatMessages');
+      const divBot = document.createElement('div');
+      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
+      divBot.innerHTML = `
+        <p class="font-bold text-teal-800">🩺 Turno Vacunación</p>
+        <p class="text-slate-700">Tenemos turno disponible en <strong>Veterinaria San Roque (${petData.tutorBarrio})</strong> este sábado a las 11:00 hs para la Séxtuple de ${petData.mascotaNombre}.</p>
+        <button onclick="responderWhatsApp('Confirmar turno Sábado 11:00 hs')" class="w-full py-1.5 px-2 bg-teal-50 text-teal-800 font-bold rounded-lg text-center border border-teal-200 hover:bg-teal-100 transition text-xs">
+          🔘 Confirmar turno Sábado 11:00 hs
+        </button>
+      `;
+      chat.appendChild(divBot);
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+</body>
+</html>
