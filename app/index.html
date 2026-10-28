@@ -217,7 +217,10 @@
   <!-- ==================== TOP BANNER HYPERLOCAL ==================== -->
   <div class="bg-brandTeal-light text-brandTeal text-[11px] py-2 px-4 text-center font-bold tracking-wider flex items-center justify-center gap-2.5">
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
-    <span>🐾 Cuidar a tu mejor amigo en Lanús y Avellaneda ahora es mucho más simple • Tu primer pedido incluye un regalo especial de bienvenida</span>
+    <span class="flex items-center gap-1.5">
+      <svg class="w-3.5 h-3.5 fill-current text-brandCoral inline-block shrink-0" viewBox="0 0 24 24"><ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/><circle cx="6.5" cy="9.5" r="2.2"/><circle cx="10.2" cy="6.8" r="2.2"/><circle cx="13.8" cy="6.8" r="2.2"/><circle cx="17.5" cy="9.5" r="2.2"/></svg>
+      <span>Cuidar a tu mejor amigo en Lanús y Avellaneda ahora es mucho más simple • Tu primer pedido incluye un regalo especial de bienvenida</span>
+    </span>
     <span class="w-1.5 h-1.5 rounded-full bg-brandCoral inline-block"></span>
   </div>
 
@@ -288,8 +291,16 @@
           <!-- BLOQUE DE CONVERSIÓN Y BENEFICIOS -->
           <div class="space-y-3.5 pt-1">
             <div class="flex items-center gap-3">
-              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-8 py-3.5 flex items-center gap-2.5 shadow-btn-coral">
-                <span class="text-base">🐾</span>
+              <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-7 py-3.5 flex items-center gap-2.5 shadow-btn-coral">
+                <span class="w-6 h-6 rounded-full bg-brandCoral/15 flex items-center justify-center shrink-0">
+                  <svg class="w-3.5 h-3.5 fill-current text-brandCoral" viewBox="0 0 24 24">
+                    <ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/>
+                    <circle cx="6.5" cy="9.5" r="2.2"/>
+                    <circle cx="10.2" cy="6.8" r="2.2"/>
+                    <circle cx="13.8" cy="6.8" r="2.2"/>
+                    <circle cx="17.5" cy="9.5" r="2.2"/>
+                  </svg>
+                </span>
                 <span>SIMPLIFICARME EL CUIDADO</span>
               </button>
               <button onclick="toggleModal('modalOnboarding')" class="btn-signature-arrow w-12 h-12 flex items-center justify-center text-lg font-bold shadow-btn-coral">
@@ -753,8 +764,18 @@
               Queremos que tu mascota sienta el cariño desde el primer día. Con tu primer pedido en Lanús y Avellaneda te enviamos de regalo: una cartita personalizada con su nombre, una medallita con código QR para emergencias y un paquetito de snacks horneados por productores locales de Zona Sur.
             </p>
           </div>
-          <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-8 py-4 whitespace-nowrap text-xs shadow-btn-coral">
-            Quiero mi Kit de Bienvenida 🐾 ↗
+          <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-8 py-4 whitespace-nowrap text-xs shadow-btn-coral flex items-center gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-brandCoral/15 flex items-center justify-center shrink-0">
+              <svg class="w-3.5 h-3.5 fill-current text-brandCoral" viewBox="0 0 24 24">
+                <ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/>
+                <circle cx="6.5" cy="9.5" r="2.2"/>
+                <circle cx="10.2" cy="6.8" r="2.2"/>
+                <circle cx="13.8" cy="6.8" r="2.2"/>
+                <circle cx="17.5" cy="9.5" r="2.2"/>
+              </svg>
+            </span>
+            <span>Quiero mi Kit de Bienvenida</span>
+            <span class="text-sm font-bold">↗</span>
           </button>
         </div>
       </div>
@@ -1313,8 +1334,15 @@
           </div>
         </div>
 
-        <button type="submit" class="w-full py-4 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal hover:-translate-y-0.5 active:translate-y-0">
-          Activar Ficha y Simplificarme el Cuidado 🐾 ↗
+        <button type="submit" class="w-full py-4 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-bold uppercase tracking-wider transition shadow-btn-teal hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="16.5" rx="5.5" ry="4.2"/>
+            <circle cx="6.5" cy="9.5" r="2.2"/>
+            <circle cx="10.2" cy="6.8" r="2.2"/>
+            <circle cx="13.8" cy="6.8" r="2.2"/>
+            <circle cx="17.5" cy="9.5" r="2.2"/>
+          </svg>
+          <span>Activar Ficha y Simplificarme el Cuidado ↗</span>
         </button>
       </form>
 
