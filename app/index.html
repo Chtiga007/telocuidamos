@@ -19,10 +19,12 @@
           colors: {
             brand: {
               teal: '#0D9488',
-              tealLight: '#CCFBF1',
-              tealDark: '#115E59',
+              tealLight: '#E6F4F1',
+              tealDark: '#0F766E',
               coral: '#F97316',
               coralLight: '#FFEDD5',
+              vanilla: '#FAF8F5',
+              slateText: '#334155',
               navy: '#0F172A',
             }
           }
@@ -31,15 +33,38 @@
     }
   </script>
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; }
-    .fade-in { animation: fadeIn 0.3s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF8F5; color: #334155; }
+    .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* 60fps Micro-interactions */
+    button, .interactive-card {
+      transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    button:active, .interactive-card:active {
+      transform: scale(0.97);
+    }
+    button:hover {
+      box-shadow: 0 6px 20px -4px rgba(13, 148, 136, 0.2);
+    }
+    
+    /* Barra de Alimento con Onda Líquida */
+    .liquid-wave {
+      background: linear-gradient(90deg, #F97316 0%, #FB923C 50%, #F97316 100%);
+      background-size: 200% 100%;
+      animation: waveFlow 3s ease-in-out infinite;
+    }
+    @keyframes waveFlow {
+      0% { background-position: 100% 0; }
+      50% { background-position: 0% 0; }
+      100% { background-position: 100% 0; }
+    }
   </style>
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
   <!-- NAVBAR -->
-  <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+  <header class="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3 cursor-pointer" onclick="goToHome()">
         <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-10 md:h-12 object-contain rounded-lg shadow-sm">
@@ -49,33 +74,38 @@
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Zona Sur: Avellaneda y Lanús
         </span>
-        <button id="navWhatsAppBtn" onclick="toggleWhatsAppModal()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition">
-          Simular WhatsApp
+        <button id="navWhatsAppBtn" onclick="toggleWhatsAppModal()" class="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#075E54] text-white hover:bg-[#064e46] transition shadow-sm">
+          💬 Bot WhatsApp
         </button>
       </div>
     </div>
   </header>
 
   <!-- MAIN CONTAINER -->
-  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full">
+  <main class="max-w-4xl mx-auto px-4 py-6 md:py-8 flex-1 w-full">
 
     <!-- VISTA 1: LANDING & ONBOARDING WIZARD -->
     <div id="viewOnboarding" class="fade-in">
       <!-- HERO HEADER -->
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-brand-tealDark text-xs font-bold mb-4 uppercase tracking-wider">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <!-- Ilustración 3D Pastel Hero (Dribbble Style) -->
+        <div class="w-48 h-36 md:w-60 md:h-44 mx-auto mb-3 drop-shadow-sm">
+          <img src="../assets/mascotas_hero_pastel.svg" alt="Mascotas TeLoCuidamos" class="w-full h-full object-contain">
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-brand-tealDark text-xs font-bold mb-3 uppercase tracking-wider">
           🐾 Piloto Automático de Mascotas
         </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+        <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
           Cuidar a tu mascota nunca fue tan simple.
         </h1>
-        <p class="text-slate-600 text-base md:text-lg">
-          Ingresá los datos de tu perro o gato una sola vez. Nosotros te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
+        <p class="text-slate-600 text-sm md:text-base max-w-lg mx-auto">
+          Ingresá sus datos una vez. Te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
         </p>
       </div>
 
       <!-- WIZARD CARD -->
-      <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 max-w-xl mx-auto">
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-8 max-w-xl mx-auto">
         <!-- STEP INDICATOR -->
         <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
           <div class="flex items-center gap-2">
@@ -105,7 +135,7 @@
             <div>
               <label class="block text-xs font-semibold text-slate-600 mb-1">Número de WhatsApp (con código de área)</label>
               <input type="tel" id="tutorWhatsApp" required placeholder="Ej: 11 4567 8900" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
-              <span class="text-[11px] text-slate-400">Por acá te mandaremos recordatorios y avisos con 1 clic.</span>
+              <span class="text-[11px] text-slate-400">Por acá el bot oficial te avisará antes de que se termine la comida.</span>
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-600 mb-1">Localidad / Barrio (Zona Sur)</label>
@@ -161,7 +191,7 @@
               <label class="block text-xs font-semibold text-slate-600 mb-1">Peso actual aproximado (kg)</label>
               <div class="flex items-center gap-3">
                 <input type="number" id="mascotaPeso" step="0.5" min="1" max="80" value="14" required class="w-32 px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-brand-teal focus:outline-none text-sm">
-                <span class="text-xs text-slate-500">Podrás actualizarlo mes a mes por WhatsApp para recalcular su comida.</span>
+                <span class="text-xs text-slate-500">El bot te pedirá actualizarlo mes a mes por WhatsApp para recalcular la comida.</span>
               </div>
             </div>
             <div class="flex gap-2 pt-4">
@@ -198,8 +228,8 @@
               </select>
             </div>
             <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex gap-2 items-start">
-              <span class="text-base">💡</span>
-              <p>Nuestro algoritmo calculará cuántos gramos diarios necesita y te avisará 4 días antes por WhatsApp para despachar la bolsa sin que te quedes sin comida.</p>
+              <span class="text-base">🎁</span>
+              <p><strong>Incluye Kit de Bienvenida sin costo:</strong> Carta personalizada, snack artesanal de cortesía y vaso dosificador exacto.</p>
             </div>
 
             <div class="flex gap-2 pt-4">
@@ -229,12 +259,12 @@
                 <h2 id="dashNombreMascota" class="text-2xl md:text-3xl font-extrabold tracking-tight">Milo</h2>
                 <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-400 text-slate-900">PILOTO ACTIVO</span>
               </div>
-              <p id="dashSubtitulo" class="text-teal-100 text-xs md:text-sm mt-0.5">Golden Retriever • 14 kg • Barrio Palermo</p>
+              <p id="dashSubtitulo" class="text-teal-100 text-xs md:text-sm mt-0.5">Golden Retriever • 14 kg • Lanús Oeste</p>
               <p class="text-xs text-teal-200 mt-1">Tutor: <span id="dashNombreTutor" class="font-semibold text-white">Lucas Gómez</span></p>
             </div>
           </div>
           <button onclick="toggleWhatsAppModal()" class="w-full md:w-auto px-4 py-2.5 rounded-xl bg-white text-teal-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-teal-50 transition">
-            💬 Probar Alerta WhatsApp
+            💬 Abrir Bot de WhatsApp
           </button>
         </div>
       </div>
@@ -258,10 +288,10 @@
                 <span id="dashDiasRestantes" class="text-brand-coral font-extrabold">Quedan 4 días</span>
               </div>
               <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                <div id="dashBarraComida" class="bg-brand-coral h-full rounded-full transition-all duration-500" style="width: 15%"></div>
+                <div id="dashBarraComida" class="liquid-wave h-full rounded-full transition-all duration-500" style="width: 20%"></div>
               </div>
             </div>
-            <p class="text-[11px] text-slate-400 mt-2">Próxima entrega automática: <strong>Jueves 31 de Octubre</strong></p>
+            <p class="text-[11px] text-slate-400 mt-2">Próxima entrega programada: <strong>Martes por flete</strong></p>
           </div>
           <button onclick="simularDespacho()" class="mt-4 w-full py-2 px-3 rounded-xl bg-orange-50 hover:bg-orange-100 text-brand-coral text-xs font-bold transition flex items-center justify-center gap-1.5">
             📦 Adelantar Entrega
@@ -282,11 +312,11 @@
                 <span class="text-[10px] font-bold bg-teal-200 text-teal-900 px-2 py-0.5 rounded">En 12 días</span>
               </div>
               <p class="text-[11px] text-teal-700 mt-1">Veterinaria asignada en tu barrio:</p>
-              <p id="dashVeteAsignada" class="text-xs font-semibold text-slate-800">Veterinaria San Roque (Palermo)</p>
+              <p id="dashVeteAsignada" class="text-xs font-semibold text-slate-800">Veterinaria Dr. Rossi (Lanús Oeste)</p>
             </div>
           </div>
           <button onclick="simularTurnoVete()" class="mt-4 w-full py-2 px-3 rounded-xl bg-teal-50 hover:bg-teal-100 text-brand-tealDark text-xs font-bold transition flex items-center justify-center gap-1.5">
-            📅 Coordinar Turno por WhatsApp
+            📅 Coordinar Turno por Bot
           </button>
         </div>
 
@@ -320,8 +350,31 @@
 
       </div>
 
+      <!-- BANNER KIT DE BIENVENIDA (EFECTO WOW) -->
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-orange-200/70 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl flex-shrink-0 shadow-sm">
+              🎁
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-bold text-slate-900 text-sm md:text-base">Tu Kit de Bienvenida TeLoCuidamos (Sin Costo)</h4>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-orange-200 text-orange-800 uppercase tracking-wide">Incluido</span>
+              </div>
+              <p class="text-xs text-slate-600 mt-0.5">
+                Con tu primera entrega en <strong id="dashBarrioKit">Lanús Oeste</strong> recibirás: <strong>Carta personalizada para <span id="dashMascotaKit">Milo</span></strong> + <strong>Snack artesanal de regalo</strong> + <strong>Vaso dosificador exacto</strong>.
+              </p>
+            </div>
+          </div>
+          <button onclick="toggleWhatsAppModal()" class="w-full md:w-auto px-4 py-2 rounded-xl bg-brand-coral hover:bg-orange-600 text-white font-bold text-xs shadow-sm transition whitespace-nowrap">
+            Ver entrega programada
+          </button>
+        </div>
+      </div>
+
       <!-- BOTÓN VOLVER / REGISTRAR OTRA MASCOTA -->
-      <div class="text-center pt-4">
+      <div class="text-center pt-2">
         <button onclick="goToHome()" class="text-xs text-slate-400 hover:text-slate-600 transition underline">
           ← Registrar otra mascota o editar datos
         </button>
@@ -330,7 +383,7 @@
 
   </main>
 
-  <!-- MODAL: SIMULADOR DE WHATSAPP -->
+  <!-- MODAL: SIMULADOR DE BOT OFICIAL DE WHATSAPP -->
   <div id="whatsappModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col h-[580px]">
       
@@ -342,7 +395,7 @@
           </div>
           <div>
             <h4 class="font-bold text-sm">TeLoCuidamos Bot 🐾</h4>
-            <p class="text-[10px] text-emerald-200">En línea • Cuenta Oficial</p>
+            <p class="text-[10px] text-emerald-200">Bot 100% Automatizado • Cuenta Oficial</p>
           </div>
         </div>
         <button onclick="toggleWhatsAppModal()" class="text-white/80 hover:text-white text-xl font-bold px-2">×</button>
@@ -357,7 +410,7 @@
         <!-- MENSAJE DE BIENVENIDA -->
         <div class="bg-white rounded-xl p-3 shadow-sm max-w-[85%] rounded-tl-none border border-slate-100">
           <p class="font-bold text-slate-800 mb-1">¡Hola <span id="waTutorNombre">Lucas</span>! 👋</p>
-          <p class="text-slate-700">Ya dejamos la ficha de <strong id="waMascotaNombre">Milo</strong> en piloto automático. Te avisaremos cuando falten 4 días para que se acabe su comida o cuando toque su próxima vacuna.</p>
+          <p class="text-slate-700">Ya dejamos la ficha de <strong id="waMascotaNombre">Milo</strong> en piloto automático. Te avisaremos cuando falten 4 días para que se acabe su comida o cuando toque su próxima vacuna en Lanús o Avellaneda.</p>
           <span class="text-[9px] text-slate-400 block text-right mt-1">14:15</span>
         </div>
 
@@ -365,7 +418,7 @@
         <div id="waAlertaComida" class="bg-white rounded-xl p-3 shadow-sm max-w-[90%] rounded-tl-none border border-slate-100 space-y-2">
           <p class="font-bold text-brand-coral">🥣 Alerta de Comida</p>
           <p class="text-slate-700">Según la ración de <strong id="waMascotaNombre2">Milo</strong>, le quedan aprox. <strong>4 días</strong> de su bolsa de <strong>Royal Canin (15 kg)</strong>.</p>
-          <p class="text-slate-700">Entrega programada en tu domicilio de <strong id="waBarrio">Palermo</strong> para este jueves.</p>
+          <p class="text-slate-700">Entrega programada con tu <strong>Kit de Bienvenida</strong> en <strong id="waBarrio">Lanús Oeste</strong> para el martes.</p>
           
           <div class="pt-2 border-t border-slate-100 flex flex-col gap-1.5">
             <button onclick="responderWhatsApp('¡Confirmar entrega!')" class="w-full py-1.5 px-2 bg-emerald-50 text-emerald-700 font-bold rounded-lg text-center border border-emerald-200 hover:bg-emerald-100 transition">
@@ -382,7 +435,7 @@
 
       <!-- WHATSAPP FOOTER -->
       <div class="p-2.5 bg-slate-100 border-t border-slate-200 flex items-center gap-2">
-        <input type="text" id="inputChatManual" placeholder="Escribe un mensaje o peso..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
+        <input type="text" id="inputChatManual" placeholder="Escribí un peso (ej: 14.5) o mensaje..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
         <button onclick="enviarMensajeManual()" class="w-8 h-8 rounded-full bg-[#075E54] text-white flex items-center justify-center text-xs">
           ➤
         </button>
@@ -436,7 +489,7 @@
         const tel = document.getElementById('tutorWhatsApp').value;
         const bar = document.getElementById('tutorBarrio').value;
         if (!nom || !tel || !bar) {
-          alert('Por favor completá tu nombre, WhatsApp y barrio.');
+          alert('Por favor completá tu nombre, WhatsApp y localidad.');
           return;
         }
         petData.tutorNombre = nom;
@@ -492,20 +545,18 @@
         racionGramos = Math.round(petData.mascotaPeso * 15);
       }
 
-      // Calcular días de bolsa
-      const totalGramos = petData.alimentoBolsaKg * 1000;
-      const diasDuracion = Math.round(totalGramos / racionGramos);
-
       // Render Dashboard
       document.getElementById('dashNombreMascota').innerText = petData.mascotaNombre;
       document.getElementById('dashEmoji').innerText = petData.especie === 'perro' ? '🐶' : '🐱';
-      document.getElementById('dashSubtitulo').innerText = `${petData.mascotaRaza} • ${petData.mascotaPeso} kg • Barrio ${petData.tutorBarrio}`;
+      document.getElementById('dashSubtitulo').innerText = `${petData.mascotaRaza} • ${petData.mascotaPeso} kg • ${petData.tutorBarrio}`;
       document.getElementById('dashNombreTutor').innerText = petData.tutorNombre;
       document.getElementById('dashAlimentoMarca').innerText = petData.alimentoMarca;
       document.getElementById('dashRacionGramos').innerText = `${racionGramos}g / día`;
       document.getElementById('dashPesoRegistrado').innerText = `${petData.mascotaPeso} kg`;
       document.getElementById('inputActualizarPeso').value = petData.mascotaPeso;
       document.getElementById('dashVeteAsignada').innerText = `Veterinaria Aliada en ${petData.tutorBarrio}`;
+      document.getElementById('dashBarrioKit').innerText = petData.tutorBarrio;
+      document.getElementById('dashMascotaKit').innerText = petData.mascotaNombre;
 
       // Update WhatsApp Strings
       document.getElementById('waTutorNombre').innerText = petData.tutorNombre;
@@ -540,11 +591,11 @@
       divUser.innerHTML = `<p class="text-slate-800 font-semibold">${opcion}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
       chat.appendChild(divUser);
 
-      // Respuesta automática del bot
+      // Respuesta automática del bot 100% automatizado
       setTimeout(() => {
         const divBot = document.createElement('div');
         divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
-        divBot.innerHTML = `<p class="text-slate-800">✅ <strong>¡Perfecto!</strong> Despacho programado con la distribuidora. Cobrado vía Mercado Pago. Te avisaremos cuando el repartidor esté en camino.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+        divBot.innerHTML = `<p class="text-slate-800">✅ <strong>¡Orden confirmada por el Bot!</strong> Despacho programado con el distribuidor de Zona Sur. Se incluye tu <strong>Kit de Bienvenida</strong> sin cargo. Recibirás el tracking por acá el día de la entrega.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
         chat.appendChild(divBot);
         chat.scrollTop = chat.scrollHeight;
       }, 700);
@@ -564,7 +615,7 @@
       divUser.innerHTML = `<p class="text-slate-800">${val}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
       chat.appendChild(divUser);
 
-      // Check if it's a number (weight update)
+      // Bot automático parsea números de peso
       const num = parseFloat(val);
       setTimeout(() => {
         const divBot = document.createElement('div');
@@ -575,9 +626,9 @@
           document.getElementById('inputActualizarPeso').value = num;
           const nuevaRacion = Math.round(num * 22);
           document.getElementById('dashRacionGramos').innerText = `${nuevaRacion}g / día`;
-          divBot.innerHTML = `<p class="text-slate-800">⚖️ ¡Actualizado! Registramos el nuevo peso de <strong>${num} kg</strong>. Ajustamos su ración diaria a <strong>${nuevaRacion}g</strong> para el próximo pedido.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+          divBot.innerHTML = `<p class="text-slate-800">⚖️ <strong>¡Peso mensual registrado por el Bot!</strong> Actualizamos a <strong>${num} kg</strong>. La ración diaria de ${petData.mascotaNombre} se recalculó automáticamente a <strong>${nuevaRacion}g / día</strong>.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
         } else {
-          divBot.innerHTML = `<p class="text-slate-800">Mensaje recibido. Un asistente de TeLoCuidamos te responderá a la brevedad 🐾</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+          divBot.innerHTML = `<p class="text-slate-800">🤖 <em>TeLoCuidamos Bot:</em> Para gestionar turnos o entregas, tocá los botones del menú o respondé con el peso mensual de ${petData.mascotaNombre}.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
         }
         chat.appendChild(divBot);
         chat.scrollTop = chat.scrollHeight;
@@ -608,7 +659,7 @@
       divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
       divBot.innerHTML = `
         <p class="font-bold text-teal-800">🩺 Turno Vacunación</p>
-        <p class="text-slate-700">Tenemos turno disponible en <strong>Veterinaria San Roque (${petData.tutorBarrio})</strong> este sábado a las 11:00 hs para la Séxtuple de ${petData.mascotaNombre}.</p>
+        <p class="text-slate-700">Tenemos turno disponible en <strong>Veterinaria Dr. Rossi (${petData.tutorBarrio})</strong> este sábado a las 11:00 hs para la Séxtuple de ${petData.mascotaNombre}.</p>
         <button onclick="responderWhatsApp('Confirmar turno Sábado 11:00 hs')" class="w-full py-1.5 px-2 bg-teal-50 text-teal-800 font-bold rounded-lg text-center border border-teal-200 hover:bg-teal-100 transition text-xs">
           🔘 Confirmar turno Sábado 11:00 hs
         </button>
