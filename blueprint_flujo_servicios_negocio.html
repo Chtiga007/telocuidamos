@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TeLoCuidamos.com - Blueprint Operativo y Flujo del Negocio 360°</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      color: #1E293B;
+      background: #FFFFFF;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .page {
+      page-break-after: always;
+      position: relative;
+      height: 271mm; /* Exact printable A4 height with margins */
+      max-height: 271mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* HEADER & FOOTER MINIMALISTA */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid #E2E8F0;
+      margin-bottom: 14px;
+    }
+
+    .doc-header .brand {
+      font-weight: 800;
+      color: #0F4C81;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .doc-header .doc-tag {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748B;
+      background: #F1F5F9;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    .doc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid #E2E8F0;
+      margin-top: 12px;
+      font-size: 8.5px;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* TIPOGRAFÍA & JERARQUÍA */
+    h1, h2, h3, h4 {
+      color: #0A2540;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 3px;
+      color: #0A2540;
+    }
+
+    .section-subtitle {
+      font-size: 10.5px;
+      color: #64748B;
+      margin-bottom: 12px;
+    }
+
+    /* TARJETAS & CONTENEDORES */
+    .card {
+      background: #FAF8F5;
+      border: 1px solid #E8E2D9;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .card-white {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .card-teal {
+      background: #EBF8F7;
+      border: 1px solid #A6E3DE;
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .card-navy {
+      background: #0A2540;
+      color: #FFFFFF;
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 8.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-teal { background: #E6F7F6; color: #2A9D8F; }
+    .badge-coral { background: #FDF0ED; color: #E07A5F; }
+    .badge-blue { background: #E0F2FE; color: #0284C7; }
+    .badge-slate { background: #F1F5F9; color: #475569; }
+
+    /* DIAGRAMAS Y CAJAS DE FLUJO */
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #0F4C81;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-number.teal { background: #2A9D8F; }
+    .step-number.coral { background: #E07A5F; }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h4 {
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .step-content p {
+      font-size: 9.5px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    .flow-arrow-down {
+      text-align: center;
+      color: #0F4C81;
+      font-weight: 900;
+      font-size: 14px;
+      margin: 4px 0;
+      opacity: 0.7;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; }
+
+    /* TABLAS EJECUTIVAS */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9px;
+      margin-top: 6px;
+    }
+
+    table.data-table th {
+      background: #F1F5F9;
+      color: #0A2540;
+      font-weight: 800;
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 1.5px solid #CBD5E1;
+      text-transform: uppercase;
+      font-size: 8px;
+    }
+
+    table.data-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+    }
+
+    table.data-table tr:nth-child(even) td {
+      background: #FAF8F5;
+    }
+
+    /* PORTADA */
+    .cover-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 10px;
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-center {
+      margin: auto 0;
+    }
+
+    .cover-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: #0A2540;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .cover-title span {
+      color: #0088CC;
+    }
+
+    .cover-desc {
+      font-size: 13px;
+      color: #475569;
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .cover-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .cover-pill {
+      background: #FAF8F5;
+      border: 1px solid #E8E2D9;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #0F4C81;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cover-footer-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1.5px solid #E2E8F0;
+    }
+
+    .meta-item span {
+      display: block;
+      font-size: 8.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+
+    .meta-item strong {
+      display: block;
+      font-size: 10.5px;
+      color: #0A2540;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: PORTADA EJECUTIVA ==================== -->
+  <div class="page">
+    <div class="cover-container">
+      
+      <div class="cover-top">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="assets/logo_cropped_clean.png" alt="TeLoCuidamos.com" style="height:38px; width:auto;">
+          <span style="font-size:10px; font-weight:800; color:#0088CC; letter-spacing:1px; text-transform:uppercase;">Lanús & Avellaneda</span>
+        </div>
+        <span class="badge badge-teal" style="font-size:9.5px; padding:4px 10px;">Documento Oficial de Operaciones</span>
+      </div>
+
+      <div class="cover-center">
+        <div style="display:inline-block; margin-bottom:14px;">
+          <span class="badge badge-coral" style="font-size:10px; padding:4px 12px;">Arquitectura de Servicios 360°</span>
+        </div>
+        
+        <h1 class="cover-title">
+          BLUEPRINT OPERATIVO Y<br>
+          FLUJO DEL NEGOCIO <span>360°</span>
+        </h1>
+        
+        <p class="cover-desc">
+          Manual estratégico integral para la simplificación de la vida del tutor de mascotas: mapeo de procesos de extremo a extremo, economía de rutas hiperlocales, protocolos de atención sin jaulas y arquitectura digital de salud.
+        </p>
+
+        <div class="cover-badges">
+          <div class="cover-pill">🐾 Filosofía 100% Sin Jaulas</div>
+          <div class="cover-pill">🛵 Flete $0 en Rutas Fijas (Martes & Jueves)</div>
+          <div class="cover-pill">📱 Pasaporte de Salud Digital QR</div>
+          <div class="cover-pill">🚨 Guardia Médica 24hs Activa</div>
+        </div>
+
+        <div style="background:#0A2540; border-radius:18px; padding:18px 22px; color:white; display:flex; align-items:center; justify-content:between; gap:20px;">
+          <div>
+            <div style="font-size:9px; text-transform:uppercase; letter-spacing:1px; color:#38BDF8; font-weight:800; margin-bottom:4px;">El Propósito de Marca</div>
+            <div style="font-size:14px; font-weight:800; line-height:1.35;">
+              "Vos disfrutá de su compañía y su amor.<br>Del resto, Te lo cuidamos nosotros."
+            </div>
+          </div>
+          <div style="text-align:right; border-left:1px solid rgba(255,255,255,0.2); padding-left:20px; flex-shrink:0;">
+            <div style="font-size:22px; font-weight:900; color:#2DD4BF;">6</div>
+            <div style="font-size:9px; color:#94A3B8; text-transform:uppercase; font-weight:700;">Servicios Esenciales</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-footer-meta">
+        <div class="meta-item">
+          <span>Plataforma</span>
+          <strong>TeLoCuidamos.com</strong>
+        </div>
+        <div class="meta-item">
+          <span>Área Operativa</span>
+          <strong>Lanús & Avellaneda (Zona Sur)</strong>
+        </div>
+        <div class="meta-item">
+          <span>Versión Documento</span>
+          <strong>v1.0 • Blueprint Ejecutivo</strong>
+        </div>
+        <div class="meta-item">
+          <span>Emisión</span>
+          <strong>Octubre 2026</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 2: FUNDAMENTO DEL NEGOCIO E INSIGHT ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 1: Fundamento Estratégico</span>
+        </div>
+        <span class="doc-tag">Insight & Modelo Económico</span>
+      </div>
+
+      <h2 class="section-title">El Insight: Liberar la Carga Mental del Tutor</h2>
+      <p class="section-subtitle">Cómo transformar las fricciones cotidianas del dueño de una mascota en una relación de suscripción y cuidado de por vida.</p>
+
+      <div class="grid-2" style="margin-bottom:12px;">
+        <div class="card" style="border-left:4px solid #E07A5F;">
+          <h3 style="font-size:11.5px; color:#C2410C; margin-bottom:6px;">❌ Las 4 Fricciones del Tutor Tradicional</h3>
+          <ul style="list-style:none; space-y:4px; font-size:9.5px; line-height:1.45; color:#475569;">
+            <li style="margin-bottom:4px;"><strong>1. Ruptura de Stock Inesperada:</strong> Salir apurado de noche a buscar alimento balanceado porque se vació el pote.</li>
+            <li style="margin-bottom:4px;"><strong>2. Esfuerzo Físico Inútil:</strong> Cargar bolsas de 15 a 20 kg en el auto o colectivo y subirlas por escalera.</li>
+            <li style="margin-bottom:4px;"><strong>3. Pérdida de Documentación Médica:</strong> Libretas de papel extraviadas al momento de vacunar o viajar.</li>
+            <li><strong>4. Desconfianza y Culpa:</strong> Peluquerías con caniles cerrados o dejarlos solos en vacaciones.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left:4px solid #2A9D8F;">
+          <h3 style="font-size:11.5px; color:#0F766E; margin-bottom:6px;">✅ La Solución: "Te lo cuidamos"</h3>
+          <ul style="list-style:none; space-y:4px; font-size:9.5px; line-height:1.45; color:#475569;">
+            <li style="margin-bottom:4px;"><strong>1. Despacho Proactivo:</strong> Avisamos 4 días antes de que se termine la comida por WhatsApp.</li>
+            <li style="margin-bottom:4px;"><strong>2. Flete $0 en Puerta:</strong> Rutas agrupadas martes y jueves en Lanús y Avellaneda.</li>
+            <li style="margin-bottom:4px;"><strong>3. Pasaporte de Salud Digital:</strong> Todo el historial clínico en el celular, con acceso QR.</li>
+            <li><strong>4. Amor 100% Sin Jaulas:</strong> Profesionales barriales verificados en persona y auditados.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MOTOR ECONÓMICO -->
+      <h3 style="font-size:12px; margin-bottom:8px; color:#0A2540;">Estructura del Modelo de Monetización</h3>
+      <div class="grid-3" style="margin-bottom:12px;">
+        <div class="card-white" style="border-top:3px solid #0088CC;">
+          <span class="badge badge-blue">Recurrencia (MRR)</span>
+          <h4 style="font-size:11px; margin:6px 0 3px;">Alimento Balanceado</h4>
+          <p style="font-size:9px; color:#64748B;">Margen de distribución directa (18% - 25%). Compra recurrente programada cada 30-50 días por ciclo vital de la bolsa.</p>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #2A9D8F;">
+          <span class="badge badge-teal">Take-Rate Barrial</span>
+          <h4 style="font-size:11px; margin:6px 0 3px;">Servicios de Cuidado</h4>
+          <p style="font-size:9px; color:#64748B;">Comisión por intermediación transparente (12% - 18%) en Baño, Hospedaje y Paseos, coordinados sin fricción por el Concierge.</p>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #E07A5F;">
+          <span class="badge badge-coral">Eficiencia de Ruteo</span>
+          <h4 style="font-size:11px; margin:6px 0 3px;">Logística Concentrada</h4>
+          <p style="font-size:9px; color:#64748B;">Al entregar exclusivamente Martes (Lanús) y Jueves (Avellaneda), el costo marginal por parada cae más de un 65% vs. logística on-demand.</p>
+        </div>
+      </div>
+
+      <!-- TABLA DE UNIT ECONOMICS -->
+      <h3 style="font-size:12px; margin-bottom:6px; color:#0A2540;">Comparativa de Economía Unitaria (Por Tutor Activo)</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Línea de Valor</th>
+            <th>Frecuencia Anual</th>
+            <th>Ticket Promedio</th>
+            <th>Margen Contribución</th>
+            <th>Retención Estimada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Alimento en Piloto Automático</strong></td>
+            <td>8 a 10 entregas / año</td>
+            <td>$45.000 - $65.000 ARS</td>
+            <td>22% neto</td>
+            <td>Alto (&gt;88% a 12 meses)</td>
+          </tr>
+          <tr>
+            <td><strong>Baño & Estética Spa (Sin Jaulas)</strong></td>
+            <td>6 a 12 turnos / año</td>
+            <td>$18.000 - $28.000 ARS</td>
+            <td>15% fee</td>
+            <td>Muy Alto (vínculo de confianza)</td>
+          </tr>
+          <tr>
+            <td><strong>Hospedaje Familiar de Vacaciones</strong></td>
+            <td>2 a 3 estadías / año</td>
+            <td>$70.000 - $150.000 ARS</td>
+            <td>18% fee</td>
+            <td>Crítico para fidelización anual</td>
+          </tr>
+          <tr>
+            <td><strong>Paseos en Grupos Reducidos</strong></td>
+            <td>Mensual recurrente (3x/sem)</td>
+            <td>$35.000 - $55.000 ARS/mes</td>
+            <td>14% fee</td>
+            <td>Alto durante etapa activa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 1: Fundamento del Negocio</span>
+      <span>Página 2 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 3: EL CUSTOMER JOURNEY UNIFICADO ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 2: El Customer Journey</span>
+        </div>
+        <span class="doc-tag">Experiencia de Usuario 360°</span>
+      </div>
+
+      <h2 class="section-title">El Viaje del Tutor de Punta a Punta</h2>
+      <p class="section-subtitle">Mapeo del ciclo de vida del cliente: desde el descubrimiento hasta la fidelización continua en su propio barrio.</p>
+
+      <!-- PASO A PASO SECUENCIAL -->
+      <div style="space-y:6px;">
+        
+        <!-- FASE 1 -->
+        <div class="card-white" style="margin-bottom:8px; padding:10px 14px;">
+          <div class="flow-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4>Fase de Descubrimiento & Confianza Barrial</h4>
+                <span class="badge badge-slate">Entrada Inbound</span>
+              </div>
+              <p>El tutor conoce la marca por recomendación de su veterinario de cabecera en Lanús/Avellaneda, recomendación de vecinos en plazas o publicidad geolocalizada en Instagram con el claim <em>"Te lo cuidamos: chau cargar bolsas pesadas"</em>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow-down">↓</div>
+
+        <!-- FASE 2 -->
+        <div class="card-white" style="margin-bottom:8px; padding:10px 14px;">
+          <div class="flow-step">
+            <div class="step-number teal">2</div>
+            <div class="step-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4>Onboarding Express en 60 Segundos</h4>
+                <span class="badge badge-teal">Web o WhatsApp</span>
+              </div>
+              <p>Cero formularios engorrosos. Solo 4 datos esenciales: nombre del tutor, WhatsApp, barrio (ej. Lanusita o Wilde), nombre de la mascota, peso y marca de comida actual. Al instante se calcula la ración diaria y la fecha de reposición.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow-down">↓</div>
+
+        <!-- FASE 3 -->
+        <div class="card-white" style="margin-bottom:8px; padding:10px 14px;">
+          <div class="flow-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4>Emisión del Pasaporte de Salud Digital & QR</h4>
+                <span class="badge badge-blue">Generación Automática</span>
+              </div>
+              <p>El sistema genera una ficha clínica digital vinculada al número de teléfono. Se asienta el plan de vacunación, el control de peso y la dieta balanceada. Se emite un enlace único compartible por WhatsApp para presentar al veterinario.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow-down">↓</div>
+
+        <!-- FASE 4 -->
+        <div class="card-white" style="margin-bottom:8px; padding:10px 14px;">
+          <div class="flow-step">
+            <div class="step-number coral">4</div>
+            <div class="step-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4>Primer Despacho + Kit de Bienvenida de Regalo</h4>
+                <span class="badge badge-coral">Momento "Guau"</span>
+              </div>
+              <p>En el día fijo de ruta (Martes o Jueves), llega la bolsa de alimento sin costo de flete. Incluye el Kit de Bienvenida: carta personalizada con el nombre del animal, medalla física con QR de emergencias y snacks horneados de pastura local.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow-down">↓</div>
+
+        <!-- FASE 5 -->
+        <div class="card-white" style="padding:10px 14px;">
+          <div class="flow-step">
+            <div class="step-number teal">5</div>
+            <div class="step-content">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h4>Cuidado Continuo en Piloto Automático</h4>
+                <span class="badge badge-teal">Retención & Lealtad</span>
+              </div>
+              <p>El bot Concierge avisa cuando faltan 4 días para que la comida se termine o cuando se acerca la fecha de vacunación anual. El tutor confirma con un simple "Sí" en WhatsApp. Coordinación instantánea de baño, paseos o veterinaria con un toque.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 2: El Customer Journey</span>
+      <span>Página 3 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 4: SERVICIO 1 - ALIMENTO EN PILOTO AUTOMÁTICO ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 3: Servicios Principales</span>
+        </div>
+        <span class="doc-tag">Servicio 1: Nutrición & Reposición</span>
+      </div>
+
+      <h2 class="section-title">Alimento en Piloto Automático & Kit de Bienvenida</h2>
+      <p class="section-subtitle">El corazón recurrente del negocio: cálculo del consumo, recordatorios proactivos y despacho programado a domicilio.</p>
+
+      <!-- DIAGRAMA DE FLUJO DEL ALIMENTO -->
+      <div class="card-navy" style="margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <h3 style="color:#FFFFFF; font-size:12px;">🥣 El Algoritmo de Consumo Barrial</h3>
+          <span class="badge badge-teal" style="background:#2A9D8F; color:white;">Previsión Inteligente</span>
+        </div>
+        <div class="grid-3" style="font-size:9.5px; text-align:center;">
+          <div style="background:rgba(255,255,255,0.08); padding:10px; border-radius:10px;">
+            <div style="font-size:16px; font-weight:800; color:#38BDF8;">1. Input</div>
+            <div>Peso Mascota (ej. 14 kg) + Marca de Alimento</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); padding:10px; border-radius:10px;">
+            <div style="font-size:16px; font-weight:800; color:#2DD4BF;">2. Cálculo</div>
+            <div>Ración = 310g/día<br>Bolsa 15 kg = <strong>48 Días</strong></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); padding:10px; border-radius:10px;">
+            <div style="font-size:16px; font-weight:800; color:#FB7185;">3. Disparador</div>
+            <div>Aviso en WhatsApp al <strong>Día 44</strong> (4 días antes)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASOS DETALLADOS -->
+      <div class="grid-2" style="margin-bottom:12px;">
+        <div class="card-white">
+          <h4 style="font-size:11px; color:#0F4C81; margin-bottom:6px;">📦 Protocolo de Despacho & Empaque</h4>
+          <ul style="list-style:none; font-size:9.2px; line-height:1.45; color:#475569;">
+            <li>• <strong>Validación de Lote:</strong> Alimentos cerrados de origen con vencimiento mayor a 8 meses.</li>
+            <li>• <strong>Protección Climatológica:</strong> Bolsas protegidas con film sellado contra lluvia y humedad.</li>
+            <li>• <strong>Kit de Bienvenida Adjunto:</strong> Incluido en caja craft ecológica con manija reforzada.</li>
+            <li>• <strong>Confirmación Previa:</strong> Mensaje de ventana horaria (ej: <em>"Hoy entre 14 y 17hs"</em>).</li>
+          </ul>
+        </div>
+
+        <div class="card-white">
+          <h4 style="font-size:11px; color:#E07A5F; margin-bottom:6px;">🎁 Componentes del Kit de Bienvenida</h4>
+          <ul style="list-style:none; font-size:9.2px; line-height:1.45; color:#475569;">
+            <li>• <strong>Carta Personalizada:</strong> Saludo cálido con el nombre de la mascota y consejos de peso.</li>
+            <li>• <strong>Medalla con QR:</strong> Chapa metálica con resina epoxy vinculada a la Ficha de Emergencia.</li>
+            <li>• <strong>Snacks Naturales:</strong> Golosinas horneadas de carne vacuna/pollo de productores de Zona Sur.</li>
+            <li>• <strong>Guía de Guardias:</strong> Teléfonos y direcciones de urgencias 24hs impresas para la heladera.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- REGLAS DE NEGOCIO Y SLAS -->
+      <div class="card" style="border-left:4px solid #0088CC;">
+        <h4 style="font-size:11px; color:#0A2540; margin-bottom:4px;">📋 Reglas de Negocio del Alimento en Piloto Automático</h4>
+        <div class="grid-3" style="font-size:9px; color:#334155; margin-top:6px;">
+          <div>
+            <strong>• Sin Permanencia Mínima:</strong><br>
+            El tutor puede posponer, adelantar o pausar el ciclo de entrega en cualquier momento sin penalizaciones.
+          </div>
+          <div>
+            <strong>• Garantía de Precio Oficial:</strong><br>
+            El tutor abona el mismo valor de lista del pet shop local, beneficiándose del flete bonificado y la medalla.
+          </div>
+          <div>
+            <strong>• Reposición por Rechazo:</strong><br>
+            Si la mascota rechaza una nueva marca recetada, se coordina el cambio con el veterinario en la siguiente ruta.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 3: Alimento en Piloto Automático</span>
+      <span>Página 4 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 5: SERVICIOS DE BIENESTAR Y CUIDADO ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 3: Servicios de Cuidado</span>
+        </div>
+        <span class="doc-tag">Estética, Paseos & Hospedaje</span>
+      </div>
+
+      <h2 class="section-title">Servicios de Bienestar: Filosofía Sin Jaulas</h2>
+      <p class="section-subtitle">Protocolos estandarizados de cuidado ético para baño, paseos grupales y cuidadores de vacaciones.</p>
+
+      <!-- SERVICIO: GROOMING -->
+      <div class="card-white" style="margin-bottom:10px; border-left:4px solid #0088CC;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <h3 style="font-size:11.5px; color:#0F4C81;">🛁 Baño & Estética Spa 1 a 1 (Sin Jaulas ni Secadores de Caja)</h3>
+            <p style="font-size:9px; color:#64748B; margin-top:2px;">Turnos individuales de 60 a 90 minutos con atención personalizada, aromaterapia y productos hipoalergénicos.</p>
+          </div>
+          <span class="badge badge-blue">Grooming Ético</span>
+        </div>
+        <div class="grid-4" style="margin-top:8px; font-size:8.5px; color:#334155;">
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>1. Solicitud:</strong> Tutor elige fecha y tipo de corte por WhatsApp.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>2. Ficha Médica:</strong> Peluquero lee si tiene alergias dérmicas o dolor articular.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>3. Atención 1 a 1:</strong> Sin cruces con otros perros ni esperas en caniles.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>4. Entrega:</strong> Foto del look final y aviso inmediato para retirar.
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICIO: PASEOS -->
+      <div class="card-white" style="margin-bottom:10px; border-left:4px solid #2A9D8F;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <h3 style="font-size:11.5px; color:#0F766E;">🦮 Paseos Felices en Grupos Reducidos (Máximo 4 Perros)</h3>
+            <p style="font-size:9px; color:#64748B; margin-top:2px;">Se prohíben las jaurías de 15 animales. Paseos controlados en plazas locales con seguro de urgencia.</p>
+          </div>
+          <span class="badge badge-teal">Máx. 4 Canes</span>
+        </div>
+        <div class="grid-4" style="margin-top:8px; font-size:8.5px; color:#334155;">
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>1. Entrevista:</strong> Test de temperamento barrial y afinidad con la manada.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>2. Asignación:</strong> Paseador fijo del barrio (Lanús Centro, Escalada, Wilde).
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>3. Cobertura:</strong> Póliza veterinaria activa durante todo el circuito del paseo.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>4. Reporte:</strong> Foto del paseo y confirmación de regreso seguro al hogar.
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICIO: HOSPEDAJE -->
+      <div class="card-white" style="border-left:4px solid #E07A5F;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <h3 style="font-size:11.5px; color:#C2410C;">🛋️ Hospedaje Familiar en Sillón (Cuidador de Vacaciones)</h3>
+            <p style="font-size:9px; color:#64748B; margin-top:2px;">Hogares de familias verificadas en Zona Sur. Duermen adentro, reciben mimos y juegan en ambientes cálidos.</p>
+          </div>
+          <span class="badge badge-coral">Como en Casa</span>
+        </div>
+        <div class="grid-4" style="margin-top:8px; font-size:8.5px; color:#334155;">
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>1. Fechas:</strong> Reserva previa de fechas de viaje en la plataforma.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>2. Meet & Greet:</strong> Encuentro previo sin costo para que los perros se conozcan.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>3. Estadía:</strong> Dieta respetada, juegos diarios y fotos por WhatsApp mañana y tarde.
+          </div>
+          <div style="background:#F8FAFC; padding:6px 8px; border-radius:8px;">
+            <strong>4. Reencuentro:</strong> Devolución con reporte de hábitos y alegría garantizada.
+          </div>
+        </div>
+      </div>
+
+      <!-- MATRIZ DE SEGURIDAD -->
+      <div class="card" style="margin-top:10px; background:#FAF8F5;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <strong style="font-size:10px; color:#0A2540;">🛡️ Protocolo de Garantía y Seguridad Barrial:</strong>
+          <span style="font-size:8.5px; color:#64748B;">Requisito indispensable para prestadores</span>
+        </div>
+        <p style="font-size:8.8px; color:#475569; margin-top:3px;">
+          Todos los cuidadores y paseadores cuentan con verificación de identidad física (DNI + Servicio), certificado de antecedentes penales, y aprobación de una visita presencial a su domicilio para verificar ventilación, seguridad de rejas y espacios libres de riesgo.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 3: Servicios de Cuidado y Bienestar</span>
+      <span>Página 5 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 6: SALUD Y PROTOCOLO DE GUARDIAS 24HS ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 3: Salud & Emergencias</span>
+        </div>
+        <span class="doc-tag">Ficha Médica & Guardias 24hs</span>
+      </div>
+
+      <h2 class="section-title">Pasaporte de Salud Digital & Guardias 24hs</h2>
+      <p class="section-subtitle">Gestión clínica simplificada para el día a día y protocolo de respuesta inmediata ante situaciones críticas de madrugada.</p>
+
+      <!-- PASAPORTE DIGITAL -->
+      <div class="grid-2" style="margin-bottom:12px;">
+        <div class="card-white" style="border-top:3px solid #2A9D8F;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <h4 style="font-size:11px; color:#0F766E;">📱 Pasaporte de Salud en el Celular</h4>
+            <span class="badge badge-teal">Sin Papeles</span>
+          </div>
+          <p style="font-size:9.2px; color:#475569; line-height:1.45;">
+            Centraliza en un enlace seguro y liviano:
+          </p>
+          <ul style="list-style:none; font-size:9px; color:#334155; margin-top:4px; line-height:1.45;">
+            <li>• <strong>Inmunización:</strong> Fechas y recordatorios de Séxtuple, Antirrábica y Desparasitación interna/externa.</li>
+            <li>• <strong>Monitoreo de Peso:</strong> Gráfica evolutiva para prevenir sobrepeso y ajustar raciones.</li>
+            <li>• <strong>Alergias y Medicación:</strong> Notas críticas para que cualquier guardia o profesional atienda sin error.</li>
+            <li>• <strong>Exportación PDF:</strong> Impresión con 1 clic para presentar en viajes o guarderías.</li>
+          </ul>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #0088CC;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <h4 style="font-size:11px; color:#0F4C81;">🩺 Red de Veterinarios de Cabecera</h4>
+            <span class="badge badge-blue">Alianzas Barriales</span>
+          </div>
+          <p style="font-size:9.2px; color:#475569; line-height:1.45;">
+            No reemplazamos al profesional de confianza; potenciamos su trabajo:
+          </p>
+          <ul style="list-style:none; font-size:9px; color:#334155; margin-top:4px; line-height:1.45;">
+            <li>• <strong>Turnos por Bot:</strong> El tutor solicita turno preventivo o clínico y el Concierge coordina el horario.</li>
+            <li>• <strong>Asiento en Ficha:</strong> El veterinario valida las vacunas directamente en el sistema.</li>
+            <li>• <strong>Receta de Alimento:</strong> Notificación automática al sistema si el médico prescribe alimento medicado (renal, gastro, urinario).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROTOCOLO ROJO: GUARDIAS 24HS -->
+      <div style="background:#FFF1F2; border:1.5px solid #FDA4AF; border-radius:14px; padding:12px 14px; margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="width:10px; height:10px; border-radius:50%; background:#E11D48; display:inline-block;"></span>
+            <h3 style="font-size:12px; color:#9F1239;">🚨 Protocolo de Urgencias Médicas Nocturnas (24/7)</h3>
+          </div>
+          <span class="badge badge-coral" style="background:#FFE4E6; color:#BE123C;">Respuesta Inmediata</span>
+        </div>
+        <p style="font-size:9.2px; color:#881337; line-height:1.4; margin-bottom:8px;">
+          Diseñado para momentos de estrés máximo (accidentes, torsión gástrica, intoxicación). Sin demoras burocráticas ni formularios.
+        </p>
+
+        <div class="grid-3" style="font-size:9px; color:#4C0519;">
+          <div style="background:#FFFFFF; padding:8px 10px; border-radius:10px; border:1px solid #FECDD3;">
+            <strong style="color:#BE123C; display:block; margin-bottom:2px;">Paso 1: Botón Rojo Web/App</strong>
+            Tutor presiona "Guardia 24hs" en la web o tipea "URGENCIA" al bot de WhatsApp.
+          </div>
+          <div style="background:#FFFFFF; padding:8px 10px; border-radius:10px; border:1px solid #FECDD3;">
+            <strong style="color:#BE123C; display:block; margin-bottom:2px;">Paso 2: Ruteo por GPS</strong>
+            El sistema detecta si está más cerca de Lanús o de Avellaneda y muestra el centro con quirófano activo.
+          </div>
+          <div style="background:#FFFFFF; padding:8px 10px; border-radius:10px; border:1px solid #FECDD3;">
+            <strong style="color:#BE123C; display:block; margin-bottom:2px;">Paso 3: Llamada & Notificación</strong>
+            Llamada directa de 1 toque a la guardia para avisar que el paciente está en viaje y envío de la Ficha QR.
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTROS DE ALTA COMPLEJIDAD ADHERIDOS -->
+      <h4 style="font-size:10.5px; color:#0A2540; margin-bottom:6px;">Centros Médicos con Quirófano 24 Horas en Zona Sur</h4>
+      <div class="grid-2">
+        <div class="card-white" style="padding:8px 12px;">
+          <strong style="color:#0F4C81; font-size:10px;">Hospital Veterinario Central Lanús</strong>
+          <p style="font-size:8.8px; color:#64748B;">Av. Hipólito Yrigoyen (cerca de Lanusita). Quirófano activo, internación con oxígeno, laboratorio nocturno y ecografía de urgencia.</p>
+        </div>
+        <div class="card-white" style="padding:8px 12px;">
+          <strong style="color:#0F4C81; font-size:10px;">Clínica de Emergencias Avellaneda</strong>
+          <p style="font-size:8.8px; color:#64748B;">Av. Bartolomé Mitre (cerca de Plaza Alsina). Banco de sangre canino/felino, guardia traumatológica e internación aislada 24hs.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 3: Salud & Urgencias Médicas</span>
+      <span>Página 6 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 7: RED DE PROVEEDORES Y LOGÍSTICA ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 4: Proveedores & Logística</span>
+        </div>
+        <span class="doc-tag">Red Barrial & Rutas Fijas</span>
+      </div>
+
+      <h2 class="section-title">Red de Proveedores Oficiales & Logística Hiperlocal</h2>
+      <p class="section-subtitle">Cómo se incorporan los mejores profesionales de Lanús y Avellaneda y cómo opera el circuito de distribución agrupado.</p>
+
+      <!-- FLUJO DEL PROVEEDOR -->
+      <h3 style="font-size:12px; color:#0A2540; margin-bottom:6px;">Flujo de Incorporación y Gestión del Proveedor</h3>
+      <div class="grid-4" style="margin-bottom:12px;">
+        <div class="card-white" style="border-top:3px solid #0F4C81;">
+          <div class="step-number" style="width:20px; height:20px; font-size:9px; margin-bottom:6px;">1</div>
+          <strong style="font-size:9.5px; color:#0A2540; display:block; margin-bottom:2px;">Postulación Web</strong>
+          <p style="font-size:8.5px; color:#64748B;">El profesional completa el formulario (especialidad, localidad en Zona Sur, Instagram y fotos de instalaciones).</p>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #2A9D8F;">
+          <div class="step-number teal" style="width:20px; height:20px; font-size:9px; margin-bottom:6px;">2</div>
+          <strong style="font-size:9.5px; color:#0A2540; display:block; margin-bottom:2px;">Auditoría Presencial</strong>
+          <p style="font-size:8.5px; color:#64748B;">Visita presencial de nuestro coordinador: chequeo de DNI, antecedentes y firma del <em>Compromiso Sin Jaulas</em>.</p>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #0088CC;">
+          <div class="step-number" style="width:20px; height:20px; font-size:9px; margin-bottom:6px;">3</div>
+          <strong style="font-size:9.5px; color:#0A2540; display:block; margin-bottom:2px;">Asignación Barrial</strong>
+          <p style="font-size:8.5px; color:#64748B;">Se le envían solicitudes exclusivamente de tutores ubicados en su propio radio de cobertura (sin viajes largos).</p>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #E07A5F;">
+          <div class="step-number coral" style="width:20px; height:20px; font-size:9px; margin-bottom:6px;">4</div>
+          <strong style="font-size:9.5px; color:#0A2540; display:block; margin-bottom:2px;">Cobro & Liquidación</strong>
+          <p style="font-size:8.5px; color:#64748B;">Liquidación puntual semanal por transferencia, sin comisiones ocultas y con soporte permanente de nuestro equipo.</p>
+        </div>
+      </div>
+
+      <!-- MAPA LOGÍSTICO HIPERLOCAL -->
+      <div class="card-white" style="margin-bottom:12px; border-left:4px solid #0088CC;">
+        <h3 style="font-size:11.5px; color:#0F4C81; margin-bottom:4px;">🛵 Logística Agrupada: El Secreto del Flete $0</h3>
+        <p style="font-size:9px; color:#475569; margin-bottom:8px;">
+          En lugar de despachar envíos aislados a demanda, consolidamos la carga en dos rutas semanales inteligentes.
+        </p>
+
+        <div class="grid-2">
+          <div style="background:#FAF8F5; border:1px solid #E8E2D9; border-radius:10px; padding:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <strong style="color:#0A2540; font-size:10.5px;">📍 RUTA MARTES: PARTIDO DE LANÚS</strong>
+              <span class="badge badge-teal">Martes</span>
+            </div>
+            <ul style="list-style:none; font-size:8.8px; color:#475569; line-height:1.45;">
+              <li>• <strong>Lanús Oeste:</strong> Lanusita gastronómica, Centro, Villa Industriales, Valentín Alsina.</li>
+              <li>• <strong>Lanús Este:</strong> Estación, Av. 9 de Julio, Villa Obrera.</li>
+              <li>• <strong>Remedios de Escalada:</strong> Polo universitario, estación y alrededores residenciales.</li>
+            </ul>
+          </div>
+
+          <div style="background:#FAF8F5; border:1px solid #E8E2D9; border-radius:10px; padding:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <strong style="color:#0A2540; font-size:10.5px;">📍 RUTA JUEVES: PARTIDO DE AVELLANEDA</strong>
+              <span class="badge badge-blue">Jueves</span>
+            </div>
+            <ul style="list-style:none; font-size:8.8px; color:#475569; line-height:1.45;">
+              <li>• <strong>Avellaneda Centro:</strong> Plaza Alsina, Av. Mitre, Crucecita, Dock Sud residencial.</li>
+              <li>• <strong>Sarandí & Gerli:</strong> Barrios residenciales, Av. Belgrano, Güemes.</li>
+              <li>• <strong>Wilde:</strong> Centro comercial Las Flores y barrios residenciales.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARQUITECTURA DIGITAL -->
+      <div class="card" style="background:#F1F5F9; border:1px solid #CBD5E1;">
+        <strong style="font-size:10px; color:#0A2540;">💻 Arquitectura Tecnológica & Stack Operativo:</strong>
+        <div class="grid-3" style="font-size:8.8px; color:#475569; margin-top:4px;">
+          <div><strong>1. Web App PWA:</strong> Catálogo interactivo, formulario express y Pasaporte QR offline.</div>
+          <div><strong>2. WhatsApp Concierge Bot:</strong> Alertas de reposición, confirmación 1-clic y triaje de urgencias.</div>
+          <div><strong>3. Motor de Ruteo:</strong> Optimización de paradas y cálculo predictivo de consumo por mascota.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 4: Proveedores & Logística</span>
+      <span>Página 7 de 8</span>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 8: KPIS, SLAS Y GOBERNANZA ==================== -->
+  <div class="page">
+    <div>
+      <div class="doc-header">
+        <div class="brand">
+          <img src="assets/logo_cropped_clean.png" alt="Logo" style="height:20px;">
+          <span>• Cap. 5: Métricas & Gobernanza</span>
+        </div>
+        <span class="doc-tag">KPIs, SLAs & Escala</span>
+      </div>
+
+      <h2 class="section-title">Gobernanza del Negocio, Métricas Clave y SLAs</h2>
+      <p class="section-subtitle">Estándares de calidad de servicio y objetivos operativos para consolidar el liderazgo en Zona Sur.</p>
+
+      <!-- CUADRO DE KPIS -->
+      <h3 style="font-size:11.5px; color:#0A2540; margin-bottom:6px;">Tablero de Control Estratégico (Objetivos 2026/2027)</h3>
+      <table class="data-table" style="margin-bottom:12px;">
+        <thead>
+          <tr>
+            <th>Métrica Clave (KPI)</th>
+            <th>Definición & Objetivo</th>
+            <th>Fórmula Operativa</th>
+            <th>Impacto en el Negocio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Retención Mensual (CRR)</strong></td>
+            <td>&gt; 88% a los 6 meses</td>
+            <td>(Clientes fin de mes - Nuevos) / Clientes inicio</td>
+            <td>Asegura el flujo de caja recurrente en nutrición.</td>
+          </tr>
+          <tr>
+            <td><strong>Net Promoter Score (NPS)</strong></td>
+            <td>&gt; 78 puntos</td>
+            <td>% Promotores - % Detractores</td>
+            <td>Motor orgánico de referidos entre vecinos de barrio.</td>
+          </tr>
+          <tr>
+            <td><strong>Tiempo Respuesta WhatsApp</strong></td>
+            <td>&lt; 3 minutos en horario activo</td>
+            <td>Tiempo medio de atención del bot / Concierge</td>
+            <td>Mantiene la percepción de cercanía y resolución.</td>
+          </tr>
+          <tr>
+            <td><strong>Eficiencia de Entrega</strong></td>
+            <td>&gt; 97% de entregas exitosas</td>
+            <td>Entregas efectivas en 1ra visita / Total despachos</td>
+            <td>Evita segundas vueltas y cuida el costo logístico.</td>
+          </tr>
+          <tr>
+            <td><strong>Calificación de Proveedor</strong></td>
+            <td>Mínimo 4.8 / 5.0 estrellas</td>
+            <td>Promedio ponderado post-servicio del tutor</td>
+            <td>Filtro automático para mantener solo aliados excelentes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- COMPROMISOS DE NIVEL DE SERVICIO (SLA) -->
+      <div class="grid-2" style="margin-bottom:12px;">
+        <div class="card-white" style="border-top:3px solid #2A9D8F;">
+          <h4 style="font-size:10.5px; color:#0F766E; margin-bottom:4px;">⏱️ SLAs con el Tutor de Mascotas</h4>
+          <ul style="list-style:none; font-size:8.8px; color:#475569; line-height:1.45;">
+            <li>• <strong>Aviso de Entrega:</strong> Confirmación con 24hs de antelación y ventana de 3hs el día de reparto.</li>
+            <li>• <strong>Reposición Urgente:</strong> Si el perro se queda sin comida por un desfasaje, entrega express en 4hs.</li>
+            <li>• <strong>Disponibilidad de Guardia:</strong> Derivación asistida 24hs los 365 días del año.</li>
+          </ul>
+        </div>
+
+        <div class="card-white" style="border-top:3px solid #0088CC;">
+          <h4 style="font-size:10.5px; color:#0F4C81; margin-bottom:4px;">🤝 SLAs con la Red de Proveedores</h4>
+          <ul style="list-style:none; font-size:8.8px; color:#475569; line-height:1.45;">
+            <li>• <strong>Liquidaciones Semanales:</strong> Transferencia bancaria automática todos los viernes sin demoras.</li>
+            <li>• <strong>Protección contra Cancelaciones:</strong> Cobro garantizado si el tutor cancela con menos de 2 horas.</li>
+            <li>• <strong>Soporte en Incidentes:</strong> Acompañamiento legal y veterinario ante cualquier contingencia.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SÍNTESIS FINAL -->
+      <div class="card-navy" style="text-align:center; padding:12px 18px;">
+        <div style="font-size:11px; font-weight:800; color:#38BDF8; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:2px;">
+          Conclusión Operativa
+        </div>
+        <p style="font-size:9.5px; color:#E2E8F0; line-height:1.45; max-width:620px; margin:0 auto;">
+          <strong>TeLoCuidamos.com</strong> no es solo una tienda de alimentos ni una simple agenda de turnos: es el <strong>sistema operativo de cuidado y tranquilidad</strong> para las familias de Lanús y Avellaneda. Simplifica la rutina del tutor, cuida con amor a la mascota y dinamiza a los mejores prestadores del barrio.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="doc-footer">
+      <span>TeLoCuidamos.com • Blueprint Operativo</span>
+      <span>Capítulo 5: Métricas Clave & Conclusión</span>
+      <span>Página 8 de 8</span>
+    </div>
+  </div>
+
+</body>
+</html>
