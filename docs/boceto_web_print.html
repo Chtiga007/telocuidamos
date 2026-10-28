@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Boceto UI/UX y Sistema de Diseño — TeLoCuidamos.com</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 1.6cm 1.4cm 1.8cm 1.4cm;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      color: #1E293B;
+      background: #FFFFFF;
+      line-height: 1.5;
+      font-size: 10pt;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #E2E8F0;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      height: 42px;
+    }
+
+    .badge-pastel {
+      background: #E6F4F1;
+      color: #0F766E;
+      font-weight: 700;
+      font-size: 8pt;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #CCFBF1;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #0D9488;
+      margin: 0 0 16px 0;
+    }
+
+    h2 {
+      font-size: 12.5pt;
+      font-weight: 800;
+      color: #0F172A;
+      border-left: 4px solid #0D9488;
+      padding-left: 8px;
+      margin: 20px 0 10px 0;
+    }
+
+    h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0F766E;
+      margin: 12px 0 6px 0;
+    }
+
+    p {
+      margin: 0 0 8px 0;
+      color: #475569;
+    }
+
+    /* SISTEMA DE COLOR PASTEL */
+    .palette-grid {
+      display: flex;
+      gap: 10px;
+      margin: 12px 0 18px 0;
+    }
+
+    .swatch {
+      flex: 1;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      font-size: 8pt;
+      text-align: center;
+    }
+
+    .swatch-color {
+      height: 32px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+
+    /* MOCKUPS VISUALES */
+    .mockup-container {
+      background: #FAF8F5;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .circle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .c-red { background: #FDA4AF; }
+    .c-yellow { background: #FEF08A; }
+    .c-green { background: #BBF7D0; }
+
+    .browser-url {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 7.5pt;
+      color: #64748B;
+      padding: 2px 10px;
+      flex: 1;
+      text-align: center;
+    }
+
+    /* WIREFRAME COMPONENTES */
+    .wf-card {
+      background: #FFFFFF;
+      border: 1px solid #EDE8E1;
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .wf-btn-primary {
+      background: #0D9488;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 8.5pt;
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .wf-btn-pastel {
+      background: #FFEDD5;
+      color: #C2410C;
+      font-weight: 700;
+      font-size: 8.5pt;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .wf-tag {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #E6F4F1;
+      color: #0F766E;
+    }
+
+    .grid-2 {
+      display: flex;
+      gap: 12px;
+    }
+
+    .col-half {
+      flex: 1;
+    }
+
+    /* ESPECIFICACIONES DE ANIMACIÓN (60FPS) */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      margin: 10px 0;
+    }
+
+    .spec-table th, .spec-table td {
+      border: 1px solid #E2E8F0;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    .spec-table th {
+      background: #F8FAFC;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 7.5pt;
+      color: #94A3B8;
+      text-align: center;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header-bar">
+    <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="logo-img">
+    <div>
+      <span class="badge-pastel">UI/UX & Design System Blueprint</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <h1>Boceto Visual y Experiencia de Usuario</h1>
+  <p class="subtitle">Diseño cálido, transparente y empático para Avellaneda y Lanús</p>
+  <p>
+    Inspirado en la calidez visual de <strong>Dribbble</strong>, la rigurosa arquitectura de componentes de los <strong>UI Kits de Figma</strong>, y la suavidad táctil de micro-interacciones de <strong>60fps.design</strong>.
+  </p>
+
+  <!-- SECCIÓN 1: PALETA PASTEL Y SISTEMA DE DISEÑO -->
+  <h2>1. Paleta de Colores Pastel (Calidez y Confianza)</h2>
+  <p>Evitamos contrastes agresivos o colores saturados de e-commerce masivo; usamos una gama suave que transmite cuidado, ternura y salud veterinaria:</p>
+
+  <div class="palette-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #E6F4F1; border: 1px solid #CCFBF1;"></div>
+      <strong>Menta Pastel</strong><br>#E6F4F1<br>Fondos de salud
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #0D9488;"></div>
+      <strong>Esmeralda Marca</strong><br>#0D9488<br>Botones principales
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #FFEDD5; border: 1px solid #FED7AA;"></div>
+      <strong>Durazno Suave</strong><br>#FFEDD5<br>Alertas de comida
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #FB923C;"></div>
+      <strong>Coral Cálido</strong><br>#FB923C<br>Acentos afectivos
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #FAF8F5; border: 1px solid #EDE8E1;"></div>
+      <strong>Vainilla / Crema</strong><br>#FAF8F5<br>Fondo general app
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #334155;"></div>
+      <strong>Pizarra Suave</strong><br>#334155<br>Textos y lectura
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: BOCETO PANTALLA 1 (LANDING PAGE) -->
+  <h2>2. Boceto Pantalla 1: Landing Page (Hero Emocional)</h2>
+  <p>Diseño limpio con bordes redondeados (20px), tipografía amigable y selector claro de Zona Sur:</p>
+
+  <div class="mockup-container">
+    <div class="browser-bar">
+      <div class="circle c-red"></div>
+      <div class="circle c-yellow"></div>
+      <div class="circle c-green"></div>
+      <div class="browser-url">https://telocuidamos.com</div>
+    </div>
+
+    <!-- WIREFRAME HERO -->
+    <div style="text-align: center; padding: 14px 10px;">
+      <span class="wf-tag">🐾 Exclusivo Lanús y Avellaneda</span>
+      <h3 style="font-size: 15pt; color: #0F172A; margin: 8px 0 6px 0;">Cuidar a tu mascota nunca fue tan simple.</h3>
+      <p style="font-size: 9pt; max-width: 480px; margin: 0 auto 14px auto; color: #64748B;">
+        Ingresá sus datos una vez. Te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
+      </p>
+
+      <div class="wf-card" style="max-width: 420px; margin: 0 auto; text-align: left;">
+        <div style="font-size: 8.5pt; font-weight: 700; color: #475569; margin-bottom: 6px;">Comenzá acá en 2 minutos:</div>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" placeholder="¿Cómo se llama tu perro o gato?" style="flex: 1; border: 1px solid #CBD5E1; border-radius: 8px; padding: 6px 10px; font-size: 8.5pt;">
+          <div class="wf-btn-primary" style="font-size: 8pt; padding: 6px 12px;">Activar Piloto →</div>
+        </div>
+        <div style="font-size: 7.5pt; color: #94A3B8; margin-top: 6px;">
+          ✓ Sin tarjetas de crédito para registrarte &nbsp;•&nbsp; ✓ Veterinarias de cercanía
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALTO DE PÁGINA -->
+  <div class="page-break"></div>
+
+  <!-- SECCIÓN 3: BOCETO WIZARD ONBOARDING -->
+  <h2>3. Boceto Pantalla 2: Onboarding Wizard (3 Pasos Suaves)</h2>
+  <p>Inspirado en los formularios fluidos de Figma UI Kits, con barra de progreso segmentada y micro-pasos sin fricción:</p>
+
+  <div class="mockup-container">
+    <div class="browser-bar">
+      <div class="circle c-red"></div>
+      <div class="circle c-yellow"></div>
+      <div class="circle c-green"></div>
+      <div class="browser-url">telocuidamos.com/registro-mascota</div>
+    </div>
+
+    <!-- PASOS -->
+    <div style="display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 8pt; font-weight: 700;">
+      <span style="color: #0D9488;">✓ 1. Tus Datos</span>
+      <span style="color: #0D9488; border-bottom: 2px solid #0D9488; padding-bottom: 2px;">● 2. Tu Mascota</span>
+      <span style="color: #94A3B8;">○ 3. Alimento</span>
+    </div>
+
+    <div class="wf-card">
+      <h3 style="margin-top: 0;">2. Datos de tu compañero</h3>
+      <div class="grid-2" style="margin-bottom: 10px;">
+        <div class="col-half" style="background: #E6F4F1; border: 2px solid #0D9488; border-radius: 10px; padding: 8px; text-align: center; font-weight: 700; font-size: 8.5pt; color: #0F766E;">
+          🐶 Perro
+        </div>
+        <div class="col-half" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 8px; text-align: center; font-weight: 600; font-size: 8.5pt; color: #64748B;">
+          🐱 Gato
+        </div>
+      </div>
+
+      <div style="font-size: 8pt; color: #475569; margin-bottom: 4px;">Raza y Peso aproximado:</div>
+      <div class="grid-2" style="margin-bottom: 10px;">
+        <div style="flex: 2; border: 1px solid #E2E8F0; border-radius: 8px; padding: 6px 10px; font-size: 8.5pt;">Golden Retriever / Mestizo</div>
+        <div style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 6px 10px; font-size: 8.5pt;">14.5 kg</div>
+      </div>
+
+      <div style="font-size: 8pt; color: #475569; margin-bottom: 4px;">Localidad de entrega (Zona Sur):</div>
+      <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 6px 10px; font-size: 8.5pt; margin-bottom: 12px; background: #FFF;">
+        Lanús Oeste (Lanusita) ▾
+      </div>
+
+      <div style="text-align: right;">
+        <span class="wf-btn-primary">Continuar a Alimento →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 4: BOCETO DASHBOARD MI MASCOTA -->
+  <h2>4. Boceto Pantalla 3: Dashboard "Mi Mascota en Piloto"</h2>
+  <p>La pantalla central que el usuario consulta recurrentemente. Tres tarjetas de información vital con gráficos suaves y barras de nivel animadas:</p>
+
+  <div class="mockup-container">
+    <!-- TARJETA PROFILE HERO -->
+    <div style="background: linear-gradient(135deg, #0F766E, #0D9488); border-radius: 14px; padding: 14px; color: #FFFFFF; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <div style="width: 44px; height: 44px; background: rgba(255,255,255,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+          🐶
+        </div>
+        <div>
+          <div style="font-weight: 800; font-size: 13pt;">Milo</div>
+          <div style="font-size: 8pt; opacity: 0.9;">Golden Retriever • 14.5 kg • Lanusita</div>
+        </div>
+      </div>
+      <span style="background: #BBF7D0; color: #14532D; font-size: 7.5pt; font-weight: 800; padding: 3px 8px; border-radius: 999px;">
+        PILOTO ACTIVO
+      </span>
+    </div>
+
+    <!-- TARJETAS DE SERVICIO EN GRID -->
+    <div class="grid-2">
+      <!-- CARD COMIDA -->
+      <div class="col-half wf-card">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <span style="font-size: 7.5pt; font-weight: 800; color: #94A3B8; text-transform: uppercase;">Alimento</span>
+          <span style="font-size: 8pt; color: #EA580C; font-weight: 800;">4 días restantes</span>
+        </div>
+        <div style="font-weight: 700; font-size: 9.5pt; color: #0F172A;">Royal Canin Maxi Adult</div>
+        <div style="font-size: 8pt; color: #64748B;">Ración: 320g / día</div>
+
+        <!-- PROGRESS BAR -->
+        <div style="width: 100%; height: 8px; background: #FED7AA; border-radius: 999px; margin: 8px 0; overflow: hidden;">
+          <div style="width: 20%; height: 100%; background: #EA580C; border-radius: 999px;"></div>
+        </div>
+        <div style="font-size: 7.5pt; color: #64748B;">Despacho automático: <strong>Martes 3 de Nov</strong></div>
+      </div>
+
+      <!-- CARD SALUD -->
+      <div class="col-half wf-card">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <span style="font-size: 7.5pt; font-weight: 800; color: #94A3B8; text-transform: uppercase;">Veterinaria</span>
+          <span class="wf-tag">En 12 días</span>
+        </div>
+        <div style="font-weight: 700; font-size: 9.5pt; color: #0F172A;">Vacuna Séxtuple Anual</div>
+        <div style="font-size: 8pt; color: #64748B;">Consultorio: <strong>Dr. Rossi (Lanusita)</strong></div>
+        <div style="margin-top: 8px;">
+          <span class="wf-btn-pastel" style="font-size: 7.5pt; padding: 4px 8px;">Coordinar turno por WhatsApp 💬</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALTO DE PÁGINA -->
+  <div class="page-break"></div>
+
+  <!-- SECCIÓN 5: ANIMACIONES Y MICRO-INTERACCIONES (60FPS.DESIGN) -->
+  <h2>5. Especificaciones de Animación y Detalles (60fps.design)</h2>
+  <p>Siguiendo las mejores prácticas de <strong>60fps.design</strong>, cada interacción debe sentirse viva, suave y táctil (con curvas de aceleración elásticas y respuesta háptica):</p>
+
+  <table class="spec-table">
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>Efecto / Micro-interacción</th>
+        <th>Curva Bézier & Duración</th>
+        <th>Sensación que transmite</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Botones de Acción</strong></td>
+        <td>Al presionar se contrae suavemente a <code>scale(0.97)</code> y recupera volumen al soltar (*spring bounce*).</td>
+        <td><code>cubic-bezier(0.34, 1.56, 0.64, 1)</code><br>180ms</td>
+        <td>Firmeza táctil y respuesta inmediata al tacto en móvil.</td>
+      </tr>
+      <tr>
+        <td><strong>Medidor de Comida</strong></td>
+        <td>La barra de comida desciende con un suave vaivén ondulado (*liquid level fill*).</td>
+        <td><code>ease-in-out</code><br>800ms con loop de olas</td>
+        <td>Visualiza de forma lúdica cuánta comida queda sin generar alarma.</td>
+      </tr>
+      <tr>
+        <td><strong>Transición de Pasos Wizard</strong></td>
+        <td>El paso saliente se desvanece a la izquierda mientras el entrante entra desde la derecha con *slide + fade*.</td>
+        <td><code>cubic-bezier(0.16, 1, 0.3, 1)</code><br>320ms</td>
+        <td>Fluidez sin saltos bruscos; sensación de progreso natural.</td>
+      </tr>
+      <tr>
+        <td><strong>Festejo de Cumpleaños</strong></td>
+        <td>Al llegar la semana del cumple de la mascota, cae una sutil lluvia de confeti de huellas pastel.</td>
+        <td>Gravedad con rotación física<br>2.2 segundos</td>
+        <td>Alegría, afecto y calidez emocional con el tutor.</td>
+      </tr>
+      <tr>
+        <td><strong>Actualización de Peso</strong></td>
+        <td>Al mover el slider de peso, la ración diaria cambia en tiempo real con números que rotan (*counter tick*).</td>
+        <td><code>ease-out</code><br>120ms por dígito</td>
+        <td>Transparencia matemática; el usuario ve cómo impacta en la salud.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECCIÓN 6: DETALLES DE CONFIANZA Y TRANSPARENCIA -->
+  <h2>6. Elementos Clave de Transparencia y Confiabilidad</h2>
+  <ul>
+    <li><strong>Precio claro y desglosado:</strong> Se indica cuánto corresponde al alimento y que el costo de envío está bonificado por ruta agrupada.</li>
+    <li><strong>Sin trampas de suscripción:</strong> Botón visible y directo de *"Pausar este mes"* o *"Aún me queda comida"* sin tener que hablar con soporte ni penalidades.</li>
+    <li><strong>Sello de veterinarias reales:</strong> En cada barrio se exhibe el nombre del médico veterinario matriculado responsable del consultorio aliado con foto y matrícula provincial.</li>
+  </ul>
+
+  <!-- FOOTER -->
+  <footer>
+    TeLoCuidamos.com — Especificación de Diseño UI/UX — Diseñado para Avellaneda y Lanús (Zona Sur)
+  </footer>
+
+</body>
+</html>
