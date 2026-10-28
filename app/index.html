@@ -373,6 +373,63 @@
         </div>
       </div>
 
+      <!-- NUEVA SECCIÓN: PASEADORES Y CUIDADORES EN VACACIONES -->
+      <div class="mt-8">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span>🏡</span> Cuidado Presencial en Lanús y Avellaneda
+            </h3>
+            <p class="text-xs text-slate-500">Paseadores y cuidadores verificados con respaldo veterinario 24hs incluido.</p>
+          </div>
+          <span class="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full">
+            Sin Jaulas • Hogareño
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- CARD PASEADORES -->
+          <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Paseos Diarios</span>
+                <span class="text-lg">🦮</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base">Paseadores de Confianza</h4>
+              <p class="text-xs text-slate-600 mt-1">
+                Grupos reducidos de <strong>máximo 4 perros</strong> en tu zona. Reporte con fotos en tiempo real y cobertura médica con clínicas aliadas.
+              </p>
+              <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+                <span>📍 Cobertura: Lanusita, Wilde, Mitre, Escalada</span>
+              </div>
+            </div>
+            <button onclick="solicitarPaseador()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+              Pedir Paseador para <span class="nombreMascotaSpan">Milo</span> →
+            </button>
+          </div>
+
+          <!-- CARD VACACIONES -->
+          <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-orange-700 bg-orange-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Vacaciones & Fiestas</span>
+                <span class="text-lg">🏖️</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-base">Cuidadores en Vacaciones</h4>
+              <p class="text-xs text-slate-600 mt-1">
+                <strong>Hospedaje familiar sin jaulas</strong> para perros o <strong>visitas a domicilio</strong> para gatos. Duermen como en casa, con fotos diarias por WhatsApp y guardia veterinaria 24hs.
+              </p>
+              <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+                <span>🛡️ Respaldo de Clínica de Guardia 24hs</span>
+              </div>
+            </div>
+            <button onclick="solicitarCuidadorVacaciones()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-brand-coral hover:bg-orange-600 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+              Cotizar Cuidado de Vacaciones 🐾
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- BOTÓN VOLVER / REGISTRAR OTRA MASCOTA -->
       <div class="text-center pt-2">
         <button onclick="goToHome()" class="text-xs text-slate-400 hover:text-slate-600 transition underline">
@@ -557,6 +614,7 @@
       document.getElementById('dashVeteAsignada').innerText = `Veterinaria Aliada en ${petData.tutorBarrio}`;
       document.getElementById('dashBarrioKit').innerText = petData.tutorBarrio;
       document.getElementById('dashMascotaKit').innerText = petData.mascotaNombre;
+      document.querySelectorAll('.nombreMascotaSpan').forEach(el => el.innerText = petData.mascotaNombre);
 
       // Update WhatsApp Strings
       document.getElementById('waTutorNombre').innerText = petData.tutorNombre;
@@ -663,6 +721,48 @@
         <button onclick="responderWhatsApp('Confirmar turno Sábado 11:00 hs')" class="w-full py-1.5 px-2 bg-teal-50 text-teal-800 font-bold rounded-lg text-center border border-teal-200 hover:bg-teal-100 transition text-xs">
           🔘 Confirmar turno Sábado 11:00 hs
         </button>
+      `;
+      chat.appendChild(divBot);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function solicitarPaseador() {
+      toggleWhatsAppModal();
+      const chat = document.getElementById('chatMessages');
+      const divBot = document.createElement('div');
+      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
+      divBot.innerHTML = `
+        <p class="font-bold text-slate-900">🦮 Paseos en ${petData.tutorBarrio}</p>
+        <p class="text-slate-700">Tenemos paseadores verificados con cupos disponibles para grupos de máx. 4 perros en tu zona para <strong>${petData.mascotaNombre}</strong>.</p>
+        <div class="pt-1 flex flex-col gap-1.5">
+          <button onclick="responderWhatsApp('Quiero plan 3 veces por semana')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-800 font-bold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
+            🔘 3 veces por semana ($28.000/mes)
+          </button>
+          <button onclick="responderWhatsApp('Quiero plan 5 veces por semana')" class="w-full py-1.5 px-2 bg-teal-50 text-teal-800 font-bold rounded-lg text-center border border-teal-200 hover:bg-teal-100 transition text-xs">
+            🔘 Lunes a Viernes ($42.000/mes)
+          </button>
+        </div>
+      `;
+      chat.appendChild(divBot);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function solicitarCuidadorVacaciones() {
+      toggleWhatsAppModal();
+      const chat = document.getElementById('chatMessages');
+      const divBot = document.createElement('div');
+      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
+      divBot.innerHTML = `
+        <p class="font-bold text-orange-800">🏖️ Cuidado de Vacaciones (Sin Jaulas)</p>
+        <p class="text-slate-700">¿Te vas de viaje? Cuidamos a <strong>${petData.mascotaNombre}</strong> en ambiente familiar con respaldo veterinario 24hs en ${petData.tutorBarrio}.</p>
+        <div class="pt-1 flex flex-col gap-1.5">
+          <button onclick="responderWhatsApp('Cotizar Vacaciones de Verano')" class="w-full py-1.5 px-2 bg-orange-50 text-orange-800 font-bold rounded-lg text-center border border-orange-200 hover:bg-orange-100 transition text-xs">
+            🔘 Hospedaje familiar (Perros)
+          </button>
+          <button onclick="responderWhatsApp('Cotizar Visitas a Domicilio')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
+            🔘 Visitas a domicilio (Gatos/Cachorros)
+          </button>
+        </div>
       `;
       chat.appendChild(divBot);
       chat.scrollTop = chat.scrollHeight;
