@@ -709,8 +709,9 @@
                 <p class="text-xs text-slate-500">Familia: Lucas Gómez • Lanús Oeste • Veterinario de confianza: Dr. Rossi</p>
               </div>
               <div class="flex gap-2.5">
-                <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-brandNavy text-white text-xs font-bold hover:bg-black transition shadow-xs">
-                  🖨️ Descargar Ficha
+                <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-brandNavy text-white text-xs font-bold hover:bg-black transition shadow-xs flex items-center gap-2">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2m-12 0v4h12v-4"/></svg>
+                  <span>Descargar Ficha</span>
                 </button>
                 <button onclick="toggleModal('modalWhatsApp')" class="btn-whatsapp-official px-5 py-2.5 rounded-full text-xs font-black tracking-wide flex items-center gap-2">
                   <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-4 h-4">
@@ -722,7 +723,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
               <div class="p-6 rounded-[24px] border border-slate-200 bg-white shadow-xs space-y-3">
                 <div class="flex justify-between items-center border-b pb-2 font-bold">
-                  <span class="uppercase text-[10px] text-slate-400">💉 Vacunas al Día</span>
+                  <span class="uppercase text-[10px] text-slate-400 flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-brandTeal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    Vacunas al Día
+                  </span>
                   <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">PROTEGIDO</span>
                 </div>
                 <div class="p-3 bg-slate-50 rounded-xl space-y-0.5">
@@ -1199,11 +1203,13 @@
           </div>
           <p class="text-slate-600 text-[11px]">Quirófano continuo, ecografía, radiología digital y oxigenoterapia.</p>
           <div class="flex gap-2">
-            <a href="tel:01142410000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm">
-              📞 Llamar a la Guardia
+            <a href="tel:01142410000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Llamar a la Guardia</span>
             </a>
-            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition">
-              🗺️ GPS
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span>GPS</span>
             </a>
           </div>
         </div>
@@ -1220,11 +1226,13 @@
           </div>
           <p class="text-slate-600 text-[11px]">Internación canina y felina aislada, laboratorio nocturno y banco de sangre.</p>
           <div class="flex gap-2">
-            <a href="tel:01142010000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm">
-              📞 Llamar a la Guardia
+            <a href="tel:01142010000" class="flex-1 py-2 px-4 rounded-full bg-rose-800 hover:bg-rose-900 text-white text-center font-bold text-[11px] transition shadow-sm flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Llamar a la Guardia</span>
             </a>
-            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition">
-              🗺️ GPS
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              <span>GPS</span>
             </a>
           </div>
         </div>
