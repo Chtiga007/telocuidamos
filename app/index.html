@@ -213,7 +213,7 @@
       </a>
 
       <!-- ENLACES DE NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-7 text-[13px] font-bold text-slate-600">
+      <nav class="hidden md:flex items-center gap-6 text-[13px] font-bold text-slate-600">
         <a href="#hero" class="text-brandTeal font-extrabold relative py-1 flex flex-col items-center">
           <span>Inicio</span>
           <span class="w-1 h-1 rounded-full bg-brandTeal mt-0.5"></span>
@@ -222,6 +222,7 @@
         <a href="#servicios" class="hover:text-brandTeal transition">Servicios</a>
         <a href="#pasaporte" class="hover:text-brandTeal transition">Pasaporte Clínico</a>
         <a href="#bienvenida" class="hover:text-brandTeal transition">Kit de Bienvenida</a>
+        <a href="#proveedores" class="hover:text-brandTeal transition">Ser Proveedor</a>
         <a href="#faq" class="hover:text-brandTeal transition">FAQ</a>
         <a href="#cobertura" class="hover:text-brandTeal transition">Zona Sur</a>
       </nav>
@@ -859,6 +860,184 @@
       </div>
     </section>
 
+    <!-- ==================== SECCIÓN 7: QUIERO SER PROVEEDOR (ALIANZAS Y PARTNERS) ==================== -->
+    <section id="proveedores" class="border-t border-slate-200/80 bg-white py-20 lg:py-28 shadow-xs">
+      <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- COLUMNA IZQUIERDA: PROPUESTA DE VALOR PARA PROVEEDORES -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brandCoral-light text-brandCoral text-[11px] font-bold uppercase tracking-wider border border-brandCoral-border">
+              <span>🤝</span> Red de Alianzas Locales
+            </span>
+            
+            <h2 class="text-3xl sm:text-5xl font-black text-brandNavy tracking-tight leading-tight">
+              Quiero ser <span class="text-brandCoral">Proveedor</span>
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+              ¿Ofrecés servicios veterinarios, peluquería sin jaulas, paseos en grupos reducidos, hospedaje hogareño o venta de alimentos balanceados en Lanús y Avellaneda?
+            </p>
+
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Sumate a nuestra red oficial. Conectamos tu vocación con cientos de familias y tutores de tu propio barrio, con calendario coordinado y sin comisiones abusivas.
+            </p>
+
+            <!-- BENEFICIOS CLAVE -->
+            <div class="space-y-4 pt-2">
+              
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-canvasIvory border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandTeal/10 text-brandTeal flex items-center justify-center text-xl shrink-0">📍</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Clientes de tu radio barrial</h4>
+                  <p class="text-[11px] text-slate-500">Recibí solicitudes únicamente en Lanús Oeste, Lanús Este, Escalada, Avellaneda o Wilde.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-canvasIvory border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandCoral/10 text-brandCoral flex items-center justify-center text-xl shrink-0">📱</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Integración con el Pasaporte Digital</h4>
+                  <p class="text-[11px] text-slate-500">Tus diagnósticos, vacunas aplicadas y turnos quedan registrados en la ficha oficial del tutor.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 p-4 rounded-2xl bg-canvasIvory border border-slate-200/80 shadow-xs">
+                <span class="w-10 h-10 rounded-xl bg-brandTeal/10 text-brandTeal flex items-center justify-center text-xl shrink-0">💬</span>
+                <div>
+                  <h4 class="text-xs font-black text-brandNavy">Gestión transparente vía WhatsApp</h4>
+                  <p class="text-[11px] text-slate-500">Coordinación directa, cobros puntuales y soporte de nuestro equipo en todo momento.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- FILOSOFÍA DE CUIDADO -->
+            <div class="p-4 rounded-2xl bg-brandTeal-light/40 border border-brandTeal-border/70 text-xs text-brandTeal-deep flex items-center gap-3">
+              <span class="text-lg">🌿</span>
+              <p class="font-semibold text-[11px] leading-snug">
+                Priorizamos a profesionales comprometidos con el bienestar animal y el trato cariñoso sin jaulas.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- COLUMNA DERECHA: FORMULARIO DE ALTA DE PROVEEDOR -->
+          <div class="lg:col-span-7">
+            
+            <div class="bg-canvasIvory p-8 sm:p-10 rounded-[36px] border border-slate-200 shadow-card-rich space-y-6 relative">
+              
+              <div class="border-b border-slate-200 pb-4">
+                <span class="text-[10px] font-black uppercase tracking-wider text-brandTeal">Formulario de Postulación</span>
+                <h3 class="text-2xl font-black text-brandNavy mt-0.5">Postulate como Proveedor Oficial</h3>
+                <p class="text-xs text-slate-500 mt-1">
+                  Completá los datos y nuestro equipo de coordinación se pondrá en contacto por WhatsApp en menos de 24 horas.
+                </p>
+              </div>
+
+              <!-- FORMULARIO -->
+              <form id="formProveedor" onsubmit="handleProveedorSubmit(event)" class="space-y-5">
+                
+                <!-- 1. NOMBRE -->
+                <div>
+                  <label for="provNombre" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                    Nombre o Nombre del Establecimiento <span class="text-brandCoral">*</span>
+                  </label>
+                  <input type="text" id="provNombre" required placeholder="Ej: Dra. Valeria Rossi / Peluquería Canina Huellas" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition">
+                </div>
+
+                <!-- 2. TELÉFONO Y 3. WEB SITE -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="provTelefono" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 flex items-center gap-1.5">
+                      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-3.5 h-3.5 inline">
+                      <span>Teléfono / WhatsApp <span class="text-brandCoral">*</span></span>
+                    </label>
+                    <input type="tel" id="provTelefono" required placeholder="Ej: 11 5432 9876" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] shadow-xs transition">
+                  </div>
+
+                  <div>
+                    <label for="provWebsite" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                      Web Site o Instagram <span class="text-brandCoral">*</span>
+                    </label>
+                    <input type="text" id="provWebsite" required placeholder="Ej: instagram.com/mi_veterinaria o www.miweb.com.ar" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition">
+                  </div>
+                </div>
+
+                <!-- 4. TIPO DE SERVICIO QUE OFRECE -->
+                <div>
+                  <label for="provServicio" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                    Tipo de Servicio que ofrece <span class="text-brandCoral">*</span>
+                  </label>
+                  <select id="provServicio" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-700">
+                    <option value="" disabled selected>Seleccioná el tipo de servicio que brindás...</option>
+                    <option value="Grooming & Estética Spa (Sin Jaulas)">🛁 Grooming & Estética Spa (Sin Jaulas)</option>
+                    <option value="Consultorio o Clínica Veterinaria">🩺 Consultorio o Clínica Veterinaria Aliada</option>
+                    <option value="Paseador de Perros (Grupos reducidos)">🦮 Paseador de Perros (Grupos reducidos)</option>
+                    <option value="Cuidado Hogareño / Hospedaje en Sillón">🛋️ Cuidado Hogareño / Hospedaje Familiar</option>
+                    <option value="Pet Shop / Distribución de Alimento">🥣 Pet Shop / Distribución de Alimento</option>
+                    <option value="Adiestramiento / Etología Positiva">🎾 Adiestramiento / Modificación de Conducta</option>
+                    <option value="Otro Servicio para Mascotas">🐾 Otro servicio especializado</option>
+                  </select>
+                </div>
+
+                <!-- 5. LOCALIDAD / BARRIO EN ZONA SUR -->
+                <div>
+                  <label for="provZona" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                    Localidad Principal en Zona Sur <span class="text-brandCoral">*</span>
+                  </label>
+                  <select id="provZona" required class="w-full px-4 py-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition font-medium text-slate-700">
+                    <option value="Lanús Oeste (Lanusita / Centro)" selected>Lanús Oeste (Lanusita y alrededores)</option>
+                    <option value="Lanús Este">Lanús Este</option>
+                    <option value="Remedios de Escalada">Remedios de Escalada</option>
+                    <option value="Avellaneda Centro / Mitre">Avellaneda Centro / Av. Mitre</option>
+                    <option value="Wilde">Wilde Residencial</option>
+                    <option value="Toda la Zona Sur">Cobertura amplia en varias localidades</option>
+                  </select>
+                </div>
+
+                <!-- 6. DESCRIPCIÓN ADICIONAL -->
+                <div>
+                  <label for="provDetalle" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5">
+                    Breve descripción de tus servicios o instalaciones <span class="text-slate-400 font-normal lowercase">(opcional)</span>
+                  </label>
+                  <textarea id="provDetalle" rows="3" placeholder="Contanos tu trayectoria, si contás con consultorio a la calle, movilidad propia o equipo de trabajo..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-brandTeal shadow-xs transition"></textarea>
+                </div>
+
+                <!-- BOTÓN SUBMIT -->
+                <button type="submit" class="w-full py-4 rounded-full bg-brandTeal hover:bg-brandTeal-hover text-white text-xs font-black uppercase tracking-wider transition shadow-btn-teal flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 active:scale-95">
+                  <span>Enviar Solicitud de Proveedor</span>
+                  <span>→</span>
+                </button>
+
+                <p class="text-[10px] text-slate-400 text-center">
+                  Al enviar tus datos, aceptas ser contactado por el equipo de coordinación de TeLoCuidamos. Sin contratos de exclusividad.
+                </p>
+
+              </form>
+
+              <!-- MENSAJE DE CONFIRMACIÓN (HIDDEN BY DEFAULT) -->
+              <div id="provSuccessMsg" class="hidden p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3 text-center animate-fade-in">
+                <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto shadow-xs">✓</div>
+                <h4 class="font-black text-base text-emerald-950">¡Solicitud Recibida con Éxito!</h4>
+                <p class="text-xs text-emerald-800 leading-relaxed max-w-md mx-auto" id="provSuccessText">
+                  Gracias por tu interés en sumarte como proveedor oficial. Nuestro coordinador de Zona Sur revisará tu propuesta y te escribirá por WhatsApp en menos de 24 horas hábiles.
+                </p>
+                <button onclick="resetFormProveedor()" class="px-5 py-2 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition shadow-xs">
+                  Enviar otra postulación
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ==================== FOOTER ESTILO BRINGFIDO (CON AVATARES 3D PIXAR CON AURICULARES) ==================== -->
@@ -926,13 +1105,13 @@
         <!-- COLUMNA 4: PARTNERS / SUMATE A LA RED (POST A SPOT STYLE) -->
         <div class="space-y-3.5 bg-white/10 p-5 rounded-2xl border border-white/20">
           <h4 class="font-black text-sm text-white">
-            ¿Sos Veterinario o Pet Shop?
+            ¿Sos Profesional o Pet Shop?
           </h4>
           <p class="text-white/85 text-[11px] leading-relaxed">
-            Sumá tu consultorio o distribuidora a la red de TeLoCuidamos en Lanús y Avellaneda. Conectamos vecinos con tu negocio sin comisiones abusivas.
+            Sumá tu servicio (veterinaria, peluquería, paseos, hospedaje) a la red oficial en Lanús y Avellaneda. Conectamos vecinos con tu negocio sin comisiones abusivas.
           </p>
-          <a href="mailto:partners@telocuidamos.com" class="inline-block px-4 py-2 rounded-full bg-white text-[#0088CC] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition shadow-sm">
-            Sumar mi Consultorio →
+          <a href="#proveedores" class="inline-block px-4 py-2 rounded-full bg-white text-[#0088CC] font-extrabold text-xs uppercase tracking-wider hover:bg-slate-100 transition shadow-sm">
+            Quiero ser Proveedor →
           </a>
         </div>
 
@@ -1159,6 +1338,28 @@
       e.preventDefault();
       toggleModal('modalOnboarding');
       document.getElementById('pasaporte').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleProveedorSubmit(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('provNombre').value;
+      const servicio = document.getElementById('provServicio').value;
+      const form = document.getElementById('formProveedor');
+      const msg = document.getElementById('provSuccessMsg');
+      const text = document.getElementById('provSuccessText');
+      
+      text.innerHTML = `¡Muchas gracias <strong>${nombre}</strong>! Registramos tu postulación para <strong>${servicio}</strong>. Nuestro coordinador de Zona Sur revisará tu propuesta y te contactará por WhatsApp en menos de 24 horas hábiles.`;
+      
+      form.classList.add('hidden');
+      msg.classList.remove('hidden');
+    }
+
+    function resetFormProveedor() {
+      const form = document.getElementById('formProveedor');
+      const msg = document.getElementById('provSuccessMsg');
+      form.reset();
+      msg.classList.add('hidden');
+      form.classList.remove('hidden');
     }
 
     function switchTab(tab) {
