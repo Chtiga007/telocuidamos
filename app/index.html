@@ -269,13 +269,13 @@
     <!-- ==================== SECCIÓN 1: HERO (FONDO MARFIL CÁLIDO #FAF8F5) ==================== -->
     <section id="hero" class="relative max-w-[1360px] mx-auto px-6 lg:px-12 pt-8 pb-16 lg:pt-14 lg:pb-24">
       
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-center min-h-[500px]">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8 items-center">
         
-        <!-- COLUMNA 1: TITULAR, VALOR Y ACCIÓN (ANCHO 1/3, SIMÉTRICA Y ALINEADA) -->
-        <div class="flex flex-col justify-center h-full text-left space-y-6">
+        <!-- COLUMNA 1: TITULAR, VALOR Y ACCIÓN (SIMÉTRICA Y ALINEADA) -->
+        <div class="flex flex-col justify-center text-left space-y-5 max-w-[420px] mx-auto lg:mx-0">
 
           <!-- BLOQUE SUPERIOR DE TEXTO -->
-          <div class="space-y-4">
+          <div class="space-y-3.5">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandTeal-light text-brandTeal text-xs font-bold uppercase tracking-wider border border-brandTeal-border w-fit">
               <span class="w-2 h-2 rounded-full bg-brandTeal"></span>
               <span>✨ Te simplificamos la vida</span>
@@ -285,13 +285,13 @@
               Te lo<br><span class="text-brandCoral">cuidamos.</span>
             </h1>
 
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-md">
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
               <strong class="text-brandNavy font-extrabold">Tenés mil cosas en la cabeza. Su felicidad dejalas en nuestras manos.</strong> Te resolvemos el alimento a tiempo en tu puerta, turnos de spa relajante sin jaulas y paseos con amor en Lanús y Avellaneda. Con la calidez de vecinos de confianza.
             </p>
           </div>
 
           <!-- BLOQUE DE CONVERSIÓN Y BENEFICIOS -->
-          <div class="space-y-4">
+          <div class="space-y-3.5 pt-1">
             <div class="flex items-center gap-3">
               <button onclick="toggleModal('modalOnboarding')" class="btn-signature-pill px-8 py-3.5 flex items-center gap-2.5 shadow-btn-coral">
                 <span class="text-base">🐾</span>
@@ -317,41 +317,41 @@
 
         </div>
 
-        <!-- COLUMNA 2: FIGURA PRINCIPAL 3D PIXAR (SIN RECUADRO, SOBRE EL FONDO DE LA WEB) -->
+        <!-- COLUMNA 2: FIGURA PRINCIPAL 3D PIXAR (TAMAÑO PROPORCIONAL Y SIMÉTRICO) -->
         <div class="flex flex-col items-center justify-center relative select-none py-2 z-20">
-          <div class="w-full max-w-[400px] sm:max-w-[440px] relative transition-transform duration-500 hover:scale-[1.03] animate-float-3d">
-            <img src="../assets/pixar_hero_pets_cutout.png" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto object-contain filter drop-shadow-2xl">
+          <div class="w-full max-w-[380px] lg:max-w-[420px] relative transition-transform duration-500 hover:scale-[1.03] animate-float-3d flex items-center justify-center">
+            <img src="../assets/pixar_hero_pets_cutout.png" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto max-h-[400px] object-contain filter drop-shadow-2xl">
           </div>
         </div>
 
-        <!-- COLUMNA 3: TARJETAS DE SERVICIOS 3D PIXAR (ANCHO 1/3, APILADAS SIMÉTRICAMENTE) -->
-        <div class="flex flex-col justify-center gap-5 h-full">
+        <!-- COLUMNA 3: TARJETAS DE SERVICIOS 3D PIXAR (SIMÉTRICAS EN TAMAÑO Y PROPORCIÓN) -->
+        <div class="flex flex-col justify-center gap-4 w-full max-w-[360px] mx-auto lg:mx-0">
           
-          <!-- TARJETA 3D GROOMING PIXAR (50% ALTURA) -->
-          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[28px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border bg-white flex flex-col justify-between group">
-            <div class="relative overflow-hidden flex-1 min-h-[140px] bg-teal-50/30">
+          <!-- TARJETA 3D GROOMING PIXAR (ALTO EXACTO SIMÉTRICO) -->
+          <div onclick="toggleModal('modalOnboarding')" class="h-[195px] w-full elevated-card rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border/80 bg-white flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+            <div class="relative overflow-hidden h-[126px] w-full bg-teal-50/20">
               <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandTeal/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm z-10">
                 Mimos sin Jaulas
               </span>
-              <img src="../assets/pixar_card_grooming.jpg" alt="Grooming Spa 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <img src="../assets/pixar_card_grooming.jpg" alt="Grooming Spa 3D Pixar" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
             </div>
-            <div class="p-4 bg-white text-left">
+            <div class="h-[69px] px-4 py-2.5 bg-white text-left flex flex-col justify-center border-t border-slate-100/80">
               <h4 class="text-xs font-black text-brandNavy">Peluquería & Spa 1 a 1</h4>
-              <p class="text-[11px] text-slate-500">Baño tibio y caricias, sin encerrarlo en jaulas</p>
+              <p class="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">Baño tibio y caricias, sin encerrarlo en jaulas</p>
             </div>
           </div>
 
-          <!-- TARJETA 3D NUTRICIÓN PIXAR (50% ALTURA) -->
-          <div onclick="toggleModal('modalOnboarding')" class="flex-1 elevated-card rounded-[28px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border bg-white flex flex-col justify-between group">
-            <div class="relative overflow-hidden flex-1 min-h-[140px] bg-orange-50/30">
+          <!-- TARJETA 3D NUTRICIÓN PIXAR (ALTO EXACTO SIMÉTRICO) -->
+          <div onclick="toggleModal('modalOnboarding')" class="h-[195px] w-full elevated-card rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border/80 bg-white flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1">
+            <div class="relative overflow-hidden h-[126px] w-full bg-orange-50/20">
               <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandCoral/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm z-10">
                 Chau Preocupaciones
               </span>
-              <img src="../assets/pixar_card_nutrition.jpg" alt="Nutrición 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <img src="../assets/pixar_card_nutrition.jpg" alt="Nutrición 3D Pixar" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
             </div>
-            <div class="p-4 bg-white text-left">
+            <div class="h-[69px] px-4 py-2.5 bg-white text-left flex flex-col justify-center border-t border-slate-100/80">
               <h4 class="text-xs font-black text-brandNavy">Su alimento en tu puerta</h4>
-              <p class="text-[11px] text-slate-500">Te avisamos antes de que se acabe y te lo llevamos gratis</p>
+              <p class="text-[11px] text-slate-500 font-medium leading-tight mt-0.5">Te avisamos antes de que se acabe y te lo llevamos gratis</p>
             </div>
           </div>
 
