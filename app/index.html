@@ -68,13 +68,14 @@
       letter-spacing: -0.025em;
     }
 
-    /* Titular monumental minimalista */
+    /* Titular monumental calibrado para evitar colisiones */
     .hero-title {
-      font-size: clamp(3.5rem, 7.5vw, 6.8rem);
-      line-height: 0.90;
+      font-size: clamp(2.5rem, 4.4vw, 4.6rem);
+      line-height: 0.95;
       font-weight: 900;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       color: #1E293B;
+      word-break: keep-all;
     }
 
     /* Botón de 2 piezas en Coral Pastel */
@@ -251,10 +252,10 @@
     <!-- ==================== SECCIÓN 1: HERO (FONDO MARFIL CÁLIDO #FAF8F5) ==================== -->
     <section id="hero" class="relative max-w-[1360px] mx-auto px-6 lg:px-12 pt-8 pb-16 lg:pt-14 lg:pb-24">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[580px]">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-[540px]">
         
-        <!-- COLUMNA 1: TITULAR Y PROPUESTA DE VALOR -->
-        <div class="lg:col-span-4 z-10 text-center lg:text-left space-y-6">
+        <!-- COLUMNA 1: TITULAR Y PROPUESTA DE VALOR (5 COLUMNAS DE ANCHO) -->
+        <div class="lg:col-span-5 z-10 text-center lg:text-left space-y-6">
           
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandTeal-light text-brandTeal text-xs font-bold uppercase tracking-wider border border-brandTeal-border">
             <span>●</span> Ecosistema de Bienestar Canino & Felino
@@ -282,11 +283,11 @@
 
         </div>
 
-        <!-- COLUMNA 2: FIGURAS 3D PIXAR CENTRALES + BOTONERA FIRMA -->
-        <div class="lg:col-span-5 flex flex-col items-center justify-center relative z-20">
+        <!-- COLUMNA 2: FIGURAS 3D PIXAR CENTRALES + BOTONERA FIRMA (4 COLUMNAS DE ANCHO) -->
+        <div class="lg:col-span-4 flex flex-col items-center justify-center relative z-20">
           
           <!-- PERRITO + GATITO 3D PIXAR OFICIALES CON SOMBRA PROFUNDA -->
-          <div class="w-full max-w-[440px] sm:max-w-[480px] rounded-[38px] overflow-hidden shadow-2xl border-4 border-white/95 select-none animate-float-3d bg-white">
+          <div class="w-full max-w-[370px] sm:max-w-[400px] rounded-[36px] overflow-hidden shadow-2xl border-4 border-white/95 select-none animate-float-3d bg-white">
             <img src="../assets/pixar_hero_pets.jpg" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto object-cover">
           </div>
 
