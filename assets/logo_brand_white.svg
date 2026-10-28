@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 52" width="100%" height="100%">
+  <defs>
+    <filter id="logoShadowWhite" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- ISOTIPO BADGE BLANCO PURO -->
+  <g filter="url(#logoShadowWhite)">
+    <rect x="2" y="4" width="44" height="44" rx="14" fill="#FFFFFF"/>
+    
+    <!-- Huellita en Teal y Coral de la marca -->
+    <ellipse cx="24" cy="29" rx="8.5" ry="6.5" fill="#0D9488"/>
+    <circle cx="16" cy="18" r="3.2" fill="#0D9488"/>
+    <circle cx="21.5" cy="14" r="3.2" fill="#0D9488"/>
+    <circle cx="27" cy="14" r="3.2" fill="#0D9488"/>
+    <circle cx="32" cy="18" r="3.2" fill="#0D9488"/>
+
+    <!-- Detalle corazón coral en la almohadilla -->
+    <path d="M 24 28 C 22.5 25.5, 19.5 27, 21.5 29.5 L 24 32 L 26.5 29.5 C 28.5 27, 25.5 25.5, 24 28 Z" fill="#F97316"/>
+  </g>
+
+  <!-- TIPOGRAFÍA LEGIBLE BLANCA + CORAL LUMINOSO -->
+  <text x="56" y="34" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.03em">
+    <tspan fill="#FFFFFF">Te</tspan><tspan fill="#FFFFFF">lo</tspan><tspan fill="#FED7AA">Cuidamos</tspan>
+  </text>
+  <text x="226" y="34" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" fill="#BAE6FD" letter-spacing="-0.02em">.com</text>
+</svg>
