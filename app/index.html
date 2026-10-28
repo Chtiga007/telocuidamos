@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -8,49 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com">
-    function solicitarCruza() {
-      toggleWhatsAppModal();
-      const chat = document.getElementById('chatMessages');
-      const divBot = document.createElement('div');
-      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-rose-800">ðŸ•â¤ï¸ Cruza Responsable en ${petData.tutorBarrio}</p>
-        <p class="text-slate-700">Iniciando busqueda de pareja compatible para <strong>${petData.mascotaNombre}</strong> (${petData.mascotaRaza}). Todas las parejas postuladas cuentan con Ficha Medica y chequeo libre de brucelosis.</p>
-        <div class="pt-1 flex flex-col gap-1.5">
-          <button onclick="responderWhatsApp('Ver candidatos de cruza en Zona Sur')" class="w-full py-1.5 px-2 bg-rose-50 text-rose-800 font-bold rounded-lg text-center border border-rose-200 hover:bg-rose-100 transition text-xs">
-            ðŸ”˜ Ver candidatos de ${petData.mascotaRaza} en Zona Sur
-          </button>
-          <button onclick="responderWhatsApp('Solicitar chequeo prenupcial en veterinaria')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Turno chequeo reproductivo en veterinaria
-          </button>
-        </div>
-      ;
-      chat.appendChild(divBot);
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    function solicitarEntrenador() {
-      toggleWhatsAppModal();
-      const chat = document.getElementById('chatMessages');
-      const divBot = document.createElement('div');
-      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-indigo-900">ðŸŽ“ Entrenador Canino a Domicilio</p>
-        <p class="text-slate-700">Tenemos etologos y adiestradores certificados por refuerzo positivo disponibles en ${petData.tutorBarrio} para <strong>${petData.mascotaNombre}</strong>.</p>
-        <div class="pt-1 flex flex-col gap-1.5">
-          <button onclick="responderWhatsApp('Paquete Educacion de Cachorros')" class="w-full py-1.5 px-2 bg-indigo-50 text-indigo-900 font-bold rounded-lg text-center border border-indigo-200 hover:bg-indigo-100 transition text-xs">
-            ðŸ”˜ Educacion de Cachorros (Pis y mordidas)
-          </button>
-          <button onclick="responderWhatsApp('Paquete Conducta y Ansiedad por Separacion')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-800 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Ansiedad / Tirones de correa en paseos
-          </button>
-        </div>
-      ;
-      chat.appendChild(divBot);
-      chat.scrollTop = chat.scrollHeight;
-    }
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -72,48 +30,6 @@
           }
         }
       }
-    }
-  
-    function solicitarCruza() {
-      toggleWhatsAppModal();
-      const chat = document.getElementById('chatMessages');
-      const divBot = document.createElement('div');
-      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-rose-800">ðŸ•â¤ï¸ Cruza Responsable en ${petData.tutorBarrio}</p>
-        <p class="text-slate-700">Iniciando busqueda de pareja compatible para <strong>${petData.mascotaNombre}</strong> (${petData.mascotaRaza}). Todas las parejas postuladas cuentan con Ficha Medica y chequeo libre de brucelosis.</p>
-        <div class="pt-1 flex flex-col gap-1.5">
-          <button onclick="responderWhatsApp('Ver candidatos de cruza en Zona Sur')" class="w-full py-1.5 px-2 bg-rose-50 text-rose-800 font-bold rounded-lg text-center border border-rose-200 hover:bg-rose-100 transition text-xs">
-            ðŸ”˜ Ver candidatos de ${petData.mascotaRaza} en Zona Sur
-          </button>
-          <button onclick="responderWhatsApp('Solicitar chequeo prenupcial en veterinaria')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Turno chequeo reproductivo en veterinaria
-          </button>
-        </div>
-      ;
-      chat.appendChild(divBot);
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    function solicitarEntrenador() {
-      toggleWhatsAppModal();
-      const chat = document.getElementById('chatMessages');
-      const divBot = document.createElement('div');
-      divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-indigo-900">ðŸŽ“ Entrenador Canino a Domicilio</p>
-        <p class="text-slate-700">Tenemos etologos y adiestradores certificados por refuerzo positivo disponibles en ${petData.tutorBarrio} para <strong>${petData.mascotaNombre}</strong>.</p>
-        <div class="pt-1 flex flex-col gap-1.5">
-          <button onclick="responderWhatsApp('Paquete Educacion de Cachorros')" class="w-full py-1.5 px-2 bg-indigo-50 text-indigo-900 font-bold rounded-lg text-center border border-indigo-200 hover:bg-indigo-100 transition text-xs">
-            ðŸ”˜ Educacion de Cachorros (Pis y mordidas)
-          </button>
-          <button onclick="responderWhatsApp('Paquete Conducta y Ansiedad por Separacion')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-800 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Ansiedad / Tirones de correa en paseos
-          </button>
-        </div>
-      ;
-      chat.appendChild(divBot);
-      chat.scrollTop = chat.scrollHeight;
     }
   </script>
   <style>
@@ -144,6 +60,14 @@
       100% { background-position: 100% 0; }
     }
 
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .pulse-emergency {
+      animation: pulseHeart 1.5s infinite ease-in-out;
+    }
+
     @media print {
       body * { visibility: hidden; }
       #tabContentFicha, #tabContentFicha * { visibility: visible; }
@@ -155,19 +79,24 @@
 
   <!-- NAVBAR -->
   <header class="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
       <div class="flex items-center gap-3 cursor-pointer" onclick="goToHome()">
         <img src="../assets/logo_principal.jpg" alt="TeLoCuidamos.com" class="h-10 md:h-12 object-contain rounded-lg shadow-sm">
       </div>
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+        <!-- BOTÓN ROJO DE URGENCIAS 24HS -->
+        <button onclick="toggleUrgenciasModal()" class="pulse-emergency px-3 py-1.5 rounded-xl text-xs font-black bg-rose-600 hover:bg-rose-700 text-white flex items-center gap-1.5 shadow-md shadow-rose-200 transition">
+          <span class="text-sm">🚨</span> <span class="hidden sm:inline">URGENCIAS</span> 24HS
+        </button>
+
+        <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Zona Sur: Avellaneda y Lanús
+          Avellaneda y Lanús
         </span>
-        <button id="navLoginBtn" onclick="toggleLoginModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 hover:bg-slate-100 transition shadow-sm">
+        <button id="navLoginBtn" onclick="toggleLoginModal()" class="px-3 py-1.5 rounded-xl text-xs font-bold border border-slate-300 text-slate-700 hover:bg-slate-100 transition shadow-sm">
           🔑 Mi Cuenta
         </button>
-        <button id="navWhatsAppBtn" onclick="toggleWhatsAppModal()" class="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#075E54] text-white hover:bg-[#064e46] transition shadow-sm">
+        <button id="navWhatsAppBtn" onclick="toggleWhatsAppModal()" class="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-[#075E54] text-white hover:bg-[#064e46] transition shadow-sm">
           💬 Bot WhatsApp
         </button>
       </div>
@@ -195,6 +124,12 @@
         <p class="text-slate-600 text-sm md:text-base max-w-lg mx-auto">
           Ingresá sus datos una vez. Te avisamos de sus vacunas, coordinamos turnos con veterinarias de tu barrio y te enviamos su comida antes de que se termine.
         </p>
+
+        <!-- BANNER URGENCIAS EN EL HERO -->
+        <div class="mt-4 inline-flex items-center gap-2 p-2 px-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold cursor-pointer hover:bg-rose-100 transition" onclick="toggleUrgenciasModal()">
+          <span>🚨 ¿Tenés una emergencia ahora?</span>
+          <span class="underline font-bold">Ver Hospitales 24hs más cercanos en Zona Sur →</span>
+        </div>
       </div>
 
       <!-- WIZARD CARD -->
@@ -338,7 +273,7 @@
       </div>
     </div>
 
-    <!-- VISTA 2: DASHBOARD "MI MASCOTA EN PILOTO AUTOMÁTICO" (Se muestra tras registro o login) -->
+    <!-- VISTA 2: DASHBOARD "MI MASCOTA EN PILOTO AUTOMÁTICO" -->
     <div id="viewDashboard" class="hidden fade-in space-y-6">
       <!-- HEADER DASHBOARD -->
       <div class="bg-gradient-to-r from-teal-800 to-teal-600 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
@@ -356,9 +291,14 @@
               <p class="text-xs text-teal-200 mt-1">Tutor: <span id="dashNombreTutor" class="font-semibold text-white">Lucas Gómez</span></p>
             </div>
           </div>
-          <button onclick="toggleWhatsAppModal()" class="w-full md:w-auto px-4 py-2.5 rounded-xl bg-white text-teal-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-teal-50 transition">
-            💬 Abrir Bot de WhatsApp
-          </button>
+          <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+            <button onclick="toggleUrgenciasModal()" class="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-black text-xs flex items-center justify-center gap-1.5 shadow-md">
+              🚨 Guardia 24hs
+            </button>
+            <button onclick="toggleWhatsAppModal()" class="px-4 py-2 rounded-xl bg-white text-teal-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-teal-50 transition">
+              💬 Bot WhatsApp
+            </button>
+          </div>
         </div>
       </div>
 
@@ -478,22 +418,22 @@
           </div>
         </div>
 
-        <!-- SECCIÓN: PASEADORES Y CUIDADORES EN VACACIONES -->
+        <!-- SECCIÓN: SERVICIOS PRESENCIALES Y BIENESTAR (4 CARDS) -->
         <div class="mt-8">
           <div class="flex items-center justify-between mb-4">
             <div>
               <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
-                <span>🏡</span> Cuidado Presencial en Lanús y Avellaneda
+                <span>🏡</span> Servicios Presenciales en Lanús y Avellaneda
               </h3>
-              <p class="text-xs text-slate-500">Paseadores y cuidadores verificados con respaldo veterinario 24hs incluido.</p>
+              <p class="text-xs text-slate-500">Paseadores, cuidadores, entrenadores y cruza responsable con respaldo veterinario.</p>
             </div>
             <span class="text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full">
-              Sin Jaulas • Hogareño
+              Red Verificada
             </span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- CARD PASEADORES -->
+            <!-- CARD 1: PASEADORES -->
             <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -513,46 +453,7 @@
               </button>
             </div>
 
-                        <!-- CARD CRUZA RESPONSABLE -->
-            <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Cruza Responsable</span>
-                  <span class="text-lg">ðŸ•â¤ï¸</span>
-                </div>
-                <h4 class="font-bold text-slate-900 text-base">Matchmaking Verificado</h4>
-                <p class="text-xs text-slate-600 mt-1">
-                  Encontra pareja para tu perro o gato con <strong>control veterinario previo</strong> (vacunas al dia, libre de brucelosis) y acuerdo prenupcial digital en Zona Sur.
-                </p>
-                <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
-                  <span>ðŸ©º Chequeo de Salud en Clinicas Aliadas</span>
-                </div>
-              </div>
-              <button onclick="solicitarCruza()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
-                Buscar Pareja para <span class="nombreMascotaSpan">Milo</span> â†’
-              </button>
-            </div>
-
-            <!-- CARD ENTRENADOR Y CONDUCTA -->
-            <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Conducta & Adiestramiento</span>
-                  <span class="text-lg">ðŸŽ“</span>
-                </div>
-                <h4 class="font-bold text-slate-900 text-base">Entrenadores a Domicilio</h4>
-                <p class="text-xs text-slate-600 mt-1">
-                  Etologia canina y felina. Educacion de cachorros, control de ansiedad por separacion en departamento y paseos sin tirones mediante refuerzo positivo.
-                </p>
-                <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
-                  <span>ðŸ¡ Clases individuales en Lanus y Avellaneda</span>
-                </div>
-              </div>
-              <button onclick="solicitarEntrenador()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
-                Solicitar Entrenador de Conducta â†’
-              </button>
-            </div>
-            <!-- CARD VACACIONES -->
+            <!-- CARD 2: VACACIONES -->
             <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -569,6 +470,46 @@
               </div>
               <button onclick="solicitarCuidadorVacaciones()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-brand-coral hover:bg-orange-600 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
                 Cotizar Cuidado de Vacaciones 🐾
+              </button>
+            </div>
+
+            <!-- CARD 3: CRUZA RESPONSABLE -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-rose-700 bg-rose-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Cruza Responsable</span>
+                  <span class="text-lg">🐕❤️</span>
+                </div>
+                <h4 class="font-bold text-slate-900 text-base">Matchmaking Verificado</h4>
+                <p class="text-xs text-slate-600 mt-1">
+                  Encontrá pareja para tu perro o gato con <strong>control veterinario previo obligatorio</strong> (vacunas al día, libre de brucelosis) y acuerdo prenupcial digital en Zona Sur.
+                </p>
+                <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+                  <span>🩺 Chequeo de Salud en Clínicas Aliadas</span>
+                </div>
+              </div>
+              <button onclick="solicitarCruza()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                Buscar Pareja para <span class="nombreMascotaSpan">Milo</span> →
+              </button>
+            </div>
+
+            <!-- CARD 4: ENTRENADOR Y CONDUCTA -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">Conducta & Adiestramiento</span>
+                  <span class="text-lg">🎓</span>
+                </div>
+                <h4 class="font-bold text-slate-900 text-base">Entrenadores a Domicilio</h4>
+                <p class="text-xs text-slate-600 mt-1">
+                  Etología canina y felina. Educación de cachorros, control de ansiedad por separación en departamento y paseos sin tirones mediante refuerzo positivo.
+                </p>
+                <div class="mt-3 flex items-center gap-2 text-[11px] text-slate-500">
+                  <span>🏡 Clases individuales en Lanús y Avellaneda</span>
+                </div>
+              </div>
+              <button onclick="solicitarEntrenador()" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                Solicitar Entrenador de Conducta →
               </button>
             </div>
           </div>
@@ -768,6 +709,103 @@
 
   </main>
 
+  <!-- MODAL: URGENCIAS VETERINARIAS 24HS (HOSPITALES DE GUARDIA ZONA SUR) -->
+  <div id="urgenciasModal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden border border-rose-200 flex flex-col max-h-[90vh] fade-in">
+      
+      <!-- HEADER URGENCIAS -->
+      <div class="bg-gradient-to-r from-rose-700 to-rose-600 text-white p-4 flex items-center justify-between shadow">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl border border-white/30">
+            🚨
+          </div>
+          <div>
+            <h3 class="font-black text-base tracking-tight">URGENCIAS VETERINARIAS 24HS</h3>
+            <p class="text-xs text-rose-100">Centros de Guardia Médica Abiertos Ahora en Zona Sur</p>
+          </div>
+        </div>
+        <button onclick="toggleUrgenciasModal()" class="text-white/80 hover:text-white text-2xl font-black px-2">×</button>
+      </div>
+
+      <!-- BODY URGENCIAS -->
+      <div class="p-5 overflow-y-auto space-y-4 text-xs flex-1">
+        
+        <!-- AVISO DE CALMA Y PRIMEROS AUXILIOS -->
+        <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 text-rose-900 space-y-1">
+          <p class="font-extrabold flex items-center gap-1.5 text-xs">
+            <span>⚠️</span> REGLAS CRÍTICAS ANTES DE SALIR:
+          </p>
+          <ul class="list-disc pl-4 space-y-0.5 text-[11px] text-rose-800">
+            <li><strong>NO le des medicación humana</strong> (paracetamol o ibuprofeno son tóxicos).</li>
+            <li>Trasladalo con calma sobre una manta o toalla como camilla improvisada.</li>
+            <li>Llamá a la guardia antes de subirte al auto para que preparen el quirófano/oxígeno.</li>
+          </ul>
+        </div>
+
+        <h4 class="font-extrabold text-slate-800 text-xs uppercase tracking-wider text-slate-400">
+          Hospitales con Guardia Médica Activa 24hs
+        </h4>
+
+        <!-- CENTRO 1: LANÚS -->
+        <div class="p-4 rounded-2xl border-2 border-rose-200 bg-white hover:border-rose-400 transition shadow-sm space-y-2.5">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA ABIERTA 24HS</span>
+              <h5 class="font-black text-slate-900 text-sm mt-1">Hospital Veterinario Central Lanús</h5>
+              <p class="text-slate-500 text-[11px]">📍 Av. Hipólito Yrigoyen (cerca de Lanusita), Lanús</p>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">~7 min</span>
+          </div>
+          <p class="text-slate-600 text-[11px]">Equipamiento: Quirófano de urgencia, ecografía, radiología y terapia de oxígeno.</p>
+          
+          <div class="flex flex-col sm:flex-row gap-2 pt-1">
+            <a href="tel:01142410000" class="flex-1 py-2 px-3 bg-rose-600 hover:bg-rose-700 text-white font-extrabold rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm">
+              📞 Llamar a la Guardia Ya
+            </a>
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-center flex items-center justify-center gap-1.5">
+              🗺️ Cómo Llegar (GPS)
+            </a>
+          </div>
+          <button onclick="avisarGuardiaPorWhatsApp('Hospital Veterinario Central Lanús')" class="w-full py-1.5 text-center text-teal-800 bg-teal-50 hover:bg-teal-100 rounded-lg font-bold border border-teal-200 transition text-[11px]">
+            📲 Avisar por WhatsApp que voy en camino con la Ficha Médica
+          </button>
+        </div>
+
+        <!-- CENTRO 2: AVELLANEDA -->
+        <div class="p-4 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 transition shadow-sm space-y-2.5">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-extrabold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">GUARDIA ABIERTA 24HS</span>
+              <h5 class="font-black text-slate-900 text-sm mt-1">Clínica de Emergencias Veterinarias Avellaneda</h5>
+              <p class="text-slate-500 text-[11px]">📍 Av. Bartolomé Mitre (cerca de Plaza Alsina), Avellaneda</p>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">~12 min</span>
+          </div>
+          <p class="text-slate-600 text-[11px]">Equipamiento: Internación canina y felina aislada, banco de sangre y laboratorio nocturno.</p>
+          
+          <div class="flex flex-col sm:flex-row gap-2 pt-1">
+            <a href="tel:01142010000" class="flex-1 py-2 px-3 bg-rose-600 hover:bg-rose-700 text-white font-extrabold rounded-xl text-center flex items-center justify-center gap-1.5 shadow-sm">
+              📞 Llamar a la Guardia Ya
+            </a>
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-center flex items-center justify-center gap-1.5">
+              🗺️ Cómo Llegar (GPS)
+            </a>
+          </div>
+          <button onclick="avisarGuardiaPorWhatsApp('Clínica de Emergencias Avellaneda')" class="w-full py-1.5 text-center text-teal-800 bg-teal-50 hover:bg-teal-100 rounded-lg font-bold border border-teal-200 transition text-[11px]">
+            📲 Avisar por WhatsApp que voy en camino con la Ficha Médica
+          </button>
+        </div>
+
+      </div>
+
+      <!-- FOOTER URGENCIAS -->
+      <div class="p-3 bg-slate-100 border-t border-slate-200 text-center text-[11px] text-slate-500">
+        TeLoCuidamos.com Red de Emergencias Zona Sur • Guardias 24hs Verificadas
+      </div>
+
+    </div>
+  </div>
+
   <!-- MODAL: INICIAR SESIÓN / MI CUENTA -->
   <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-100 p-6 space-y-4 fade-in">
@@ -855,7 +893,7 @@
 
       <!-- WHATSAPP FOOTER -->
       <div class="p-2.5 bg-slate-100 border-t border-slate-200 flex items-center gap-2">
-        <input type="text" id="inputChatManual" placeholder="Escribí un peso (ej: 14.5) o mensaje..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
+        <input type="text" id="inputChatManual" placeholder="Escribí un peso (ej: 14.5) o 'urgencia'..." class="flex-1 px-3 py-1.5 text-xs rounded-full border border-slate-300 focus:outline-none">
         <button onclick="enviarMensajeManual()" class="w-8 h-8 rounded-full bg-[#075E54] text-white flex items-center justify-center text-xs">
           ➤
         </button>
@@ -868,7 +906,13 @@
   <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400">
     <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
       <p>© 2026 TeLoCuidamos.com — Avellaneda y Lanús (Zona Sur, Bs. As.)</p>
-      <p>Conectando tutores con distribuidoras mayoristas y veterinarias de cercanía.</p>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleUrgenciasModal()" class="text-rose-600 font-bold hover:underline">
+          🚨 Guardias Veterinarias 24hs
+        </button>
+        <span>•</span>
+        <p>Conectando tutores con distribuidoras mayoristas y veterinarias de cercanía.</p>
+      </div>
     </div>
   </footer>
 
@@ -877,14 +921,14 @@
     let currentStep = 1;
     let petData = {
       especie: 'perro',
-      tutorNombre: '',
-      tutorWhatsApp: '',
-      tutorBarrio: '',
-      mascotaNombre: '',
-      mascotaRaza: '',
-      mascotaEdad: '',
+      tutorNombre: 'Lucas Gómez',
+      tutorWhatsApp: '11 4567 8900',
+      tutorBarrio: 'Lanús Oeste (Lanusita)',
+      mascotaNombre: 'Milo',
+      mascotaRaza: 'Golden Retriever',
+      mascotaEdad: 'Joven (1 a 3 años)',
       mascotaPeso: 14,
-      alimentoMarca: '',
+      alimentoMarca: 'Royal Canin Maxi Adult',
       alimentoBolsaKg: 15
     };
 
@@ -931,12 +975,10 @@
         petData.mascotaPeso = parseFloat(pPeso);
       }
 
-      // Toggle views
       document.getElementById('step1Container').classList.toggle('hidden', step !== 1);
       document.getElementById('step2Container').classList.toggle('hidden', step !== 2);
       document.getElementById('step3Container').classList.toggle('hidden', step !== 3);
 
-      // Indicators
       updateBadge('badgeStep1', step >= 1);
       updateBadge('badgeStep2', step >= 2);
       updateBadge('badgeStep3', step >= 3);
@@ -957,15 +999,13 @@
       petData.alimentoMarca = document.getElementById('alimentoMarca').value;
       petData.alimentoBolsaKg = parseFloat(document.getElementById('alimentoBolsaKg').value);
 
-      // Calcular ración diaria aproximada
       let racionGramos = 0;
       if (petData.especie === 'perro') {
-        racionGramos = Math.round(petData.mascotaPeso * 22); // Estimación estándar
+        racionGramos = Math.round(petData.mascotaPeso * 22);
       } else {
         racionGramos = Math.round(petData.mascotaPeso * 15);
       }
 
-      // Render Dashboard
       document.getElementById('dashNombreMascota').innerText = petData.mascotaNombre;
       document.getElementById('dashEmoji').innerText = petData.especie === 'perro' ? '🐶' : '🐱';
       document.getElementById('dashSubtitulo').innerText = `${petData.mascotaRaza} • ${petData.mascotaPeso} kg • ${petData.tutorBarrio}`;
@@ -981,13 +1021,11 @@
       document.getElementById('dashMascotaKit').innerText = petData.mascotaNombre;
       document.querySelectorAll('.nombreMascotaSpan').forEach(el => el.innerText = petData.mascotaNombre);
 
-      // Update WhatsApp Strings
       document.getElementById('waTutorNombre').innerText = petData.tutorNombre;
       document.getElementById('waMascotaNombre').innerText = petData.mascotaNombre;
       document.getElementById('waMascotaNombre2').innerText = petData.mascotaNombre;
       document.getElementById('waBarrio').innerText = petData.tutorBarrio;
 
-      // Switch view
       document.getElementById('viewOnboarding').classList.add('hidden');
       document.getElementById('viewDashboard').classList.remove('hidden');
       document.getElementById('navWhatsAppBtn').classList.remove('hidden');
@@ -1021,6 +1059,11 @@
       modal.classList.toggle('hidden');
     }
 
+    function toggleUrgenciasModal() {
+      const modal = document.getElementById('urgenciasModal');
+      modal.classList.toggle('hidden');
+    }
+
     function handleLoginSubmit(e) {
       e.preventDefault();
       toggleLoginModal();
@@ -1039,7 +1082,6 @@
       const modal = document.getElementById('loginModal');
       if (!modal.classList.contains('hidden')) modal.classList.add('hidden');
 
-      // Update dashboard labels
       document.getElementById('dashNombreMascota').innerText = petData.mascotaNombre;
       document.getElementById('dashSubtitulo').innerText = `${petData.mascotaRaza} • 14 kg • ${petData.tutorBarrio}`;
       document.getElementById('dashNombreTutor').innerText = petData.tutorNombre;
@@ -1051,13 +1093,11 @@
       document.getElementById('dashMascotaKit').innerText = petData.mascotaNombre;
       document.querySelectorAll('.nombreMascotaSpan').forEach(el => el.innerText = petData.mascotaNombre);
 
-      // Switch view
       document.getElementById('viewOnboarding').classList.add('hidden');
       document.getElementById('viewDashboard').classList.remove('hidden');
       document.getElementById('navWhatsAppBtn').classList.remove('hidden');
       document.getElementById('navLoginBtn').innerHTML = "👤 Mi Cuenta (Lucas)";
 
-      // Switch directly to medical sheet tab to show it off!
       switchDashboardTab('ficha');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1082,12 +1122,26 @@
       `;
       tabla.insertBefore(tr, tabla.firstChild);
 
-      // Update headers
       petData.mascotaPeso = val;
       document.getElementById('fichaPesoActual').innerText = `${val} kg`;
       document.getElementById('dashPesoRegistrado').innerText = `${val} kg`;
       document.getElementById('dashRacionGramos').innerText = `${nuevaRacion}g / día`;
       alert(`¡Peso de ${val} kg registrado en la Ficha Médica! La ración de alimento se ajustó a ${nuevaRacion}g.`);
+    }
+
+    function avisarGuardiaPorWhatsApp(hospitalNombre) {
+      toggleUrgenciasModal();
+      toggleWhatsAppModal();
+      const chat = document.getElementById('chatMessages');
+      const divBot = document.createElement('div');
+      divBot.className = "bg-rose-50 rounded-xl p-3 shadow-sm max-w-[92%] border border-rose-200 space-y-2 mt-2";
+      divBot.innerHTML = `
+        <p class="font-black text-rose-800 text-xs">🚨 ALERTA DE GUARDIA ENVIADA</p>
+        <p class="text-slate-800 text-xs">Avisamos a <strong>${hospitalNombre}</strong> que vas en camino con <strong>${petData.mascotaNombre}</strong>. Se adjuntó su Ficha Médica con vacunas y antecedentes clínicos.</p>
+        <p class="text-[11px] text-rose-700 font-bold">Mantené la calma y trasladalo con precaución 🚗</p>
+      `;
+      chat.appendChild(divBot);
+      chat.scrollTop = chat.scrollHeight;
     }
 
     function goToHome() {
@@ -1110,7 +1164,6 @@
       divUser.innerHTML = `<p class="text-slate-800 font-semibold">${opcion}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
       chat.appendChild(divUser);
 
-      // Respuesta automática del bot 100% automatizado
       setTimeout(() => {
         const divBot = document.createElement('div');
         divBot.className = "bg-white rounded-xl p-2.5 shadow-sm max-w-[85%] border border-slate-100";
@@ -1134,7 +1187,13 @@
       divUser.innerHTML = `<p class="text-slate-800">${val}</p><span class="text-[9px] text-slate-400">Ahora</span>`;
       chat.appendChild(divUser);
 
-      // Bot automático parsea números de peso
+      if (val.toLowerCase().includes('urgencia') || val.toLowerCase().includes('emergencia')) {
+        setTimeout(() => {
+          toggleUrgenciasModal();
+        }, 300);
+        return;
+      }
+
       const num = parseFloat(val);
       setTimeout(() => {
         const divBot = document.createElement('div');
@@ -1148,7 +1207,7 @@
           document.getElementById('dashRacionGramos').innerText = `${nuevaRacion}g / día`;
           divBot.innerHTML = `<p class="text-slate-800">⚖️ <strong>¡Peso mensual registrado por el Bot!</strong> Actualizamos a <strong>${num} kg</strong>. La ración diaria de ${petData.mascotaNombre} se recalculó automáticamente a <strong>${nuevaRacion}g / día</strong>.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
         } else {
-          divBot.innerHTML = `<p class="text-slate-800">🤖 <em>TeLoCuidamos Bot:</em> Para gestionar turnos o entregas, tocá los botones del menú o respondé con el peso mensual de ${petData.mascotaNombre}.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
+          divBot.innerHTML = `<p class="text-slate-800">🤖 <em>TeLoCuidamos Bot:</em> Para gestionar turnos o entregas, tocá los botones del menú o respondé con el peso mensual de ${petData.mascotaNombre}. En caso de emergencia, tocá el botón rojo de Urgencias 24hs.</p><span class="text-[9px] text-slate-400 block text-right mt-1">Ahora</span>`;
         }
         chat.appendChild(divBot);
         chat.scrollTop = chat.scrollHeight;
@@ -1230,24 +1289,24 @@
       chat.appendChild(divBot);
       chat.scrollTop = chat.scrollHeight;
     }
-  
+
     function solicitarCruza() {
       toggleWhatsAppModal();
       const chat = document.getElementById('chatMessages');
       const divBot = document.createElement('div');
       divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-rose-800">ðŸ•â¤ï¸ Cruza Responsable en ${petData.tutorBarrio}</p>
-        <p class="text-slate-700">Iniciando busqueda de pareja compatible para <strong>${petData.mascotaNombre}</strong> (${petData.mascotaRaza}). Todas las parejas postuladas cuentan con Ficha Medica y chequeo libre de brucelosis.</p>
+      divBot.innerHTML = `
+        <p class="font-bold text-rose-800">🐕❤️ Cruza Responsable en ${petData.tutorBarrio}</p>
+        <p class="text-slate-700">Iniciando búsqueda de pareja compatible para <strong>${petData.mascotaNombre}</strong> (${petData.mascotaRaza}). Todas las parejas postuladas cuentan con Ficha Médica y chequeo libre de brucelosis.</p>
         <div class="pt-1 flex flex-col gap-1.5">
           <button onclick="responderWhatsApp('Ver candidatos de cruza en Zona Sur')" class="w-full py-1.5 px-2 bg-rose-50 text-rose-800 font-bold rounded-lg text-center border border-rose-200 hover:bg-rose-100 transition text-xs">
-            ðŸ”˜ Ver candidatos de ${petData.mascotaRaza} en Zona Sur
+            🔘 Ver candidatos de ${petData.mascotaRaza} en Zona Sur
           </button>
           <button onclick="responderWhatsApp('Solicitar chequeo prenupcial en veterinaria')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-700 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Turno chequeo reproductivo en veterinaria
+            🔘 Turno chequeo reproductivo en veterinaria
           </button>
         </div>
-      ;
+      `;
       chat.appendChild(divBot);
       chat.scrollTop = chat.scrollHeight;
     }
@@ -1257,18 +1316,18 @@
       const chat = document.getElementById('chatMessages');
       const divBot = document.createElement('div');
       divBot.className = "bg-white rounded-xl p-3 shadow-sm max-w-[90%] border border-slate-100 space-y-2 mt-2";
-      divBot.innerHTML = 
-        <p class="font-bold text-indigo-900">ðŸŽ“ Entrenador Canino a Domicilio</p>
-        <p class="text-slate-700">Tenemos etologos y adiestradores certificados por refuerzo positivo disponibles en ${petData.tutorBarrio} para <strong>${petData.mascotaNombre}</strong>.</p>
+      divBot.innerHTML = `
+        <p class="font-bold text-indigo-900">🎓 Entrenador Canino a Domicilio</p>
+        <p class="text-slate-700">Tenemos etólogos y adiestradores certificados por refuerzo positivo disponibles en ${petData.tutorBarrio} para <strong>${petData.mascotaNombre}</strong>.</p>
         <div class="pt-1 flex flex-col gap-1.5">
-          <button onclick="responderWhatsApp('Paquete Educacion de Cachorros')" class="w-full py-1.5 px-2 bg-indigo-50 text-indigo-900 font-bold rounded-lg text-center border border-indigo-200 hover:bg-indigo-100 transition text-xs">
-            ðŸ”˜ Educacion de Cachorros (Pis y mordidas)
+          <button onclick="responderWhatsApp('Paquete Educación de Cachorros')" class="w-full py-1.5 px-2 bg-indigo-50 text-indigo-900 font-bold rounded-lg text-center border border-indigo-200 hover:bg-indigo-100 transition text-xs">
+            🔘 Educación de Cachorros (Pis y mordidas)
           </button>
-          <button onclick="responderWhatsApp('Paquete Conducta y Ansiedad por Separacion')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-800 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
-            ðŸ”˜ Ansiedad / Tirones de correa en paseos
+          <button onclick="responderWhatsApp('Paquete Conducta y Ansiedad por Separación')" class="w-full py-1.5 px-2 bg-slate-50 text-slate-800 font-semibold rounded-lg text-center border border-slate-200 hover:bg-slate-100 transition text-xs">
+            🔘 Ansiedad / Tirones de correa en paseos
           </button>
         </div>
-      ;
+      `;
       chat.appendChild(divBot);
       chat.scrollTop = chat.scrollHeight;
     }
