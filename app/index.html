@@ -266,12 +266,12 @@
 
         </div>
 
-        <!-- COLUMNA 2: FIGURAS 3D PASTEL CENTRALES + BOTONERA FIRMA -->
+        <!-- COLUMNA 2: FIGURAS 3D PIXAR CENTRALES + BOTONERA FIRMA -->
         <div class="lg:col-span-5 flex flex-col items-center justify-center relative z-20">
           
-          <!-- PERRITO + GATITO 3D OFICIALES CON SOMBRA SUAVE -->
-          <div class="w-full max-w-[440px] sm:max-w-[480px] drop-shadow-md select-none animate-float-3d">
-            <img src="../assets/mascotas_hero_pastel.svg" alt="Mascotas TeLoCuidamos 3D Pastel" class="w-full h-auto object-contain">
+          <!-- PERRITO + GATITO 3D PIXAR OFICIALES CON SOMBRA PROFUNDA -->
+          <div class="w-full max-w-[440px] sm:max-w-[480px] rounded-[38px] overflow-hidden shadow-2xl border-4 border-white/95 select-none animate-float-3d bg-white">
+            <img src="../assets/pixar_hero_pets.jpg" alt="Mascotas TeLoCuidamos 3D Estilo Pixar" class="w-full h-auto object-cover">
           </div>
 
           <!-- BOTONERA DE 2 PIEZAS EN CORAL PASTEL -->
@@ -287,17 +287,35 @@
 
         </div>
 
-        <!-- COLUMNA 3: TARJETAS CON FIGURAS 3D Y SOMBREADO ENRIQUECIDO -->
+        <!-- COLUMNA 3: TARJETAS CON FIGURAS 3D PIXAR Y SOMBREADO ENRIQUECIDO -->
         <div class="lg:col-span-3 flex flex-col gap-5 items-center lg:items-end z-10 mt-8 lg:mt-0">
           
-          <!-- TARJETA 3D GROOMING -->
-          <div onclick="toggleModal('modalOnboarding')" class="elevated-card w-full max-w-[270px] rounded-[24px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border bg-white group">
-            <img src="../assets/card_3d_grooming.svg" alt="Grooming Spa 3D" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+          <!-- TARJETA 3D GROOMING PIXAR -->
+          <div onclick="toggleModal('modalOnboarding')" class="elevated-card w-full max-w-[270px] rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandTeal-border bg-white group">
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img src="../assets/pixar_card_grooming.jpg" alt="Grooming Spa 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandTeal/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
+                Spa 1 a 1
+              </span>
+            </div>
+            <div class="p-3.5 bg-white text-left">
+              <h4 class="text-xs font-black text-brandNavy">Grooming sin Jaulas</h4>
+              <p class="text-[11px] text-slate-500">Baño tibio y cosmética natural</p>
+            </div>
           </div>
 
-          <!-- TARJETA 3D NUTRICIÓN -->
-          <div onclick="toggleModal('modalOnboarding')" class="elevated-card w-full max-w-[270px] rounded-[24px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border bg-white group">
-            <img src="../assets/card_3d_nutrition.svg" alt="Nutrición 3D" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+          <!-- TARJETA 3D NUTRICIÓN PIXAR -->
+          <div onclick="toggleModal('modalOnboarding')" class="elevated-card w-full max-w-[270px] rounded-[26px] overflow-hidden shadow-card-rich cursor-pointer border border-brandCoral-border bg-white group">
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img src="../assets/pixar_card_nutrition.jpg" alt="Nutrición 3D Pixar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-brandCoral/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-wider shadow-sm">
+                Piloto Automático
+              </span>
+            </div>
+            <div class="p-3.5 bg-white text-left">
+              <h4 class="text-xs font-black text-brandNavy">Alimento a Domicilio</h4>
+              <p class="text-[11px] text-slate-500">Bolsa oficial sin flete en Lanús</p>
+            </div>
           </div>
 
         </div>
@@ -326,11 +344,11 @@
         <!-- 3 PASOS EN GRID CON ILUSTRACIONES ESTILO ROVER -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-start">
 
-          <!-- PASO 1: SEARCH / ARMA EL PERFIL -->
+          <!-- PASO 1: SEARCH / ARMA EL PERFIL (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
-            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <img src="../assets/how_step1_search.svg" alt="Paso 1: Armá el perfil" class="w-full h-full object-contain">
+            <!-- AVATAR CIRCULAR PIXAR 3D -->
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/pixar_step1_search.jpg" alt="Paso 1: Armá el perfil 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
             <div class="space-y-2 max-w-xs">
@@ -347,11 +365,11 @@
             </span>
           </div>
 
-          <!-- PASO 2: MEET IN PERSON / ENCUENTRO PREVIO -->
+          <!-- PASO 2: MEET IN PERSON / ENCUENTRO PREVIO (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
-            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <img src="../assets/how_step2_meet.svg" alt="Paso 2: Conocé a tu cuidador" class="w-full h-full object-contain">
+            <!-- AVATAR CIRCULAR PIXAR 3D -->
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/pixar_step2_meet.jpg" alt="Paso 2: Conocé a tu cuidador 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
             <div class="space-y-2 max-w-xs">
@@ -368,11 +386,11 @@
             </span>
           </div>
 
-          <!-- PASO 3: BOOK & PAY / PILOTO AUTOMÁTICO -->
+          <!-- PASO 3: BOOK & PAY / PILOTO AUTOMÁTICO (PIXAR 3D) -->
           <div class="flex flex-col items-center text-center space-y-5 group">
-            <!-- CONTENEDOR ILUSTRACIÓN CON BLOB -->
-            <div class="w-56 h-48 sm:w-64 sm:h-52 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <img src="../assets/how_step3_book.svg" alt="Paso 3: Cuidado y tranquilidad" class="w-full h-full object-contain">
+            <!-- AVATAR CIRCULAR PIXAR 3D -->
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-card-rich border-4 border-white p-1 bg-cyan-50/60 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src="../assets/pixar_step3_celebrate.jpg" alt="Paso 3: Cuidado y tranquilidad 3D Pixar" class="w-full h-full object-cover rounded-full">
             </div>
 
             <div class="space-y-2 max-w-xs">
@@ -428,9 +446,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- 01 / GROOMING SPA -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-brandTeal-light/35 shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandTeal uppercase tracking-wider">01 / ESTÉTICA & SPA</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">01 / ESTÉTICA & SPA</span>
+                <span class="w-12 h-12 rounded-2xl bg-teal-50 border border-brandTeal-border/80 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">🛁</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Grooming sin Jaulas</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Sesiones 1 a 1 de baño tibio con cosmética natural vegana, corte higiénico y secado manual relajante. Cero ruidos molestos.
@@ -443,9 +464,12 @@
           </div>
 
           <!-- 02 / REPOSICIÓN ALIMENTO -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-brandCoral-light/35 shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandCoral uppercase tracking-wider">02 / NUTRICIÓN CLÍNICA</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandCoral uppercase tracking-wider">02 / NUTRICIÓN CLÍNICA</span>
+                <span class="w-12 h-12 rounded-2xl bg-orange-50 border border-brandCoral-border/80 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">🥣</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Alimento en Piloto Automático</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Calculamos los gramos diarios según peso y edad. Te avisamos 4 días antes y te enviamos la bolsa de distribuidor oficial a tu puerta por flete agrupado.
@@ -458,9 +482,12 @@
           </div>
 
           <!-- 03 / VETERINARIAS DE BARRIO -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-brandTeal-light/35 shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandTeal uppercase tracking-wider">03 / SALUD PREVENTIVA</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">03 / SALUD PREVENTIVA</span>
+                <span class="w-12 h-12 rounded-2xl bg-teal-50 border border-brandTeal-border/80 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">🩺</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Veterinarias de Barrio Aliadas</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Recordatorios previos de Séxtuple y Antirrábica obligatoria. Coordinamos el turno en consultorios de tu barrio sin costo de gestión.
@@ -473,9 +500,12 @@
           </div>
 
           <!-- 04 / PASAPORTE CLÍNICO DIGITAL -->
-          <div class="elevated-card p-8 rounded-[30px] border border-slate-200 bg-white shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-slate-200 bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandNavy uppercase tracking-wider">04 / HISTORIAL DIGITAL</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandNavy uppercase tracking-wider">04 / HISTORIAL DIGITAL</span>
+                <span class="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">📱</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Pasaporte de Salud con Login</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Llevá vacunas, peso histórico, alergias y desparasitaciones en tu celular con usuario y clave, siempre listo para mostrar a cualquier médico.
@@ -488,9 +518,12 @@
           </div>
 
           <!-- 05 / PASEADORES VERIFICADOS -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-brandCoral-light/35 shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-brandCoral-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandCoral uppercase tracking-wider">05 / ACTIVIDAD FÍSICA</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandCoral uppercase tracking-wider">05 / ACTIVIDAD FÍSICA</span>
+                <span class="w-12 h-12 rounded-2xl bg-orange-50 border border-brandCoral-border/80 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">🦮</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Paseadores en Grupo Reducido</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Grupos reducidos de <strong>máximo 4 perros</strong> en plazas de Lanús y Avellaneda. Reporte fotográfico por WhatsApp y cobertura veterinaria incluida.
@@ -503,9 +536,12 @@
           </div>
 
           <!-- 06 / CUIDADORES EN VACACIONES -->
-          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-brandTeal-light/35 shadow-card-rich flex flex-col justify-between space-y-6">
+          <div class="elevated-card p-8 rounded-[30px] border border-brandTeal-border bg-white shadow-card-rich flex flex-col justify-between space-y-6 group">
             <div class="space-y-4">
-              <span class="text-xs font-black text-brandTeal uppercase tracking-wider">06 / HOSPEDAJE HOGAREÑO</span>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-brandTeal uppercase tracking-wider">06 / HOSPEDAJE HOGAREÑO</span>
+                <span class="w-12 h-12 rounded-2xl bg-teal-50 border border-brandTeal-border/80 flex items-center justify-center text-2xl shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">🛋️</span>
+              </div>
               <h3 class="text-2xl font-black text-brandNavy">Cuidadores sin Jaulas</h3>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Hospedaje cariñoso donde duermen en sillón como en casa para perros, o visitas a domicilio para gatos con juego y arenero limpio.
@@ -789,12 +825,14 @@
 
   </main>
 
-  <!-- ==================== FOOTER ESTILO BRINGFIDO (CON AVATARES DE PERRITOS CON AURICULARES) ==================== -->
-  <footer class="relative mt-20 pt-16 bg-[#0088CC] text-white overflow-visible">
+  <!-- ==================== FOOTER ESTILO BRINGFIDO (CON AVATARES 3D PIXAR CON AURICULARES) ==================== -->
+  <footer class="relative mt-28 pt-24 sm:pt-28 bg-[#0088CC] text-white overflow-visible">
     
-    <!-- TIRA SUPERIOR DE AVATARES DE ANIMALES CON HEADSETS OVERLAPPING -->
-    <div class="absolute -top-14 inset-x-0 max-w-[1200px] mx-auto px-4 z-20 pointer-events-none">
-      <img src="../assets/footer_support_dogs.svg" alt="Equipo de Atención TeLoCuidamos" class="w-full h-auto drop-shadow-lg">
+    <!-- TIRA SUPERIOR DE AVATARES 3D PIXAR CON HEADSETS OVERLAPPING -->
+    <div class="absolute -top-14 sm:-top-20 inset-x-0 max-w-[1020px] mx-auto px-4 z-20">
+      <div class="rounded-[30px] overflow-hidden shadow-2xl border-4 border-white/95 bg-white transition-transform duration-300 hover:scale-[1.01]">
+        <img src="../assets/pixar_footer_support.jpg" alt="Equipo de Atención y Soporte 3D Pixar" class="w-full h-auto object-cover max-h-[145px] sm:max-h-[190px]">
+      </div>
     </div>
 
     <!-- CONTENIDO DEL FOOTER EN 4 COLUMNAS (ESTILO ADJUNTADO) -->
