@@ -2,12 +2,16 @@
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#FAF8F5">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="format-detection" content="telephone=no">
   <title>Ser Proveedor Oficial • TeLoCuidamos.com | Lanús y Avellaneda</title>
+
+  <!-- Favicon y Apple Touch Icon para PageSpeed / PWA -->
+  <link rel="icon" type="image/jpeg" href="../assets/icono_redes_whatsapp.jpg">
+  <link rel="apple-touch-icon" href="../assets/icono_redes_whatsapp.jpg">
   
   <!-- ==================== META TAGS SEO ==================== -->
   <meta name="description" content="Sumate a la red oficial de proveedores de TeLoCuidamos en Lanús y Avellaneda. Conectá tu veterinaria, peluquería sin jaulas, paseos o pet shop con tutores de tu barrio sin costos fijos ni cuotas de mantenimiento.">
@@ -237,8 +241,8 @@
     <div class="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
       
       <!-- LOGO CON ENLACE AL HOME -->
-      <a href="index.html" class="flex items-center group focus:outline-none shrink-0" title="Volver al inicio">
-        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" class="h-9 sm:h-11 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
+      <a href="index.html" class="flex items-center group focus:outline-none shrink-0" title="Volver al inicio" aria-label="Volver a TeLoCuidamos Inicio">
+        <img src="../assets/logo_cropped_transparent.png" alt="TeLoCuidamos.com" width="949" height="226" fetchpriority="high" class="h-9 sm:h-11 md:h-14 w-auto object-contain transition-transform group-hover:scale-105">
       </a>
 
       <!-- ENLACES DE NAVEGACIÓN (DESKTOP & TABLET HORIZONTAL) -->
@@ -449,7 +453,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label for="provTelefono" class="block text-[11px] font-black uppercase tracking-wider text-brandNavy mb-1.5 ml-1 flex items-center gap-1.5">
-                      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-3.5 h-3.5 inline">
+                      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" width="14" height="14" loading="lazy" decoding="async" class="w-3.5 h-3.5 inline">
                       <span>Teléfono / WhatsApp <span class="text-brandCoral">*</span></span>
                     </label>
                     <input type="tel" id="provTelefono" required placeholder="Ej: 11 5432 9876" class="w-full px-5 py-3.5 text-xs rounded-full border border-slate-200/90 bg-canvasIvory focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#25D366] shadow-xs transition font-medium text-slate-800">
@@ -653,7 +657,7 @@
           <!-- 3 MASCOTAS ALINEADAS A LA IZQUIERDA (+30% MÁS GRANDES) -->
           <div class="flex items-center gap-4 flex-shrink-0">
             <div class="h-32 sm:h-36 md:h-44 lg:h-52 rounded-[22px] sm:rounded-[28px] overflow-hidden shadow-md border-2 border-white bg-[#F5ECE1]">
-              <img src="../assets/pixar_footer_3pets.jpg" alt="Equipo de Prestadores TeLoCuidamos" class="h-full w-auto object-contain">
+              <img src="../assets/pixar_footer_3pets.jpg" alt="Equipo de Prestadores TeLoCuidamos" width="608" height="640" loading="lazy" decoding="async" class="h-full w-auto object-contain">
             </div>
           </div>
 
@@ -670,7 +674,7 @@
           <!-- BOTÓN DE CONTACTO DIRECTO -->
           <div class="flex-shrink-0 w-full md:w-auto flex justify-center">
             <button onclick="toggleModal('modalWhatsApp')" class="w-full md:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-extrabold text-xs sm:text-sm tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer">
-              <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-5 h-5 filter brightness-0 invert">
+              <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 filter brightness-0 invert">
               <span>Chatear con el Coordinador</span>
             </button>
           </div>
@@ -755,7 +759,7 @@
 
       <div class="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/80 border-t border-white/20">
         <div class="flex items-center gap-4">
-          <img src="../assets/logo_cropped_white.png" alt="TeLoCuidamos.com" class="h-9 sm:h-10 md:h-11 w-auto object-contain">
+          <img src="../assets/logo_cropped_white.png" alt="TeLoCuidamos.com" width="949" height="226" loading="lazy" decoding="async" class="h-9 sm:h-10 md:h-11 w-auto object-contain">
           <span>© 2026 TeLoCuidamos.com, Buenos Aires, Argentina</span>
         </div>
         <div class="flex gap-4">
@@ -771,8 +775,8 @@
 
   <!-- ==================== BOTÓN FLOTANTE WHATSAPP (RESPONSIVE CON SAFE AREA) ==================== -->
   <div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40" style="bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));">
-    <button onclick="toggleModal('modalWhatsApp')" class="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-xs sm:text-sm tracking-wide" title="Contactanos por WhatsApp">
-      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp Oficial" class="w-5 sm:w-6 h-5 sm:h-6">
+    <button onclick="toggleModal('modalWhatsApp')" aria-label="Contactar por WhatsApp a TeLoCuidamos" class="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 group relative cursor-pointer font-black text-xs sm:text-sm tracking-wide" title="Contactanos por WhatsApp">
+      <img src="../assets/whatsapp_badge.svg" alt="WhatsApp Oficial" width="24" height="24" loading="lazy" decoding="async" class="w-5 sm:w-6 h-5 sm:h-6">
       <span>Contactanos</span>
       <span class="absolute -top-1 -right-1 w-3 sm:w-3.5 h-3 sm:h-3.5 rounded-full bg-rose-500 border-2 border-white animate-pulse"></span>
     </button>
@@ -789,7 +793,7 @@
             <p class="text-xs text-rose-200">Centros con quirófano y médico de guardia en Zona Sur</p>
           </div>
         </div>
-        <button onclick="toggleModal('modalUrgencias')" class="text-rose-200 hover:text-white text-2xl font-bold">×</button>
+        <button onclick="toggleModal('modalUrgencias')" aria-label="Cerrar ventana de guardias 24hs" class="text-rose-200 hover:text-white text-2xl font-bold">×</button>
       </div>
 
       <div class="p-6 overflow-y-auto space-y-4 text-xs flex-1">
@@ -807,7 +811,7 @@
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>Llamar a la Guardia</span>
             </a>
-            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
+            <a href="https://maps.google.com/?q=Hospital+Veterinario+Lanus" target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación en Google Maps del Hospital Veterinario Lanús" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
               <span>GPS</span>
             </a>
@@ -828,7 +832,7 @@
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>Llamar a la Guardia</span>
             </a>
-            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
+            <a href="https://maps.google.com/?q=Clinica+Veterinaria+Guardia+Avellaneda" target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación en Google Maps de la Clínica de Emergencias Avellaneda" class="py-2 px-4 rounded-full bg-slate-100 text-brandNavy font-bold text-[11px] hover:bg-slate-200 transition flex items-center justify-center gap-1.5">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
               <span>GPS</span>
             </a>
@@ -847,14 +851,14 @@
       <div class="p-4 bg-[#075E54] text-white flex items-center justify-between shadow-md">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm overflow-hidden">
-            <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" class="w-full h-full object-cover">
+            <img src="../assets/whatsapp_badge.svg" alt="WhatsApp" width="36" height="36" loading="lazy" decoding="async" class="w-full h-full object-cover">
           </div>
           <div>
             <h4 class="font-bold text-xs">TeLoCuidamos Proveedores</h4>
             <p class="text-[10px] text-emerald-200">Soporte y Alianzas en Zona Sur</p>
           </div>
         </div>
-        <button onclick="toggleModal('modalWhatsApp')" class="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">✕</button>
+        <button onclick="toggleModal('modalWhatsApp')" aria-label="Cerrar chat de WhatsApp" class="w-7 h-7 rounded-full bg-white/10 text-white flex items-center justify-center">✕</button>
       </div>
 
       <div class="flex-1 p-4 bg-[#ECE5DD] overflow-y-auto space-y-3 text-xs">
@@ -864,8 +868,9 @@
       </div>
 
       <div class="p-3 bg-white border-t border-slate-200 flex gap-2">
+        <label for="inputChatProv" class="sr-only">Escribí tu consulta</label>
         <input type="text" id="inputChatProv" placeholder="Escribí tu consulta..." class="flex-1 px-4 py-2.5 text-xs rounded-full border border-slate-200 bg-slate-50 focus:outline-none">
-        <button onclick="enviarChatProv()" class="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md">➤</button>
+        <button onclick="enviarChatProv()" aria-label="Enviar consulta por chat" class="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md">➤</button>
       </div>
     </div>
   </div>
