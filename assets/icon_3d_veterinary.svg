@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <filter id="claySh3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="crossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="60%" stop-color="#0D9488"/>
+      <stop offset="100%" stop-color="#115E59"/>
+    </linearGradient>
+    <linearGradient id="heartGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+    <linearGradient id="stethoMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Escudo / Cruz Médica 3D -->
+  <g filter="url(#claySh3)">
+    <!-- Cruz médica redondeada tipo clay -->
+    <path d="M 24 10 C 24 7, 40 7, 40 10 L 40 22 L 52 22 C 55 22, 55 38, 52 38 L 40 38 L 40 50 C 40 53, 24 53, 24 50 L 24 38 L 12 38 C 9 38, 9 22, 12 22 L 24 22 Z" 
+          fill="url(#crossGrad)"/>
+    <!-- Brillo superior -->
+    <path d="M 26 13 L 38 13 L 38 24 L 49 24" stroke="#99F6E4" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Estetoscopio 3D cruzando suavemente -->
+  <g filter="url(#claySh3)">
+    <!-- Tubo del estetoscopio -->
+    <path d="M 16 18 C 12 24, 14 38, 22 42 C 28 45, 34 44, 38 48 C 42 52, 48 50, 48 45" 
+          stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- Campana metálica del estetoscopio -->
+    <circle cx="48" cy="44" r="5" fill="url(#stethoMetal)"/>
+    <circle cx="48" cy="44" r="2.8" fill="#334155"/>
+    <circle cx="47" cy="43" r="1" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Corazón de salud central 3D -->
+  <g filter="url(#claySh3)" transform="translate(24, 22) scale(0.65)">
+    <path d="M 12 5 C 8 0, 0 2, 0 9 C 0 16, 12 22, 12 22 C 12 22, 24 16, 24 9 C 24 2, 16 0, 12 5 Z" 
+          fill="url(#heartGrad2)"/>
+    <circle cx="6" cy="6" r="1.5" fill="#FFFFFF" opacity="0.7"/>
+  </g>
+</svg>
