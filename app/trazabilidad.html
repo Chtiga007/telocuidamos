@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0F172A">
+  <title>Tablero de Trazabilidad en Tiempo Real | TeLoCuidamos.com</title>
+  
+  <link rel="icon" type="image/jpeg" href="../assets/icono_redes_whatsapp.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --card-bg: #111827;
+      --card-border: #1F2937;
+      --accent-green: #10B981;
+      --accent-blue: #3B82F6;
+      --accent-amber: #F59E0B;
+      --accent-purple: #8B5CF6;
+      --accent-rose: #F43F5E;
+      --text-main: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 0.85rem 1.5rem;
+    }
+
+    .header-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .brand-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .select-control {
+      background: #1F2937;
+      border: 1px solid #374151;
+      color: #F3F4F6;
+      font-size: 0.825rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn-action {
+      background: #2563EB;
+      color: white;
+      border: none;
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.15s;
+    }
+
+    .btn-action:hover {
+      background: #1D4ED8;
+    }
+
+    .clock-display {
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      background: rgba(31, 41, 55, 0.6);
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #374151;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .kpi-card.green::before { background: var(--accent-green); }
+    .kpi-card.blue::before { background: var(--accent-blue); }
+    .kpi-card.amber::before { background: var(--accent-amber); }
+    .kpi-card.purple::before { background: var(--accent-purple); }
+    .kpi-card.rose::before { background: var(--accent-rose); }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .kpi-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-subtext {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .kpi-subtext.positive { color: var(--accent-green); font-weight: 600; }
+
+    /* Layout Split: Kanban + Live Feed */
+    .dashboard-body {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1200px) {
+      .dashboard-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Kanban Pipeline */
+    .pipeline-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pipeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pipeline-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .pipeline-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .pipeline-columns {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pipeline-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stage-col {
+      background: #0E1424;
+      border: 1px solid #1E293B;
+      border-radius: 10px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 480px;
+    }
+
+    .stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #1E293B;
+    }
+
+    .stage-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .stage-count {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #1E293B;
+      color: #94A3B8;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+    }
+
+    .stage-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    /* Order Card */
+    .order-card {
+      background: #172033;
+      border: 1px solid #23314D;
+      border-radius: 8px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .order-card:hover {
+      transform: translateY(-2px);
+      border-color: #3B82F6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .order-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .order-id {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #60A5FA;
+    }
+
+    .order-time {
+      font-size: 0.7rem;
+      color: #94A3B8;
+    }
+
+    .order-pet {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .order-desc {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      line-height: 1.3;
+    }
+
+    .order-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: #64748B;
+      padding-top: 0.35rem;
+      border-top: 1px dashed #23314D;
+    }
+
+    .order-tag {
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.68rem;
+    }
+
+    .tag-lanus { background: rgba(59, 130, 246, 0.15); color: #93C5FD; }
+    .tag-avellaneda { background: rgba(139, 92, 246, 0.15); color: #C4B5FD; }
+
+    /* Live Feed Column */
+    .feed-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 600px;
+    }
+
+    .feed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .feed-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feed-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding-right: 0.25rem;
+    }
+
+    .feed-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .feed-list::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 4px;
+    }
+
+    .feed-item {
+      background: #0E1424;
+      border-left: 3px solid #374151;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feed-item.green { border-color: var(--accent-green); }
+    .feed-item.blue { border-color: var(--accent-blue); }
+    .feed-item.amber { border-color: var(--accent-amber); }
+    .feed-item.purple { border-color: var(--accent-purple); }
+
+    .feed-time {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: #64748B;
+    }
+
+    .feed-text {
+      color: #E2E8F0;
+      line-height: 1.35;
+    }
+
+    .feed-actor {
+      font-weight: 600;
+      color: #93C5FD;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 14px;
+      max-width: 600px;
+      width: 100%;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1F2937;
+      padding-bottom: 0.75rem;
+    }
+
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .btn-close {
+      background: transparent;
+      border: none;
+      color: #9CA3AF;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .info-box {
+      background: #0E1424;
+      border: 1px solid #1E293B;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+    }
+
+    .info-label {
+      font-size: 0.7rem;
+      color: #64748B;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      font-size: 0.85rem;
+      color: #F8FAFC;
+      font-weight: 700;
+      margin-top: 0.15rem;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-left: 2px solid #23314D;
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.35rem;
+      top: 0.25rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3B82F6;
+    }
+
+    .timeline-time {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #64748B;
+    }
+
+    .timeline-desc {
+      font-size: 0.78rem;
+      color: #CBD5E1;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: #0E1424;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand-area">
+        <img src="../assets/icono_redes_whatsapp.jpg" alt="TeLoCuidamos" class="brand-logo" width="36" height="36">
+        <div>
+          <h1 class="brand-title">TeLoCuidamos.com</h1>
+          <span class="brand-badge"><span class="pulse-dot"></span> Event-Stream Operativo en Vivo</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <select id="filterZone" class="select-control" onchange="filterOrders()">
+          <option value="ALL">Todas las Zonas (Lanús + Avellaneda)</option>
+          <option value="LANUS">Solo Lanús (Oeste / Este / Escalada)</option>
+          <option value="AVELLANEDA">Solo Avellaneda (Centro / Sarandí / Wilde)</option>
+        </select>
+
+        <button class="btn-action" onclick="simulateNewOrder()">+ Simular Nuevo Pedido</button>
+        <div id="liveClock" class="clock-display">20:52:00 UTC-3</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Top KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card blue">
+        <span class="kpi-label">Órdenes Activas Hoy</span>
+        <span id="kpiActive" class="kpi-value">42</span>
+        <span class="kpi-subtext positive">+14% vs mismo día semana ant.</span>
+      </div>
+      <div class="kpi-card amber">
+        <span class="kpi-label">En Preparación (Proveedores)</span>
+        <span id="kpiPrep" class="kpi-value">9</span>
+        <span class="kpi-subtext">SLA promedio: 11.4 min</span>
+      </div>
+      <div class="kpi-card purple">
+        <span class="kpi-label">En Reparto (Cadetes Calle)</span>
+        <span id="kpiRoute" class="kpi-value">14</span>
+        <span class="kpi-subtext">3 furgones activos en ruta</span>
+      </div>
+      <div class="kpi-card green">
+        <span class="kpi-label">Entregadas Hoy</span>
+        <span id="kpiDelivered" class="kpi-value">19</span>
+        <span class="kpi-subtext positive">100% efectividad de entrega</span>
+      </div>
+      <div class="kpi-card green">
+        <span class="kpi-label">SLA Respuesta Proveedores</span>
+        <span id="kpiSLA" class="kpi-value">98.2%</span>
+        <span class="kpi-subtext positive">Objetivo corporativo: > 95%</span>
+      </div>
+      <div class="kpi-card blue">
+        <span class="kpi-label">GMV Transaccionado Hoy</span>
+        <span id="kpiGMV" class="kpi-value">$2.016.000</span>
+        <span class="kpi-subtext">Ticket promedio: $48.000 ARS</span>
+      </div>
+    </section>
+
+    <!-- Pipeline + Live Feed -->
+    <div class="dashboard-body">
+      <!-- Pipeline Kanban -->
+      <section class="pipeline-container">
+        <div class="pipeline-header">
+          <h2 class="pipeline-title">Pipeline de Trazabilidad en Tiempo Real</h2>
+          <span style="font-size:0.75rem; color:#94A3B8;">Hacé clic en cualquier orden para auditar la línea de tiempo</span>
+        </div>
+
+        <div class="pipeline-columns">
+          <!-- Columna 1: Asignado a Proveedor -->
+          <div class="stage-col">
+            <div class="stage-header">
+              <span class="stage-title">1. Asignado a Proveedor</span>
+              <span class="stage-count" id="count-stage-1">4</span>
+            </div>
+            <div class="stage-cards" id="cards-stage-1">
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0501')">
+                <div class="order-top">
+                  <span class="order-id">#0501</span>
+                  <span class="order-time">Hace 3 min</span>
+                </div>
+                <div class="order-pet">Milo (Golden Retriever)</div>
+                <div class="order-desc">Royal Canin Maxi Adult 15kg</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-lanus">Lanús Oeste</span>
+                  <span>Pet Shop Patitas</span>
+                </div>
+              </div>
+
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0502')">
+                <div class="order-top">
+                  <span class="order-id">#0502</span>
+                  <span class="order-time">Hace 7 min</span>
+                </div>
+                <div class="order-pet">Luna (Caniche Toy)</div>
+                <div class="order-desc">Turno Grooming Sin Jaulas (15:30 hs)</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-avellaneda">Avellaneda</span>
+                  <span>Estética Canina Mia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2: Stock Confirmado / Preparando -->
+          <div class="stage-col">
+            <div class="stage-header">
+              <span class="stage-title">2. Stock Confirmado / Preparando</span>
+              <span class="stage-count" id="count-stage-2">5</span>
+            </div>
+            <div class="stage-cards" id="cards-stage-2">
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0498')">
+                <div class="order-top">
+                  <span class="order-id">#0498</span>
+                  <span class="order-time">Hace 18 min</span>
+                </div>
+                <div class="order-pet">Thor (Ovejero Alemán)</div>
+                <div class="order-desc">Pro Plan Large Breed 15kg + Pipeta</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-lanus">Lanús Este</span>
+                  <span>Distribuidora Sur</span>
+                </div>
+              </div>
+
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0499')">
+                <div class="order-top">
+                  <span class="order-id">#0499</span>
+                  <span class="order-time">Hace 22 min</span>
+                </div>
+                <div class="order-pet">Simba (Gato Siamés)</div>
+                <div class="order-desc">Cat Chow Adulto 8kg + Piedritas</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-avellaneda">Wilde</span>
+                  <span>Pet Center Wilde</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 3: En Reparto (Cadete en Ruta) -->
+          <div class="stage-col">
+            <div class="stage-header">
+              <span class="stage-title">3. En Reparto (Cadete en Ruta)</span>
+              <span class="stage-count" id="count-stage-3">14</span>
+            </div>
+            <div class="stage-cards" id="cards-stage-3">
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0492')">
+                <div class="order-top">
+                  <span class="order-id">#0492</span>
+                  <span class="order-time">En ruta (35m)</span>
+                </div>
+                <div class="order-pet">Roma (Bulldog Francés)</div>
+                <div class="order-desc">Royal Canin French Bulldog 7.5kg</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-lanus">Remedios Escalada</span>
+                  <span>Cadete Mariano R.</span>
+                </div>
+              </div>
+
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0493')">
+                <div class="order-top">
+                  <span class="order-id">#0493</span>
+                  <span class="order-time">En ruta (15m)</span>
+                </div>
+                <div class="order-pet">Rocco (Labrador)</div>
+                <div class="order-desc">Eukanuba Adulto 15kg</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-avellaneda">Sarandí</span>
+                  <span>Cadete Lucas G.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 4: Entregado / Finalizado -->
+          <div class="stage-col">
+            <div class="stage-header">
+              <span class="stage-title">4. Entregado / Finalizado</span>
+              <span class="stage-count" id="count-stage-4">19</span>
+            </div>
+            <div class="stage-cards" id="cards-stage-4">
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0485')">
+                <div class="order-top">
+                  <span class="order-id">#0485</span>
+                  <span class="order-time">Entregado 14:15 hs</span>
+                </div>
+                <div class="order-pet">Kira (Mestiza)</div>
+                <div class="order-desc">Excellent Perro Adulto 15kg</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-lanus">Lanús Centro</span>
+                  <span>Calificación: 5/5 ⭐</span>
+                </div>
+              </div>
+
+              <div class="order-card" onclick="openOrderModal('TLC-2026-0482')">
+                <div class="order-top">
+                  <span class="order-id">#0482</span>
+                  <span class="order-time">Entregado 13:40 hs</span>
+                </div>
+                <div class="order-pet">Boby (Beagle)</div>
+                <div class="order-desc">Paseo de Socialización (1h)</div>
+                <div class="order-meta">
+                  <span class="order-tag tag-avellaneda">Avellaneda Centro</span>
+                  <span>Paseador Martín V.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Event Feed -->
+      <section class="feed-container">
+        <div class="feed-header">
+          <h2 class="feed-title"><span class="pulse-dot"></span> Consola en Vivo</h2>
+          <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-green);">STREAM_OK</span>
+        </div>
+        <div class="feed-list" id="feedList">
+          <div class="feed-item green">
+            <span class="feed-time">20:51:12</span>
+            <span class="feed-text"><span class="feed-actor">[CADETE MARIANO]</span> Escaneo QR y entrega exitosa en Anatole France 1820 (Lanús Este). Foto adjunta.</span>
+          </div>
+          <div class="feed-item blue">
+            <span class="feed-time">20:48:05</span>
+            <span class="feed-text"><span class="feed-actor">[PROV-014 PATITAS]</span> Confirmó preparación de bolsa Royal Canin 15kg para Orden #0501. SLA: 4 min.</span>
+          </div>
+          <div class="feed-item purple">
+            <span class="feed-time">20:44:22</span>
+            <span class="feed-text"><span class="feed-actor">[SISTEMA PREDICTOR]</span> WhatsApp preventivo enviado a Tutor Carlos Gómez (Milo - Avellaneda). Fin de bolsa estimado en 4 días.</span>
+          </div>
+          <div class="feed-item amber">
+            <span class="feed-time">20:40:18</span>
+            <span class="feed-text"><span class="feed-actor">[TUTOR SOFÍA]</span> Confirmó reposición de alimento con 1 toque en WhatsApp. Orden generada #0502.</span>
+          </div>
+          <div class="feed-item blue">
+            <span class="feed-time">20:35:40</span>
+            <span class="feed-text"><span class="feed-actor">[CADETE LUCAS]</span> Inició recorrido de ruta Jueves Avellaneda (12 paquetes en furgón).</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal Detalle de Orden -->
+  <div class="modal-backdrop" id="orderModal" onclick="closeOrderModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="modalOrderId">Orden #TLC-2026-0501</h3>
+          <span style="font-size:0.75rem; color:#94A3B8;" id="modalTimestamp">Emitida hoy a las 20:44 hs</span>
+        </div>
+        <button class="btn-close" onclick="closeOrderModal()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-grid">
+          <div class="info-box">
+            <div class="info-label">Mascota y Tutor</div>
+            <div class="info-value" id="modalPet">Milo (Golden) — Carlos Gómez</div>
+          </div>
+          <div class="info-box">
+            <div class="info-label">Dirección y Localidad</div>
+            <div class="info-value" id="modalAddress">Av. Mitre 1250, Avellaneda</div>
+          </div>
+          <div class="info-box">
+            <div class="info-label">Proveedor Asignado</div>
+            <div class="info-value" id="modalProvider">Pet Shop Patitas (Legajo #014)</div>
+          </div>
+          <div class="info-box">
+            <div class="info-label">Cadete Responsable</div>
+            <div class="info-value" id="modalCadete">Mariano R. (Furgón Berlingo)</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <div class="info-label">Producto / Servicio Contratado</div>
+          <div class="info-value" id="modalProduct" style="color:#60A5FA;">1x Royal Canin Maxi Adult 15kg ($48.000 ARS)</div>
+        </div>
+
+        <div>
+          <span class="info-label">Trazabilidad de Eventos (Audit Trail)</span>
+          <div class="timeline-list" id="modalTimeline">
+            <div class="timeline-item">
+              <span class="timeline-time">20:44:00</span>
+              <div class="timeline-desc">Predictor envió alerta preventiva de reposición 4 días antes vía WhatsApp.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">20:45:10</span>
+              <div class="timeline-desc">Tutor confirmó el pedido con 1 toque en WhatsApp.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">20:46:00</span>
+              <div class="timeline-desc">Orden despachada automáticamente a Pet Shop Patitas (SLA 15 min).</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-time">20:48:05</span>
+              <div class="timeline-desc">Proveedor confirmó stock y rotulado con etiqueta QR TeLoCuidamos.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.5rem;">
+          <button class="btn-action" style="background:#374151;" onclick="alert('Notificación de prueba reenviada al WhatsApp del cliente.')">Reenviar WhatsApp</button>
+          <button class="btn-action" onclick="alert('Comprobante digital y foto de geolocalización validados.')">Ver Comprobante QR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    TeLoCuidamos.com &bull; Sistema Operativo de Trazabilidad &bull; Lanús y Avellaneda, Buenos Aires &bull; Monitoreo 24/7
+  </footer>
+
+  <script>
+    // Reloj en tiempo real
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('liveClock').textContent = timeStr + ' UTC-3';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Filtro por Zona
+    function filterOrders() {
+      const zone = document.getElementById('filterZone').value;
+      const cards = document.querySelectorAll('.order-card');
+      cards.forEach(card => {
+        const text = card.innerText.toUpperCase();
+        if (zone === 'ALL') {
+          card.style.display = 'flex';
+        } else if (zone === 'LANUS' && text.includes('LANÚS') || text.includes('ESCALADA')) {
+          card.style.display = 'flex';
+        } else if (zone === 'AVELLANEDA' && text.includes('AVELLANEDA') || text.includes('WILDE') || text.includes('SARANDÍ')) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal
+    function openOrderModal(orderId) {
+      document.getElementById('modalOrderId').textContent = 'Orden #' + orderId;
+      document.getElementById('orderModal').classList.add('active');
+    }
+
+    function closeOrderModal(e) {
+      if (!e || e.target.id === 'orderModal' || e.target.classList.contains('btn-close')) {
+        document.getElementById('orderModal').classList.remove('active');
+      }
+    }
+
+    // Simular nueva orden en vivo
+    let simulatedCount = 503;
+    function simulateNewOrder() {
+      const orderId = 'TLC-2026-0' + simulatedCount++;
+      const pets = ['Rocky (Boxer)', 'Mia (Gata)', 'Baco (Labrador)', 'Toby (Poodle)'];
+      const zones = ['Lanús Oeste', 'Avellaneda Centro', 'Lanús Este', 'Wilde'];
+      const pet = pets[Math.floor(Math.random() * pets.length)];
+      const zone = zones[Math.floor(Math.random() * zones.length)];
+      const isLanus = zone.includes('Lanús');
+
+      // Crear tarjeta en etapa 1
+      const col = document.getElementById('cards-stage-1');
+      const card = document.createElement('div');
+      card.className = 'order-card';
+      card.onclick = () => openOrderModal(orderId);
+      card.innerHTML = `
+        <div class="order-top">
+          <span class="order-id">#${orderId.slice(-4)}</span>
+          <span class="order-time">Recién</span>
+        </div>
+        <div class="order-pet">${pet}</div>
+        <div class="order-desc">Bolsa 15kg reposición programada</div>
+        <div class="order-meta">
+          <span class="order-tag ${isLanus ? 'tag-lanus' : 'tag-avellaneda'}">${zone}</span>
+          <span>Asignando...</span>
+        </div>
+      `;
+      col.prepend(card);
+
+      // Agregar evento en live feed
+      const feed = document.getElementById('feedList');
+      const item = document.createElement('div');
+      item.className = 'feed-item amber';
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      item.innerHTML = `
+        <span class="feed-time">${timeStr}</span>
+        <span class="feed-text"><span class="feed-actor">[SISTEMA]</span> Nueva orden predictiva generada ${orderId} para ${pet} en ${zone}. Asignando a proveedor homologado más cercano.</span>
+      `;
+      feed.prepend(item);
+
+      // Incrementar contador
+      const activeEl = document.getElementById('kpiActive');
+      activeEl.textContent = parseInt(activeEl.textContent) + 1;
+      const countStage1 = document.getElementById('count-stage-1');
+      countStage1.textContent = parseInt(countStage1.textContent) + 1;
+    }
+
+    // Generar eventos automáticos periódicos para efecto vivo
+    setInterval(() => {
+      const activities = [
+        { type: 'blue', actor: '[PROV-022 VET SUR]', text: 'Check-in de paciente en consultorio de Lanús Este. Ficha digital sincronizada.' },
+        { type: 'green', actor: '[CADETE MARIANO]', text: 'Ubicación GPS actualizada: a 3 cuadras de la entrega en Av. Hipólito Yrigoyen.' },
+        { type: 'purple', actor: '[BOT PREDICTOR]', text: 'Chequeo de stock completado para la ruta del Jueves en Avellaneda. 100% cubierto.' }
+      ];
+      const act = activities[Math.floor(Math.random() * activities.length)];
+      const feed = document.getElementById('feedList');
+      const item = document.createElement('div');
+      item.className = 'feed-item ' + act.type;
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      item.innerHTML = `
+        <span class="feed-time">${timeStr}</span>
+        <span class="feed-text"><span class="feed-actor">${act.actor}</span> ${act.text}</span>
+      `;
+      feed.prepend(item);
+      if (feed.children.length > 25) {
+        feed.removeChild(feed.lastChild);
+      }
+    }, 12000);
+  </script>
+</body>
+</html>
