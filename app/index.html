@@ -449,9 +449,19 @@
       100% { background-position: 100% 0; }
     }
 
-    /* Acordeón FAQ suave */
+    /* Acordeón FAQ estilo lista con bordes redondeados, iconos temáticos y signo + */
     details summary::-webkit-details-marker {
       display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+    .faq-plus-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    }
+    details[open] .faq-plus-icon {
+      transform: rotate(45deg);
+      color: #0D9488;
     }
 
     /* Dropdown personalizado 100% redondeado estilo Claymorphism (Sin líneas ni cuadrados) */
@@ -1121,62 +1131,211 @@
           </p>
         </div>
 
-        <!-- ACORDEÓN DE PREGUNTAS (TARJETAS REDONDEADAS SIN LÍNEAS) -->
-        <div class="space-y-4">
+        <!-- ACORDEÓN DE PREGUNTAS (ESTILO LISTA CON BORDES REDONDEADAS, ICONOS TEMÁTICOS Y SIGNO +) -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] border border-slate-200/90 shadow-card-rich overflow-hidden divide-y divide-slate-100">
           
-          <!-- FAQ 1 -->
-          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Cómo calculan cuándo se le va a terminar la comida?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 1: Cálculo predictivo de comida -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-teal-50 text-brandTeal border border-teal-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Cómo calculan cuándo se le va a terminar la comida?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
-              Al registrar a tu mascota nos contás qué come y cuánto pesa. Con eso calculamos el rendimiento exacto de la bolsa (por ejemplo, a un perro de 14 kg una bolsa de 15 kg le dura unos 48 días). Unos 4 días antes de que se termine, te mandamos un mensajito por WhatsApp para coordinar la entrega gratis en tu puerta. Así nunca más salís corriendo a las 9 de la noche porque el plato quedó vacío.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Al registrar a tu mascota nos contás qué come y cuánto pesa. Con eso calculamos el rendimiento exacto de la bolsa (por ejemplo, a un perro de 14 kg una bolsa de 15 kg le dura unos 48 días). Unos 4 días antes de que se termine, te mandamos un mensajito por WhatsApp para coordinar la entrega gratis en tu puerta. Así nunca más salís corriendo a las 9 de la noche porque el plato quedó vacío.
+              </p>
+            </div>
           </details>
 
-          <!-- FAQ 2 -->
-          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Tengo que pagar de más por la ficha digital o por coordinar turnos?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 2: Costo cero / Ficha digital -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Tengo que pagar de más por la ficha digital o por coordinar turnos?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
-              Para nada. Registrar a tu mascota, tener su ficha de salud siempre a mano en tu celular y coordinar turnos con veterinarias y peluquerías del barrio es 100% gratuito. Vos solo abonás el valor habitual del alimento o del servicio profesional. Además, nuestras entregas de comida de los martes y jueves tienen costo de envío $0 en Lanús y Avellaneda.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Para nada. Registrar a tu mascota, tener su ficha de salud siempre a mano en tu celular y coordinar turnos con veterinarias y peluquerías del barrio es 100% gratuito. Vos solo abonás el valor habitual del alimento o del servicio profesional. Además, nuestras entregas de comida de los martes y jueves tienen costo de envío $0 en Lanús y Avellaneda.
+              </p>
+            </div>
           </details>
 
-          <!-- FAQ 3 -->
-          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Qué pasa si tengo una urgencia médica en medio de la noche o fin de semana?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 3: Urgencias 24hs -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-rose-50 text-rose-500 border border-rose-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                    <path d="M12 8v8m-4-4h8"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Qué pasa si tengo una urgencia médica en medio de la noche o fin de semana?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
-              Tenés disponible las 24 horas el botón de Urgencias en nuestra web y por WhatsApp. Con un solo toque te muestra las clínicas veterinarias abiertas con guardia activa y quirófano más cercanas a tu casa (como el Hospital Veterinario Lanús o la Clínica de Emergencias Avellaneda), con el teléfono listo para llamar y el mapa para salir directo sin perder un segundo.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Tenés disponible las 24 horas el botón de Urgencias en nuestra web y por WhatsApp. Con un solo toque te muestra las clínicas veterinarias abiertas con guardia activa y quirófano más cercanas a tu casa (como el Hospital Veterinario Lanús o la Clínica de Emergencias Avellaneda), con el teléfono listo para llamar y el mapa para salir directo sin perder un segundo.
+              </p>
+            </div>
           </details>
 
-          <!-- FAQ 4 -->
-          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Cómo eligen a los paseadores y a los cuidadores de vacaciones?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 4: Paseadores y cuidadores -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-amber-50 text-amber-600 border border-amber-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <polyline points="16 11 18 13 22 9"></polyline>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Cómo eligen a los paseadores y a los cuidadores de vacaciones?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
-              Son vecinos de confianza de Zona Sur con experiencia comprobable. Conocemos a cada uno en persona, verificamos sus datos y antecedentes, y auditamos sus hogares para asegurarnos de que los animales duerman adentro, cómodos y sin caniles ni jaulas. En los paseos, mantenemos grupos reducidos de hasta 4 perritos para darles atención personalizada y con cobertura veterinaria de emergencia incluida.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Son vecinos de confianza de Zona Sur con experiencia comprobable. Conocemos a cada uno en persona, verificamos sus datos y antecedentes, y auditamos sus hogares para asegurarnos de que los animales duerman adentro, cómodos y sin caniles ni jaulas. En los paseos, mantenemos grupos reducidos de hasta 4 perritos para darles atención personalizada y con cobertura veterinaria de emergencia incluida.
+              </p>
+            </div>
           </details>
 
-          <!-- FAQ 5 -->
-          <details class="group rounded-[28px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Qué días me traen las cosas a casa?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 5: Peluquería 100% Sin Jaulas -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-purple-50 text-purple-600 border border-purple-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <circle cx="6" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+                    <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+                    <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Cómo garantizan que la estética y el baño sean 100% sin jaulas?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed font-normal">
-              Repartimos los <strong>martes</strong> en Lanús Oeste, Lanús Este y Remedios de Escalada; y los <strong>jueves</strong> en Avellaneda Centro, Sarandí, Gerli y Wilde. Al agrupar entregas por barrio en días fijos, el flete es siempre sin cargo para vos.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Trabajamos exclusivamente con turnos individuales espaciados 1 a 1. Cada perrito ingresa a su hora, se baña con shampoo hipoalergénico, se seca con turbina manual a temperatura ambiente y se entrega de inmediato a su tutor. Jamás utilizamos jaulas de secado ni dejamos que los animales esperen hacinados. Si tu mascota es nerviosa o geronte, podés quedarte a su lado durante toda la sesión.
+              </p>
+            </div>
+          </details>
+
+          <!-- FAQ 6: Días de entrega y rutas fijas -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-blue-50 text-blue-600 border border-blue-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="1" y="3" width="15" height="13" rx="2"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Qué días me traen las cosas a casa y cómo funciona el reparto?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </summary>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Repartimos los <strong>martes</strong> en Lanús Oeste, Lanús Este y Remedios de Escalada; y los <strong>jueves</strong> en Avellaneda Centro, Sarandí, Gerli y Wilde. Al agrupar entregas por barrio en días fijos, el flete es siempre sin cargo para vos. Te avisamos la franja horaria por WhatsApp para que no tengas que esperar todo el día.
+              </p>
+            </div>
+          </details>
+
+          <!-- FAQ 7: Kit de bienvenida -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-orange-50 text-orange-600 border border-orange-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                    <rect x="2" y="7" width="20" height="5"></rect>
+                    <line x1="12" y1="22" x2="12" y2="7"></line>
+                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Qué incluye el Kit de Bienvenida que me regalan en el primer pedido?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </summary>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Con tu primer pedido programado de alimento o servicio te entregamos sin cargo la chapita identificatoria inteligente con código QR vinculada a la historia clínica digital de tu mascota, una bolsita de golosinas saludables y la guía de nutrición preventiva avalada por veterinarios de Lanús y Avellaneda.
+              </p>
+            </div>
           </details>
 
         </div>

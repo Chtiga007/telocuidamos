@@ -222,6 +222,21 @@
       border-color: #FDA4AF;
       transform: translateY(-1px);
     }
+
+    /* Acordeón FAQ estilo lista con bordes redondeados, iconos temáticos y signo + */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+    .faq-plus-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    }
+    details[open] .faq-plus-icon {
+      transform: rotate(45deg);
+      color: #0D9488;
+    }
   </style>
 </head>
 <body class="selection:bg-brandTeal-light selection:text-brandTeal">
@@ -609,36 +624,120 @@
           </h2>
         </div>
 
-        <div class="space-y-4">
-          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Tiene algún costo ingresar o registrar mi comercio?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        <!-- ACORDEÓN DE PREGUNTAS (ESTILO LISTA CON BORDES REDONDEADOS, ICONOS TEMÁTICOS Y SIGNO +) -->
+        <div class="bg-white rounded-[28px] sm:rounded-[32px] border border-slate-200/90 shadow-card-rich overflow-hidden divide-y divide-slate-150">
+          
+          <!-- FAQ 1: Costo $0 -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Tiene algún costo ingresar o registrar mi comercio?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
-              No. El alta, la auditoría y la presencia en el directorio barrial son 100% gratuitos. Solo se aplica una pequeña comisión por cada cliente derivado que efectivamente realiza el servicio con vos.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                No. El alta, la auditoría y la presencia en el directorio barrial son 100% gratuitos. Solo se aplica una pequeña comisión por cada cliente derivado que efectivamente realiza el servicio con vos.
+              </p>
+            </div>
           </details>
 
-          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Tengo exclusividad o puedo seguir atendiendo a mis clientes habituales?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 2: Exclusividad -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-blue-50 text-blue-600 border border-blue-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Tengo exclusividad o puedo seguir atendiendo a mis clientes habituales?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
-              No hay ningún tipo de exclusividad. Podés mantener tus clientes de siempre y usar TeLoCuidamos para completar los baches de tu agenda semanal con vecinos de tu mismo barrio.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                No hay ningún tipo de exclusividad. Podés mantener tus clientes de siempre y usar TeLoCuidamos para completar los baches de tu agenda semanal con vecinos de tu mismo barrio.
+              </p>
+            </div>
           </details>
 
-          <details class="group rounded-[24px] border border-slate-200/80 bg-canvasIvory shadow-xs p-6 [&_svg]:open:-rotate-180 transition-all duration-300">
-            <summary class="flex justify-between items-center font-bold text-sm text-brandNavy cursor-pointer list-none">
-              <span>¿Cómo recibo las solicitudes de turnos?</span>
-              <svg class="w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <!-- FAQ 3: Solicitudes por WhatsApp -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-teal-50 text-brandTeal border border-teal-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Cómo recibo las solicitudes de turnos y pedidos?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
             </summary>
-            <p class="text-xs text-slate-600 mt-3 pt-2 leading-relaxed">
-              Las solicitudes se envían directamente a tu WhatsApp oficial de trabajo a través de nuestro Concierge barrial, con los datos de la mascota (nombre, peso, raza) y la ficha clínica previa para que confirmes disponibilidad en segundos.
-            </p>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Las solicitudes se envían directamente a tu WhatsApp oficial de trabajo con un mensaje interactivo, detallando los datos de la mascota (nombre, peso, raza) y la ficha clínica previa para que confirmes disponibilidad o stock en segundos con un solo botón.
+              </p>
+            </div>
           </details>
+
+          <!-- FAQ 4: Política Sin Jaulas -->
+          <details class="group transition-colors duration-200">
+            <summary class="flex items-center justify-between gap-3.5 sm:gap-5 p-4 sm:p-5 md:p-6 cursor-pointer list-none select-none hover:bg-[#FAF8F5]/80 transition-colors [&::-webkit-details-marker]:hidden">
+              <div class="flex items-center gap-3.5 sm:gap-4 flex-1 text-left">
+                <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 bg-purple-50 text-purple-600 border border-purple-100 shadow-xs">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                  </svg>
+                </span>
+                <span class="text-xs sm:text-sm md:text-[15px] font-bold text-brandNavy leading-snug">
+                  ¿Qué requisitos exigen para la política 100% Sin Jaulas?
+                </span>
+              </div>
+              <span class="faq-plus-icon w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 group-hover:text-brandNavy transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </span>
+            </summary>
+            <div class="px-5 sm:px-7 pb-5 pt-1 pl-16 sm:pl-20 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal bg-[#FCFBF9]/60">
+              <p>
+                Exigimos que ningún animal permanezca en jaulas de espera ni cabinas de secado. Los turnos de estética deben ser 1 a 1 y los paseos en grupos reducidos de hasta 4 animales compatibles. En la visita inicial de auditoría constatamos la ventilación, higiene y trato afectuoso de tu equipo.
+              </p>
+            </div>
+          </details>
+
         </div>
 
       </div>
